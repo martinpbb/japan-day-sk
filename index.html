@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <!-- Google Consent Mode v2: deny analytics and advertising until the visitor chooses. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      try {
+        var savedConsent = window.localStorage.getItem('japanday_cookie_consent');
+        if (savedConsent === 'necessary' || savedConsent === 'analytics') {
+          gtag('consent', 'update', {
+            analytics_storage: savedConsent === 'analytics' ? 'granted' : 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied'
+          });
+        }
+      } catch (error) {
+        // Storage can be unavailable in privacy-restricted browsers; the default remains denied.
+      }
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-N5S65NK8');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPT8F3EETE"></script>
+    <script>
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZPT8F3EETE');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Japonský deň čaju a kultúry 2026 | Považská Bystrica</title>
+    <meta name="description" content="3. ročník Japonského dňa čaju a kultúry v Považskej Bystrici. Japonská gastronómia, čaj, ikebana, samuraji, výstavy a vstup zdarma." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#173936" />
+    <meta property="og:title" content="Japonský deň čaju a kultúry 2026 | Považská Bystrica" />
+    <meta property="og:description" content="Japan Day Považská Bystrica 2026 — japonská kultúra, gastronómia, čaj a tradície." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://japanday.sk/" />
+    <meta property="og:site_name" content="Japonský deň čaju a kultúry" />
+    <meta property="og:locale" content="sk_SK" />
+    <meta property="og:image" content="https://japanday.sk/images/social/japan-day-povazska-bystrica-2026-og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://japanday.sk/images/social/japan-day-povazska-bystrica-2026-og.png" />
+    <link rel="canonical" href="https://japanday.sk/" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N5S65NK8"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

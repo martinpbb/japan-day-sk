@@ -1,0 +1,226 @@
+{
+  "brand": {
+    "name": "日本茶与文化日",
+    "shortName": "Japan Day Považská Bystrica",
+    "socialTag": "japandaypb",
+    "descriptor": "日本文化、美食与传统节庆",
+    "japanese": "日本文化の日"
+  },
+  "event": {
+    "date": "7. 11. 2026",
+    "dateISO": "2026-11-07",
+    "openingTime": "",
+    "closingTime": "",
+    "venue": "Dom kultúry",
+    "street": "",
+    "postalCode": "",
+    "city": "Považská Bystrica",
+    "area": "Považská Bystrica",
+    "region": "Trenčiansky kraj",
+    "country": "SK",
+    "locationLabel": "Považská Bystrica",
+    "admissionPrice": 0,
+    "currency": "EUR",
+    "admission": "免费",
+    "patronage": [
+      "由 Považská Bystrica 市长支持"
+    ]
+  },
+  "hero": {
+    "kicker": "2026年11月7日 • Považská Bystrica",
+    "title": "日本茶与文化日",
+    "descriptor": "日本文化、美食与传统节庆",
+    "subtitle": "第三届活动将带来日本料理、茶、传统艺术、武士文化、武道、讲座、展览，以及更近距离了解日本的机会。",
+    "ctaPrimary": "节目即将公布",
+    "ctaSecondary": "实用信息",
+    "shortName": "Japan Day Považská Bystrica 2026"
+  },
+  "about": {
+    "kicker": "关于活动",
+    "title": "在 Považská Bystrica 一站体验日本",
+    "paragraphs": [
+      "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "活动将于11月7日在 Považská Bystrica 的 Dom kultúry 举行，使用大礼堂和木偶剧院空间，安排演出、展示、日本商品和品鉴。",
+      "全天可以认识长期致力于日本文化的人士，品尝地道料理和茶，并近距离体验日本文化。"
+    ]
+  },
+  "video": {
+    "kicker": "氛围",
+    "title": "日本茶与文化日",
+    "youtubeId": "",
+    "caption": "活动视频稍后补充。"
+  },
+  "practical": {
+    "kicker": "实用信息",
+    "title": "时间、地点与门票",
+    "items": [
+      {
+        "label": "日期",
+        "value": "2026年11月7日"
+      },
+      {
+        "label": "开放",
+        "value": "时间待公布"
+      },
+      {
+        "label": "地点",
+        "value": "Dom kultúry, Považská Bystrica"
+      },
+      {
+        "label": "门票",
+        "value": "免费"
+      }
+    ],
+    "transport": "Dom kultúry 位于 Považská Bystrica。交通和停车详细信息将在活动前补充。",
+    "accessibility": "无障碍信息将在场地安排最终确认后补充。",
+    "faq": [
+      {
+        "question": "活动什么时候举行？",
+        "answer": "2026年11月7日星期六。开放时间和详细日程将稍后公布。"
+      },
+      {
+        "question": "活动在哪里举行？",
+        "answer": "Považská Bystrica 的 Dom kultúry，大礼堂和木偶剧院空间都会使用。"
+      },
+      {
+        "question": "门票多少钱？",
+        "answer": "免费入场。"
+      },
+      {
+        "question": "详细节目什么时候公布？",
+        "answer": "节目仍在准备中，嘉宾和具体时间将陆续公布。"
+      }
+    ]
+  },
+  "contact": {
+    "intro": "有关节目、参观、合作或参展的问题，请通过联系表单与我们联系。",
+    "email": "",
+    "phone": ""
+  },
+  "contactForm": {
+    "kicker": "KONTAKT",
+    "title": "还有其他问题吗？",
+    "intro": "没有找到答案？请给我们留言。",
+    "name": {
+      "label": "姓名",
+      "placeholder": "姓名"
+    },
+    "email": {
+      "label": "电子邮箱",
+      "placeholder": "email@example.com"
+    },
+    "subject": {
+      "label": "主题",
+      "placeholder": "主题"
+    },
+    "message": {
+      "label": "留言",
+      "placeholder": "留言"
+    },
+    "submit": "发送",
+    "sending": "发送中…",
+    "success": "谢谢。您的留言已发送。",
+    "error": "发送失败，请重试。",
+    "privacy": "您的电子邮箱仅用于回复您的问题。"
+  },
+  "navigation": [
+    {
+      "label": "关于活动",
+      "path": "/o-podujati"
+    },
+    {
+      "label": "节目",
+      "path": "/program"
+    },
+    {
+      "label": "嘉宾",
+      "path": "/ucinkujuci"
+    },
+    {
+      "label": "美食",
+      "path": "/gastronomia"
+    },
+    {
+      "label": "参展者",
+      "path": "/vystavovatelia"
+    },
+    {
+      "label": "图库",
+      "path": "/galeria"
+    },
+    {
+      "label": "联系",
+      "path": "/kontakt"
+    }
+  ],
+  "ui": {
+    "organizersKicker": "主办方与合作伙伴",
+    "organizersTitle": "Japan Day 背后的团队",
+    "openingFrom": "{time} 起开放",
+    "programmeUntil": "至 {time}",
+    "breadcrumbLabel": "面包屑导航",
+    "homeLabel": "日本茶与文化日 — 首页",
+    "mainNavigation": "主导航",
+    "openMenu": "打开菜单",
+    "language": "语言",
+    "importantLinks": "重要链接",
+    "legalInformation": "法律信息",
+    "socialLinks": "网站 / 社交媒体",
+    "exhibitorListPending": "名单准备中。",
+    "previousYear": "往届活动",
+    "galleryTitle": "Japan Day 氛围",
+    "all": "全部",
+    "showPhoto": "查看照片：{alt}",
+    "closePhoto": "关闭照片",
+    "photoPending": "照片即将补充",
+    "heroCardLabel": "2026 日本茶与文化日",
+    "cultureGastronomyTradition": "文化 • 美食 • 传统",
+    "organizers": "主办方",
+    "partners": "合作伙伴",
+    "mapTitle": "地图",
+    "openMap": "在 Google 地图中打开",
+    "patronage": "支持",
+    "allPerformers": "全部嘉宾",
+    "inProgramme": "节目中",
+    "inProgrammeHeading": "节目中",
+    "performersDetail": "嘉宾详情 {name}",
+    "showDetail": "查看详情",
+    "transportAndParking": "交通与停车",
+    "accessibility": "无障碍",
+    "faq": "常见问题",
+    "moreAbout": "了解更多 {name}",
+    "playVideo": "播放视频",
+    "playVideoLabel": "播放日本茶与文化日视频",
+    "previousYearVideoAlt": "往届活动视频",
+    "programPending": "详细节目正在准备中，具体时间和更多嘉宾将陆续公布。",
+    "galleryPending": "往届活动照片将很快补充。",
+    "galleryCategories": {
+      "Program": "节目",
+      "Čaj": "茶",
+      "Gastronómia": "美食",
+      "Atmosféra": "氛围",
+      "Stánky": "摊位"
+    },
+    "cookieConsent": {
+      "title": "我们使用分析 Cookie",
+      "text": "我们使用 Google Analytics 了解访客如何使用 Japan Day 网站，以便持续改进。",
+      "necessary": "仅必要",
+      "analytics": "允许统计",
+      "settings": "Cookie 设置"
+    },
+    "venue": {
+      "heading": "活动地点",
+      "text": "活动在 Považská Bystrica 的 Dom kultúry 举行。",
+      "addressLines": [
+        "Dom kultúry",
+        "Považská Bystrica"
+      ],
+      "meta": "特伦钦州 • 斯洛伐克",
+      "openMap": "在 Google 地图中打开"
+    }
+  },
+  "footer": {
+    "note": "节目可能调整。",
+    "legalLinks": []
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "brand": {
+    "name": "Japonský deň čaju a kultúry",
+    "shortName": "Japan Day Považská Bystrica",
+    "socialTag": "japandaypb",
+    "descriptor": "Festival japonskej kultúry, gastronómie a tradícií",
+    "japanese": "日本文化の日"
+  },
+  "event": {
+    "date": "7. 11. 2026",
+    "dateISO": "2026-11-07",
+    "openingTime": "",
+    "closingTime": "",
+    "venue": "Dom kultúry",
+    "street": "",
+    "postalCode": "",
+    "city": "Považská Bystrica",
+    "area": "Považská Bystrica",
+    "region": "Trenčiansky kraj",
+    "country": "SK",
+    "locationLabel": "Považská Bystrica",
+    "admissionPrice": 0,
+    "currency": "EUR",
+    "admission": "zdarma",
+    "patronage": [
+      "Pod záštitou primátora mesta Považská Bystrica"
+    ]
+  },
+  "hero": {
+    "kicker": "7. 11. 2026 • Považská Bystrica",
+    "title": "Japonský deň čaju a kultúry",
+    "descriptor": "Festival japonskej kultúry, gastronómie a tradícií",
+    "subtitle": "3. ročník podujatia, ktoré prinesie japonskú gastronómiu, čaj, tradičné umenie, samurajov, bojové umenia, prednášky, výstavy aj možnosť spoznať Japonsko trochu bližšie.",
+    "ctaPrimary": "Program pripravujeme",
+    "ctaSecondary": "Praktické informácie",
+    "shortName": "Japan Day Považská Bystrica 2026"
+  },
+  "about": {
+    "kicker": "O podujatí",
+    "title": "Japonsko na jednom mieste v Považskej Bystrici",
+    "paragraphs": [
+      "Japonský deň čaju a kultúry sa v roku 2026 vracia do Považskej Bystrice už po tretí raz. Podujatie spojí japonskú gastronómiu, čaj, tradičné umenie, samurajskú kultúru, bojové umenia, prednášky a výstavy.",
+      "Podujatie sa uskutoční 7. novembra v Dome kultúry v Považskej Bystrici. Využijeme veľkú sálu aj priestory bábkového divadla a vytvoríme priestor pre vystúpenia, prezentácie, predaj japonských produktov a ochutnávky.",
+      "Počas celého dňa budete môcť stretnúť ľudí, ktorí sa Japonsku dlhodobo venujú, ochutnať autentickú gastronómiu a čaje a spoznať japonskú kultúru zblízka."
+    ]
+  },
+  "video": {
+    "kicker": "Atmosféra",
+    "title": "Japonský deň čaju a kultúry",
+    "youtubeId": "",
+    "caption": "Video z podujatia doplníme neskôr."
+  },
+  "practical": {
+    "kicker": "Praktické informácie",
+    "title": "Kedy, kde a za koľko",
+    "items": [
+      {
+        "label": "Dátum",
+        "value": "7. 11. 2026"
+      },
+      {
+        "label": "Otvorenie",
+        "value": "čas doplníme"
+      },
+      {
+        "label": "Miesto",
+        "value": "Dom kultúry, Považská Bystrica"
+      },
+      {
+        "label": "Vstup",
+        "value": "zdarma"
+      }
+    ],
+    "transport": "Dom kultúry sa nachádza priamo v Považskej Bystrici. Podrobné informácie o doprave a parkovaní doplníme pred podujatím.",
+    "accessibility": "Informácie o bezbariérovom prístupe a jednotlivých vstupoch doplníme po potvrdení organizačných detailov.",
+    "faq": [
+      {
+        "question": "Kedy sa Japonský deň čaju a kultúry koná?",
+        "answer": "V sobotu 7. novembra 2026. Presný čas otvorenia a podrobný harmonogram ešte zverejníme."
+      },
+      {
+        "question": "Kde sa podujatie koná?",
+        "answer": "V Dome kultúry v Považskej Bystrici. Program bude využívať veľkú sálu aj priestory bábkového divadla."
+      },
+      {
+        "question": "Koľko stojí vstup?",
+        "answer": "Vstup na podujatie je zdarma."
+      },
+      {
+        "question": "Kedy bude zverejnený podrobný program?",
+        "answer": "Program ešte pripravujeme. Jednotlivých hostí a presné časy budeme zverejňovať postupne."
+      }
+    ]
+  },
+  "contact": {
+    "intro": "Pre otázky k programu, návšteve podujatia, partnerstvu alebo účasti vystavovateľov nám napíšte prostredníctvom kontaktného formulára.",
+    "email": "",
+    "phone": ""
+  },
+  "contactForm": {
+    "kicker": "KONTAKT",
+    "title": "Máte ďalšiu otázku?",
+    "intro": "Nenašli ste odpoveď medzi častými otázkami? Napíšte nám a ozveme sa vám.",
+    "name": {
+      "label": "Meno",
+      "placeholder": "Meno"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "email@example.com"
+    },
+    "subject": {
+      "label": "Predmet",
+      "placeholder": "Predmet"
+    },
+    "message": {
+      "label": "Správa",
+      "placeholder": "Správa"
+    },
+    "submit": "Odoslať správu",
+    "sending": "Odosielam…",
+    "success": "Ďakujeme. Vaša správa bola odoslaná.",
+    "error": "Správu sa nepodarilo odoslať. Skúste to prosím znova.",
+    "privacy": "Vašu e-mailovú adresu použijeme iba na odpoveď na vašu otázku."
+  },
+  "navigation": [
+    {
+      "label": "O podujatí",
+      "path": "/o-podujati"
+    },
+    {
+      "label": "Program",
+      "path": "/program"
+    },
+    {
+      "label": "Hostia",
+      "path": "/ucinkujuci"
+    },
+    {
+      "label": "Gastronómia",
+      "path": "/gastronomia"
+    },
+    {
+      "label": "Vystavovatelia",
+      "path": "/vystavovatelia"
+    },
+    {
+      "label": "Galéria",
+      "path": "/galeria"
+    },
+    {
+      "label": "Kontakt",
+      "path": "/kontakt"
+    }
+  ],
+  "ui": {
+    "organizersKicker": "ORGANIZÁTORI A PARTNERI",
+    "organizersTitle": "Kto stojí za Japonským dňom",
+    "openingFrom": "Otvorené od {time}",
+    "programmeUntil": "do {time}",
+    "breadcrumbLabel": "Drobečková navigácia",
+    "homeLabel": "Japonský deň čaju a kultúry — domov",
+    "mainNavigation": "Hlavná navigácia",
+    "openMenu": "Otvoriť menu",
+    "language": "Jazyk",
+    "importantLinks": "Dôležité odkazy",
+    "legalInformation": "Právne informácie",
+    "socialLinks": "Web / sociálne siete",
+    "exhibitorListPending": "Zoznam pripravujeme.",
+    "previousYear": "Predchádzajúce ročníky",
+    "galleryTitle": "Atmosféra Japonského dňa",
+    "all": "Všetko",
+    "showPhoto": "Zobraziť fotografiu: {alt}",
+    "closePhoto": "Zavrieť fotografiu",
+    "photoPending": "Fotografie doplníme",
+    "heroCardLabel": "Japonský deň čaju a kultúry 2026",
+    "cultureGastronomyTradition": "kultúra • gastronómia • tradície",
+    "organizers": "Organizátori",
+    "partners": "Partneri",
+    "mapTitle": "Mapa",
+    "openMap": "Otvoriť v Google Maps",
+    "patronage": "Záštita",
+    "allPerformers": "Všetci hostia",
+    "inProgramme": "V programe",
+    "inProgrammeHeading": "V programe",
+    "performersDetail": "Detail hosťa {name}",
+    "showDetail": "Zobraziť detail",
+    "transportAndParking": "Doprava a parkovanie",
+    "accessibility": "Bezbariérovosť",
+    "faq": "Časté otázky",
+    "moreAbout": "Viac o {name}",
+    "playVideo": "Prehrať video",
+    "playVideoLabel": "Prehrať video z Japonského dňa čaju a kultúry",
+    "previousYearVideoAlt": "Video z predchádzajúceho ročníka",
+    "programPending": "Podrobný program pripravujeme. Presné časy a ďalších hostí budeme zverejňovať postupne.",
+    "galleryPending": "Fotografie z predchádzajúcich ročníkov doplníme čoskoro.",
+    "galleryCategories": {
+      "Program": "Program",
+      "Čaj": "Čaj",
+      "Gastronómia": "Gastronómia",
+      "Atmosféra": "Atmosféra",
+      "Stánky": "Stánky"
+    },
+    "cookieConsent": {
+      "title": "Používame analytické cookies",
+      "text": "Používame Google Analytics, aby sme zistili, ako návštevníci používajú web Japonského dňa. Tieto údaje nám pomáhajú web zlepšovať.",
+      "necessary": "Iba nevyhnutné",
+      "analytics": "Povoliť štatistiky",
+      "settings": "Nastavenie cookies"
+    },
+    "venue": {
+      "heading": "Adresa podujatia",
+      "text": "Podujatie sa koná v Dome kultúry v Považskej Bystrici.",
+      "addressLines": [
+        "Dom kultúry",
+        "Považská Bystrica"
+      ],
+      "meta": "Trenčiansky kraj • Slovensko",
+      "openMap": "Otvoriť v Google Maps"
+    }
+  },
+  "footer": {
+    "note": "Zmena programu vyhradená.",
+    "legalLinks": []
+  }
+}

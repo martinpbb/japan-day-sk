@@ -1,0 +1,130 @@
+{
+  "baseUrl": "https://japanday.sk",
+  "siteName": "Ngày Trà và Văn hóa Nhật Bản",
+  "locale": "vi_VN",
+  "language": "vi-VN",
+  "defaultImage": "/images/social/japan-day-povazska-bystrica-2026-og.png",
+  "semanticTopics": [
+    "Japan Day Považská Bystrica",
+    "Japonský deň Považská Bystrica",
+    "japonská kultúra",
+    "japonská gastronómia",
+    "sushi",
+    "sashimi",
+    "japonský čaj",
+    "saké",
+    "samuraji",
+    "Gorin",
+    "ikebana",
+    "Noriko Komiyama",
+    "Marek Hora",
+    "Nagomi tea"
+  ],
+  "routes": {
+    "/": {
+      "title": "Ngày Trà và Văn hóa Nhật Bản 2026 | Považská Bystrica",
+      "description": "Lần tổ chức thứ 3 mang đến ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, các buổi nói chuyện, triển lãm và cơ hội tìm hiểu Nhật Bản gần hơn.",
+      "h1": "Ngày Trà và Văn hóa Nhật Bản 2026 | Považská Bystrica",
+      "intro": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "schema": [
+        "festival",
+        "organization"
+      ]
+    },
+    "/program": {
+      "title": "Chương trình | Japan Day Považská Bystrica",
+      "description": "Chương trình chi tiết đang được chuẩn bị. Thời gian và khách mời bổ sung sẽ được công bố dần.",
+      "h1": "Chương trình",
+      "intro": "Chương trình chi tiết đang được chuẩn bị. Thời gian và khách mời bổ sung sẽ được công bố dần.",
+      "breadcrumb": "Chương trình",
+      "schema": [
+        "festival",
+        "breadcrumb"
+      ]
+    },
+    "/ucinkujuci": {
+      "title": "Khách mời | Japan Day Považská Bystrica",
+      "description": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "h1": "Khách mời",
+      "intro": "Khách mời",
+      "breadcrumb": "Khách mời",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "KHÁCH MỜI",
+      "sectionTitle": "Gặp gỡ những người mang Nhật Bản đến gần hơn"
+    },
+    "/gastronomia": {
+      "title": "Ẩm thực Nhật Bản và trà | Japan Day Považská Bystrica",
+      "description": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "h1": "Ẩm thực Nhật Bản và trà",
+      "intro": "Ẩm thực Nhật Bản và trà",
+      "breadcrumb": "Ẩm thực Nhật Bản và trà",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/pre-deti": {
+      "title": "Trẻ em và gia đình | Japan Day Považská Bystrica",
+      "description": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "h1": "Trẻ em và gia đình",
+      "intro": "Trẻ em và gia đình",
+      "breadcrumb": "Trẻ em và gia đình",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "TRẺ EM & GIA ĐÌNH",
+      "sectionTitle": "Chương trình gia đình sắp công bố"
+    },
+    "/vystavovatelia": {
+      "title": "Nhà triển lãm | Japan Day Považská Bystrica",
+      "description": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "h1": "Nhà triển lãm",
+      "intro": "Nhà triển lãm",
+      "breadcrumb": "Nhà triển lãm",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/prakticke-informacie": {
+      "title": "Thông tin thực tế | Japan Day Považská Bystrica",
+      "description": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "h1": "Thông tin thực tế",
+      "intro": "Thông tin thực tế",
+      "breadcrumb": "Thông tin thực tế",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/galeria": {
+      "title": "Thư viện ảnh | Japan Day Považská Bystrica",
+      "description": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "h1": "Thư viện ảnh",
+      "intro": "Thư viện ảnh",
+      "breadcrumb": "Thư viện ảnh",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/o-podujati": {
+      "title": "Về sự kiện | Japan Day Považská Bystrica",
+      "description": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "h1": "Về sự kiện",
+      "intro": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "breadcrumb": "Về sự kiện",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/kontakt": {
+      "title": "Liên hệ | Japan Day Považská Bystrica",
+      "description": "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
+      "h1": "Liên hệ",
+      "intro": "Liên hệ",
+      "breadcrumb": "Liên hệ",
+      "schema": [
+        "breadcrumb"
+      ]
+    }
+  }
+}

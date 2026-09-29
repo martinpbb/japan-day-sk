@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "Gastronomy",
+      "short": "Ambassador of Japanese cuisine in the Czech Republic and an acclaimed chef with experience in Europe and Japan.",
+      "description": "He will demonstrate fresh fish preparation and make sashimi, nigiri, maki and other sushi.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Marek Hora has worked with Japanese cuisine for more than thirty years and has also trained in Japan."
+        },
+        {
+          "type": "h2",
+          "text": "Sashimi and sushi live"
+        },
+        {
+          "type": "p",
+          "text": "In Považská Bystrica he will demonstrate practical fish preparation and sushi techniques."
+        }
+      ],
+      "image": "/images/performers/marek_hora.png"
+    },
+    {
+      "id": "gorin",
+      "name": "Gorin",
+      "category": "Samurai",
+      "short": "A group focused on samurai culture, historical martial traditions and the Sengoku period.",
+      "description": "Expect archery, combat demonstrations, tameshigiri and stories about samurai traditions.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Gorin brings the atmosphere of samurai Japan to Považská Bystrica."
+        },
+        {
+          "type": "h2",
+          "text": "Archery, combat and tameshigiri"
+        },
+        {
+          "type": "p",
+          "text": "The programme includes archery, combat demonstrations and tameshigiri sword cutting."
+        }
+      ],
+      "image": "/images/performers/gorin_samurai_show.png"
+    },
+    {
+      "id": "noriko-komiyama",
+      "name": "Noriko Komiyama",
+      "category": "Ikebana",
+      "short": "Japanese instructor of the Sogetsu school of ikebana.",
+      "description": "She will present Japanese flower arranging and differences between Ikenobo and Sogetsu approaches.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Noriko Komiyama is a Japanese Sogetsu ikebana instructor."
+        },
+        {
+          "type": "h2",
+          "text": "Ikebana with everyday plants"
+        },
+        {
+          "type": "p",
+          "text": "She shows that striking ikebana can be created with ordinary flowers and local materials."
+        }
+      ],
+      "image": "/images/performers/noriko_komiyama.png"
+    },
+    {
+      "id": "martin-labudik",
+      "name": "Martin Labudík",
+      "category": "Japanese tea & sake",
+      "short": "Founder of Nagomi tea and Japanese tea instructor.",
+      "description": "He will present Japanese tea, brewing, farm work in Japan and topics around green tea and antioxidants.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Martin Labudík of Nagomi tea presents the diversity of Japanese tea and practical preparation."
+        },
+        {
+          "type": "h2",
+          "text": "From tea farm to cup"
+        },
+        {
+          "type": "p",
+          "text": "He will also talk about work on a Japanese tea farm, processing, antioxidants and oxidative stress."
+        }
+      ],
+      "image": "/images/performers/martin_labudik.png"
+    }
+  ]
+}

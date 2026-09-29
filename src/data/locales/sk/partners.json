@@ -1,0 +1,22 @@
+{
+  "organizers": [
+    {
+      "name": "Rada mládeže Trenčianskeho kraja",
+      "image": ""
+    },
+    {
+      "name": "Mesto Považská Bystrica",
+      "image": ""
+    },
+    {
+      "name": "Mladí pre Považskú",
+      "image": ""
+    }
+  ],
+  "partners": [
+    {
+      "name": "Nagomi tea",
+      "image": "/images/partners/nagomi.png"
+    }
+  ]
+}

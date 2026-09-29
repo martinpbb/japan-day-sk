@@ -1,0 +1,22 @@
+{
+  "organizers": [
+    {
+      "name": "Jugendrat der Region Trenčín",
+      "image": ""
+    },
+    {
+      "name": "Stadt Považská Bystrica",
+      "image": ""
+    },
+    {
+      "name": "Mladí pre Považskú",
+      "image": ""
+    }
+  ],
+  "partners": [
+    {
+      "name": "Nagomi tea",
+      "image": "/images/partners/nagomi.png"
+    }
+  ]
+}

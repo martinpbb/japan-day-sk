@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "日本料理",
+      "short": "捷克共和国日本料理推广大使、拥有欧洲和日本经验的知名厨师。",
+      "description": "现场展示鲜鱼处理以及刺身、握寿司、卷寿司等制作。",
+      "content": [
+        {
+          "type": "p",
+          "text": "Marek Hora 从事日本料理三十多年，也曾在日本积累经验。"
+        },
+        {
+          "type": "h2",
+          "text": "现场刺身与寿司"
+        },
+        {
+          "type": "p",
+          "text": "他将在 Považská Bystrica 展示鲜鱼处理与寿司技法。"
+        }
+      ],
+      "image": "/images/performers/marek_hora.png"
+    },
+    {
+      "id": "gorin",
+      "name": "Gorin",
+      "category": "武士",
+      "short": "专注武士文化、历史战斗传统和战国时代的团体。",
+      "description": "将带来射箭、战斗展示、试斩以及武士传统介绍。",
+      "content": [
+        {
+          "type": "p",
+          "text": "Gorin 将武士日本的氛围带到 Považská Bystrica。"
+        },
+        {
+          "type": "h2",
+          "text": "射箭、战斗与试斩"
+        },
+        {
+          "type": "p",
+          "text": "节目包括射箭、战斗展示和日本刀试斩。"
+        }
+      ],
+      "image": "/images/performers/gorin_samurai_show.png"
+    },
+    {
+      "id": "noriko-komiyama",
+      "name": "Noriko Komiyama",
+      "category": "花道",
+      "short": "草月流日本花道讲师。",
+      "description": "介绍日本插花艺术以及池坊和草月不同的表现方式。",
+      "content": [
+        {
+          "type": "p",
+          "text": "Noriko Komiyama 是日本草月流花道讲师。"
+        },
+        {
+          "type": "h2",
+          "text": "日常植物也能创作花道"
+        },
+        {
+          "type": "p",
+          "text": "她将展示普通花材和本地材料也能创造富有表现力的花道。"
+        }
+      ],
+      "image": "/images/performers/noriko_komiyama.png"
+    },
+    {
+      "id": "martin-labudik",
+      "name": "Martin Labudík",
+      "category": "日本茶与清酒",
+      "short": "Nagomi tea 创始人、日本茶讲师。",
+      "description": "介绍日本茶、冲泡方式、日本茶园工作以及绿茶与抗氧化相关主题。",
+      "content": [
+        {
+          "type": "p",
+          "text": "Nagomi tea 的 Martin Labudík 将介绍日本茶的多样性和冲泡方法。"
+        },
+        {
+          "type": "h2",
+          "text": "从茶园到茶杯"
+        },
+        {
+          "type": "p",
+          "text": "他还会分享在日本茶园工作、制茶、抗氧化物和氧化应激等内容。"
+        }
+      ],
+      "image": "/images/performers/martin_labudik.png"
+    }
+  ]
+}

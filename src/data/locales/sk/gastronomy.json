@@ -1,0 +1,80 @@
+{
+  "items": [
+    {
+      "id": "sushi",
+      "title": "Sushi & sashimi",
+      "text": "Čerstvé sashimi a sushi pripravované Marekom Horom priamo na podujatí.",
+      "cta": "Viac informácií",
+      "details": {
+        "intro": "Čerstvá ryba, sashimi, nigiri, maki a ďalšie sushi pripravené priamo pred návštevníkmi.",
+        "items": [
+          {
+            "name": "Sashimi",
+            "description": "Čerstvé plátky ryby v japonskom štýle."
+          },
+          {
+            "name": "Nigiri",
+            "description": "Tradičné nigiri sushi."
+          },
+          {
+            "name": "Maki",
+            "description": "Rolované sushi pripravované priamo na mieste."
+          }
+        ]
+      }
+    },
+    {
+      "id": "food",
+      "title": "Japonská gastronómia",
+      "text": "Autentické japonské jedlá a ďalšie ochutnávky počas celého dňa.",
+      "cta": "Viac informácií",
+      "details": {
+        "intro": "Výber japonských jedál a ochutnávok budeme postupne dopĺňať.",
+        "items": [
+          {
+            "name": "Japonské jedlá",
+            "description": "Ponuka bude zverejnená pred podujatím."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tea",
+      "title": "Japonský čaj",
+      "text": "Nagomi tea predstaví rozmanitosť japonského čaju a jeho prípravu.",
+      "cta": "Viac informácií",
+      "details": {
+        "intro": "Ochutnávky japonského čaju a praktické ukážky prípravy.",
+        "items": [
+          {
+            "name": "Zelené čaje",
+            "description": "Sencha, gyokuro a ďalšie štýly podľa aktuálnej ponuky."
+          },
+          {
+            "name": "Oolong a wakocha",
+            "description": "Japonské oolongy a čierne čaje."
+          },
+          {
+            "name": "Pražené a špeciálne čaje",
+            "description": "Hōjicha a ďalšie špeciality."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sake",
+      "title": "Saké & ochutnávky",
+      "text": "Súčasťou podujatia bude aj japonské saké a ďalšie ochutnávky.",
+      "cta": "Viac informácií",
+      "details": {
+        "intro": "Výber saké a ďalších nápojov predstavíme pred podujatím.",
+        "items": [
+          {
+            "name": "Japonské saké",
+            "description": "Ochutnávky rôznych štýlov japonského saké."
+          }
+        ]
+      }
+    }
+  ]
+}

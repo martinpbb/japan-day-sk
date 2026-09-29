@@ -1,0 +1,130 @@
+{
+  "baseUrl": "https://japanday.sk",
+  "siteName": "Japanese Tea and Culture Day",
+  "locale": "en_GB",
+  "language": "en-GB",
+  "defaultImage": "/images/social/japan-day-povazska-bystrica-2026-og.png",
+  "semanticTopics": [
+    "Japan Day Považská Bystrica",
+    "Japonský deň Považská Bystrica",
+    "japonská kultúra",
+    "japonská gastronómia",
+    "sushi",
+    "sashimi",
+    "japonský čaj",
+    "saké",
+    "samuraji",
+    "Gorin",
+    "ikebana",
+    "Noriko Komiyama",
+    "Marek Hora",
+    "Nagomi tea"
+  ],
+  "routes": {
+    "/": {
+      "title": "Japanese Tea and Culture Day 2026 | Považská Bystrica",
+      "description": "The 3rd Japanese Tea and Culture Day in Považská Bystrica: gastronomy, tea, ikebana, samurai culture, martial arts, exhibitions and free admission.",
+      "h1": "Japanese Tea and Culture Day",
+      "intro": "Experience Japan for one day in Považská Bystrica.",
+      "schema": [
+        "festival",
+        "organization"
+      ]
+    },
+    "/program": {
+      "title": "Programme | Japanese Tea and Culture Day 2026",
+      "description": "The programme is being prepared. Exact times and additional guests will be announced gradually.",
+      "h1": "Programme 2026",
+      "intro": "The detailed timetable is being prepared.",
+      "breadcrumb": "Programme",
+      "schema": [
+        "festival",
+        "breadcrumb"
+      ]
+    },
+    "/ucinkujuci": {
+      "title": "Guests | Japanese Tea and Culture Day",
+      "description": "Meet the confirmed guests of Japan Day Považská Bystrica.",
+      "h1": "Guests and performers",
+      "intro": "People bringing Japan closer through gastronomy, tea, ikebana and samurai culture.",
+      "breadcrumb": "Guests",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "GUESTS & PERFORMERS",
+      "sectionTitle": "Meet the people bringing Japan closer"
+    },
+    "/gastronomia": {
+      "title": "Japanese gastronomy and tea | Japan Day Považská Bystrica",
+      "description": "Sashimi, sushi, Japanese food, tea, sake and tastings.",
+      "h1": "Japanese gastronomy and tea",
+      "intro": "Taste Japan in Považská Bystrica.",
+      "breadcrumb": "Gastronomy",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/pre-deti": {
+      "title": "For children and families | Japan Day Považská Bystrica",
+      "description": "The family programme is being prepared.",
+      "h1": "For children and families",
+      "intro": "Activities will be announced gradually.",
+      "breadcrumb": "For children",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "FOR CHILDREN & FAMILIES",
+      "sectionTitle": "Family programme coming soon"
+    },
+    "/vystavovatelia": {
+      "title": "Exhibitors | Japan Day Považská Bystrica",
+      "description": "Exhibitions, presentations and Japanese products at Japan Day.",
+      "h1": "Exhibitors and vendors",
+      "intro": "The exhibitor list is being prepared.",
+      "breadcrumb": "Exhibitors",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/prakticke-informacie": {
+      "title": "Practical information | Japanese Tea and Culture Day 2026",
+      "description": "Date, venue, free admission, transport and visitor information.",
+      "h1": "Practical information",
+      "intro": "Everything you need to visit the event.",
+      "breadcrumb": "Practical information",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/galeria": {
+      "title": "Gallery | Japanese Tea and Culture Day",
+      "description": "Gallery of Japan Day Považská Bystrica.",
+      "h1": "Gallery",
+      "intro": "Photos from previous editions will be added.",
+      "breadcrumb": "Gallery",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/o-podujati": {
+      "title": "About the event | Japanese Tea and Culture Day",
+      "description": "The 3rd Japanese Tea and Culture Day in Považská Bystrica.",
+      "h1": "About Japanese Tea and Culture Day",
+      "intro": "Festival of Japanese culture, gastronomy and traditions.",
+      "breadcrumb": "About",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/kontakt": {
+      "title": "Contact | Japanese Tea and Culture Day",
+      "description": "Contact the organizers of Japan Day Považská Bystrica.",
+      "h1": "Contact",
+      "intro": "Information for visitors, partners and exhibitors.",
+      "breadcrumb": "Contact",
+      "schema": [
+        "breadcrumb"
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "sushi",
+      "title": "Sushi & Sashimi",
+      "text": "Frisches Sashimi und Sushi von Marek Hora direkt vor Ort.",
+      "cta": "Mehr Informationen",
+      "details": {
+        "intro": "Frisches Sashimi und Sushi von Marek Hora direkt vor Ort.",
+        "items": [
+          {
+            "name": "Sushi & Sashimi",
+            "description": "Frisches Sashimi und Sushi von Marek Hora direkt vor Ort."
+          }
+        ]
+      }
+    },
+    {
+      "id": "food",
+      "title": "Japanische Gastronomie",
+      "text": "Authentische japanische Gerichte und Verkostungen.",
+      "cta": "Mehr Informationen",
+      "details": {
+        "intro": "Authentische japanische Gerichte und Verkostungen.",
+        "items": [
+          {
+            "name": "Japanische Gastronomie",
+            "description": "Authentische japanische Gerichte und Verkostungen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tea",
+      "title": "Japanischer Tee",
+      "text": "Nagomi tea präsentiert japanischen Tee und seine Zubereitung.",
+      "cta": "Mehr Informationen",
+      "details": {
+        "intro": "Nagomi tea präsentiert japanischen Tee und seine Zubereitung.",
+        "items": [
+          {
+            "name": "Japanischer Tee",
+            "description": "Nagomi tea präsentiert japanischen Tee und seine Zubereitung."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sake",
+      "title": "Sake & Verkostungen",
+      "text": "Japanischer Sake und weitere Verkostungen.",
+      "cta": "Mehr Informationen",
+      "details": {
+        "intro": "Japanischer Sake und weitere Verkostungen.",
+        "items": [
+          {
+            "name": "Sake & Verkostungen",
+            "description": "Japanischer Sake und weitere Verkostungen."
+          }
+        ]
+      }
+    }
+  ]
+}

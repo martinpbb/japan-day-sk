@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "Ẩm thực",
+      "short": "Đại sứ ẩm thực Nhật Bản tại Cộng hòa Séc và đầu bếp nổi tiếng có kinh nghiệm ở châu Âu và Nhật Bản.",
+      "description": "Anh sẽ trình diễn xử lý cá tươi và làm sashimi, nigiri, maki cùng các loại sushi khác.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Marek Hora đã gắn bó với ẩm thực Nhật Bản hơn ba mươi năm và từng học hỏi trực tiếp tại Nhật."
+        },
+        {
+          "type": "h2",
+          "text": "Sashimi và sushi trực tiếp"
+        },
+        {
+          "type": "p",
+          "text": "Tại Považská Bystrica, anh sẽ trình diễn kỹ thuật xử lý cá và sushi."
+        }
+      ],
+      "image": "/images/performers/marek_hora.png"
+    },
+    {
+      "id": "gorin",
+      "name": "Gorin",
+      "category": "Samurai",
+      "short": "Nhóm tập trung vào văn hóa samurai, truyền thống võ thuật lịch sử và thời Sengoku.",
+      "description": "Sẽ có bắn cung, biểu diễn chiến đấu, tameshigiri và giới thiệu truyền thống samurai.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Gorin mang bầu không khí Nhật Bản samurai đến Považská Bystrica."
+        },
+        {
+          "type": "h2",
+          "text": "Bắn cung, chiến đấu và tameshigiri"
+        },
+        {
+          "type": "p",
+          "text": "Chương trình gồm bắn cung, chiến đấu và tameshigiri."
+        }
+      ],
+      "image": "/images/performers/gorin_samurai_show.png"
+    },
+    {
+      "id": "noriko-komiyama",
+      "name": "Noriko Komiyama",
+      "category": "Ikebana",
+      "short": "Giảng viên ikebana Nhật Bản của trường phái Sogetsu.",
+      "description": "Cô giới thiệu nghệ thuật cắm hoa Nhật Bản và sự khác nhau giữa Ikenobo và Sogetsu.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Noriko Komiyama là giảng viên ikebana Sogetsu người Nhật."
+        },
+        {
+          "type": "h2",
+          "text": "Ikebana với cây hoa quen thuộc"
+        },
+        {
+          "type": "p",
+          "text": "Cô cho thấy ikebana đẹp có thể được tạo từ hoa thông thường và vật liệu địa phương."
+        }
+      ],
+      "image": "/images/performers/noriko_komiyama.png"
+    },
+    {
+      "id": "martin-labudik",
+      "name": "Martin Labudík",
+      "category": "Trà Nhật & sake",
+      "short": "Nhà sáng lập Nagomi tea và giảng viên trà Nhật Bản.",
+      "description": "Anh giới thiệu trà Nhật, cách pha, công việc tại nông trại trà ở Nhật và chủ đề chất chống oxy hóa.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Martin Labudík từ Nagomi tea giới thiệu sự đa dạng của trà Nhật Bản."
+        },
+        {
+          "type": "h2",
+          "text": "Từ nông trại đến tách trà"
+        },
+        {
+          "type": "p",
+          "text": "Anh cũng chia sẻ về công việc tại nông trại trà, chế biến, chất chống oxy hóa và stress oxy hóa."
+        }
+      ],
+      "image": "/images/performers/martin_labudik.png"
+    }
+  ]
+}

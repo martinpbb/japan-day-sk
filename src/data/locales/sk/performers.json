@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "Gastronómia",
+      "short": "Ambasádor japonskej kuchyne v Českej republike a uznávaný šéfkuchár so skúsenosťami z Európy aj Japonska.",
+      "description": "Na mieste predvedie krájanie čerstvej ryby a prípravu sashimi, nigiri, maki a ďalších druhov sushi.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Marek Hora sa japonskej gastronómii venuje viac ako tridsať rokov a svoje skúsenosti získaval aj priamo v Japonsku."
+        },
+        {
+          "type": "h2",
+          "text": "Sashimi a sushi priamo pred návštevníkmi"
+        },
+        {
+          "type": "p",
+          "text": "V Považskej Bystrici predvedie praktické ukážky spracovania čerstvej ryby a prípravy sashimi, nigiri, maki a ďalších druhov sushi."
+        }
+      ],
+      "image": "/images/performers/marek_hora.png"
+    },
+    {
+      "id": "gorin",
+      "name": "Gorin",
+      "category": "Samuraji",
+      "short": "Skupina venujúca sa samurajskej kultúre, historickým bojovým tradíciám a obdobiu Sengoku.",
+      "description": "Čakajú vás ukážky lukostreľby, súbojov, tameshigiri aj rozprávanie o samurajoch a ich tradíciách.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Gorin prinesie do Považskej Bystrice atmosféru samurajského Japonska a predstaví výzbroj, tradície aj historické bojové techniky."
+        },
+        {
+          "type": "h2",
+          "text": "Lukostreľba, súboje a tameshigiri"
+        },
+        {
+          "type": "p",
+          "text": "Súčasťou programu budú ukážky lukostreľby, súbojov a tameshigiri – tradičného testovacieho sekania mečom."
+        }
+      ],
+      "image": "/images/performers/gorin_samurai_show.png"
+    },
+    {
+      "id": "noriko-komiyama",
+      "name": "Noriko Komiyama",
+      "category": "Ikebana",
+      "short": "Japonská lektorka ikebany školy Sógecu.",
+      "description": "Predstaví umenie aranžovania kvetov a rozdielne prístupy škôl Ikenobó a Sógecu.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Noriko Komiyama je japonská lektorka ikebany školy Sógecu a dlhodobo približuje japonské aranžovanie kvetov európskemu publiku."
+        },
+        {
+          "type": "h2",
+          "text": "Ikebana z bežne dostupných rastlín"
+        },
+        {
+          "type": "p",
+          "text": "Ukáže, že pôsobivá ikebana nemusí vzniknúť iba z exotických rastlín – pracovať možno aj s bežnými kvetmi a materiálmi z nášho okolia."
+        }
+      ],
+      "image": "/images/performers/noriko_komiyama.png"
+    },
+    {
+      "id": "martin-labudik",
+      "name": "Martin Labudík",
+      "category": "Japonský čaj a saké",
+      "short": "Zakladateľ Nagomi tea a lektor japonského čaju.",
+      "description": "Predstaví rozmanitosť japonského čaju, jeho prípravu, prácu na čajovej farme v Japonsku aj tému zeleného čaju a antioxidantov.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Martin Labudík z Nagomi tea predstaví rôzne kategórie japonského čaju a ukáže praktické spôsoby prípravy."
+        },
+        {
+          "type": "h2",
+          "text": "Od čajovej farmy po šálku"
+        },
+        {
+          "type": "p",
+          "text": "Porozpráva aj o práci na čajovej farme v Japonsku, spracovaní čaju a o tom, čo dnes vieme o antioxidantoch, oxidačnom strese a využití čaju pri starostlivosti o pokožku."
+        }
+      ],
+      "image": "/images/performers/martin_labudik.png"
+    }
+  ]
+}
