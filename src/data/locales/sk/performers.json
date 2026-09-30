@@ -1,6 +1,6 @@
 {
   "items": [
-    {
+        {
       "id": "marek-hora",
       "name": "Marek Hora",
       "category": "Gastronómia",
@@ -87,6 +87,62 @@
         }
       ],
       "image": "/images/performers/martin_labudik.png"
+    },
+    {
+      "id": "silvestr-prajer",
+      "name": "Silvestr Prajer",
+      "role": "Samurajské bojové umění",
+      "short": "Ukázky samurajského bojového umění, Kyujutsu a Tamešigiri.",
+      "description": "Silvestr založil oddíl Iaido a Kendo v roce 1994 v Plzni. Postupem času se od ukázek použití japonského meče a jiných zbraní propracovali až k soubojům v plné samurajské zbroji, ukázkám Kyujutsu – bojové lukostřelby – a Tamešigiri, tedy sekacím testům. Z japonské historie je oslovilo zejména období Sengoku džidai, období válčících klanů, ve kterém se bojová umění rozvinula do mimořádné úrovně.",
+      "image": ""
+    },
+    {
+      "id": "tsumami-zaiku",
+      "name": "Japonská umělkyně",
+      "role": "Tsumami-zaiku",
+      "short": "Tradiční japonské umění tsumami-zaiku.",
+      "description": "Podrobnosti o účinkující a programu doplníme.",
+      "image": ""
+    },
+    {
+      "id": "origami",
+      "name": "Japonská lektorka",
+      "role": "Origami",
+      "short": "Ukázky tradičního japonského skládání papíru - origami.",
+      "description": "Podrobnosti o účinkující a programu doplníme.",
+      "image": ""
+    },
+    {
+      "id": "samuraj-bratislava",
+      "name": "Samurajské bojové umění",
+      "role": "Bojové umění samurajů 16. století",
+      "short": "Ukázky bojového umění samurajů z období 16. století.",
+      "description": "Účinkující z Bratislavy. Jméno a další podrobnosti doplníme.",
+      "image": ""
+    },
+    {
+      "id": "judo-povazska-bystrica",
+      "name": "Judo Považská Bystrica",
+      "role": "Judo",
+      "short": "Ukázky juda a japonského bojového umění.",
+      "description": "Podrobnosti o programu doplníme.",
+      "image": ""
+    },
+    {
+      "id": "japonske-kvety",
+      "name": "Japonské květy",
+      "role": "Japonské květiny a dekorace",
+      "short": "Prezentace inspirovaná japonskými květinami.",
+      "description": "Účinkující z Pezinku. Jméno a další podrobnosti doplníme.",
+      "image": ""
+    },
+    {
+      "id": "kumihimo",
+      "name": "Iva Mičkalová",
+      "role": "Tradiční japonské splétání šňůr - kumihimo",
+      "short": "Kumihimo – splétání šňůr tradiční japonskou technikou.",
+      "description": "Účinkující z České republiky. Jméno a další podrobnosti doplníme.",
+      "image": ""
     }
   ]
 }
