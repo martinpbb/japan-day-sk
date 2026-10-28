@@ -16,6 +16,7 @@ import Performers from "./components/Performers.jsx";
 import PerformerDetail from "./components/PerformerDetail.jsx";
 import Gastronomy from "./components/Gastronomy.jsx";
 import Children from "./components/Children.jsx";
+import ExhibitorDetail from "./components/ExhibitorDetail.jsx";
 import Exhibitors from "./components/Exhibitors.jsx";
 import VideoSection from "./components/VideoSection.jsx";
 import Gallery from "./components/Gallery.jsx";
@@ -29,6 +30,7 @@ import SmartsuppChat from "./components/SmartsuppChat.jsx";
 import CookieConsent from "./components/CookieConsent.jsx";
 import SEO from "./seo/SEO.jsx";
 import { buildPerformerRoute } from "./seo/performerRoute.js";
+import { buildExhibitorRoute } from "./seo/exhibitorRoute.js";
 import { useI18n } from "./lib/useI18n.js";
 import { stripLocalePrefix } from "./lib/i18nPaths.js";
 
@@ -97,12 +99,14 @@ function PerformerPage({ performer, route }) {
 
 export default function App() {
   const { content } = useI18n();
-  const { seo, performers } = content;
+  const { seo, performers, exhibitors } = content;
   const path = normalizePath(stripLocalePrefix(window.location.pathname));
+  const exhibitor = exhibitors.items.find((item) => item.detail && path === `/vystavovatelia/${item.id}`);
   const performer = getPerformerFromPath(path, performers);
   const performerRoute = performer ? buildPerformerRoute(performer, seo) : null;
-  const route = performerRoute || seo.routes[path] || seo.routes["/"];
-  const isKnown = Boolean(performerRoute || seo.routes[path]);
+  const exhibitorRoute = exhibitor ? (seo.routes[path] || buildExhibitorRoute(exhibitor, seo)) : null;
+  const route = performerRoute || exhibitorRoute || seo.routes[path] || seo.routes["/"];
+  const isKnown = Boolean(performerRoute || exhibitorRoute || seo.routes[path]);
   const [cookieSettingsOpen, setCookieSettingsOpen] = useState(false);
 
   useEffect(() => {
@@ -118,7 +122,12 @@ export default function App() {
       <SmartsuppChat />
       <SEO path={isKnown ? path : "/"} route={route} />
       <Header />
-      {performer ? (
+      {exhibitor ? (
+        <main>
+          <Breadcrumbs current={route.breadcrumb} parent={route.breadcrumbParent} />
+          <ExhibitorDetail exhibitor={exhibitor} />
+        </main>
+      ) : performer ? (
         <PerformerPage performer={performer} route={route} />
       ) : path === "/" || !isKnown ? (
         <HomePage />

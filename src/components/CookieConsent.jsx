@@ -25,17 +25,11 @@ function readConsent() {
 export default function CookieConsent({ isOpen, onClose }) {
   const { site } = useI18n();
   const copy = site.ui.cookieConsent;
-  const [preference, setPreference] = useState(null);
-  const [consentOpen, setConsentOpen] = useState(null);
+  const [preference, setPreference] = useState(readConsent);
+  const visible = isOpen || !preference;
 
   useEffect(() => {
-    const storedPreference = readConsent();
-    setPreference(storedPreference);
-    setConsentOpen(!storedPreference);
-  }, []);
-
-  useEffect(() => {
-    if (preference && preference !== "none") updateConsent(preference);
+    if (preference) updateConsent(preference);
   }, [preference]);
 
   const savePreference = (nextPreference) => {
@@ -45,14 +39,10 @@ export default function CookieConsent({ isOpen, onClose }) {
       // Consent still applies for this session when storage is unavailable.
     }
     setPreference(nextPreference);
-    setConsentOpen(false);
     updateConsent(nextPreference);
     onClose();
   };
 
-  if (consentOpen === null) return null;
-
-  const visible = isOpen || consentOpen;
   if (!visible) return null;
 
   return (

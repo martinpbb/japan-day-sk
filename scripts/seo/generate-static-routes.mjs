@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { absoluteUrl, buildSchemas } from "../../src/seo/schema.js";
 import { buildPerformerRoute } from "../../src/seo/performerRoute.js";
+import { buildExhibitorRoute } from "../../src/seo/exhibitorRoute.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const dist = path.join(root, "dist");
@@ -26,11 +27,6 @@ function publicUrl(baseUrl, routePath) {
   return url.endsWith("/") ? url : `${url}/`;
 }
 
-
-function replaceHtmlLang(html, language) {
-  const lang = { "sk-SK": "sk", "en-GB": "en", "de-DE": "de", "es-ES": "es", "zh-CN": "zh-CN", "vi-VN": "vi" }[language] || language;
-  return html.replace(/<html\s+lang=["'][^"']*["']/i, `<html lang="${escapeHtml(lang)}"`);
-}
 function replaceTitle(html, title) {
   return html.replace(/<title>.*?<\/title>/s, `<title>${escapeHtml(title)}</title>`);
 }
@@ -113,7 +109,6 @@ function renderRoute({ seo, site, logicalPath, publicPath, route }) {
   const canonical = publicUrl(seo.baseUrl, publicPath);
   const image = seo.defaultImage ? absoluteUrl(seo.baseUrl, seo.defaultImage) : "";
   let html = ensureGa4(ensureGtm(baseHtml));
-  html = replaceHtmlLang(html, seo.language);
   html = replaceTitle(html, route.title);
   html = upsertMeta(html, "name", "description", route.description);
   html = upsertMeta(html, "name", "robots", "index, follow");
@@ -135,13 +130,16 @@ function renderRoute({ seo, site, logicalPath, publicPath, route }) {
 
 const sitemapPaths = new Set();
 for (const { locale, contentLocale = locale, prefix } of locales) {
-  const seo = JSON.parse(await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/seo.json`), "utf8"));
-  const site = JSON.parse(await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/site.json`), "utf8"));
-  const performers = JSON.parse(await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/performers.json`), "utf8"));
+  const seo = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/seo.json`), "utf8")).replace(/^\\uFEFF/, ""));
+  const site = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/site.json`), "utf8")).replace(/^\\uFEFF/, ""));
+  const performers = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/performers.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const performerRoutes = Object.fromEntries(performers.items.map((performer) => [
     `/ucinkujuci/${performer.id}`, buildPerformerRoute(performer, seo)
   ]));
-  const routes = { ...seo.routes, ...performerRoutes };
+  const exhibitorRoutes = Object.fromEntries(exhibitors.items.filter((item) => item.detail).map((item) => [
+    `/vystavovatelia/${item.id}`, buildExhibitorRoute(item, seo)
+  ]));
+  const routes = { ...seo.routes, ...performerRoutes, ...exhibitorRoutes };
   for (const [logicalPath, route] of Object.entries(routes)) {
     const publicPath = logicalPath === "/" ? `${prefix}/` || "/" : `${prefix}${logicalPath}`;
     const html = renderRoute({ seo, site, logicalPath, publicPath, route });
