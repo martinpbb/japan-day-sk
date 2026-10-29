@@ -31,3 +31,7 @@ graphify-out/
 .playwright-mcp/*
 playwright-report/*
 test-results/*
+.wrangler/
+.dev.vars
+worker/.wrangler/
+worker/.wrangler-logs/

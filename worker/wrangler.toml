@@ -1,0 +1,11 @@
+name = "japanday-workshops-api"
+main = "src/worker.js"
+workers_dev = false
+preview_urls = false
+compatibility_date = "2026-10-29"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "japanday-workshops"
+database_id = "26f5af16-c3ee-4768-bf77-3d347c104e9f"
+migrations_dir = "migrations"
