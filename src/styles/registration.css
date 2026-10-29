@@ -1,0 +1,13 @@
+.registrationForm { grid-column: 1 / -1; width: 100%; min-width: 0; padding: 1.5rem; border: 1px solid currentColor; border-radius: 1rem; }
+.registrationSummary { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+.registrationSummary dt, .registrationFields label { font-weight: 600; }
+.registrationSummary dd { margin: .25rem 0 0; overflow-wrap: anywhere; }
+.registrationFields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.registrationFields label { display: block; margin-bottom: .4rem; }
+.registrationFields input { box-sizing: border-box; width: 100%; padding: .75rem; border: 1px solid #767676; border-radius: .4rem; background: #fff; color: #222; font: inherit; }
+.registrationFields input:focus-visible { outline: 3px solid #854222; outline-offset: 3px; }
+.registrationFields input[aria-invalid="true"] { border-color: #a21c24; }
+.registrationError { color: #a21c24; margin: .4rem 0 0; }
+.registrationForm button { padding: .75rem 1rem; border: 1px solid #854222; border-radius: .4rem; background: #854222; color: #fff; font: inherit; cursor: pointer; }
+.registrationForm button:focus-visible { outline: 3px solid #854222; outline-offset: 3px; }
+@media (max-width: 600px) { .registrationFields { grid-template-columns: 1fr; } .registrationForm { padding: 1rem; } }

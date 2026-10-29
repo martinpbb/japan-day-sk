@@ -1,0 +1,20 @@
+{
+  "title": "Registrácia na workshop",
+  "workshop": "Workshop",
+  "term": "Termín",
+  "location": "Miesto",
+  "pending": "Bude upresnené",
+  "fields": {
+    "firstName": "Meno",
+    "lastName": "Priezvisko",
+    "email": "E-mail",
+    "phone": "Telefón"
+  },
+  "required": "Vyplňte toto povinné pole.",
+  "emailInvalid": "Zadajte platnú e-mailovú adresu.",
+  "tooLong": "Maximálny počet znakov: {max}.",
+  "contactPurpose": "E-mail a telefón použijeme na organizačný kontakt ohľadom workshopu: zmeny termínu alebo miesta, zrušenie, uvoľnenie miesta z poradovníka a informácie o platbe pri platených workshopoch.",
+  "preview": "Registrácia zatiaľ nie je spustená. Údaje sa neodosielajú ani neukladajú.",
+  "check": "Skontrolovať údaje",
+  "valid": "Údaje sú vyplnené správne. Registrácia nebola odoslaná ani vytvorená."
+}
