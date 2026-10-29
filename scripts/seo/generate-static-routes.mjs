@@ -133,10 +133,11 @@ for (const { locale, contentLocale = locale, prefix } of locales) {
   const seo = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/seo.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const site = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/site.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const performers = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/performers.json`), "utf8")).replace(/^\\uFEFF/, ""));
+  const exhibitors = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/exhibitors.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const performerRoutes = Object.fromEntries(performers.items.map((performer) => [
     `/ucinkujuci/${performer.id}`, buildPerformerRoute(performer, seo)
   ]));
-  const exhibitorRoutes = Object.fromEntries(exhibitors.items.filter((item) => item.detail).map((item) => [
+  const exhibitorRoutes = Object.fromEntries((Array.isArray(exhibitors?.items) ? exhibitors.items : []).filter((item) => item.detail).map((item) => [
     `/vystavovatelia/${item.id}`, buildExhibitorRoute(item, seo)
   ]));
   const routes = { ...seo.routes, ...performerRoutes, ...exhibitorRoutes };
