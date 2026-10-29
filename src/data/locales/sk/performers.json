@@ -185,10 +185,26 @@
                   },
                   {
                       "id":  "japonske-kvety",
-                      "name":  "Japonské květy",
-                      "role":  "Japonské květiny a dekorace",
-                      "short":  "Prezentace inspirovaná japonskými květinami.",
-                      "description":  "Účinkující z Pezinku. Jméno a další podrobnosti doplníme.",
+                      "name":  "Jana Michalková",
+                      "category":  "Japonská kultúra",
+                      "short":  "Predstaví japonské kvety a ich miesto v japonskej kultúre.",
+                      "heroTitle":  "Jana Michalková",
+                      "heroSubtitle":  "Japonské kvety",
+                      "description":  "",
+                      "content":  [
+                                      {
+                                          "type":  "p",
+                                          "text":  "Jana Michalková predstaví návštevníkom krásu japonských kvetov a ich miesto v japonskej kultúre."
+                                      },
+                                      {
+                                          "type":  "p",
+                                          "text":  "Na Japonskom dni priblíži rôzne druhy rastlín a kvetov spájaných s Japonskom a ukáže, ako môžu vytvoriť pôsobivú atmosféru aj v našom prostredí."
+                                      },
+                                      {
+                                          "type":  "p",
+                                          "text":  "Súčasťou prezentácie bude aj možnosť bližšie sa zoznámiť s japonskou estetikou, prírodnými motívmi a významom kvetov v každodennom živote a dekorácii."
+                                      }
+                                  ],
                       "image":  ""
                   },
                   {
@@ -267,6 +283,30 @@
                                       {
                                           "type":  "p",
                                           "text":  "Návštevníci tak budú môcť bližšie spoznať jednu z najznámejších japonských tvorivých tradícií a vyskúšať si základné princípy origami."
+                                      }
+                                  ],
+                      "image":  ""
+                  },
+                  {
+                      "id":  "satoko-kino",
+                      "name":  "Satoko Kino",
+                      "category":  "Japonský čaj a gastronómia",
+                      "short":  "Predstaví japonský čaj, gastronómiu a každodennú kultúru stolovania z pohľadu Japonky.",
+                      "heroTitle":  "Satoko Kino",
+                      "heroSubtitle":  "Japonský čaj a gastronómia",
+                      "description":  "",
+                      "content":  [
+                                      {
+                                          "type":  "p",
+                                          "text":  "Satoko Kino pochádza z Japonska a dlhodobo sa venuje približovaniu japonskej kultúry, gastronómie a každodenných tradícií v Česku a na Slovensku. Je spojená so značkou Nagomi, ktorá sa venuje japonskému čaju a ďalším produktom z Japonska."
+                                      },
+                                      {
+                                          "type":  "p",
+                                          "text":  "Na Japonskom dni predstaví návštevníkom japonský čaj a gastronómiu z pohľadu človeka, ktorý s japonskou kultúrou vyrastal. Priblíži, ako sa čaj a jedlo prirodzene objavujú v každodennom živote v Japonsku, ako sa podávajú a akú úlohu zohrávajú pri spoločnom stolovaní a pohostinnosti."
+                                      },
+                                      {
+                                          "type":  "p",
+                                          "text":  "Súčasťou prezentácie budú aj praktické ukážky a ochutnávky. Návštevníci tak budú môcť bližšie spoznať chute Japonska a zároveň sa dozvedieť viac o rozdieloch medzi tým, ako japonský čaj a jedlo vnímame v Európe a ako sú súčasťou bežného života priamo v Japonsku."
                                       }
                                   ],
                       "image":  ""
