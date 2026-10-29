@@ -4,20 +4,20 @@
       "id": "marek-hora",
       "name": "Marek Hora",
       "category": "Gastronomy",
-      "short": "Ambassador of Japanese cuisine in the Czech Republic and an acclaimed chef with experience in Europe and Japan.",
-      "description": "He will demonstrate fresh fish preparation and make sashimi, nigiri, maki and other sushi.",
+      "short": "Ambassador of Japanese cuisine in the Czech Republic and an acclaimed chef with experience from Europe and Japan.",
+      "description": "He will demonstrate cutting fresh fish and preparing sashimi, nigiri, maki and other types of sushi.",
       "content": [
         {
           "type": "p",
-          "text": "Marek Hora has worked with Japanese cuisine for more than thirty years and has also trained in Japan."
+          "text": "Marek Hora has devoted more than thirty years to Japanese gastronomy and gained part of his experience directly in Japan."
         },
         {
           "type": "h2",
-          "text": "Sashimi and sushi live"
+          "text": "Sashimi and sushi prepared in front of visitors"
         },
         {
           "type": "p",
-          "text": "In Považská Bystrica he will demonstrate practical fish preparation and sushi techniques."
+          "text": "In Považská Bystrica, he will give practical demonstrations of processing fresh fish and preparing sashimi, nigiri, maki and other types of sushi."
         }
       ],
       "image": "/images/performers/marek_hora.png"
@@ -26,12 +26,12 @@
       "id": "gorin",
       "name": "Gorin",
       "category": "Samurai",
-      "short": "A group focused on samurai culture, historical martial traditions and the Sengoku period.",
-      "description": "Expect archery, combat demonstrations, tameshigiri and stories about samurai traditions.",
+      "short": "A group dedicated to samurai culture, historical martial traditions and the Sengoku period.",
+      "description": "Visitors can look forward to demonstrations of archery, combat, tameshigiri and stories about samurai and their traditions.",
       "content": [
         {
           "type": "p",
-          "text": "Gorin brings the atmosphere of samurai Japan to Považská Bystrica."
+          "text": "Gorin will bring the atmosphere of samurai Japan to Považská Bystrica and present weapons, traditions and historical martial techniques."
         },
         {
           "type": "h2",
@@ -39,7 +39,7 @@
         },
         {
           "type": "p",
-          "text": "The programme includes archery, combat demonstrations and tameshigiri sword cutting."
+          "text": "The programme will include demonstrations of archery, combat and tameshigiri – the traditional practice of test cutting with a sword."
         }
       ],
       "image": "/images/performers/gorin_samurai_show.png"
@@ -47,46 +47,181 @@
     {
       "id": "noriko-komiyama",
       "name": "Noriko Komiyama",
-      "category": "Ikebana",
-      "short": "Japanese instructor of the Sogetsu school of ikebana.",
-      "description": "She will present Japanese flower arranging and differences between Ikenobo and Sogetsu approaches.",
+      "category": "Japanese culture",
+      "short": "A Japanese instructor of Sōgetsu ikebana. She will present the differences between the Ikenobō and Sōgetsu schools and demonstrate Japanese flower arrangement.",
+      "heroTitle": "Noriko Komiyama",
+      "heroSubtitle": "Japanese instructor of Sōgetsu ikebana",
+      "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Noriko Komiyama is a Japanese Sogetsu ikebana instructor."
-        },
-        {
-          "type": "h2",
-          "text": "Ikebana with everyday plants"
+          "text": "Noriko Komiyama is a Japanese ikebana instructor who has lived in Prague for many years. She focuses mainly on the Sōgetsu school and regularly shares her experience through public demonstrations and workshops."
         },
         {
           "type": "p",
-          "text": "She shows that striking ikebana can be created with ordinary flowers and local materials."
+          "text": "Her ikebana demonstrations have also taken place under the patronage of the Embassy of Japan, for example during the Flora Bratislava exhibition, where she led practical workshops in addition to a stage demonstration."
+        },
+        {
+          "type": "h2",
+          "text": "Ikebana does not have to start with an exotic flower"
+        },
+        {
+          "type": "p",
+          "text": "At Japan Day, she will show how ordinary flowers and plants available in our surroundings can also be used. She will also introduce the different approaches of two major ikebana schools – Ikenobō and Sōgetsu."
+        },
+        {
+          "type": "p",
+          "text": "Visitors will see how even simple, readily available plants can be turned into an impressive Japanese composition that they can later try creating at home."
         }
       ],
       "image": "/images/performers/noriko_komiyama.png"
     },
     {
       "id": "martin-labudik",
-      "name": "Martin Labudík",
-      "category": "Japanese tea & sake",
-      "short": "Founder of Nagomi tea and Japanese tea instructor.",
-      "description": "He will present Japanese tea, brewing, farm work in Japan and topics around green tea and antioxidants.",
+      "name": "Ing. Martin Labudík",
+      "category": "Japanese tea and sake",
+      "short": "Founder of Nagomi tea and lecturer on Japanese tea.",
+      "description": "He will present the diversity of Japanese tea, its preparation, work on a tea farm in Japan, and the topic of green tea and antioxidants.",
       "content": [
         {
           "type": "p",
-          "text": "Martin Labudík of Nagomi tea presents the diversity of Japanese tea and practical preparation."
+          "text": "Martin Labudík from Nagomi tea will introduce different categories of Japanese tea and demonstrate practical preparation methods."
         },
         {
           "type": "h2",
-          "text": "From tea farm to cup"
+          "text": "From the tea farm to the cup"
         },
         {
           "type": "p",
-          "text": "He will also talk about work on a Japanese tea farm, processing, antioxidants and oxidative stress."
+          "text": "He will also talk about working on a tea farm in Japan, tea processing, and what we currently know about antioxidants, oxidative stress and the use of tea in skincare."
         }
       ],
       "image": "/images/performers/martin_labudik.png"
+    },
+    {
+      "id": "silvestr-prajer",
+      "name": "Silvestr Prajer",
+      "role": "Samurai martial arts",
+      "short": "Demonstrations of samurai martial arts, kyūjutsu and tameshigiri.",
+      "description": "Silvestr founded an iaidō and kendō group in Plzeň in 1994. Over time, they progressed from demonstrations of the use of the Japanese sword and other weapons to full-armour samurai combat, demonstrations of kyūjutsu – combat archery – and tameshigiri, or test cutting. In Japanese history, they were particularly inspired by the Sengoku jidai, the period of warring clans, when martial arts developed to an extraordinary level.",
+      "image": ""
+    },
+    {
+      "id": "hisayo-yasuda",
+      "name": "Hisayo Yasuda",
+      "category": "Japanese culture",
+      "short": "A Japanese language and culture instructor who will present the traditional Japanese art of origami.",
+      "heroTitle": "Hisayo Yasuda",
+      "heroSubtitle": "Japanese language and culture instructor",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Hisayo Yasuda is a Japanese language instructor who has lived in Bratislava for many years. She teaches Japanese and introduces Japanese culture to the public. Her activities also include origami workshops and demonstrations at public events and in her work with children at primary schools."
+        },
+        {
+          "type": "p",
+          "text": "Origami is the traditional Japanese art of paper folding. At Japan Day, Hisayo will show step by step how colourful origami paper can be turned into various small objects and figures – from simpler hearts, balloons and boxes to the traditional crane."
+        },
+        {
+          "type": "p",
+          "text": "Her origami demonstrations are also part of the Cherry Blossom Festival – Sakura Festival, organised by the Embassy of Japan in Slovakia."
+        },
+        {
+          "type": "p",
+          "text": "Hisayo guides her workshops patiently, step by step, so complete beginners can also take part. The aim is not only to create an attractive paper model, but also to discover one aspect of Japanese culture through origami."
+        },
+        {
+          "type": "quote",
+          "text": "Let’s have fun together making cute little items using colourful origami paper."
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "akiko-komura",
+      "name": "Mgr. Akiko Komura, Ph.D.",
+      "category": "Japanese culture",
+      "short": "A Japanese academic and university lecturer who will introduce the traditional Japanese art of shodō calligraphy.",
+      "heroTitle": "Mgr. Akiko Komura, Ph.D.",
+      "heroSubtitle": "Japanese academic and lecturer",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Mgr. Akiko Komura, Ph.D. works as a university lecturer at the Department of East Asian Studies, Faculty of Arts, Comenius University in Bratislava. In her academic work, she focuses on topics related to Japan, its society, culture and traditions."
+        },
+        {
+          "type": "p",
+          "text": "At Japan Day, she will introduce shodō – the traditional Japanese art of calligraphy. She will explain its significance in Japanese culture, the basic principles of brushwork and how individual characters are created."
+        },
+        {
+          "type": "p",
+          "text": "The programme will include not only a lecture but also a practical workshop. Participants will be able to try using a Japanese calligraphy brush and create their own character."
+        },
+        {
+          "type": "p",
+          "text": "The workshop will offer an opportunity to discover Japanese calligraphy not only as a form of writing, but also as a traditional artistic discipline combining precision of movement, concentration and aesthetics."
+        }
+      ],
+      "website": "https://fphil.uniba.sk/katedry-a-odborne-pracoviska/katedra-vychodoazijskych-studii/clenovia-katedry/",
+      "image": ""
+    },
+    {
+      "id": "samuraj-bratislava",
+      "name": "Samurai martial arts",
+      "role": "Samurai martial arts of the 16th century",
+      "short": "Demonstrations of samurai martial arts from the 16th century.",
+      "description": "Performers from Bratislava. The name and further details will be added later.",
+      "image": ""
+    },
+    {
+      "id": "judo-povazska-bystrica",
+      "name": "Judo Považská Bystrica",
+      "role": "Judo",
+      "short": "Demonstrations of judo and Japanese martial arts.",
+      "description": "Further programme details will be added later.",
+      "image": ""
+    },
+    {
+      "id": "japonske-kvety",
+      "name": "Japanese flowers",
+      "role": "Japanese flowers and decorations",
+      "short": "A presentation inspired by Japanese flowers.",
+      "description": "A performer from Pezinok. The name and further details will be added later.",
+      "image": ""
+    },
+    {
+      "id": "kumihimo",
+      "name": "Mgr. Ivana Mičkalová",
+      "category": "Japanese culture",
+      "short": "A demonstration of the traditional Japanese kumihimo technique – braiding decorative and functional cords.",
+      "heroTitle": "Mgr. Ivana Mičkalová",
+      "heroSubtitle": "Kumihimo – traditional Japanese cord braiding",
+      "description": "",
+      "website": {
+        "label": "Website",
+        "url": "https://www.kumihimo.cz/"
+      },
+      "content": [
+        {
+          "type": "p",
+          "text": "Mgr. Ivana Mičkalová practises the traditional Japanese technique of kumihimo, the braiding of decorative and functional cords. She was introduced to Japanese culture through the Gorin samurai show group, whose performance she first attended in 2015. Gradually, she became part of the group’s circle and developed a deeper interest in traditional Japanese crafts."
+        },
+        {
+          "type": "p",
+          "text": "She discovered kumihimo thanks to members of Gorin who worked with the traditional marudai and takadai braiding stands. She was fascinated by the precision of the technique and by the way individual strands gradually form complex decorative patterns."
+        },
+        {
+          "type": "p",
+          "text": "Since 2022, she has been demonstrating kumihimo at public events and teaching the basics of the technique to interested participants. She began with simpler patterns and gradually expanded her experience, knowledge and work with specialist literature."
+        },
+        {
+          "type": "p",
+          "text": "At Japan Day, she will introduce visitors to the traditional technique of braiding Japanese cords and show how kumihimo is created in practice. Visitors will be able to observe the method of working with the cords and learn more about a craft with a long tradition in Japanese culture."
+        }
+      ],
+      "image": ""
     }
   ]
 }
