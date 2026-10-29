@@ -1,6 +1,6 @@
 {
   "items": [
-        {
+    {
       "id": "marek-hora",
       "name": "Marek Hora",
       "category": "Gastronómia",
@@ -47,28 +47,38 @@
     {
       "id": "noriko-komiyama",
       "name": "Noriko Komiyama",
-      "category": "Ikebana",
-      "short": "Japonská lektorka ikebany školy Sógecu.",
-      "description": "Predstaví umenie aranžovania kvetov a rozdielne prístupy škôl Ikenobó a Sógecu.",
+      "category": "Japonská kultúra",
+      "short": "Japonská lektorka ikebany školy Sógecu. Predstaví rozdiely medzi školami Ikenobó a Sógecu a ukáže prácu s kvetmi v japonskom aranžmá.",
+      "heroTitle": "Noriko Komiyama",
+      "heroSubtitle": "Japonská lektorka ikebany školy Sógecu",
+      "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Noriko Komiyama je japonská lektorka ikebany školy Sógecu a dlhodobo približuje japonské aranžovanie kvetov európskemu publiku."
-        },
-        {
-          "type": "h2",
-          "text": "Ikebana z bežne dostupných rastlín"
+          "text": "Noriko Komiyama je japonská lektorka ikebany, ktorá dlhodobo žije v Prahe. Venuje sa predovšetkým škole Sógecu a svoje skúsenosti pravidelne odovzdáva prostredníctvom verejných ukážok a workshopov."
         },
         {
           "type": "p",
-          "text": "Ukáže, že pôsobivá ikebana nemusí vzniknúť iba z exotických rastlín – pracovať možno aj s bežnými kvetmi a materiálmi z nášho okolia."
+          "text": "Jej ukážky ikebany sa konali aj pod záštitou Veľvyslanectva Japonska, napríklad počas výstavy Flóra Bratislava, kde okrem pódiovej demonštrácie viedla aj praktické workshopy."
+        },
+        {
+          "type": "h2",
+          "text": "Ikebana nemusí začínať exotickým kvetom"
+        },
+        {
+          "type": "p",
+          "text": "Na Japonskom dni ukáže, ako možno pracovať aj s bežnými kvetmi a rastlinami dostupnými v našom prostredí. Predstaví tiež rozdielne prístupy dvoch významných škôl ikebany – Ikenobó a Sógecu."
+        },
+        {
+          "type": "p",
+          "text": "Návštevníci tak uvidia, ako možno aj z obyčajných, ľahko dostupných rastlín vytvoriť pôsobivú japonskú kompozíciu, ktorú si môžu neskôr vyskúšať aj doma."
         }
       ],
       "image": "/images/performers/noriko_komiyama.png"
     },
     {
       "id": "martin-labudik",
-      "name": "Martin Labudík",
+      "name": "Ing. Martin Labudík",
       "category": "Japonský čaj a saké",
       "short": "Zakladateľ Nagomi tea a lektor japonského čaju.",
       "description": "Predstaví rozmanitosť japonského čaju, jeho prípravu, prácu na čajovej farme v Japonsku aj tému zeleného čaju a antioxidantov.",
@@ -97,19 +107,64 @@
       "image": ""
     },
     {
-      "id": "tsumami-zaiku",
-      "name": "Japonská umělkyně",
-      "role": "Tsumami-zaiku",
-      "short": "Tradiční japonské umění tsumami-zaiku.",
-      "description": "Podrobnosti o účinkující a programu doplníme.",
+      "id": "hisayo-yasuda",
+      "name": "Hisayo Yasuda",
+      "category": "Japonská kultúra",
+      "short": "Lektorka japonského jazyka a kultúry, ktorá predstaví tradičné japonské umenie origami.",
+      "heroTitle": "Hisayo Yasuda",
+      "heroSubtitle": "Lektorka japonského jazyka a kultúry",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Hisayo Yasuda je lektorka japonského jazyka, ktorá už mnoho rokov žije v Bratislave. Venuje sa výučbe japončiny a približovaniu japonskej kultúry verejnosti. Súčasťou jej aktivít sú aj workshopy a ukážky origami, ktorým sa venuje na verejných podujatiach aj pri práci s deťmi na základných školách."
+        },
+        {
+          "type": "p",
+          "text": "Origami je tradičné japonské umenie skladania papiera. Na Japonskom dni Hisayo ukáže, ako sa z farebného origami papiera dajú krok za krokom vytvoriť rôzne drobné predmety a postavičky – od jednoduchších srdiečok, balónov či krabičiek až po tradičného žeriava."
+        },
+        {
+          "type": "p",
+          "text": "Jej ukážky origami sú súčasťou aj Festivalu čerešňových kvetov – Sakura Festivalu, ktorý organizuje Veľvyslanectvo Japonska na Slovensku."
+        },
+        {
+          "type": "p",
+          "text": "Hisayo pri svojich workshopoch postupuje trpezlivo krok za krokom, takže si skladanie môžu vyskúšať aj úplní začiatočníci. Cieľom nie je iba vytvoriť pekný papierový model, ale prostredníctvom origami zároveň spoznať jednu z podôb japonskej kultúry."
+        },
+        {
+          "type": "quote",
+          "text": "Poďme sa spolu zabaviť a vytvoriť si roztomilé drobnosti z farebného origami papiera."
+        }
+      ],
       "image": ""
     },
     {
-      "id": "origami",
-      "name": "Japonská lektorka",
-      "role": "Origami",
-      "short": "Ukázky tradičního japonského skládání papíru - origami.",
-      "description": "Podrobnosti o účinkující a programu doplníme.",
+      "id": "akiko-komura",
+      "name": "Mgr. Akiko Komura, Ph.D.",
+      "category": "Japonská kultúra",
+      "short": "Japonská akademička a vysokoškolská lektorka, ktorá predstaví tradičné japonské umenie kaligrafie shodō.",
+      "heroTitle": "Mgr. Akiko Komura, Ph.D.",
+      "heroSubtitle": "Japonská akademička a lektorka",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Mgr. Akiko Komura, Ph.D. pôsobí ako vysokoškolská lektorka na Katedre východoázijských štúdií Filozofickej fakulty Univerzity Komenského v Bratislave. V rámci svojej akademickej práce sa venuje témam spojeným s Japonskom, jeho spoločnosťou, kultúrou a tradíciami."
+        },
+        {
+          "type": "p",
+          "text": "Na Japonskom dni predstaví shodō – tradičné japonské umenie kaligrafie. Návštevníkom priblíži jeho význam v japonskej kultúre, základné princípy práce so štetcom a spôsob, akým vznikajú jednotlivé znaky."
+        },
+        {
+          "type": "p",
+          "text": "Súčasťou programu bude nielen prednáška, ale aj praktický workshop. Účastníci si tak budú môcť sami vyskúšať prácu s japonským kaligrafickým štetcom a vytvoriť vlastný znak."
+        },
+        {
+          "type": "p",
+          "text": "Workshop ponúkne možnosť spoznať japonskú kaligrafiu nielen ako spôsob písania, ale aj ako tradičnú umeleckú disciplínu, v ktorej sa spája presnosť pohybu, sústredenie a estetika."
+        }
+      ],
+      "website": "https://fphil.uniba.sk/katedry-a-odborne-pracoviska/katedra-vychodoazijskych-studii/clenovia-katedry/",
       "image": ""
     },
     {
@@ -138,10 +193,34 @@
     },
     {
       "id": "kumihimo",
-      "name": "Iva Mičkalová",
-      "role": "Tradiční japonské splétání šňůr - kumihimo",
-      "short": "Kumihimo – splétání šňůr tradiční japonskou technikou.",
-      "description": "Účinkující z České republiky. Jméno a další podrobnosti doplníme.",
+      "name": "Mgr. Ivana Mičkalová",
+      "category": "Japonská kultúra",
+      "short": "Ukážka tradičnej japonskej techniky kumihimo – splietania ozdobných a funkčných šnúr.",
+      "heroTitle": "Mgr. Ivana Mičkalová",
+      "heroSubtitle": "Kumihimo – tradičné japonské splietanie šnúr",
+      "description": "",
+      "website": {
+        "label": "Webová stránka",
+        "url": "https://www.kumihimo.cz/"
+      },
+      "content": [
+        {
+          "type": "p",
+          "text": "Mgr. Ivana Mičkalová sa venuje tradičnej japonskej technike kumihimo, teda splietaniu ozdobných a funkčných šnúr. K japonskej kultúre ju priviedla skupina Gorin – samurajská show, ktorej vystúpenie prvýkrát navštívila v roku 2015. Postupne sa stala súčasťou prostredia skupiny a začala sa hlbšie zaujímať aj o tradičné japonské remeslá."
+        },
+        {
+          "type": "p",
+          "text": "Ku kumihimu sa dostala vďaka členom skupiny Gorin, ktorí pracovali s tradičnými pletacími stavmi marudai a takadai. Zaujala ju presnosť celej techniky aj spôsob, akým sa jednotlivé pramene postupne skladajú do zložitých a dekoratívnych vzorov."
+        },
+        {
+          "type": "p",
+          "text": "Od roku 2022 kumihimo sama predvádza na verejných podujatiach a učí záujemcov základy tejto techniky. Začínala s jednoduchšími vzormi a postupne rozširovala svoje skúsenosti, znalosti aj prácu s odbornou literatúrou."
+        },
+        {
+          "type": "p",
+          "text": "Na Japonskom dni predstaví návštevníkom tradičnú techniku splietania japonských šnúr a ukáže, ako kumihimo vzniká v praxi. Záujemcovia si budú môcť prezrieť spôsob práce so šnúrami a bližšie spoznať remeslo, ktoré má v japonskej kultúre dlhú tradíciu."
+        }
+      ],
       "image": ""
     }
   ]
