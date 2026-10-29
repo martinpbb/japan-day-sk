@@ -1,0 +1,22 @@
+{
+  "organizers": [
+    {
+      "name": "Hội đồng Thanh niên vùng Trenčín",
+      "image": ""
+    },
+    {
+      "name": "Thành phố Považská Bystrica",
+      "image": ""
+    },
+    {
+      "name": "Mladí pre Považskú",
+      "image": ""
+    }
+  ],
+  "partners": [
+    {
+      "name": "Nagomi tea",
+      "image": "/images/partners/nagomi.png"
+    }
+  ]
+}

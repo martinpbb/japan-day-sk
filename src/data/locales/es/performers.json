@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "Gastronomía",
+      "short": "Embajador de la cocina japonesa en la República Checa y chef reconocido con experiencia en Europa y Japón.",
+      "description": "Mostrará el corte de pescado fresco y la preparación de sashimi, nigiri, maki y otros tipos de sushi.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Marek Hora lleva más de treinta años dedicado a la cocina japonesa y también se formó en Japón."
+        },
+        {
+          "type": "h2",
+          "text": "Sashimi y sushi en directo"
+        },
+        {
+          "type": "p",
+          "text": "En Považská Bystrica mostrará técnicas prácticas de pescado y sushi."
+        }
+      ],
+      "image": "/images/performers/marek_hora.png"
+    },
+    {
+      "id": "gorin",
+      "name": "Gorin",
+      "category": "Samuráis",
+      "short": "Grupo dedicado a la cultura samurái, las tradiciones marciales históricas y el período Sengoku.",
+      "description": "Habrá tiro con arco, combates, tameshigiri y explicaciones sobre las tradiciones samurái.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Gorin llevará a Považská Bystrica la atmósfera del Japón samurái."
+        },
+        {
+          "type": "h2",
+          "text": "Arquería, combates y tameshigiri"
+        },
+        {
+          "type": "p",
+          "text": "El programa incluye tiro con arco, combates y corte con espada tameshigiri."
+        }
+      ],
+      "image": "/images/performers/gorin_samurai_show.png"
+    },
+    {
+      "id": "noriko-komiyama",
+      "name": "Noriko Komiyama",
+      "category": "Ikebana",
+      "short": "Instructora japonesa de ikebana de la escuela Sogetsu.",
+      "description": "Presentará el arte floral japonés y diferencias entre Ikenobo y Sogetsu.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Noriko Komiyama es instructora japonesa de ikebana Sogetsu."
+        },
+        {
+          "type": "h2",
+          "text": "Ikebana con plantas cotidianas"
+        },
+        {
+          "type": "p",
+          "text": "Mostrará que el ikebana puede crearse con flores comunes y materiales locales."
+        }
+      ],
+      "image": "/images/performers/noriko_komiyama.png"
+    },
+    {
+      "id": "martin-labudik",
+      "name": "Martin Labudík",
+      "category": "Té japonés y sake",
+      "short": "Fundador de Nagomi tea e instructor de té japonés.",
+      "description": "Presentará el té japonés, su preparación, el trabajo en una finca de té en Japón y temas de antioxidantes.",
+      "content": [
+        {
+          "type": "p",
+          "text": "Martin Labudík de Nagomi tea presentará la diversidad del té japonés."
+        },
+        {
+          "type": "h2",
+          "text": "De la finca a la taza"
+        },
+        {
+          "type": "p",
+          "text": "También hablará del trabajo en una finca japonesa, el procesamiento, los antioxidantes y el estrés oxidativo."
+        }
+      ],
+      "image": "/images/performers/martin_labudik.png"
+    }
+  ]
+}

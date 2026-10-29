@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "sushi",
+      "title": "寿司与刺身",
+      "text": "Marek Hora 现场制作新鲜刺身和寿司。",
+      "cta": "更多信息",
+      "details": {
+        "intro": "Marek Hora 现场制作新鲜刺身和寿司。",
+        "items": [
+          {
+            "name": "寿司与刺身",
+            "description": "Marek Hora 现场制作新鲜刺身和寿司。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "food",
+      "title": "日本料理",
+      "text": "全天提供地道日本料理与品鉴。",
+      "cta": "更多信息",
+      "details": {
+        "intro": "全天提供地道日本料理与品鉴。",
+        "items": [
+          {
+            "name": "日本料理",
+            "description": "全天提供地道日本料理与品鉴。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tea",
+      "title": "日本茶",
+      "text": "Nagomi tea 介绍日本茶及冲泡方式。",
+      "cta": "更多信息",
+      "details": {
+        "intro": "Nagomi tea 介绍日本茶及冲泡方式。",
+        "items": [
+          {
+            "name": "日本茶",
+            "description": "Nagomi tea 介绍日本茶及冲泡方式。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sake",
+      "title": "清酒与品鉴",
+      "text": "活动包含日本清酒及其他品鉴。",
+      "cta": "更多信息",
+      "details": {
+        "intro": "活动包含日本清酒及其他品鉴。",
+        "items": [
+          {
+            "name": "清酒与品鉴",
+            "description": "活动包含日本清酒及其他品鉴。"
+          }
+        ]
+      }
+    }
+  ]
+}

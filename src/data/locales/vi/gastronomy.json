@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "sushi",
+      "title": "Sushi & sashimi",
+      "text": "Sashimi và sushi tươi do Marek Hora chuẩn bị tại sự kiện.",
+      "cta": "Thêm thông tin",
+      "details": {
+        "intro": "Sashimi và sushi tươi do Marek Hora chuẩn bị tại sự kiện.",
+        "items": [
+          {
+            "name": "Sushi & sashimi",
+            "description": "Sashimi và sushi tươi do Marek Hora chuẩn bị tại sự kiện."
+          }
+        ]
+      }
+    },
+    {
+      "id": "food",
+      "title": "Ẩm thực Nhật Bản",
+      "text": "Các món Nhật chính gốc và hoạt động nếm thử.",
+      "cta": "Thêm thông tin",
+      "details": {
+        "intro": "Các món Nhật chính gốc và hoạt động nếm thử.",
+        "items": [
+          {
+            "name": "Ẩm thực Nhật Bản",
+            "description": "Các món Nhật chính gốc và hoạt động nếm thử."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tea",
+      "title": "Trà Nhật Bản",
+      "text": "Nagomi tea giới thiệu trà Nhật và cách pha.",
+      "cta": "Thêm thông tin",
+      "details": {
+        "intro": "Nagomi tea giới thiệu trà Nhật và cách pha.",
+        "items": [
+          {
+            "name": "Trà Nhật Bản",
+            "description": "Nagomi tea giới thiệu trà Nhật và cách pha."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sake",
+      "title": "Sake & nếm thử",
+      "text": "Sake Nhật và các hoạt động nếm thử khác.",
+      "cta": "Thêm thông tin",
+      "details": {
+        "intro": "Sake Nhật và các hoạt động nếm thử khác.",
+        "items": [
+          {
+            "name": "Sake & nếm thử",
+            "description": "Sake Nhật và các hoạt động nếm thử khác."
+          }
+        ]
+      }
+    }
+  ]
+}

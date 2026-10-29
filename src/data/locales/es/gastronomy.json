@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "sushi",
+      "title": "Sushi y sashimi",
+      "text": "Sashimi y sushi frescos preparados por Marek Hora.",
+      "cta": "Más información",
+      "details": {
+        "intro": "Sashimi y sushi frescos preparados por Marek Hora.",
+        "items": [
+          {
+            "name": "Sushi y sashimi",
+            "description": "Sashimi y sushi frescos preparados por Marek Hora."
+          }
+        ]
+      }
+    },
+    {
+      "id": "food",
+      "title": "Gastronomía japonesa",
+      "text": "Platos japoneses auténticos y degustaciones.",
+      "cta": "Más información",
+      "details": {
+        "intro": "Platos japoneses auténticos y degustaciones.",
+        "items": [
+          {
+            "name": "Gastronomía japonesa",
+            "description": "Platos japoneses auténticos y degustaciones."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tea",
+      "title": "Té japonés",
+      "text": "Nagomi tea presenta el té japonés y su preparación.",
+      "cta": "Más información",
+      "details": {
+        "intro": "Nagomi tea presenta el té japonés y su preparación.",
+        "items": [
+          {
+            "name": "Té japonés",
+            "description": "Nagomi tea presenta el té japonés y su preparación."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sake",
+      "title": "Sake y degustaciones",
+      "text": "Sake japonés y otras degustaciones.",
+      "cta": "Más información",
+      "details": {
+        "intro": "Sake japonés y otras degustaciones.",
+        "items": [
+          {
+            "name": "Sake y degustaciones",
+            "description": "Sake japonés y otras degustaciones."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "baseUrl": "https://japanday.sk",
+  "siteName": "日本茶与文化日",
+  "locale": "zh_CN",
+  "language": "zh-CN",
+  "defaultImage": "/images/social/japan-day-povazska-bystrica-2026-og.png",
+  "semanticTopics": [
+    "Japan Day Považská Bystrica",
+    "Japonský deň Považská Bystrica",
+    "japonská kultúra",
+    "japonská gastronómia",
+    "sushi",
+    "sashimi",
+    "japonský čaj",
+    "saké",
+    "samuraji",
+    "Gorin",
+    "ikebana",
+    "Noriko Komiyama",
+    "Marek Hora",
+    "Nagomi tea"
+  ],
+  "routes": {
+    "/": {
+      "title": "2026 日本茶与文化日 | Považská Bystrica",
+      "description": "第三届活动将带来日本料理、茶、传统艺术、武士文化、武道、讲座、展览，以及更近距离了解日本的机会。",
+      "h1": "2026 日本茶与文化日 | Považská Bystrica",
+      "intro": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "schema": [
+        "festival",
+        "organization"
+      ]
+    },
+    "/program": {
+      "title": "节目 | Japan Day Považská Bystrica",
+      "description": "详细节目正在准备中，具体时间和更多嘉宾将陆续公布。",
+      "h1": "节目",
+      "intro": "详细节目正在准备中，具体时间和更多嘉宾将陆续公布。",
+      "breadcrumb": "节目",
+      "schema": [
+        "festival",
+        "breadcrumb"
+      ]
+    },
+    "/ucinkujuci": {
+      "title": "嘉宾与参与者 | Japan Day Považská Bystrica",
+      "description": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "h1": "嘉宾与参与者",
+      "intro": "嘉宾与参与者",
+      "breadcrumb": "嘉宾与参与者",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "嘉宾与参与者",
+      "sectionTitle": "认识带你走近日本的人"
+    },
+    "/gastronomia": {
+      "title": "日本美食与茶 | Japan Day Považská Bystrica",
+      "description": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "h1": "日本美食与茶",
+      "intro": "日本美食与茶",
+      "breadcrumb": "日本美食与茶",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/pre-deti": {
+      "title": "儿童与家庭 | Japan Day Považská Bystrica",
+      "description": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "h1": "儿童与家庭",
+      "intro": "儿童与家庭",
+      "breadcrumb": "儿童与家庭",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "儿童与家庭",
+      "sectionTitle": "家庭节目即将公布"
+    },
+    "/vystavovatelia": {
+      "title": "参展者 | Japan Day Považská Bystrica",
+      "description": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "h1": "参展者",
+      "intro": "参展者",
+      "breadcrumb": "参展者",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/prakticke-informacie": {
+      "title": "实用信息 | Japan Day Považská Bystrica",
+      "description": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "h1": "实用信息",
+      "intro": "实用信息",
+      "breadcrumb": "实用信息",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/galeria": {
+      "title": "图库 | Japan Day Považská Bystrica",
+      "description": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "h1": "图库",
+      "intro": "图库",
+      "breadcrumb": "图库",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/o-podujati": {
+      "title": "关于活动 | Japan Day Považská Bystrica",
+      "description": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "h1": "关于活动",
+      "intro": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "breadcrumb": "关于活动",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/kontakt": {
+      "title": "联系 | Japan Day Považská Bystrica",
+      "description": "2026年，日本茶与文化日将第三次来到 Považská Bystrica，汇集日本料理、茶、传统艺术、武士文化、武道、讲座与展览。",
+      "h1": "联系",
+      "intro": "联系",
+      "breadcrumb": "联系",
+      "schema": [
+        "breadcrumb"
+      ]
+    }
+  }
+}

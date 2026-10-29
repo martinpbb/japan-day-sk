@@ -1,0 +1,80 @@
+{
+  "items": [
+    {
+      "id": "sushi",
+      "title": "Sushi & sashimi",
+      "text": "Fresh sashimi and sushi prepared by Marek Hora at the event.",
+      "cta": "More information",
+      "details": {
+        "intro": "Fresh fish, sashimi, nigiri, maki and other sushi prepared in front of visitors.",
+        "items": [
+          {
+            "name": "Sashimi",
+            "description": "Fresh fish slices in Japanese style."
+          },
+          {
+            "name": "Nigiri",
+            "description": "Traditional nigiri sushi."
+          },
+          {
+            "name": "Maki",
+            "description": "Rolled sushi prepared on site."
+          }
+        ]
+      }
+    },
+    {
+      "id": "food",
+      "title": "Japanese gastronomy",
+      "text": "Authentic Japanese dishes and tastings throughout the day.",
+      "cta": "More information",
+      "details": {
+        "intro": "The food selection will be announced gradually.",
+        "items": [
+          {
+            "name": "Japanese dishes",
+            "description": "The menu will be published before the event."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tea",
+      "title": "Japanese tea",
+      "text": "Nagomi tea presents the diversity of Japanese tea and brewing.",
+      "cta": "More information",
+      "details": {
+        "intro": "Japanese tea tastings and practical brewing demonstrations.",
+        "items": [
+          {
+            "name": "Green tea",
+            "description": "Sencha, gyokuro and other styles depending on availability."
+          },
+          {
+            "name": "Oolong & wakocha",
+            "description": "Japanese oolong and black tea."
+          },
+          {
+            "name": "Roasted & special teas",
+            "description": "Hōjicha and other specialties."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sake",
+      "title": "Sake & tastings",
+      "text": "Japanese sake and other tastings will be part of the event.",
+      "cta": "More information",
+      "details": {
+        "intro": "The sake selection will be announced before the event.",
+        "items": [
+          {
+            "name": "Japanese sake",
+            "description": "Tastings of different Japanese sake styles."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "baseUrl": "https://japanday.sk",
+  "siteName": "Japanischer Tag des Tees und der Kultur",
+  "locale": "de_DE",
+  "language": "de-DE",
+  "defaultImage": "/images/social/japan-day-povazska-bystrica-2026-og.png",
+  "semanticTopics": [
+    "Japan Day Považská Bystrica",
+    "Japonský deň Považská Bystrica",
+    "japonská kultúra",
+    "japonská gastronómia",
+    "sushi",
+    "sashimi",
+    "japonský čaj",
+    "saké",
+    "samuraji",
+    "Gorin",
+    "ikebana",
+    "Noriko Komiyama",
+    "Marek Hora",
+    "Nagomi tea"
+  ],
+  "routes": {
+    "/": {
+      "title": "Japanischer Tag des Tees und der Kultur 2026 | Považská Bystrica",
+      "description": "Die 3. Ausgabe bringt japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge, Ausstellungen und die Möglichkeit, Japan näher kennenzulernen.",
+      "h1": "Japanischer Tag des Tees und der Kultur 2026 | Považská Bystrica",
+      "intro": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "schema": [
+        "festival",
+        "organization"
+      ]
+    },
+    "/program": {
+      "title": "Programm | Japan Day Považská Bystrica",
+      "description": "Das detaillierte Programm wird vorbereitet. Genaue Zeiten und weitere Gäste werden schrittweise veröffentlicht.",
+      "h1": "Programm",
+      "intro": "Das detaillierte Programm wird vorbereitet. Genaue Zeiten und weitere Gäste werden schrittweise veröffentlicht.",
+      "breadcrumb": "Programm",
+      "schema": [
+        "festival",
+        "breadcrumb"
+      ]
+    },
+    "/ucinkujuci": {
+      "title": "Gäste und Mitwirkende | Japan Day Považská Bystrica",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "h1": "Gäste und Mitwirkende",
+      "intro": "Gäste und Mitwirkende",
+      "breadcrumb": "Gäste und Mitwirkende",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "GÄSTE & MITWIRKENDE",
+      "sectionTitle": "Lernen Sie die Menschen kennen, die Japan näherbringen"
+    },
+    "/gastronomia": {
+      "title": "Japanische Gastronomie und Tee | Japan Day Považská Bystrica",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "h1": "Japanische Gastronomie und Tee",
+      "intro": "Japanische Gastronomie und Tee",
+      "breadcrumb": "Japanische Gastronomie und Tee",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/pre-deti": {
+      "title": "Für Kinder und Familien | Japan Day Považská Bystrica",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "h1": "Für Kinder und Familien",
+      "intro": "Für Kinder und Familien",
+      "breadcrumb": "Für Kinder und Familien",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "FÜR KINDER & FAMILIEN",
+      "sectionTitle": "Familienprogramm folgt"
+    },
+    "/vystavovatelia": {
+      "title": "Aussteller | Japan Day Považská Bystrica",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "h1": "Aussteller",
+      "intro": "Aussteller",
+      "breadcrumb": "Aussteller",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/prakticke-informacie": {
+      "title": "Praktische Informationen | Japan Day Považská Bystrica",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "h1": "Praktische Informationen",
+      "intro": "Praktische Informationen",
+      "breadcrumb": "Praktische Informationen",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/galeria": {
+      "title": "Galerie | Japan Day Považská Bystrica",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "h1": "Galerie",
+      "intro": "Galerie",
+      "breadcrumb": "Galerie",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/o-podujati": {
+      "title": "Über die Veranstaltung | Japan Day Považská Bystrica",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "h1": "Über die Veranstaltung",
+      "intro": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "breadcrumb": "Über die Veranstaltung",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/kontakt": {
+      "title": "Kontakt | Japan Day Považská Bystrica",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "h1": "Kontakt",
+      "intro": "Kontakt",
+      "breadcrumb": "Kontakt",
+      "schema": [
+        "breadcrumb"
+      ]
+    }
+  }
+}

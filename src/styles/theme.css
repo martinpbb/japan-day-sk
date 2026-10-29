@@ -1,0 +1,19 @@
+:root {
+  --paper: #eef2ef;
+  --paper-2: #dde7e2;
+  --ink: #172725;
+  --muted: #536863;
+  --red: #a54836;
+  --red-dark: #8f3f31;
+  --indigo: #173936;
+  --gold: #b58a55;
+  --line: rgba(23, 57, 54, .15);
+  --white: #fbfdfb;
+  --radius: 22px;
+  --shadow: 0 22px 60px rgba(24, 48, 44, .14);
+  --container: 1160px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+body { margin: 0; font-family: Inter, "Segoe UI", system-ui, sans-serif; color: var(--ink); background: var(--paper); }
+button, input, textarea { font: inherit; }

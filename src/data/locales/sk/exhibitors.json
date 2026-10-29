@@ -1,0 +1,48 @@
+{
+  "intro": "Zoznam vystavovateľov, predajcov a prezentujúcich budeme zverejňovať postupne.",
+  "items": [
+    {
+      "id": "nagomi-tea",
+      "name": "Nagomi tea",
+      "website": "https://www.nagomitea.eu/",
+      "category": "Japonský čaj",
+      "description": "Výberové japonské čaje priamo od pestovateľov z Japonska.",
+      "image": "/images/exhibitors/nagomi_tea.png",
+      "imageMode": "logo"
+    },
+    {
+      "id": "nagomi-sake",
+      "name": "Nagomi sake",
+      "website": "https://www.nagomisake.cz/",
+      "category": "Saké",
+      "description": "Prezentácia a ochutnávka japonského saké.",
+      "image": "/images/exhibitors/nagomi_sake.png",
+      "imageMode": "logo",
+      "imageScale": 1.15
+    },
+    {
+      "id": "kumihimo",
+      "name": "Kumihimo – japonské šnúry",
+      "category": "Tradičné remeslá",
+      "description": "Ukážka tradičnej japonskej techniky splietania šnúr kumihimo.",
+      "image": "/images/exhibitors/kumihimo_japonske_snury.png",
+      "imageMode": "photo"
+    },
+    {
+      "id": "matcha-tea",
+      "name": "Matcha & tea latte (Nagomi tea)",
+      "category": "Japonský čaj",
+      "description": "Matcha a čajové latte pripravované z mletých čajov: wakocha, hōjicha, oolongcha, hakucha a matcha.",
+      "imageMode": "photo"
+    },
+    {
+      "id": "samurai-cz",
+      "name": "SAMURAI.cz",
+      "image": "/images/exhibitors/samurai_noze.png",
+      "website": "https://www.samurai.cz/",
+      "category": "Japonské a damaškové kuchynské nože",
+      "short": "Prémiové kuchynské nože, damaškové čepele a japonské typy nožov ako Santoku, Gyuto, Kiritsuke alebo Nakiri.",
+      "description": "SAMURAI.cz sa zameriava na prémiové kuchynské nože s dôrazom na ostrosť, presnosť a kvalitné spracovanie. V ponuke nájdete japonské typy nožov ako Santoku, Gyuto, Kiritsuke alebo Nakiri, rovnako ako nože určené na prípravu sushi a sashimi. Súčasťou sortimentu sú aj damaškové nože, ručne kované modely a nože s jadrami z prémiových ocelí, napríklad VG10 alebo moderných práškových ocelí. Na Japonskom dni si návštevníci budú môcť pozrieť rôzne typy kuchynských nožov a lepšie spoznať ich využitie v japonskej gastronómii."
+    }
+  ]
+}

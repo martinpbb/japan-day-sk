@@ -1,0 +1,130 @@
+{
+  "baseUrl": "https://japanday.sk",
+  "siteName": "Japonský deň čaju a kultúry",
+  "locale": "sk_SK",
+  "language": "sk-SK",
+  "defaultImage": "/images/social/japan-day-povazska-bystrica-2026-og.png",
+  "semanticTopics": [
+    "Japan Day Považská Bystrica",
+    "Japonský deň Považská Bystrica",
+    "japonská kultúra",
+    "japonská gastronómia",
+    "sushi",
+    "sashimi",
+    "japonský čaj",
+    "saké",
+    "samuraji",
+    "Gorin",
+    "ikebana",
+    "Noriko Komiyama",
+    "Marek Hora",
+    "Nagomi tea"
+  ],
+  "routes": {
+    "/": {
+      "title": "Japonský deň čaju a kultúry 2026 | Považská Bystrica",
+      "description": "3. ročník Japonského dňa čaju a kultúry v Považskej Bystrici. Japonská gastronómia, čaj, ikebana, samuraji, bojové umenia, výstavy a vstup zdarma.",
+      "h1": "Japonský deň čaju a kultúry",
+      "intro": "Japonsko na jeden deň v Považskej Bystrici.",
+      "schema": [
+        "festival",
+        "organization"
+      ]
+    },
+    "/program": {
+      "title": "Program | Japonský deň čaju a kultúry 2026",
+      "description": "Program pripravujeme. Presné časy vystúpení a ďalších hostí zverejníme postupne.",
+      "h1": "Program Japonského dňa čaju a kultúry 2026",
+      "intro": "Podrobný harmonogram pripravujeme.",
+      "breadcrumb": "Program",
+      "schema": [
+        "festival",
+        "breadcrumb"
+      ]
+    },
+    "/ucinkujuci": {
+      "title": "Hostia a účinkujúci | Japonský deň čaju a kultúry",
+      "description": "Spoznajte potvrdených hostí Japonského dňa čaju a kultúry v Považskej Bystrici.",
+      "h1": "Hostia a účinkujúci",
+      "intro": "Ľudia, ktorí priblížia Japonsko gastronómiou, čajom, ikebanou a samurajskou kultúrou.",
+      "breadcrumb": "Hostia",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "HOSTIA A ÚČINKUJÚCI",
+      "sectionTitle": "Spoznajte ľudí, ktorí vám priblížia Japonsko"
+    },
+    "/gastronomia": {
+      "title": "Japonská gastronómia a čaj | Japan Day Považská Bystrica",
+      "description": "Sashimi, sushi, japonská gastronómia, čaj, saké a ďalšie ochutnávky.",
+      "h1": "Japonská gastronómia a čaj",
+      "intro": "Ochutnajte Japonsko priamo v Považskej Bystrici.",
+      "breadcrumb": "Gastronómia",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/pre-deti": {
+      "title": "Program pre deti a rodiny | Japan Day Považská Bystrica",
+      "description": "Program pre deti a rodiny pripravujeme.",
+      "h1": "Pre deti a rodiny",
+      "intro": "Aktivity pre deti budeme predstavovať postupne.",
+      "breadcrumb": "Pre deti",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "PRE DETI A RODINY",
+      "sectionTitle": "Program pre rodiny pripravujeme"
+    },
+    "/vystavovatelia": {
+      "title": "Vystavovatelia a predajcovia | Japan Day Považská Bystrica",
+      "description": "Výstavy, prezentácie a predaj japonských produktov počas Japonského dňa.",
+      "h1": "Vystavovatelia a predajcovia",
+      "intro": "Zoznam vystavovateľov a predajcov pripravujeme.",
+      "breadcrumb": "Vystavovatelia",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/prakticke-informacie": {
+      "title": "Praktické informácie | Japonský deň čaju a kultúry 2026",
+      "description": "Dátum, miesto, vstup zdarma, doprava a ďalšie informácie k podujatiu v Považskej Bystrici.",
+      "h1": "Praktické informácie",
+      "intro": "Dátum, miesto, vstup a informácie pre návštevu podujatia.",
+      "breadcrumb": "Praktické informácie",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/galeria": {
+      "title": "Galéria | Japonský deň čaju a kultúry",
+      "description": "Galéria Japonského dňa čaju a kultúry v Považskej Bystrici.",
+      "h1": "Galéria",
+      "intro": "Fotografie z predchádzajúcich ročníkov doplníme.",
+      "breadcrumb": "Galéria",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/o-podujati": {
+      "title": "O podujatí | Japonský deň čaju a kultúry",
+      "description": "3. ročník Japonského dňa čaju a kultúry v Považskej Bystrici.",
+      "h1": "O Japonskom dni čaju a kultúry",
+      "intro": "Festival japonskej kultúry, gastronómie a tradícií.",
+      "breadcrumb": "O podujatí",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/kontakt": {
+      "title": "Kontakt | Japonský deň čaju a kultúry",
+      "description": "Kontakt na organizátorov Japonského dňa čaju a kultúry v Považskej Bystrici.",
+      "h1": "Kontakt",
+      "intro": "Kontakt pre návštevníkov, partnerov a vystavovateľov.",
+      "breadcrumb": "Kontakt",
+      "schema": [
+        "breadcrumb"
+      ]
+    }
+  }
+}
