@@ -86,6 +86,14 @@
         "breadcrumb"
       ]
     },
+    "/workshopy": {
+      "title": "Workshopy | Japonský deň čaju a kultúry",
+      "description": "Prehľad workshopov Japonského dňa čaju a kultúry.",
+      "h1": "Workshopy",
+      "intro": "Spoznajte japonskú kultúru prostredníctvom praktických workshopov.",
+      "breadcrumb": "Workshopy",
+      "schema": ["breadcrumb"]
+    },
     "/prakticke-informacie": {
       "title": "Praktické informácie | Japonský deň čaju a kultúry 2026",
       "description": "Dátum, miesto, vstup zdarma, doprava a ďalšie informácie k podujatiu v Považskej Bystrici.",

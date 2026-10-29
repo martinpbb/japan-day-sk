@@ -5,6 +5,7 @@ import skPerformers from "./locales/sk/performers.json";
 import skGastronomy from "./locales/sk/gastronomy.json";
 import skChildren from "./locales/sk/children.json";
 import skExhibitors from "./locales/sk/exhibitors.json";
+import skWorkshops from "./locales/sk/workshops.json";
 import skGallery from "./locales/sk/gallery.json";
 import skPartners from "./locales/sk/partners.json";
 import enSite from "./locales/en/site.json";
@@ -65,7 +66,7 @@ export const localeDocumentLanguages = {
 };
 
 const localeContent = {
-  sk: { site: skSite, seo: skSeo, program: skProgram, performers: skPerformers, gastronomy: skGastronomy, children: skChildren, exhibitors: skExhibitors, gallery: skGallery, partners: skPartners },
+  sk: { site: skSite, seo: skSeo, program: skProgram, performers: skPerformers, gastronomy: skGastronomy, children: skChildren, exhibitors: skExhibitors, workshops: skWorkshops, gallery: skGallery, partners: skPartners },
   en: { site: enSite, seo: enSeo, program: enProgram, performers: enPerformers, gastronomy: enGastronomy, children: enChildren, exhibitors: enExhibitors, gallery: enGallery, partners: enPartners },
   de: { site: deSite, seo: deSeo, program: deProgram, performers: dePerformers, gastronomy: deGastronomy, children: deChildren, exhibitors: deExhibitors, gallery: deGallery, partners: dePartners },
   es: { site: esSite, seo: esSeo, program: esProgram, performers: esPerformers, gastronomy: esGastronomy, children: esChildren, exhibitors: esExhibitors, gallery: esGallery, partners: esPartners },

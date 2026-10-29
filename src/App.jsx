@@ -18,6 +18,8 @@ import Gastronomy from "./components/Gastronomy.jsx";
 import Children from "./components/Children.jsx";
 import ExhibitorDetail from "./components/ExhibitorDetail.jsx";
 import Exhibitors from "./components/Exhibitors.jsx";
+import Workshops from "./components/Workshops.jsx";
+import WorkshopDetail from "./components/WorkshopDetail.jsx";
 import VideoSection from "./components/VideoSection.jsx";
 import Gallery from "./components/Gallery.jsx";
 import PracticalInfo from "./components/PracticalInfo.jsx";
@@ -31,6 +33,7 @@ import CookieConsent from "./components/CookieConsent.jsx";
 import SEO from "./seo/SEO.jsx";
 import { buildPerformerRoute } from "./seo/performerRoute.js";
 import { buildExhibitorRoute } from "./seo/exhibitorRoute.js";
+import { buildWorkshopRoute } from "./seo/workshopRoute.js";
 import { useI18n } from "./lib/useI18n.js";
 import { stripLocalePrefix } from "./lib/i18nPaths.js";
 
@@ -40,6 +43,7 @@ const pageComponents = {
   "/gastronomia": Gastronomy,
   "/pre-deti": Children,
   "/vystavovatelia": Exhibitors,
+  "/workshopy": Workshops,
   "/prakticke-informacie": PracticalInfo,
   "/galeria": Gallery,
   "/o-podujati": About,
@@ -55,6 +59,14 @@ function getPerformerFromPath(path, performers) {
   const match = path.match(/^\/ucinkujuci\/([^/]+)$/);
   if (!match) return null;
   return performers.items.find((item) => item.id === decodeURIComponent(match[1])) || null;
+}
+
+function getWorkshopFromPath(path, workshops) {
+  const match = path.match(/^\/workshopy\/([^/]+)$/);
+  if (!match) return null;
+  let slug;
+  try { slug = decodeURIComponent(match[1]); } catch { return null; }
+  return workshops?.items.find((item) => (item.slug || item.id) === slug || (slug === "japonstina" && (item.slug || item.id) === "japoncina")) || null;
 }
 
 function HomePage() {
@@ -99,14 +111,17 @@ function PerformerPage({ performer, route }) {
 
 export default function App() {
   const { content } = useI18n();
-  const { seo, performers, exhibitors } = content;
+  const { seo, performers, exhibitors, workshops } = content;
   const path = normalizePath(stripLocalePrefix(window.location.pathname));
   const exhibitor = exhibitors.items.find((item) => item.detail && path === `/vystavovatelia/${item.id}`);
   const performer = getPerformerFromPath(path, performers);
+  const workshopCatalog = path === "/workshopy";
+  const workshop = getWorkshopFromPath(path, workshops);
+  const workshopRoute = workshop ? buildWorkshopRoute(workshop, seo) : workshopCatalog ? seo.routes["/workshopy"] : null;
   const performerRoute = performer ? buildPerformerRoute(performer, seo) : null;
   const exhibitorRoute = exhibitor ? (seo.routes[path] || buildExhibitorRoute(exhibitor, seo)) : null;
-  const route = performerRoute || exhibitorRoute || seo.routes[path] || seo.routes["/"];
-  const isKnown = Boolean(performerRoute || exhibitorRoute || seo.routes[path]);
+  const route = workshopRoute || performerRoute || exhibitorRoute || seo.routes[path] || seo.routes["/"];
+  const isKnown = Boolean(workshopRoute || performerRoute || exhibitorRoute || seo.routes[path]);
   const [cookieSettingsOpen, setCookieSettingsOpen] = useState(false);
 
   useEffect(() => {
@@ -122,7 +137,13 @@ export default function App() {
       <SmartsuppChat />
       <SEO path={isKnown ? path : "/"} route={route} />
       <Header />
-      {exhibitor ? (
+      {workshop ? (
+        <main>
+          <Breadcrumbs current={route.breadcrumb} parent={route.breadcrumbParent} />
+          <PageIntro title={route.h1} intro={route.intro} />
+          <WorkshopDetail workshop={workshop} />
+        </main>
+      ) : exhibitor ? (
         <main>
           <Breadcrumbs current={route.breadcrumb} parent={route.breadcrumbParent} />
           <ExhibitorDetail exhibitor={exhibitor} />

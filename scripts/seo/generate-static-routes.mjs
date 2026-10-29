@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { absoluteUrl, buildSchemas } from "../../src/seo/schema.js";
 import { buildPerformerRoute } from "../../src/seo/performerRoute.js";
 import { buildExhibitorRoute } from "../../src/seo/exhibitorRoute.js";
+import { buildWorkshopRoute } from "../../src/seo/workshopRoute.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const dist = path.join(root, "dist");
@@ -134,13 +135,21 @@ for (const { locale, contentLocale = locale, prefix } of locales) {
   const site = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/site.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const performers = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/performers.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const exhibitors = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/exhibitors.json`), "utf8")).replace(/^\\uFEFF/, ""));
+  const workshopsPath = path.join(root, `src/data/locales/${contentLocale}/workshops.json`);
+  const workshops = contentLocale === "sk" ? JSON.parse((await fs.readFile(workshopsPath, "utf8")).replace(/^\\uFEFF/, "")) : { items: [] };
   const performerRoutes = Object.fromEntries(performers.items.map((performer) => [
     `/ucinkujuci/${performer.id}`, buildPerformerRoute(performer, seo)
   ]));
   const exhibitorRoutes = Object.fromEntries((Array.isArray(exhibitors?.items) ? exhibitors.items : []).filter((item) => item.detail).map((item) => [
     `/vystavovatelia/${item.id}`, buildExhibitorRoute(item, seo)
   ]));
-  const routes = { ...seo.routes, ...performerRoutes, ...exhibitorRoutes };
+  const workshopRoutes = Object.fromEntries((Array.isArray(workshops?.items) ? workshops.items : []).map((workshop) => [
+    `/workshopy/${workshop.slug || workshop.id}`, buildWorkshopRoute(workshop, seo)
+  ]));
+  if (workshops.items.some((workshop) => (workshop.slug || workshop.id) === "japoncina")) {
+    workshopRoutes["/workshopy/japonstina"] = buildWorkshopRoute(workshops.items.find((workshop) => (workshop.slug || workshop.id) === "japoncina"), seo);
+  }
+  const routes = { ...seo.routes, ...performerRoutes, ...exhibitorRoutes, ...workshopRoutes };
   for (const [logicalPath, route] of Object.entries(routes)) {
     const publicPath = logicalPath === "/" ? `${prefix}/` || "/" : `${prefix}${logicalPath}`;
     const html = renderRoute({ seo, site, logicalPath, publicPath, route });
