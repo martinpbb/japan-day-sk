@@ -5,9 +5,14 @@ import { formatSession, workshopPrice } from "../lib/workshops.js";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
 
+import { useWorkshopAvailability } from "../lib/workshopApi.js";
+import registrationCopy from "../data/registration.json";
+
 export default function WorkshopDetail({ workshop }) {
   const { content, locale } = useI18n();
-  const sessions = workshop.sessions || [];
+  const live = useWorkshopAvailability(workshop.slug);
+  const sessions = live ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: false }));
+  const registrationWorkshop = { ...workshop, registrationOpen: !!live };
   const [selectedId, setSelectedId] = useState(sessions[0]?.id || "");
   const selectedSession = sessions.find((session) => session.id === selectedId) || sessions[0] || null;
   const lecturer = workshop.lecturerId ? content.performers.items.find((person) => person.id === workshop.lecturerId) : null;
@@ -29,11 +34,11 @@ export default function WorkshopDetail({ workshop }) {
         <h2 id="workshop-sessions-title">Termíny</h2>
         {sessions.length ? sessions.map((session) => <label className="workshopSession" key={session.id}>
           <input type="radio" name="workshop-session" value={session.id} checked={session.id === (selectedSession?.id || "")} onChange={() => setSelectedId(session.id)} />
-          <span><strong>{formatSession(session, workshop.durationMinutes)}</strong>{session.location ? <span>{session.location}</span> : null}{session.capacity != null ? <span>Kapacita: {session.capacity}</span> : null}</span>
+          <span><strong>{formatSession(session, workshop.durationMinutes)}</strong>{session.location ? <span>{session.location}</span> : null}{session.capacity != null ? <span>{session.remaining_capacity == null ? `Kapacita: ${session.capacity}` : session.remaining_capacity === 0 ? registrationCopy.full : registrationCopy.available.replace("{remaining}", session.remaining_capacity).replace("{capacity}", session.capacity)}</span> : null}</span>
         </label>) : <p>Termín bude doplnený</p>}
-        {!workshop.registrationOpen ? <p className="workshopRegistrationState">Registrácia zatiaľ nie je otvorená</p> : null}
+        {!registrationWorkshop.registrationOpen ? <p className="workshopRegistrationState">Registrácia zatiaľ nie je otvorená</p> : null}
       </section>
     </div>
-    <WorkshopRegistrationForm workshop={workshop} session={selectedSession} />
+    <WorkshopRegistrationForm key={selectedSession?.id || "none"} workshop={registrationWorkshop} session={selectedSession} />
   </Section>;
 }

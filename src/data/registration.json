@@ -16,5 +16,19 @@
   "contactPurpose": "E-mail a telefón použijeme na organizačný kontakt ohľadom workshopu: zmeny termínu alebo miesta, zrušenie, uvoľnenie miesta z poradovníka a informácie o platbe pri platených workshopoch.",
   "preview": "Registrácia zatiaľ nie je spustená. Údaje sa neodosielajú ani neukladajú.",
   "check": "Skontrolovať údaje",
-  "valid": "Údaje sú vyplnené správne. Registrácia nebola odoslaná ani vytvorená."
+  "valid": "Údaje sú vyplnené správne. Registrácia nebola odoslaná ani vytvorená.",
+  "submit": "Prihlásiť sa",
+  "sending": "Odosielanie…",
+  "success": "Registrácia bola úspešne vytvorená.",
+  "registered": "Miesto je rezervované.",
+  "waitlist": "Ste na čakacej listine. Zatiaľ neplaťte.",
+  "failed": "Registráciu sa nepodarilo dokončiť. Skúste to znova.",
+  "duplicate": "Na tento termín už existuje registrácia s týmto e-mailom.",
+  "paymentInstructions": "Platbu odošlite na uvedený účet. Ako variabilný symbol uveďte platobnú referenciu. Registrácia čaká na platbu.",
+  "amount": "Suma",
+  "reference": "Variabilný symbol",
+  "beneficiary": "Príjemca",
+  "qrAlt": "PAY by square – platobný QR kód",
+  "full": "Obsadené – môžete sa prihlásiť ako náhradník",
+  "available": "Voľných {remaining} z {capacity} miest"
 }
