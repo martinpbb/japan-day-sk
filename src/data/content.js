@@ -15,6 +15,7 @@ import enPerformers from "./locales/en/performers.json";
 import enGastronomy from "./locales/en/gastronomy.json";
 import enChildren from "./locales/en/children.json";
 import enExhibitors from "./locales/en/exhibitors.json";
+import enWorkshops from "./locales/en/workshops.json";
 import enGallery from "./locales/en/gallery.json";
 import enPartners from "./locales/en/partners.json";
 import deSite from "./locales/de/site.json";
@@ -24,6 +25,7 @@ import dePerformers from "./locales/de/performers.json";
 import deGastronomy from "./locales/de/gastronomy.json";
 import deChildren from "./locales/de/children.json";
 import deExhibitors from "./locales/de/exhibitors.json";
+import deWorkshops from "./locales/de/workshops.json";
 import deGallery from "./locales/de/gallery.json";
 import dePartners from "./locales/de/partners.json";
 import esSite from "./locales/es/site.json";
@@ -33,6 +35,7 @@ import esPerformers from "./locales/es/performers.json";
 import esGastronomy from "./locales/es/gastronomy.json";
 import esChildren from "./locales/es/children.json";
 import esExhibitors from "./locales/es/exhibitors.json";
+import esWorkshops from "./locales/es/workshops.json";
 import esGallery from "./locales/es/gallery.json";
 import esPartners from "./locales/es/partners.json";
 import zhSite from "./locales/zh/site.json";
@@ -42,6 +45,7 @@ import zhPerformers from "./locales/zh/performers.json";
 import zhGastronomy from "./locales/zh/gastronomy.json";
 import zhChildren from "./locales/zh/children.json";
 import zhExhibitors from "./locales/zh/exhibitors.json";
+import zhWorkshops from "./locales/zh/workshops.json";
 import zhGallery from "./locales/zh/gallery.json";
 import zhPartners from "./locales/zh/partners.json";
 import viSite from "./locales/vi/site.json";
@@ -51,6 +55,7 @@ import viPerformers from "./locales/vi/performers.json";
 import viGastronomy from "./locales/vi/gastronomy.json";
 import viChildren from "./locales/vi/children.json";
 import viExhibitors from "./locales/vi/exhibitors.json";
+import viWorkshops from "./locales/vi/workshops.json";
 import viGallery from "./locales/vi/gallery.json";
 import viPartners from "./locales/vi/partners.json";
 
@@ -67,11 +72,11 @@ export const localeDocumentLanguages = {
 
 const localeContent = {
   sk: { site: skSite, seo: skSeo, program: skProgram, performers: skPerformers, gastronomy: skGastronomy, children: skChildren, exhibitors: skExhibitors, workshops: skWorkshops, gallery: skGallery, partners: skPartners },
-  en: { site: enSite, seo: enSeo, program: enProgram, performers: enPerformers, gastronomy: enGastronomy, children: enChildren, exhibitors: enExhibitors, gallery: enGallery, partners: enPartners },
-  de: { site: deSite, seo: deSeo, program: deProgram, performers: dePerformers, gastronomy: deGastronomy, children: deChildren, exhibitors: deExhibitors, gallery: deGallery, partners: dePartners },
-  es: { site: esSite, seo: esSeo, program: esProgram, performers: esPerformers, gastronomy: esGastronomy, children: esChildren, exhibitors: esExhibitors, gallery: esGallery, partners: esPartners },
-  zh: { site: zhSite, seo: zhSeo, program: zhProgram, performers: zhPerformers, gastronomy: zhGastronomy, children: zhChildren, exhibitors: zhExhibitors, gallery: zhGallery, partners: zhPartners },
-  vi: { site: viSite, seo: viSeo, program: viProgram, performers: viPerformers, gastronomy: viGastronomy, children: viChildren, exhibitors: viExhibitors, gallery: viGallery, partners: viPartners },
+  en: { site: enSite, seo: enSeo, program: enProgram, performers: enPerformers, gastronomy: enGastronomy, children: enChildren, exhibitors: enExhibitors, workshops: enWorkshops, gallery: enGallery, partners: enPartners },
+  de: { site: deSite, seo: deSeo, program: deProgram, performers: dePerformers, gastronomy: deGastronomy, children: deChildren, exhibitors: deExhibitors, workshops: deWorkshops, gallery: deGallery, partners: dePartners },
+  es: { site: esSite, seo: esSeo, program: esProgram, performers: esPerformers, gastronomy: esGastronomy, children: esChildren, exhibitors: esExhibitors, workshops: esWorkshops, gallery: esGallery, partners: esPartners },
+  zh: { site: zhSite, seo: zhSeo, program: zhProgram, performers: zhPerformers, gastronomy: zhGastronomy, children: zhChildren, exhibitors: zhExhibitors, workshops: zhWorkshops, gallery: zhGallery, partners: zhPartners },
+  vi: { site: viSite, seo: viSeo, program: viProgram, performers: viPerformers, gastronomy: viGastronomy, children: viChildren, exhibitors: viExhibitors, workshops: viWorkshops, gallery: viGallery, partners: viPartners },
 };
 
 export function getLocaleContent(locale) {

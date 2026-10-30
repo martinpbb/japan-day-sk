@@ -11,12 +11,12 @@
     "dateISO": "2026-11-07",
     "openingTime": "",
     "closingTime": "",
-    "venue": "Dom kultúry",
+    "venue": "Nhà Văn hóa",
     "street": "",
     "postalCode": "",
     "city": "Považská Bystrica",
     "area": "Považská Bystrica",
-    "region": "Trenčiansky kraj",
+    "region": "Vùng Trenčín",
     "country": "SK",
     "locationLabel": "Považská Bystrica",
     "admissionPrice": 0,
@@ -30,8 +30,8 @@
     "kicker": "7. 11. 2026 • Považská Bystrica",
     "title": "Ngày Trà và Văn hóa Nhật Bản",
     "descriptor": "Lễ hội văn hóa, ẩm thực và truyền thống Nhật Bản",
-    "subtitle": "Lần tổ chức thứ 3 mang đến ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, các buổi nói chuyện, triển lãm và cơ hội tìm hiểu Nhật Bản gần hơn.",
-    "ctaPrimary": "Chương trình sắp công bố",
+    "subtitle": "Lần tổ chức thứ 3 mang đến ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, samurai, võ thuật, các buổi nói chuyện, triển lãm và cơ hội khám phá Nhật Bản gần hơn.",
+    "ctaPrimary": "Đang chuẩn bị chương trình",
     "ctaSecondary": "Thông tin thực tế",
     "shortName": "Japan Day Považská Bystrica 2026"
   },
@@ -39,9 +39,9 @@
     "kicker": "Về sự kiện",
     "title": "Nhật Bản tại một địa điểm ở Považská Bystrica",
     "paragraphs": [
-      "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026, kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, thuyết trình và triển lãm.",
-      "Sự kiện diễn ra ngày 7 tháng 11 tại Dom kultúry ở Považská Bystrica. Chúng tôi sẽ sử dụng hội trường lớn và khu vực nhà hát múa rối cho biểu diễn, giới thiệu, sản phẩm Nhật Bản và nếm thử.",
-      "Trong suốt ngày, bạn có thể gặp những người gắn bó lâu dài với Nhật Bản, thưởng thức ẩm thực và trà chính gốc và trải nghiệm văn hóa Nhật Bản gần hơn."
+      "Ngày Trà và Văn hóa Nhật Bản trở lại Považská Bystrica lần thứ ba vào năm 2026. Sự kiện kết hợp ẩm thực Nhật Bản, trà, nghệ thuật truyền thống, văn hóa samurai, võ thuật, các buổi nói chuyện và triển lãm.",
+      "Sự kiện diễn ra ngày 7 tháng 11 tại Nhà Văn hóa Považská Bystrica. Chúng tôi sẽ sử dụng hội trường lớn và nhà hát múa rối cho biểu diễn, giới thiệu, bán sản phẩm Nhật Bản và các buổi nếm thử.",
+      "Trong suốt ngày hội, bạn có thể gặp những người gắn bó lâu năm với Nhật Bản, thưởng thức ẩm thực và trà chính thống, đồng thời khám phá văn hóa Nhật Bản ở cự ly gần."
     ]
   },
   "video": {
@@ -52,61 +52,61 @@
   },
   "practical": {
     "kicker": "Thông tin thực tế",
-    "title": "Thời gian, địa điểm và vé",
+    "title": "Thời gian, địa điểm và vé vào cửa",
     "items": [
       {
         "label": "Ngày",
-        "value": "7 tháng 11 năm 2026"
+        "value": "7. 11. 2026"
       },
       {
         "label": "Mở cửa",
-        "value": "thời gian sẽ công bố"
+        "value": "thời gian sẽ cập nhật"
       },
       {
         "label": "Địa điểm",
-        "value": "Dom kultúry, Považská Bystrica"
+        "value": "Nhà Văn hóa, Považská Bystrica"
       },
       {
         "label": "Vé vào cửa",
         "value": "miễn phí"
       }
     ],
-    "transport": "Dom kultúry nằm tại Považská Bystrica. Thông tin chi tiết về đi lại và đỗ xe sẽ được bổ sung trước sự kiện.",
-    "accessibility": "Thông tin về khả năng tiếp cận sẽ được bổ sung sau khi hoàn tất các chi tiết tổ chức.",
+    "transport": "Nhà Văn hóa nằm ngay tại Považská Bystrica. Thông tin chi tiết về đi lại và đỗ xe sẽ được cập nhật trước sự kiện.",
+    "accessibility": "Thông tin về tiếp cận không rào cản và các lối vào sẽ được bổ sung sau khi các chi tiết tổ chức được xác nhận.",
     "faq": [
       {
-        "question": "Sự kiện diễn ra khi nào?",
-        "answer": "Thứ Bảy, ngày 7 tháng 11 năm 2026. Giờ mở cửa và lịch chi tiết sẽ được công bố sau."
+        "question": "Ngày Trà và Văn hóa Nhật Bản diễn ra khi nào?",
+        "answer": "Thứ Bảy, ngày 7 tháng 11 năm 2026. Giờ mở cửa chính xác và lịch chi tiết sẽ được công bố sau."
       },
       {
         "question": "Sự kiện diễn ra ở đâu?",
-        "answer": "Tại Dom kultúry, Považská Bystrica, sử dụng hội trường lớn và khu vực nhà hát múa rối."
+        "answer": "Tại Nhà Văn hóa Považská Bystrica. Chương trình sử dụng cả hội trường lớn và nhà hát múa rối."
       },
       {
         "question": "Vé vào cửa bao nhiêu?",
-        "answer": "Vào cửa miễn phí."
+        "answer": "Sự kiện miễn phí vào cửa."
       },
       {
-        "question": "Khi nào có chương trình chi tiết?",
+        "question": "Khi nào chương trình chi tiết được công bố?",
         "answer": "Chương trình đang được chuẩn bị. Khách mời và thời gian cụ thể sẽ được công bố dần."
       }
     ]
   },
   "contact": {
-    "intro": "Nếu có câu hỏi về chương trình, tham dự, hợp tác hoặc gian hàng, hãy liên hệ qua biểu mẫu.",
+    "intro": "Nếu có câu hỏi về chương trình, tham dự sự kiện, hợp tác hoặc gian hàng, vui lòng liên hệ qua biểu mẫu.",
     "email": "",
     "phone": ""
   },
   "contactForm": {
-    "kicker": "KONTAKT",
+    "kicker": "LIÊN HỆ",
     "title": "Bạn còn câu hỏi khác?",
-    "intro": "Không tìm thấy câu trả lời? Hãy gửi tin nhắn cho chúng tôi.",
+    "intro": "Không tìm thấy câu trả lời trong phần câu hỏi thường gặp? Hãy nhắn cho chúng tôi, chúng tôi sẽ phản hồi.",
     "name": {
       "label": "Họ tên",
       "placeholder": "Họ tên"
     },
     "email": {
-      "label": "Email",
+      "label": "E-mail",
       "placeholder": "email@example.com"
     },
     "subject": {
@@ -117,11 +117,11 @@
       "label": "Tin nhắn",
       "placeholder": "Tin nhắn"
     },
-    "submit": "Gửi tin nhắn",
+    "submit": "Gửi",
     "sending": "Đang gửi…",
     "success": "Cảm ơn. Tin nhắn của bạn đã được gửi.",
     "error": "Không thể gửi tin nhắn. Vui lòng thử lại.",
-    "privacy": "Email của bạn chỉ được dùng để trả lời câu hỏi."
+    "privacy": "Địa chỉ email chỉ được dùng để trả lời câu hỏi của bạn."
   },
   "navigation": [
     {
@@ -134,14 +134,18 @@
     },
     {
       "label": "Khách mời",
-      "path": "/ucinkujici"
+      "path": "/ucinkujuci"
+    },
+    {
+      "label": "Workshop",
+      "path": "/workshopy"
     },
     {
       "label": "Ẩm thực",
       "path": "/gastronomia"
     },
     {
-      "label": "Nhà triển lãm",
+      "label": "Gian hàng",
       "path": "/vystavovatelia"
     },
     {
@@ -154,8 +158,8 @@
     }
   ],
   "ui": {
-    "organizersKicker": "BAN TỔ CHỨC & ĐỐI TÁC",
-    "organizersTitle": "Những người đứng sau Japan Day",
+    "organizersKicker": "BAN TỔ CHỨC VÀ ĐỐI TÁC",
+    "organizersTitle": "Những người đứng sau Ngày Nhật Bản",
     "openingFrom": "Mở cửa từ {time}",
     "programmeUntil": "đến {time}",
     "breadcrumbLabel": "Điều hướng breadcrumb",
@@ -168,7 +172,7 @@
     "socialLinks": "Web / mạng xã hội",
     "exhibitorListPending": "Danh sách đang được chuẩn bị.",
     "previousYear": "Các kỳ trước",
-    "galleryTitle": "Không khí Japan Day",
+    "galleryTitle": "Không khí Ngày Nhật Bản",
     "all": "Tất cả",
     "showPhoto": "Xem ảnh: {alt}",
     "closePhoto": "Đóng ảnh",
@@ -183,7 +187,7 @@
     "allPerformers": "Tất cả khách mời",
     "inProgramme": "Trong chương trình",
     "inProgrammeHeading": "Trong chương trình",
-    "performersDetail": "Chi tiết khách mời {name}",
+    "performersDetail": "Chi tiết về {name}",
     "showDetail": "Xem chi tiết",
     "transportAndParking": "Đi lại và đỗ xe",
     "accessibility": "Khả năng tiếp cận",
@@ -192,8 +196,8 @@
     "playVideo": "Phát video",
     "playVideoLabel": "Phát video Ngày Trà và Văn hóa Nhật Bản",
     "previousYearVideoAlt": "Video từ kỳ trước",
-    "programPending": "Chương trình chi tiết đang được chuẩn bị. Thời gian và khách mời bổ sung sẽ được công bố dần.",
-    "galleryPending": "Ảnh từ các kỳ trước sẽ sớm được bổ sung.",
+    "programPending": "Chương trình chi tiết đang được chuẩn bị. Thời gian cụ thể và khách mời bổ sung sẽ được công bố dần.",
+    "galleryPending": "Ảnh từ các kỳ trước sẽ được bổ sung sớm.",
     "galleryCategories": {
       "Program": "Chương trình",
       "Čaj": "Trà",
@@ -203,16 +207,16 @@
     },
     "cookieConsent": {
       "title": "Chúng tôi sử dụng cookie phân tích",
-      "text": "Chúng tôi sử dụng Google Analytics để hiểu cách khách truy cập sử dụng trang Japan Day và cải thiện trang.",
+      "text": "Chúng tôi sử dụng Google Analytics để hiểu cách khách truy cập sử dụng trang web Ngày Nhật Bản. Dữ liệu này giúp chúng tôi cải thiện trang web.",
       "necessary": "Chỉ cần thiết",
       "analytics": "Cho phép thống kê",
       "settings": "Cài đặt cookie"
     },
     "venue": {
-      "heading": "Địa điểm sự kiện",
-      "text": "Sự kiện diễn ra tại Dom kultúry ở Považská Bystrica.",
+      "heading": "Địa chỉ sự kiện",
+      "text": "Sự kiện diễn ra tại Nhà Văn hóa Považská Bystrica.",
       "addressLines": [
-        "Dom kultúry",
+        "Nhà Văn hóa",
         "Považská Bystrica"
       ],
       "meta": "Vùng Trenčín • Slovakia",

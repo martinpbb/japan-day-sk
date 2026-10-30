@@ -1,6 +1,37 @@
 {
   "items": [
     {
+      "id": "japoncina",
+      "slug": "japoncina",
+      "title": "Japončina",
+      "category": "Japonský jazyk",
+      "lecturerId": "hisayo-yasuda",
+      "short": "Workshop venovaný základom japonského jazyka.",
+      "description": "Workshop venovaný základom japonského jazyka.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 45,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "japoncina-1100",
+          "start": "2026-11-07T11:00:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "japoncina-1400",
+          "start": "2026-11-07T14:00:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
       "id": "origami",
       "slug": "origami",
       "title": "Origami",
@@ -70,13 +101,13 @@
         },
         {
           "id": "shodo-1210",
-          "start": "2026-11-07T12:10:00+01:00",
+          "start": "2026-11-07T12:40:00+01:00",
           "capacity": 20,
           "location": null
         },
         {
           "id": "shodo-1340",
-          "start": "2026-11-07T13:40:00+01:00",
+          "start": "2026-11-07T14:40:00+01:00",
           "capacity": 20,
           "location": null
         }
@@ -90,24 +121,6 @@
           "affiliation": "Univerzita Komenského v Bratislave, Filozofická fakulta, Katedra východoázijských štúdií – odborný asistent"
         }
       ]
-    },
-    {
-      "id": "japoncina",
-      "slug": "japoncina",
-      "title": "Japončina",
-      "category": "Japonský jazyk",
-      "lecturerId": "hisayo-yasuda",
-      "short": "Workshop venovaný základom japonského jazyka.",
-      "description": "Workshop venovaný základom japonského jazyka.",
-      "image": "",
-      "registrationRequired": true,
-      "paid": false,
-      "priceCents": 0,
-      "currency": "EUR",
-      "durationMinutes": null,
-      "registrationOpen": false,
-      "waitlistEnabled": true,
-      "sessions": []
     },
     {
       "id": "tvorba-kombiku",
@@ -128,29 +141,11 @@
       "sessions": []
     },
     {
-      "id": "cajova-degustacia",
-      "slug": "cajova-degustacia",
-      "title": "Čajová degustácia",
-      "category": "Japonský čaj",
-      "lecturerId": "martin-labudik",
-      "short": "Riadená degustácia japonských čajov.",
-      "description": "Riadená degustácia japonských čajov.",
-      "image": "",
-      "registrationRequired": true,
-      "paid": false,
-      "priceCents": 0,
-      "currency": "EUR",
-      "durationMinutes": null,
-      "registrationOpen": false,
-      "waitlistEnabled": true,
-      "sessions": []
-    },
-    {
       "id": "tsumami-zaiku",
       "slug": "tsumami-zaiku",
       "title": "Tsumami zaiku つまみ細工",
       "category": "Japonská kultúra",
-      "lecturerId": null,
+      "lecturerId": "hisayo-yasuda",
       "short": "Tradičná japonská technika skladania drobných kúskov látky do kvetov a dekoratívnych motívov. Účastníci si vytvoria vlastnú ozdobu.",
       "description": "Tsumami zaiku je tradičná japonská technika tvorby drobných ozdôb z kúskov látky. Malé štvorčeky látky sa precízne skladajú a tvarujú do jednotlivých lupienkov, z ktorých následne vznikajú kvety a ďalšie dekoratívne motívy.\n\nTechnika sa v Japonsku preslávila najmä vďaka ozdobám kanzashi, ktoré sa používajú do vlasov a sú známe napríklad zo slávnostných účesov maiko a geiko.\n\nNa workshope si účastníci techniku sami vyskúšajú a vytvoria si vlastnú drobnú ozdobu, ktorú si môžu odniesť domov.\n\nWorkshop je vhodný aj pre začiatočníkov a nie sú potrebné žiadne predchádzajúce skúsenosti.\n\nÚčasť na workshope je spoplatnená sumou 10 € na osobu. Registrácia vopred je potrebná.",
       "image": "",
@@ -158,19 +153,93 @@
       "paid": true,
       "priceCents": 1000,
       "currency": "EUR",
-      "durationMinutes": null,
+      "durationMinutes": 60,
       "registrationOpen": false,
       "waitlistEnabled": true,
-      "sessions": []
+      "sessions": [
+        {
+          "id": "tsumami-zaiku-1215",
+          "start": "2026-11-07T12:15:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
     },
     {
       "id": "ayatori",
       "slug": "ayatori",
       "title": "Ayatori あやとり",
       "category": "Japonská kultúra",
-      "lecturerId": null,
+      "lecturerId": "hisayo-yasuda",
       "short": "Tradičná japonská hra so slučkou zo špagátu, pri ktorej sa pomocou prstov vytvárajú rôzne obrazce a figúry.",
-      "description": "Ayatori je tradičná japonská hra so slučkou zo špagátu alebo povrázku. Pomocou prstov sa z nej vytvárajú rôzne obrazce a figúry, ktoré sa môžu postupne meniť z jedného tvaru na ďalší.\n\nHra je v Japonsku známa najmä medzi deťmi, no vďaka množstvu rôznych postupov a úrovní náročnosti dokáže zabaviť aj dospelých. Rozvíja jemnú motoriku, sústredenie, pamäť a koordináciu rúk.\n\nNa workshope sa účastníci naučia základné postupy a vyskúšajú si vytvoriť niekoľko tradičných ayatori obrazcov.\n\nWorkshop je bezplatný.",
+      "description": "Ayatori je tradičná japonská hra so slučkou zo špagátu alebo povrázku. Pomocou prstov sa z nej vytvárajú rôzne obrazce a figúry, ktoré sa môžu postupne meniť z jedného tvaru na ďalší.\n\nHra je v Japonsku známa najmä medzi deťmi, no vďaka množstvu rôznych postupov a úrovní náročnosti dokáže zabaviť aj dospelých. Rozvíja jemnú motoriku, sústredenie, pamäť a koordináciu rúk.\n\nNa workshope sa účastníci naučia základné postupy a vyskúšajú si vytvoriť niekoľko tradičných ayatori obrazcov.\n\nWorkshop je bezplatný.\n\nKapacita workshopu je najviac 10 účastníkov.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "ayatori-1515",
+          "start": "2026-11-07T15:15:00+01:00",
+          "capacity": 10,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "kumihimo",
+      "slug": "kumihimo",
+      "title": "Kumihimo",
+      "category": "Japonská kultúra",
+      "lecturerId": null,
+      "short": "Workshop tradičného japonského pletenia šnúr.",
+      "description": "Workshop tradičného japonského pletenia šnúr pod vedením Mgr. Ivany Mičkalovej. Workshop je bezplatný. Kapacita a podmienky registrácie budú doplnené.",
+      "image": "",
+      "registrationRequired": null,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": false,
+      "sessions": [
+        {
+          "id": "kumihimo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "name": "Mgr. Ivana Mičkalová"
+        }
+      ]
+    },
+    {
+      "id": "cajova-degustacia",
+      "slug": "cajova-degustacia",
+      "title": "Čajová degustácia",
+      "category": "Japonská gastronómia",
+      "lecturerId": "martin-labudik",
+      "short": "Riadená degustácia japonských čajov.",
+      "description": "Riadená degustácia japonských čajov.",
       "image": "",
       "registrationRequired": true,
       "paid": false,

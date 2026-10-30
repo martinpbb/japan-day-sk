@@ -1,0 +1,254 @@
+{
+  "items": [
+    {
+      "id": "japoncina",
+      "slug": "japoncina",
+      "title": "Idioma japonés",
+      "category": "Idioma japonés",
+      "lecturerId": "hisayo-yasuda",
+      "short": "Taller dedicado a los fundamentos del idioma japonés.",
+      "description": "Taller dedicado a los fundamentos del idioma japonés.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 45,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "japoncina-1100",
+          "start": "2026-11-07T11:00:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "japoncina-1400",
+          "start": "2026-11-07T14:00:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "origami",
+      "slug": "origami",
+      "title": "Origami",
+      "category": "Cultura japonesa",
+      "lecturerId": null,
+      "short": "Arte tradicional japonés de plegado de papel en el que una simple hoja se transforma en animales, flores y otras formas decorativas.",
+      "description": "El origami es el arte tradicional japonés del plegado de papel. Con una sola hoja y sin cortar se pueden crear numerosas formas, desde animales y flores sencillos hasta objetos decorativos más complejos.\n\nEn el taller, los participantes conocerán los principios básicos del origami y crearán paso a paso varios modelos de papel con la ayuda de las instructoras.\n\nEl taller es apto para principiantes y niños. No se requiere experiencia previa.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "origami-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "asuka-emura"
+        },
+        {
+          "performerId": "hisayo-yasuda"
+        }
+      ]
+    },
+    {
+      "id": "shodo",
+      "slug": "shodo",
+      "title": "Shodō – caligrafía japonesa",
+      "category": "Cultura japonesa",
+      "lecturerId": "akiko-komura",
+      "short": "Taller práctico de caligrafía japonesa tradicional para conocer el pincel, la tinta y los principios básicos de escritura de caracteres japoneses.",
+      "description": "Shodō (書道), literalmente «el camino de la escritura», es el arte tradicional japonés de la caligrafía. Combina la precisión del movimiento y el trabajo con pincel, tinta y papel con la concentración y la estética de cada trazo.\n\nLos participantes conocerán las herramientas básicas de la caligrafía japonesa, la forma correcta de sostener el pincel y los principios fundamentales de los trazos.\n\nCon la guía de los instructores, practicarán caracteres japoneses sencillos y crearán su propia caligrafía.\n\nEl taller es apto para principiantes. No se requieren conocimientos previos de japonés ni de caligrafía.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "shodo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1210",
+          "start": "2026-11-07T12:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1340",
+          "start": "2026-11-07T14:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "akiko-komura"
+        },
+        {
+          "name": "Mgr. František Paulovič, PhD.",
+          "affiliation": "Universidad Comenius de Bratislava, Facultad de Filosofía y Letras, Departamento de Estudios de Asia Oriental – profesor asistente"
+        }
+      ]
+    },
+    {
+      "id": "tvorba-kombiku",
+      "slug": "tvorba-kombiku",
+      "title": "Botones con telas japonesas",
+      "category": "Cultura japonesa",
+      "lecturerId": "aiko-bosak",
+      "short": "Taller para crear botones decorativos originales con telas japonesas.",
+      "description": "Los participantes crearán su propio botón decorativo con telas de motivos japoneses bajo la guía de Aiko Bosák.\n\nAiko Bosák también tendrá kimonos a la venta durante el evento.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": null,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": []
+    },
+    {
+      "id": "tsumami-zaiku",
+      "slug": "tsumami-zaiku",
+      "title": "Tsumami zaiku つまみ細工",
+      "category": "Cultura japonesa",
+      "lecturerId": "hisayo-yasuda",
+      "short": "Técnica tradicional japonesa que pliega pequeños trozos de tela para formar flores y motivos decorativos. Los participantes crearán su propio adorno.",
+      "description": "Tsumami zaiku es una técnica tradicional japonesa para crear pequeños adornos con trozos de tela. Pequeños cuadrados de tela se pliegan y moldean cuidadosamente en pétalos, que luego forman flores y otros motivos decorativos.\n\nEn Japón, la técnica es especialmente conocida por los adornos kanzashi para el cabello, presentes por ejemplo en los peinados formales de maiko y geiko.\n\nEn el taller, los participantes probarán la técnica y crearán un pequeño adorno que podrán llevarse a casa.\n\nEl taller es apto para principiantes y no requiere experiencia previa.\n\nEl precio es de 10 € por persona. Es necesario registrarse con antelación.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": true,
+      "priceCents": 1000,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "tsumami-zaiku-1215",
+          "start": "2026-11-07T12:15:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "ayatori",
+      "slug": "ayatori",
+      "title": "Ayatori あやとり",
+      "category": "Cultura japonesa",
+      "lecturerId": "hisayo-yasuda",
+      "short": "Juego tradicional japonés con un lazo de cuerda en el que se crean diferentes figuras y patrones con los dedos.",
+      "description": "Ayatori es un juego tradicional japonés realizado con un lazo de cuerda. Con los dedos se crean diferentes patrones y figuras que pueden transformarse progresivamente de una forma a otra.\n\nEn Japón es especialmente conocido entre los niños, pero sus numerosos procedimientos y niveles de dificultad también entretienen a los adultos. Desarrolla la motricidad fina, la concentración, la memoria y la coordinación de las manos.\n\nLos participantes aprenderán las técnicas básicas y probarán varios patrones tradicionales de ayatori.\n\nEl taller es gratuito.\n\nCapacidad máxima: 10 participantes.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "ayatori-1515",
+          "start": "2026-11-07T15:15:00+01:00",
+          "capacity": 10,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "kumihimo",
+      "slug": "kumihimo",
+      "title": "Kumihimo",
+      "category": "Cultura japonesa",
+      "lecturerId": null,
+      "short": "Taller de trenzado tradicional japonés de cordones.",
+      "description": "Taller de trenzado tradicional japonés de cordones dirigido por Mgr. Ivana Mičkalová. El taller es gratuito. La capacidad y las condiciones de inscripción se añadirán más adelante.",
+      "image": "",
+      "registrationRequired": null,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": false,
+      "sessions": [
+        {
+          "id": "kumihimo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "name": "Mgr. Ivana Mičkalová"
+        }
+      ]
+    },
+    {
+      "id": "cajova-degustacia",
+      "slug": "cajova-degustacia",
+      "title": "Degustación de té japonés",
+      "category": "Gastronomía japonesa",
+      "lecturerId": "martin-labudik",
+      "short": "Degustación guiada de tés japoneses.",
+      "description": "Degustación guiada de tés japoneses.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": null,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": []
+    }
+  ]
+}

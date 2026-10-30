@@ -1,4 +1,5 @@
 export function workshopPrice(workshop) {
+  if (workshop.paid == null) return "Cena bude doplnená";
   if (!workshop.paid) return "Zadarmo";
   if (workshop.priceCents == null) return "Cena bude doplnená";
   return new Intl.NumberFormat("sk-SK", { style: "currency", currency: workshop.currency || "EUR" }).format(workshop.priceCents / 100);

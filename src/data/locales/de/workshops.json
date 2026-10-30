@@ -1,0 +1,254 @@
+{
+  "items": [
+    {
+      "id": "japoncina",
+      "slug": "japoncina",
+      "title": "Japanisch",
+      "category": "Japanische Sprache",
+      "lecturerId": "hisayo-yasuda",
+      "short": "Workshop zu den Grundlagen der japanischen Sprache.",
+      "description": "Workshop zu den Grundlagen der japanischen Sprache.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 45,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "japoncina-1100",
+          "start": "2026-11-07T11:00:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "japoncina-1400",
+          "start": "2026-11-07T14:00:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "origami",
+      "slug": "origami",
+      "title": "Origami",
+      "category": "Japanische Kultur",
+      "lecturerId": null,
+      "short": "Traditionelle japanische Papierfaltkunst, bei der aus einem einfachen Blatt Tiere, Blumen und andere dekorative Formen entstehen.",
+      "description": "Origami ist die traditionelle japanische Kunst des Papierfaltens. Aus einem einzigen Blatt Papier lassen sich ohne Schneiden zahlreiche Formen gestalten – von einfachen Tieren und Blumen bis zu komplexeren Dekorationsobjekten.\n\nIm Workshop lernen die Teilnehmenden die Grundprinzipien des Origami kennen und gestalten unter Anleitung Schritt für Schritt mehrere eigene Papiermodelle.\n\nDer Workshop ist auch für Anfänger und Kinder geeignet. Vorkenntnisse sind nicht erforderlich.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "origami-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "asuka-emura"
+        },
+        {
+          "performerId": "hisayo-yasuda"
+        }
+      ]
+    },
+    {
+      "id": "shodo",
+      "slug": "shodo",
+      "title": "Shodō – japanische Kalligrafie",
+      "category": "Japanische Kultur",
+      "lecturerId": "akiko-komura",
+      "short": "Praktischer Workshop zur traditionellen japanischen Kalligrafie mit Einführung in Pinsel, Tusche und die Grundprinzipien japanischer Schriftzeichen.",
+      "description": "Shodō (書道), wörtlich „Weg der Schrift“, ist die traditionelle japanische Kunst der Kalligrafie. Sie verbindet präzise Bewegung und die Arbeit mit Pinsel, Tusche und Papier mit Konzentration und der Ästhetik jedes einzelnen Strichs.\n\nDie Teilnehmenden lernen die grundlegenden Werkzeuge der japanischen Kalligrafie, die richtige Pinselhaltung und die wichtigsten Prinzipien der Strichführung kennen.\n\nUnter Anleitung schreiben sie anschließend einfache japanische Zeichen und gestalten ihre eigene Kalligrafie.\n\nDer Workshop ist auch für Anfänger geeignet. Japanisch- oder Kalligrafiekenntnisse sind nicht erforderlich.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "shodo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1210",
+          "start": "2026-11-07T12:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1340",
+          "start": "2026-11-07T14:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "akiko-komura"
+        },
+        {
+          "name": "Mgr. František Paulovič, PhD.",
+          "affiliation": "Comenius-Universität Bratislava, Philosophische Fakultät, Institut für Ostasienstudien – Assistenzprofessor"
+        }
+      ]
+    },
+    {
+      "id": "tvorba-kombiku",
+      "slug": "tvorba-kombiku",
+      "title": "Knöpfe aus japanischen Stoffen",
+      "category": "Japanische Kultur",
+      "lecturerId": "aiko-bosak",
+      "short": "Workshop zur Herstellung origineller Knöpfe aus japanischen Stoffen.",
+      "description": "Unter Anleitung von Aiko Bosák gestalten die Teilnehmenden einen eigenen dekorativen Knopf aus Stoffen mit japanischen Mustern.\n\nAiko Bosák wird bei der Veranstaltung auch Kimonos zum Verkauf anbieten.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": null,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": []
+    },
+    {
+      "id": "tsumami-zaiku",
+      "slug": "tsumami-zaiku",
+      "title": "Tsumami zaiku つまみ細工",
+      "category": "Japanische Kultur",
+      "lecturerId": "hisayo-yasuda",
+      "short": "Traditionelle japanische Technik, bei der kleine Stoffstücke zu Blumen und dekorativen Motiven gefaltet werden. Die Teilnehmenden gestalten ihren eigenen Schmuck.",
+      "description": "Tsumami zaiku ist eine traditionelle japanische Technik zur Herstellung kleiner Verzierungen aus Stoffstücken. Kleine Stoffquadrate werden sorgfältig gefaltet und zu einzelnen Blütenblättern geformt, aus denen anschließend Blumen und weitere dekorative Motive entstehen.\n\nBekannt wurde die Technik in Japan besonders durch Kanzashi-Haarschmuck, wie er etwa bei festlichen Frisuren von Maiko und Geiko verwendet wird.\n\nIm Workshop probieren die Teilnehmenden die Technik selbst aus und gestalten eine kleine Verzierung zum Mitnehmen.\n\nDer Workshop ist auch für Anfänger geeignet; Vorkenntnisse sind nicht erforderlich.\n\nDie Teilnahme kostet 10 € pro Person. Eine Anmeldung im Voraus ist erforderlich.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": true,
+      "priceCents": 1000,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "tsumami-zaiku-1215",
+          "start": "2026-11-07T12:15:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "ayatori",
+      "slug": "ayatori",
+      "title": "Ayatori あやとり",
+      "category": "Japanische Kultur",
+      "lecturerId": "hisayo-yasuda",
+      "short": "Traditionelles japanisches Fadenspiel, bei dem mit den Fingern verschiedene Muster und Figuren entstehen.",
+      "description": "Ayatori ist ein traditionelles japanisches Spiel mit einer geschlossenen Schnur. Mit den Fingern entstehen unterschiedliche Muster und Figuren, die sich Schritt für Schritt in neue Formen verwandeln können.\n\nIn Japan ist das Spiel besonders bei Kindern bekannt, durch die vielen Techniken und Schwierigkeitsstufen macht es aber auch Erwachsenen Spaß. Es fördert Feinmotorik, Konzentration, Gedächtnis und Handkoordination.\n\nIm Workshop lernen die Teilnehmenden grundlegende Techniken und probieren mehrere traditionelle Ayatori-Figuren aus.\n\nDer Workshop ist kostenlos.\n\nMaximal 10 Teilnehmende.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "ayatori-1515",
+          "start": "2026-11-07T15:15:00+01:00",
+          "capacity": 10,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "kumihimo",
+      "slug": "kumihimo",
+      "title": "Kumihimo",
+      "category": "Japanische Kultur",
+      "lecturerId": null,
+      "short": "Workshop zum traditionellen japanischen Flechten von Schnüren.",
+      "description": "Workshop zum traditionellen japanischen Flechten von Schnüren unter der Leitung von Mgr. Ivana Mičkalová. Der Workshop ist kostenlos. Kapazität und Anmeldebedingungen werden ergänzt.",
+      "image": "",
+      "registrationRequired": null,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": false,
+      "sessions": [
+        {
+          "id": "kumihimo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "name": "Mgr. Ivana Mičkalová"
+        }
+      ]
+    },
+    {
+      "id": "cajova-degustacia",
+      "slug": "cajova-degustacia",
+      "title": "Japanische Teeverkostung",
+      "category": "Japanische Gastronomie",
+      "lecturerId": "martin-labudik",
+      "short": "Geführte Verkostung japanischer Tees.",
+      "description": "Geführte Verkostung japanischer Tees.",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": null,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": []
+    }
+  ]
+}

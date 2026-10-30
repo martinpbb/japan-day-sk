@@ -1,0 +1,230 @@
+{
+  "brand": {
+    "name": "日本茶と文化の日",
+    "shortName": "Japan Day Považská Bystrica",
+    "socialTag": "japandaypb",
+    "descriptor": "日本文化・食文化・伝統を楽しむフェスティバル",
+    "japanese": "日本文化の日"
+  },
+  "event": {
+    "date": "7. 11. 2026",
+    "dateISO": "2026-11-07",
+    "openingTime": "",
+    "closingTime": "",
+    "venue": "文化会館",
+    "street": "",
+    "postalCode": "",
+    "city": "Považská Bystrica",
+    "area": "Považská Bystrica",
+    "region": "トレンチーン県",
+    "country": "SK",
+    "locationLabel": "Považská Bystrica",
+    "admissionPrice": 0,
+    "currency": "EUR",
+    "admission": "入場無料",
+    "patronage": [
+      "ポヴァジュスカー・ビストリツァ市長後援"
+    ]
+  },
+  "hero": {
+    "kicker": "7. 11. 2026 • Považská Bystrica",
+    "title": "日本茶と文化の日",
+    "descriptor": "日本文化・食文化・伝統を楽しむフェスティバル",
+    "subtitle": "第3回となる今回は、日本料理、日本茶、伝統芸術、侍文化、武道、講演、展示などを通して、日本をより身近に感じていただけます。",
+    "ctaPrimary": "プログラム準備中",
+    "ctaSecondary": "開催情報",
+    "shortName": "Japan Day Považská Bystrica 2026"
+  },
+  "about": {
+    "kicker": "イベントについて",
+    "title": "ポヴァジュスカー・ビストリツァで日本を一日体験",
+    "paragraphs": [
+      "「日本茶と文化の日」は2026年、3回目の開催としてポヴァジュスカー・ビストリツァに戻ってきます。日本料理、日本茶、伝統芸術、侍文化、武道、講演、展示を一つのイベントで紹介します。",
+      "イベントは11月7日、ポヴァジュスカー・ビストリツァの文化会館で開催されます。大ホールと人形劇場を使い、舞台、紹介展示、日本製品の販売、試食・試飲などを行います。",
+      "一日を通して、日本に長年携わる人々と出会い、本格的な料理やお茶を味わい、日本文化を間近で体験できます。"
+    ]
+  },
+  "video": {
+    "kicker": "雰囲気",
+    "title": "日本茶と文化の日",
+    "youtubeId": "",
+    "caption": "イベント映像は後日追加します。"
+  },
+  "practical": {
+    "kicker": "開催情報",
+    "title": "日時・会場・入場料",
+    "items": [
+      {
+        "label": "日付",
+        "value": "7. 11. 2026"
+      },
+      {
+        "label": "開場",
+        "value": "時間は後日発表"
+      },
+      {
+        "label": "会場",
+        "value": "文化会館、ポヴァジュスカー・ビストリツァ"
+      },
+      {
+        "label": "入場",
+        "value": "無料"
+      }
+    ],
+    "transport": "文化会館はポヴァジュスカー・ビストリツァ市内にあります。交通・駐車場の詳細は開催前にお知らせします。",
+    "accessibility": "バリアフリーアクセスと各入口の情報は、運営詳細の確定後に掲載します。",
+    "faq": [
+      {
+        "question": "「日本茶と文化の日」はいつ開催されますか？",
+        "answer": "2026年11月7日（土）です。開場時間と詳細スケジュールは後日発表します。"
+      },
+      {
+        "question": "会場はどこですか？",
+        "answer": "ポヴァジュスカー・ビストリツァの文化会館です。大ホールと人形劇場を使用します。"
+      },
+      {
+        "question": "入場料はいくらですか？",
+        "answer": "入場は無料です。"
+      },
+      {
+        "question": "詳細プログラムはいつ公開されますか？",
+        "answer": "現在準備中です。出演者と詳細時間を順次発表します。"
+      }
+    ]
+  },
+  "contact": {
+    "intro": "プログラム、来場、協賛、出展についてのお問い合わせは、問い合わせフォームからご連絡ください。",
+    "email": "",
+    "phone": ""
+  },
+  "contactForm": {
+    "kicker": "お問い合わせ",
+    "title": "ほかに質問がありますか？",
+    "intro": "よくある質問で解決しない場合は、メッセージをお送りください。折り返しご連絡します。",
+    "name": {
+      "label": "お名前",
+      "placeholder": "お名前"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "email@example.com"
+    },
+    "subject": {
+      "label": "件名",
+      "placeholder": "件名"
+    },
+    "message": {
+      "label": "メッセージ",
+      "placeholder": "メッセージ"
+    },
+    "submit": "送信",
+    "sending": "送信中…",
+    "success": "ありがとうございます。メッセージを送信しました。",
+    "error": "送信できませんでした。もう一度お試しください。",
+    "privacy": "メールアドレスはお問い合わせへの返信のみに使用します。"
+  },
+  "navigation": [
+    {
+      "label": "イベントについて",
+      "path": "/o-podujati"
+    },
+    {
+      "label": "プログラム",
+      "path": "/program"
+    },
+    {
+      "label": "出演者",
+      "path": "/ucinkujuci"
+    },
+    {
+      "label": "ワークショップ",
+      "path": "/workshopy"
+    },
+    {
+      "label": "日本料理",
+      "path": "/gastronomia"
+    },
+    {
+      "label": "出展者",
+      "path": "/vystavovatelia"
+    },
+    {
+      "label": "ギャラリー",
+      "path": "/galeria"
+    },
+    {
+      "label": "お問い合わせ",
+      "path": "/kontakt"
+    }
+  ],
+  "ui": {
+    "organizersKicker": "主催・パートナー",
+    "organizersTitle": "日本の日を支える人々",
+    "openingFrom": "{time} 開場",
+    "programmeUntil": "{time} まで",
+    "breadcrumbLabel": "パンくずナビゲーション",
+    "homeLabel": "日本茶と文化の日 — ホーム",
+    "mainNavigation": "メインナビゲーション",
+    "openMenu": "メニューを開く",
+    "language": "言語",
+    "importantLinks": "重要なリンク",
+    "legalInformation": "法的情報",
+    "socialLinks": "ウェブ / SNS",
+    "exhibitorListPending": "出展者一覧は準備中です。",
+    "previousYear": "過去の開催",
+    "galleryTitle": "日本の日の雰囲気",
+    "all": "すべて",
+    "showPhoto": "写真を表示: {alt}",
+    "closePhoto": "写真を閉じる",
+    "photoPending": "写真は後日追加します",
+    "heroCardLabel": "日本茶と文化の日 2026",
+    "cultureGastronomyTradition": "文化 • 食 • 伝統",
+    "organizers": "主催",
+    "partners": "パートナー",
+    "mapTitle": "地図",
+    "openMap": "Google マップで開く",
+    "patronage": "後援",
+    "allPerformers": "すべての出演者",
+    "inProgramme": "プログラム",
+    "inProgrammeHeading": "プログラム",
+    "performersDetail": "{name} の詳細",
+    "showDetail": "詳細を見る",
+    "transportAndParking": "交通・駐車場",
+    "accessibility": "バリアフリー",
+    "faq": "よくある質問",
+    "moreAbout": "{name} について",
+    "playVideo": "動画を再生",
+    "playVideoLabel": "日本茶と文化の日の動画を再生",
+    "previousYearVideoAlt": "過去の開催映像",
+    "programPending": "詳細プログラムを準備中です。時間と追加出演者は順次発表します。",
+    "galleryPending": "過去の写真は近日追加します。",
+    "galleryCategories": {
+      "Program": "プログラム",
+      "Čaj": "お茶",
+      "Gastronómia": "食",
+      "Atmosféra": "雰囲気",
+      "Stánky": "ブース"
+    },
+    "cookieConsent": {
+      "title": "アクセス解析Cookieを使用しています",
+      "text": "Google Analyticsを使用し、日本の日ウェブサイトの利用状況を把握しています。このデータはサイト改善のために使用します。",
+      "necessary": "必須のみ",
+      "analytics": "アクセス解析を許可",
+      "settings": "Cookie設定"
+    },
+    "venue": {
+      "heading": "会場住所",
+      "text": "イベントはポヴァジュスカー・ビストリツァの文化会館で開催されます。",
+      "addressLines": [
+        "文化会館",
+        "Považská Bystrica"
+      ],
+      "meta": "トレンチーン県 • スロバキア",
+      "openMap": "Google マップで開く"
+    }
+  },
+  "footer": {
+    "note": "プログラムは変更になる場合があります。",
+    "legalLinks": []
+  }
+}

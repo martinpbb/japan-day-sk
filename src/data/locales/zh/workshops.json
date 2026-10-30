@@ -1,0 +1,254 @@
+{
+  "items": [
+    {
+      "id": "japoncina",
+      "slug": "japoncina",
+      "title": "日语",
+      "category": "日语",
+      "lecturerId": "hisayo-yasuda",
+      "short": "介绍日语基础的工作坊。",
+      "description": "介绍日语基础的工作坊。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 45,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "japoncina-1100",
+          "start": "2026-11-07T11:00:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "japoncina-1400",
+          "start": "2026-11-07T14:00:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "origami",
+      "slug": "origami",
+      "title": "折纸",
+      "category": "日本文化",
+      "lecturerId": null,
+      "short": "日本传统折纸艺术，用一张纸折出动物、花朵和其他装饰造型。",
+      "description": "折纸是日本传统的纸艺。一张纸无需剪裁，就能折出从简单的动物、花朵到更复杂的装饰作品。\n\n工作坊中，参与者将了解折纸的基本原理，并在讲师指导下逐步完成几个自己的纸艺模型。\n\n适合零基础参与者和儿童，无需经验。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "origami-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "asuka-emura"
+        },
+        {
+          "performerId": "hisayo-yasuda"
+        }
+      ]
+    },
+    {
+      "id": "shodo",
+      "slug": "shodo",
+      "title": "书道 – 日本书法",
+      "category": "日本文化",
+      "lecturerId": "akiko-komura",
+      "short": "传统日本书法实践工作坊，介绍毛笔、墨以及书写日文汉字的基本笔法。",
+      "description": "书道（書道），字面意思是“书写之道”，是日本传统书法艺术。它将精确的动作、毛笔、墨和纸的使用，与专注和每一笔的美感结合在一起。\n\n参与者将了解日本书法的基本工具、正确握笔方法以及基本运笔原则。\n\n在讲师指导下，大家将尝试书写简单的日文字符并完成自己的书法作品。\n\n适合初学者，无需日语或书法基础。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "shodo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1210",
+          "start": "2026-11-07T12:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1340",
+          "start": "2026-11-07T14:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "akiko-komura"
+        },
+        {
+          "name": "Mgr. František Paulovič, PhD.",
+          "affiliation": "布拉迪斯拉发夸美纽斯大学文学院东亚研究系 – 助理教授"
+        }
+      ]
+    },
+    {
+      "id": "tvorba-kombiku",
+      "slug": "tvorba-kombiku",
+      "title": "日本布艺纽扣制作",
+      "category": "日本文化",
+      "lecturerId": "aiko-bosak",
+      "short": "使用日本花纹布料制作原创装饰纽扣的工作坊。",
+      "description": "在Aiko Bosák的指导下，参与者将使用带有日本图案的布料制作自己的装饰纽扣。\n\n活动现场Aiko Bosák也会提供和服销售。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": null,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": []
+    },
+    {
+      "id": "tsumami-zaiku",
+      "slug": "tsumami-zaiku",
+      "title": "摘细工 つまみ細工",
+      "category": "日本文化",
+      "lecturerId": "hisayo-yasuda",
+      "short": "将小块布料折叠成花朵和装饰图案的日本传统技法。参与者将制作自己的饰品。",
+      "description": "摘细工（つまみ細工）是一种用小块布料制作精细饰品的日本传统技法。小方块布料被仔细折叠并塑造成花瓣，再组合成花朵和其他装饰图案。\n\n在日本，这项技法尤其以发饰“簪（kanzashi）”闻名，例如舞妓和艺妓的正式发型中常见的装饰。\n\n工作坊中，参与者将亲自体验技法，制作一件可以带回家的小饰品。\n\n适合初学者，无需任何经验。\n\n费用为每人10欧元，需要提前报名。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": true,
+      "priceCents": 1000,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "tsumami-zaiku-1215",
+          "start": "2026-11-07T12:15:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "ayatori",
+      "slug": "ayatori",
+      "title": "翻花绳 あやとり",
+      "category": "日本文化",
+      "lecturerId": "hisayo-yasuda",
+      "short": "用一圈绳子在手指间变换出各种图案和造型的日本传统游戏。",
+      "description": "Ayatori（あやとり）是使用一圈绳子或细线进行的日本传统游戏。通过手指操作，可以形成各种图案和造型，并逐步从一种形状变化为另一种形状。\n\n在日本尤其为儿童熟知，但丰富的技巧和难度也很适合成人。它有助于训练精细动作、专注力、记忆力和手部协调。\n\n参与者将学习基本方法，并尝试几个传统的ayatori造型。\n\n工作坊免费。\n\n最多10人参加。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "ayatori-1515",
+          "start": "2026-11-07T15:15:00+01:00",
+          "capacity": 10,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "kumihimo",
+      "slug": "kumihimo",
+      "title": "组纽",
+      "category": "日本文化",
+      "lecturerId": null,
+      "short": "体验日本传统编绳技艺的工作坊。",
+      "description": "由Mgr. Ivana Mičkalová带领的日本传统编绳工作坊。免费参加。人数和报名条件稍后公布。",
+      "image": "",
+      "registrationRequired": null,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": false,
+      "sessions": [
+        {
+          "id": "kumihimo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "name": "Mgr. Ivana Mičkalová"
+        }
+      ]
+    },
+    {
+      "id": "cajova-degustacia",
+      "slug": "cajova-degustacia",
+      "title": "日本茶品鉴",
+      "category": "日本美食",
+      "lecturerId": "martin-labudik",
+      "short": "由讲解引导的日本茶品鉴。",
+      "description": "由讲解引导的日本茶品鉴。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": null,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": []
+    }
+  ]
+}

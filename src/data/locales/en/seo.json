@@ -64,6 +64,14 @@
         "breadcrumb"
       ]
     },
+    "/workshopy": {
+      "title": "Workshops | Japanese Tea and Culture Day",
+      "description": "Explore workshops at the Japanese Tea and Culture Day in Považská Bystrica.",
+      "h1": "Workshops",
+      "intro": "Discover Japanese culture through hands-on workshops.",
+      "breadcrumb": "Workshops",
+      "schema": ["breadcrumb"]
+    },
     "/pre-deti": {
       "title": "For children and families | Japan Day Považská Bystrica",
       "description": "The family programme is being prepared.",

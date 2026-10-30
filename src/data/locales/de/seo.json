@@ -125,6 +125,16 @@
       "schema": [
         "breadcrumb"
       ]
+    },
+    "/workshopy": {
+      "title": "Workshops | Japanischer Tag des Tees und der Kultur",
+      "description": "Entdecken Sie Workshops beim Japanischen Tag des Tees und der Kultur in Považská Bystrica.",
+      "h1": "Workshops",
+      "intro": "Entdecken Sie die japanische Kultur durch praktische Workshops.",
+      "breadcrumb": "Workshops",
+      "schema": [
+        "breadcrumb"
+      ]
     }
   }
 }

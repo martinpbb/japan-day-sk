@@ -125,6 +125,16 @@
       "schema": [
         "breadcrumb"
       ]
+    },
+    "/workshopy": {
+      "title": "工作坊 | 日本茶与文化日",
+      "description": "了解波瓦日斯卡比斯特里察日本茶与文化日的工作坊。",
+      "h1": "工作坊",
+      "intro": "通过实践工作坊体验日本文化。",
+      "breadcrumb": "工作坊",
+      "schema": [
+        "breadcrumb"
+      ]
     }
   }
 }

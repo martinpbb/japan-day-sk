@@ -125,6 +125,16 @@
       "schema": [
         "breadcrumb"
       ]
+    },
+    "/workshopy": {
+      "title": "Workshop | Ngày Trà và Văn hóa Nhật Bản",
+      "description": "Khám phá các workshop tại Ngày Trà và Văn hóa Nhật Bản ở Považská Bystrica.",
+      "h1": "Workshop",
+      "intro": "Khám phá văn hóa Nhật Bản qua các workshop thực hành.",
+      "breadcrumb": "Workshop",
+      "schema": [
+        "breadcrumb"
+      ]
     }
   }
 }

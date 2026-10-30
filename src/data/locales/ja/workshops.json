@@ -1,0 +1,254 @@
+{
+  "items": [
+    {
+      "id": "japoncina",
+      "slug": "japoncina",
+      "title": "日本語",
+      "category": "日本語",
+      "lecturerId": "hisayo-yasuda",
+      "short": "日本語の基礎を学ぶワークショップです。",
+      "description": "日本語の基礎を学ぶワークショップです。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 45,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "japoncina-1100",
+          "start": "2026-11-07T11:00:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "japoncina-1400",
+          "start": "2026-11-07T14:00:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "origami",
+      "slug": "origami",
+      "title": "折り紙",
+      "category": "日本文化",
+      "lecturerId": null,
+      "short": "一枚の紙から動物や花などさまざまな形を作る、日本の伝統的な折り紙を体験します。",
+      "description": "折り紙は、日本の伝統的な紙の造形文化です。一枚の紙を切らずに折ることで、動物や花、より複雑な装飾作品までさまざまな形を作ることができます。\n\nワークショップでは、折り紙の基本を学び、講師の指導のもとでいくつかの作品を一つずつ作ります。\n\n初心者や子どもも参加できます。経験は必要ありません。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "origami-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "asuka-emura"
+        },
+        {
+          "performerId": "hisayo-yasuda"
+        }
+      ]
+    },
+    {
+      "id": "shodo",
+      "slug": "shodo",
+      "title": "書道 – 日本の書道",
+      "category": "日本文化",
+      "lecturerId": "akiko-komura",
+      "short": "筆、墨、日本文字の基本的な運筆を体験する実践的な書道ワークショップです。",
+      "description": "書道（Shodō）は、文字通り「書の道」を意味する日本の伝統芸術です。筆・墨・紙を使い、正確な動き、集中力、一画一画の美しさを大切にします。\n\nワークショップでは、書道で使う基本的な道具、正しい筆の持ち方、運筆の基礎を学びます。\n\n講師の指導のもと、簡単な日本語の文字を書き、自分の作品を仕上げます。\n\n初心者歓迎です。日本語や書道の経験は必要ありません。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "shodo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1210",
+          "start": "2026-11-07T12:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1340",
+          "start": "2026-11-07T14:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "akiko-komura"
+        },
+        {
+          "name": "Mgr. František Paulovič, PhD.",
+          "affiliation": "コメニウス大学ブラチスラヴァ校 哲学部 東アジア研究科 – 助教"
+        }
+      ]
+    },
+    {
+      "id": "tvorba-kombiku",
+      "slug": "tvorba-kombiku",
+      "title": "日本の布で作るくるみボタン",
+      "category": "日本文化",
+      "lecturerId": "aiko-bosak",
+      "short": "日本柄の布を使ってオリジナルのくるみボタンを作るワークショップです。",
+      "description": "Aiko Bosákの指導のもと、日本柄の布を使ってオリジナルの飾りボタンを作ります。\n\n会場ではAiko Bosákによる着物の販売も予定しています。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": null,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": []
+    },
+    {
+      "id": "tsumami-zaiku",
+      "slug": "tsumami-zaiku",
+      "title": "つまみ細工",
+      "category": "日本文化",
+      "lecturerId": "hisayo-yasuda",
+      "short": "小さな布を折って花や装飾モチーフを作る日本の伝統技法です。自分だけの飾りを作ります。",
+      "description": "つまみ細工は、小さな布片を使って飾りを作る日本の伝統技法です。小さな正方形の布を丁寧に折り、花びらの形に整え、花やさまざまな装飾モチーフを作ります。\n\n日本では、舞妓や芸妓の晴れ着の髪飾りなどに使われる「かんざし」で特によく知られています。\n\nワークショップでは実際に技法を体験し、持ち帰れる小さな飾りを作ります。\n\n初心者でも参加できます。経験は必要ありません。\n\n参加費は1名10ユーロです。事前登録が必要です。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": true,
+      "priceCents": 1000,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "tsumami-zaiku-1215",
+          "start": "2026-11-07T12:15:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "ayatori",
+      "slug": "ayatori",
+      "title": "あやとり",
+      "category": "日本文化",
+      "lecturerId": "hisayo-yasuda",
+      "short": "輪にしたひもを指にかけ、さまざまな形や模様を作る日本の伝統的な遊びです。",
+      "description": "あやとりは、輪にしたひもを指にかけてさまざまな形や模様を作る日本の伝統的な遊びです。形を次々と変化させて楽しむこともできます。\n\n日本では子どもの遊びとしてよく知られていますが、技法や難易度が豊富なため大人も楽しめます。指先の器用さ、集中力、記憶力、手の協調性を養います。\n\nワークショップでは基本的な方法を学び、いくつかの伝統的なあやとりの形に挑戦します。\n\n参加無料です。\n\n定員は10名です。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 60,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": [
+        {
+          "id": "ayatori-1515",
+          "start": "2026-11-07T15:15:00+01:00",
+          "capacity": 10,
+          "location": null
+        }
+      ]
+    },
+    {
+      "id": "kumihimo",
+      "slug": "kumihimo",
+      "title": "組紐",
+      "category": "日本文化",
+      "lecturerId": null,
+      "short": "日本の伝統的な組紐づくりを体験するワークショップです。",
+      "description": "Mgr. Ivana Mičkalováによる、日本の伝統的な組紐づくりのワークショップです。参加無料。定員と登録方法は後日追加します。",
+      "image": "",
+      "registrationRequired": null,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": 90,
+      "registrationOpen": false,
+      "waitlistEnabled": false,
+      "sessions": [
+        {
+          "id": "kumihimo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "name": "Mgr. Ivana Mičkalová"
+        }
+      ]
+    },
+    {
+      "id": "cajova-degustacia",
+      "slug": "cajova-degustacia",
+      "title": "日本茶テイスティング",
+      "category": "日本の食文化",
+      "lecturerId": "martin-labudik",
+      "short": "日本茶のガイド付きテイスティングです。",
+      "description": "日本茶のガイド付きテイスティングです。",
+      "image": "",
+      "registrationRequired": true,
+      "paid": false,
+      "priceCents": 0,
+      "currency": "EUR",
+      "durationMinutes": null,
+      "registrationOpen": false,
+      "waitlistEnabled": true,
+      "sessions": []
+    }
+  ]
+}

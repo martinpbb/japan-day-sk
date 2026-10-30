@@ -11,17 +11,17 @@
     "dateISO": "2026-11-07",
     "openingTime": "",
     "closingTime": "",
-    "venue": "Dom kultúry",
+    "venue": "Casa de la Cultura",
     "street": "",
     "postalCode": "",
     "city": "Považská Bystrica",
     "area": "Považská Bystrica",
-    "region": "Trenčiansky kraj",
+    "region": "Región de Trenčín",
     "country": "SK",
     "locationLabel": "Považská Bystrica",
     "admissionPrice": 0,
     "currency": "EUR",
-    "admission": "gratis",
+    "admission": "entrada gratuita",
     "patronage": [
       "Bajo el patrocinio del alcalde de Považská Bystrica"
     ]
@@ -30,8 +30,8 @@
     "kicker": "7. 11. 2026 • Považská Bystrica",
     "title": "Día Japonés del Té y la Cultura",
     "descriptor": "Festival de cultura, gastronomía y tradiciones japonesas",
-    "subtitle": "La 3.ª edición traerá gastronomía japonesa, té, artes tradicionales, cultura samurái, artes marciales, charlas, exposiciones y una oportunidad para conocer Japón más de cerca.",
-    "ctaPrimary": "Programa próximamente",
+    "subtitle": "La 3.ª edición del evento traerá gastronomía japonesa, té, artes tradicionales, samuráis, artes marciales, charlas, exposiciones y la oportunidad de conocer Japón más de cerca.",
+    "ctaPrimary": "Programa en preparación",
     "ctaSecondary": "Información práctica",
     "shortName": "Japan Day Považská Bystrica 2026"
   },
@@ -39,16 +39,16 @@
     "kicker": "Sobre el evento",
     "title": "Japón en un solo lugar en Považská Bystrica",
     "paragraphs": [
-      "El Día Japonés del Té y la Cultura vuelve a Považská Bystrica por tercera vez en 2026, reuniendo gastronomía japonesa, té, artes tradicionales, cultura samurái, artes marciales, charlas y exposiciones.",
-      "El evento tendrá lugar el 7 de noviembre en Dom kultúry, Považská Bystrica. Utilizaremos el gran auditorio y los espacios del teatro de marionetas para actuaciones, presentaciones, productos japoneses y degustaciones.",
-      "Durante todo el día podrás conocer a personas dedicadas a Japón, probar comida y té auténticos y acercarte a la cultura japonesa."
+      "El Día Japonés del Té y la Cultura vuelve a Považská Bystrica por tercera vez en 2026. El evento reúne gastronomía japonesa, té, artes tradicionales, cultura samurái, artes marciales, charlas y exposiciones.",
+      "El evento tendrá lugar el 7 de noviembre en la Casa de la Cultura de Považská Bystrica. Utilizaremos la sala principal y el teatro de marionetas para actuaciones, presentaciones, venta de productos japoneses y degustaciones.",
+      "Durante todo el día podrás conocer a personas dedicadas a Japón desde hace años, probar gastronomía y tés auténticos y descubrir de cerca la cultura japonesa."
     ]
   },
   "video": {
     "kicker": "Ambiente",
     "title": "Día Japonés del Té y la Cultura",
     "youtubeId": "",
-    "caption": "Añadiremos un vídeo del evento más adelante."
+    "caption": "Añadiremos el vídeo del evento más adelante."
   },
   "practical": {
     "kicker": "Información práctica",
@@ -56,7 +56,7 @@
     "items": [
       {
         "label": "Fecha",
-        "value": "7 de noviembre de 2026"
+        "value": "7. 11. 2026"
       },
       {
         "label": "Apertura",
@@ -64,49 +64,49 @@
       },
       {
         "label": "Lugar",
-        "value": "Dom kultúry, Považská Bystrica"
+        "value": "Casa de la Cultura, Považská Bystrica"
       },
       {
         "label": "Entrada",
-        "value": "gratis"
+        "value": "gratuita"
       }
     ],
-    "transport": "Dom kultúry está en Považská Bystrica. Añadiremos información detallada sobre transporte y aparcamiento antes del evento.",
-    "accessibility": "La información de accesibilidad se añadirá cuando se confirmen los detalles organizativos.",
+    "transport": "La Casa de la Cultura está situada en Považská Bystrica. Añadiremos información detallada sobre transporte y aparcamiento antes del evento.",
+    "accessibility": "La información sobre accesibilidad y entradas se añadirá cuando se confirmen los detalles organizativos.",
     "faq": [
       {
-        "question": "¿Cuándo se celebra?",
-        "answer": "El sábado 7 de noviembre de 2026. La hora de apertura y el horario detallado se publicarán más adelante."
+        "question": "¿Cuándo se celebra el Día Japonés del Té y la Cultura?",
+        "answer": "El sábado 7 de noviembre de 2026. La hora exacta de apertura y el programa detallado se anunciarán más adelante."
       },
       {
-        "question": "¿Dónde se celebra?",
-        "answer": "En Dom kultúry, Považská Bystrica, utilizando el gran auditorio y los espacios del teatro de marionetas."
+        "question": "¿Dónde se celebra el evento?",
+        "answer": "En la Casa de la Cultura de Považská Bystrica. El programa utilizará la sala principal y el teatro de marionetas."
       },
       {
         "question": "¿Cuánto cuesta la entrada?",
-        "answer": "La entrada es gratuita."
+        "answer": "La entrada al evento es gratuita."
       },
       {
-        "question": "¿Cuándo se publicará el programa?",
-        "answer": "El programa aún se está preparando. Los invitados y los horarios se anunciarán progresivamente."
+        "question": "¿Cuándo se publicará el programa detallado?",
+        "answer": "Seguimos preparando el programa. Publicaremos progresivamente los invitados y los horarios exactos."
       }
     ]
   },
   "contact": {
-    "intro": "Para preguntas sobre el programa, la visita, colaboraciones o expositores, escríbenos mediante el formulario.",
+    "intro": "Para preguntas sobre el programa, la visita, colaboraciones o participación como expositor, escríbenos mediante el formulario de contacto.",
     "email": "",
     "phone": ""
   },
   "contactForm": {
-    "kicker": "KONTAKT",
+    "kicker": "CONTACTO",
     "title": "¿Tienes otra pregunta?",
-    "intro": "¿No encontraste la respuesta? Escríbenos.",
+    "intro": "¿No encontraste la respuesta en las preguntas frecuentes? Escríbenos y te responderemos.",
     "name": {
       "label": "Nombre",
       "placeholder": "Nombre"
     },
     "email": {
-      "label": "Correo electrónico",
+      "label": "E-mail",
       "placeholder": "email@example.com"
     },
     "subject": {
@@ -121,7 +121,7 @@
     "sending": "Enviando…",
     "success": "Gracias. Tu mensaje ha sido enviado.",
     "error": "No se pudo enviar el mensaje. Inténtalo de nuevo.",
-    "privacy": "Usaremos tu correo electrónico solo para responder a tu consulta."
+    "privacy": "Usaremos tu dirección de correo electrónico únicamente para responder a tu pregunta."
   },
   "navigation": [
     {
@@ -135,6 +135,10 @@
     {
       "label": "Invitados",
       "path": "/ucinkujuci"
+    },
+    {
+      "label": "Talleres",
+      "path": "/workshopy"
     },
     {
       "label": "Gastronomía",
@@ -155,9 +159,9 @@
   ],
   "ui": {
     "organizersKicker": "ORGANIZADORES Y SOCIOS",
-    "organizersTitle": "Quién está detrás de Japan Day",
+    "organizersTitle": "Quién está detrás del Día Japonés",
     "openingFrom": "Abierto desde las {time}",
-    "programmeUntil": "hasta {time}",
+    "programmeUntil": "hasta las {time}",
     "breadcrumbLabel": "Navegación de migas",
     "homeLabel": "Día Japonés del Té y la Cultura — inicio",
     "mainNavigation": "Navegación principal",
@@ -166,9 +170,9 @@
     "importantLinks": "Enlaces importantes",
     "legalInformation": "Información legal",
     "socialLinks": "Web / redes sociales",
-    "exhibitorListPending": "Lista próximamente.",
+    "exhibitorListPending": "Lista en preparación.",
     "previousYear": "Ediciones anteriores",
-    "galleryTitle": "Ambiente de Japan Day",
+    "galleryTitle": "Ambiente del Día Japonés",
     "all": "Todo",
     "showPhoto": "Mostrar foto: {alt}",
     "closePhoto": "Cerrar foto",
@@ -192,8 +196,8 @@
     "playVideo": "Reproducir vídeo",
     "playVideoLabel": "Reproducir vídeo del Día Japonés del Té y la Cultura",
     "previousYearVideoAlt": "Vídeo de una edición anterior",
-    "programPending": "Estamos preparando el programa detallado. Los horarios y nuevos invitados se anunciarán progresivamente.",
-    "galleryPending": "Pronto añadiremos fotos de ediciones anteriores.",
+    "programPending": "Estamos preparando el programa detallado. Publicaremos progresivamente los horarios exactos y nuevos invitados.",
+    "galleryPending": "Añadiremos pronto fotografías de ediciones anteriores.",
     "galleryCategories": {
       "Program": "Programa",
       "Čaj": "Té",
@@ -203,16 +207,16 @@
     },
     "cookieConsent": {
       "title": "Usamos cookies analíticas",
-      "text": "Usamos Google Analytics para comprender cómo se utiliza la web de Japan Day y mejorarla.",
+      "text": "Usamos Google Analytics para saber cómo utilizan los visitantes la web del Día Japonés. Estos datos nos ayudan a mejorarla.",
       "necessary": "Solo necesarias",
       "analytics": "Permitir estadísticas",
       "settings": "Configuración de cookies"
     },
     "venue": {
-      "heading": "Lugar del evento",
-      "text": "El evento se celebra en Dom kultúry, Považská Bystrica.",
+      "heading": "Dirección del evento",
+      "text": "El evento se celebra en la Casa de la Cultura de Považská Bystrica.",
       "addressLines": [
-        "Dom kultúry",
+        "Casa de la Cultura",
         "Považská Bystrica"
       ],
       "meta": "Región de Trenčín • Eslovaquia",
