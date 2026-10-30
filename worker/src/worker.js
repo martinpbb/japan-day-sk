@@ -38,7 +38,7 @@ async function register(request, env, sessionId, origin) {
     JOIN workshops w ON w.id = s.workshop_id WHERE s.id = ? AND s.active = 1 AND s.registration_open = 1 AND w.active = 1`).bind(sessionId).first();
   if (!session) return fail('SESSION_NOT_FOUND', 404, origin);
   if (await env.DB.prepare("SELECT 1 FROM registrations WHERE session_id = ? AND lower(trim(email)) = ? AND status != 'cancelled'").bind(sessionId, email).first()) return fail('DUPLICATE_REGISTRATION', 409, origin);
-  const id = crypto.randomUUID();
+  const registrationId = crypto.randomUUID();
   const token = Array.from(crypto.getRandomValues(new Uint8Array(32)), b => b.toString(16).padStart(2, '0')).join('');
   const tokenHash = await hash(token);
   for (let attempt = 0; attempt < 8; attempt++) {
@@ -62,22 +62,22 @@ async function register(request, env, sessionId, origin) {
     // both records on any failure. If a cancelled seat opened after the read and no
     // payment was prepared, retry without creating a payment-less paid reservation.
     const statements = [env.DB.prepare(`INSERT INTO registrations
-      (workshop_id, session_id, first_name, last_name, email, phone, status, payment_status, access_token_hash)
-      SELECT s.workshop_id, s.id, ?, ?, ?, ?,
+      (id, workshop_id, session_id, first_name, last_name, email, phone, status, payment_status, registration_access_token_hash)
+      SELECT ?, s.workshop_id, s.id, ?, ?, ?, ?,
         CASE WHEN (SELECT COUNT(*) FROM registrations WHERE session_id = s.id AND status = 'registered') < s.capacity THEN 'registered' ELSE 'waitlist' END,
-        CASE WHEN w.price_cents = 0 THEN 'free' ELSE 'not_due' END, ?
+        CASE WHEN w.price_cents = 0 AND (SELECT COUNT(*) FROM registrations WHERE session_id = s.id AND status = 'registered') < s.capacity THEN 'free' ELSE 'not_due' END, ?
       FROM workshop_sessions s JOIN workshops w ON w.id = s.workshop_id
       WHERE s.id = ? AND s.active = 1 AND s.registration_open = 1 AND w.active = 1
         AND w.price_cents = ? AND w.currency = ?
         AND (? = 1 OR w.price_cents = 0 OR (SELECT COUNT(*) FROM registrations WHERE session_id = s.id AND status = 'registered') >= s.capacity)
-      RETURNING id, status, payment_status`).bind(input.first_name.trim(), input.last_name.trim(), email, input.phone.trim(), tokenHash,
+      RETURNING id, status, payment_status`).bind(registrationId, input.first_name.trim(), input.last_name.trim(), email, input.phone.trim(), tokenHash,
         sessionId, session.price_cents, session.currency, payment ? 1 : 0)];
     if (payment) {
       statements.push(env.DB.prepare(`INSERT INTO registration_payments
         (id, registration_id, amount_cents, currency, payment_reference, iban, bic, beneficiary_name, message, pay_by_square_payload)
-        SELECT ?, id, ?, ?, ?, ?, ?, ?, ?, ? FROM registrations WHERE access_token_hash = ? AND status = 'registered'`).bind(
-        id, payment.amount_cents, payment.currency, reference, payment.iban, payment.bic, payment.beneficiary_name, payment.message, payment.payload, tokenHash));
-      statements.push(env.DB.prepare("UPDATE registrations SET payment_status = 'pending' WHERE access_token_hash = ? AND status = 'registered'").bind(tokenHash));
+        SELECT ?, id, ?, ?, ?, ?, ?, ?, ?, ? FROM registrations WHERE registration_access_token_hash = ? AND status = 'registered'`).bind(
+        crypto.randomUUID(), payment.amount_cents, payment.currency, reference, payment.iban, payment.bic, payment.beneficiary_name, payment.message, payment.payload, tokenHash));
+      statements.push(env.DB.prepare("UPDATE registrations SET payment_status = 'pending' WHERE registration_access_token_hash = ? AND status = 'registered'").bind(tokenHash));
     }
     let results;
     try { results = await env.DB.batch(statements); }
@@ -117,12 +117,12 @@ export default {
       }
       const registration = url.pathname.match(/^\/api\/sessions\/([^/]+)\/register$/);
       if (request.method === 'POST' && registration) return await register(request, env, decodeURIComponent(registration[1]), origin);
-      const qr = url.pathname.match(/^\/api\/registrations\/(\d+)\/payment\/qr\.svg$/);
+      const qr = url.pathname.match(/^\/api\/registrations\/([^/]+)\/payment\/qr\.svg$/);
       if (request.method === 'GET' && qr) {
         const token = request.headers.get('Cookie')?.split(';').map(v => v.trim()).find(v => v.startsWith('registration_access='))?.slice(20);
         if (!token || !/^[a-f0-9]{64}$/.test(token)) return fail('NOT_FOUND', 404, origin);
         const row = await env.DB.prepare(`SELECT p.pay_by_square_payload FROM registration_payments p JOIN registrations r ON r.id = p.registration_id
-          WHERE r.id = ? AND r.access_token_hash = ? AND r.status = 'registered' AND p.payment_status != 'cancelled'`).bind(qr[1], await hash(token)).first();
+          WHERE r.id = ? AND r.registration_access_token_hash = ? AND r.status = 'registered' AND p.payment_status != 'cancelled'`).bind(decodeURIComponent(qr[1]), await hash(token)).first();
         if (!row) return fail('NOT_FOUND', 404, origin);
         const h = headers(origin);
         h.set('Content-Type', 'image/svg+xml');

@@ -1,7 +1,9 @@
 ﻿import test from 'node:test';
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
-import { readFileSync } from 'node:fs';
+import { readFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { decode } from 'bysquare/pay';
 import worker from './worker.js';
 
@@ -41,6 +43,10 @@ test('paid snapshot, authoritative price, decoded payload, protected SVG and imm
   const cookie = response.headers.get('Set-Cookie');
   assert.match(cookie, /HttpOnly; Secure; SameSite=Lax/);
   const { data } = await response.json();
+  assert.match(data.registration_id, /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+  assert.equal(data.payment_status, 'pending');
+  assert.equal(sqlite.prepare('SELECT id, typeof(id) type, payment_status FROM registrations').get().type, 'text');
+  assert.equal(sqlite.prepare('SELECT payment_status FROM registrations').get().payment_status, 'pending');
   assert.equal(data.payment.amount_cents, 1250);
   assert.match(data.payment.payment_reference, /^\d{1,10}$/);
   const snapshot = sqlite.prepare('SELECT * FROM registration_payments').get();
@@ -48,7 +54,7 @@ test('paid snapshot, authoritative price, decoded payload, protected SVG and imm
   assert.equal(decoded.amount, 12.5);
   assert.equal(decoded.variableSymbol, data.payment.payment_reference);
   assert.equal(sqlite.prepare('SELECT email, first_name FROM registrations').get().email, 'test@example.com');
-  assert.notEqual(sqlite.prepare('SELECT access_token_hash FROM registrations').get().access_token_hash, cookie.split(';')[0].split('=')[1]);
+  assert.notEqual(sqlite.prepare('SELECT registration_access_token_hash FROM registrations').get().registration_access_token_hash, cookie.split(';')[0].split('=')[1]);
   assert.equal((await call(data.payment.qr_url)).status, 404);
   assert.equal((await call(data.payment.qr_url, { headers: { Cookie: `registration_access=${'a'.repeat(64)}` } })).status, 404);
   env.PAYMENT_IBAN = 'invalid';
@@ -72,18 +78,20 @@ test('free registration has no payment and requires phone', async () => {
 test('session capacity, waitlist, duplicates, cancelled re-registration and unique references', async () => {
   const { sqlite, register, call } = setup();
   const first = await (await register()).json();
-  assert.equal((await register()).status, 409);
+  assert.equal((await register(' TEST@EXAMPLE.COM ')).status, 409);
   const second = await (await register('second@example.com')).json();
   assert.equal(second.data.status, 'waitlist');
   assert.equal(second.data.payment, null);
   assert.equal(second.data.payment_status, 'not_due');
+  assert.equal(sqlite.prepare('SELECT payment_status FROM registrations WHERE id = ?').get(second.data.registration_id).payment_status, 'not_due');
+  assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM registration_payments WHERE registration_id = ?').get(second.data.registration_id).n, 0);
   const other = await (await register('test@example.com', 's2')).json();
   assert.equal(other.data.status, 'registered');
   assert.notEqual(other.data.payment.payment_reference, first.data.payment.payment_reference);
   const publicData = await (await call('/api/workshops/test')).json();
   assert.equal(publicData.data.sessions[0].registered_count, 1);
   assert.equal(publicData.data.sessions[0].remaining_capacity, 0);
-  sqlite.exec(`UPDATE registrations SET status = 'cancelled' WHERE id = ${first.data.registration_id}`);
+  sqlite.prepare("UPDATE registrations SET status = 'cancelled', payment_status = 'cancelled' WHERE id = ?").run(first.data.registration_id);
   assert.equal((await register()).status, 201);
   assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM registration_payments').get().n, 3);
 });
@@ -111,7 +119,7 @@ test('migration preserves historical data, indexes and foreign keys', () => {
   assert.equal(db.prepare('SELECT session_id FROM registrations').get().session_id, null);
   assert.equal(db.prepare('PRAGMA foreign_key_check').all().length, 0);
   assert.throws(() => db.exec(`INSERT INTO registrations (workshop_id,first_name,last_name,email) VALUES (1,'New','User','new@example.com')`), /session_id/);
-  assert.throws(() => db.exec(`INSERT INTO registrations (workshop_id,session_id,first_name,last_name,email) VALUES (1,'missing','New','User','new@example.com')`), /FOREIGN KEY/);
+  assert.throws(() => db.exec(`INSERT INTO registrations (id,workshop_id,session_id,first_name,last_name,email,phone) VALUES ('new',1,'missing','New','User','new@example.com','123')`), /FOREIGN KEY/);
   const indexes = db.prepare("SELECT name FROM sqlite_master WHERE type = 'index'").all().map(row => row.name);
   assert.ok(indexes.includes('idx_registrations_payment_status'));
 });
@@ -160,4 +168,72 @@ test('public capacity excludes waitlist and cancelled registrations, including e
   sqlite.exec('UPDATE workshop_sessions SET active = 0');
   result = await (await call('/api/workshops/test')).json();
   assert.deepEqual(result.data.sessions, []);
+});
+
+
+test('fresh on-disk migrations enforce canonical schema and constraints', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'workshop-migrations-'));
+  const db = new DatabaseSync(join(directory, 'fresh.sqlite'));
+  try {
+    db.exec('PRAGMA foreign_keys = ON');
+    for (const migration of ['0001_initial.sql', '0002_workshop_sessions_and_payments.sql']) {
+      db.exec(readFileSync(new URL(`../migrations/${migration}`, import.meta.url), 'utf8'));
+    }
+    const columns = db.prepare('PRAGMA table_info(registrations)').all();
+    const column = name => columns.find(row => row.name === name);
+    assert.equal(column('id').type, 'TEXT');
+    assert.equal(column('id').pk, 1);
+    assert.equal(column('id').dflt_value, null);
+    assert.equal(column('id').notnull, 1);
+    assert.equal(column('workshop_id').type, 'TEXT');
+    assert.equal(column('phone').notnull, 1);
+    assert.equal(column('registration_access_token_hash').type, 'TEXT');
+    for (const name of ['created_at', 'updated_at']) assert.equal(column(name).dflt_value, 'CURRENT_TIMESTAMP');
+    const foreignKeys = db.prepare('PRAGMA foreign_key_list(registrations)').all();
+    assert.deepEqual(foreignKeys.map(row => [row.from, row.table, row.to]).sort(),
+      [['session_id', 'workshop_sessions', 'id'], ['workshop_id', 'workshops', 'id']]);
+    const indexes = db.prepare('PRAGMA index_list(registrations)').all();
+    const unique = indexes.find(row => row.name === 'idx_registrations_session_email');
+    assert.equal(unique.unique, 1);
+    assert.equal(unique.partial, 1);
+    assert.deepEqual(db.prepare('PRAGMA index_info(idx_registrations_session_email)').all().map(row => row.name), ['session_id', 'email']);
+    assert.ok(!indexes.some(row => row.name === 'idx_registrations_workshop_email'));
+    assert.equal(db.prepare('PRAGMA table_info(registration_payments)').all().find(row => row.name === 'registration_id').type, 'TEXT');
+    assert.ok(db.prepare('PRAGMA foreign_key_list(registration_payments)').all().some(row => row.from === 'registration_id' && row.table === 'registrations'));
+    db.exec(`INSERT INTO workshops (slug,title,lecturer,short_description,description,start_at,end_at,location,capacity)
+      VALUES ('schema','Test','Test','Test','Test','2027','2027','Test',2);
+      INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('schema','1','2027',2);`);
+    const insert = db.prepare(`INSERT INTO registrations
+      (id,workshop_id,session_id,first_name,last_name,email,phone,status,payment_status,registration_access_token_hash)
+      VALUES (?, '1', 'schema', 'Test', 'User', ?, ?, ?, ?, 'hash')`);
+    for (const status of ['free', 'not_due', 'pending', 'paid', 'cancelled']) {
+      insert.run(status, `${status}@example.com`, '123', 'registered', status);
+    }
+    assert.throws(() => insert.run('invalid', 'invalid@example.com', '123', 'registered', 'arbitrary'), /CHECK/);
+    assert.throws(() => insert.run('invalid-status', 'invalid@example.com', '123', 'other', 'free'), /CHECK/);
+    assert.throws(() => insert.run('no-phone', 'phone@example.com', null, 'registered', 'free'), /NOT NULL/);
+    assert.throws(() => insert.run(null, 'no-id@example.com', '123', 'registered', 'free'), /NOT NULL/);
+    assert.throws(() => insert.run('duplicate', 'free@example.com', '123', 'registered', 'free'), /UNIQUE/);
+    db.exec("UPDATE registrations SET status = 'cancelled', payment_status = 'cancelled' WHERE id = 'free'");
+    insert.run('again', 'free@example.com', '123', 'registered', 'free');
+    assert.equal(db.prepare('PRAGMA foreign_key_check').all().length, 0);
+  } finally {
+    db.close();
+    rmSync(directory, { recursive: true });
+  }
+});
+
+test('QR treats registration IDs as opaque text and keeps token ownership', async () => {
+  const { sqlite, register, call } = setup();
+  const response = await register();
+  const cookie = response.headers.get('Set-Cookie').split(';')[0];
+  const { data } = await response.json();
+  const opaque = 'reservation_alpha-xyz';
+  sqlite.exec('BEGIN; PRAGMA defer_foreign_keys = ON');
+  sqlite.prepare('UPDATE registrations SET id = ? WHERE id = ?').run(opaque, data.registration_id);
+  sqlite.prepare('UPDATE registration_payments SET registration_id = ? WHERE registration_id = ?').run(opaque, data.registration_id);
+  sqlite.exec('COMMIT');
+  const path = `/api/registrations/${opaque}/payment/qr.svg`;
+  assert.equal((await call(path, { headers: { Cookie: cookie } })).status, 200);
+  assert.equal((await call(path)).status, 404);
 });

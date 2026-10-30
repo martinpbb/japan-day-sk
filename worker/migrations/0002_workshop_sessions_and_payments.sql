@@ -13,14 +13,41 @@ CREATE TABLE workshop_sessions (
 );
 CREATE INDEX idx_sessions_workshop ON workshop_sessions(workshop_id);
 CREATE INDEX idx_sessions_start ON workshop_sessions(start_at);
-ALTER TABLE registrations ADD COLUMN session_id TEXT REFERENCES workshop_sessions(id);
-ALTER TABLE registrations ADD COLUMN access_token_hash TEXT;
-DROP INDEX idx_registrations_workshop_email;
+-- Rebuild rather than ALTER: production has TEXT IDs and a payment CHECK,
+-- while historical local 0001 used integer IDs. Copy IDs losslessly as TEXT.
+-- No child tables reference registrations until after this rebuild.
+CREATE TABLE registrations_reconciled (
+  id TEXT PRIMARY KEY NOT NULL,
+  workshop_id TEXT NOT NULL REFERENCES workshops(id),
+  session_id TEXT REFERENCES workshop_sessions(id),
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'registered' CHECK (status IN ('registered', 'waitlist', 'cancelled')),
+  payment_status TEXT NOT NULL DEFAULT 'pending' CHECK (payment_status IN ('free', 'not_due', 'pending', 'paid', 'cancelled')),
+  payment_reference TEXT,
+  registration_access_token_hash TEXT,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  paid_at TEXT,
+  cancelled_at TEXT
+);
+-- Legacy missing phones stay explicitly unknown (empty), without inventing data.
+INSERT INTO registrations_reconciled
+  (id, workshop_id, first_name, last_name, email, phone, status, payment_status,
+   payment_reference, created_at, updated_at, paid_at, cancelled_at)
+SELECT CAST(id AS TEXT), CAST(workshop_id AS TEXT), first_name, last_name, email,
+  COALESCE(phone, ''), status, payment_status, payment_reference,
+  created_at, updated_at, paid_at, cancelled_at FROM registrations;
+DROP TABLE registrations;
+ALTER TABLE registrations_reconciled RENAME TO registrations;
 CREATE UNIQUE INDEX idx_registrations_session_email
-  ON registrations(session_id, lower(trim(email))) WHERE status != 'cancelled';
--- Retain duplicate protection for historical rows lacking a session.
-CREATE UNIQUE INDEX idx_registrations_legacy_email
-  ON registrations(workshop_id, email) WHERE session_id IS NULL AND status != 'cancelled';
+  ON registrations(session_id, email) WHERE status != 'cancelled';
+CREATE INDEX idx_registrations_workshop_id ON registrations(workshop_id);
+CREATE INDEX idx_registrations_email ON registrations(email);
+CREATE INDEX idx_registrations_status ON registrations(status);
+CREATE INDEX idx_registrations_payment_status ON registrations(payment_status);
 CREATE INDEX idx_registrations_session_status ON registrations(session_id, status);
 CREATE TRIGGER registrations_require_session BEFORE INSERT ON registrations
 WHEN NEW.session_id IS NULL

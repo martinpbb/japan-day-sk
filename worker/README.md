@@ -12,14 +12,21 @@ The Worker runs separately from the React/Vite frontend. It binds the existing p
 
 When ready, run `npm run worker:deploy`. This targets the existing Worker `japanday-workshops-api` and its existing D1 binding.
 
-**Do not run the production migration again.** `migrations/0001_initial.sql` is a repository copy of the schema already applied to production.
+**Do not run the production migration again.** `migrations/0001_initial.sql` is historical: its integer registration IDs differ from the confirmed production TEXT IDs. Migration `0002` reconciles both starting points; do not replay `0001` remotely.
 ## Session registration and payments (local implementation)
 
 Apply migrations in order only after review; this task does not authorize remote
 migration or deployment. `0002` preserves historical registrations with null
 sessions, requires sessions for new inserts, and replaces workshop-wide duplicate
 protection with normalized session/email uniqueness. No sessions are invented or
-seeded. Workshop prices remain authoritative; only EUR payments are supported.
+seeded. It rebuilds registrations with explicit TEXT UUID IDs, required phone,
+`registration_access_token_hash`, and payment statuses `free`, `not_due`,
+`pending`, `paid`, `cancelled`. Historical IDs are cast to TEXT; missing historical
+phones become empty strings. The partial unique index is `(session_id, email)`
+where status is not cancelled; the Worker trims and lowercases email.
+QR routes accept opaque TEXT IDs and still require the ownership cookie.
+Integration tests apply the actual `0001` then `0002` migrations, including a
+fresh on-disk schema/constraint check. Workshop prices remain authoritative; only EUR payments are supported.
 
 - `GET /api/workshops` and `GET /api/workshops/:slug` include active sessions,
   registration flags, capacity, registered count and remaining capacity.
