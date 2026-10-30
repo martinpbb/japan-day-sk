@@ -47,6 +47,7 @@ export default function WorkshopRegistrationForm({ workshop, session }) {
         <dl className="registrationSummary">
           {[[copy.amount, new Intl.NumberFormat('sk-SK', { style: 'currency', currency: result.payment.currency }).format(result.payment.amount_cents / 100)],
             [copy.reference, result.payment.payment_reference], [copy.beneficiary, result.payment.beneficiary_name], ['IBAN', result.payment.iban],
+            [copy.paymentMessage, result.payment.message],
             ...(result.payment.bic ? [['BIC', result.payment.bic]] : [])].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
         </dl>
         <p>{copy.paymentInstructions}</p>

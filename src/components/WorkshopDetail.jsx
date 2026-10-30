@@ -12,7 +12,7 @@ export default function WorkshopDetail({ workshop }) {
   const { content, locale } = useI18n();
   const live = useWorkshopAvailability(workshop.slug);
   const sessions = live ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: false }));
-  const registrationWorkshop = { ...workshop, registrationOpen: !!live };
+  const registrationWorkshop = { ...workshop, ...(live ? { paid: live.price_cents > 0, priceCents: live.price_cents, currency: live.currency } : {}), registrationOpen: !!live };
   const [selectedId, setSelectedId] = useState(sessions[0]?.id || "");
   const selectedSession = sessions.find((session) => session.id === selectedId) || sessions[0] || null;
   const lecturer = workshop.lecturerId ? content.performers.items.find((person) => person.id === workshop.lecturerId) : null;
@@ -25,7 +25,7 @@ export default function WorkshopDetail({ workshop }) {
         <dl className="workshopFacts workshopDetailFacts">
           {lecturer ? <div><dt>Lektor</dt><dd>{lecturer.name}</dd></div> : null}
           {workshop.durationMinutes ? <div><dt>Trvanie</dt><dd>{workshop.durationMinutes} min</dd></div> : null}
-          <div><dt>Cena</dt><dd>{workshopPrice(workshop)}</dd></div>
+          <div><dt>Cena</dt><dd>{workshopPrice(registrationWorkshop)}</dd></div>
           {selectedSession?.capacity != null ? <div><dt>Kapacita</dt><dd>{selectedSession.capacity}</dd></div> : null}
           {selectedSession?.location ? <div><dt>Miesto</dt><dd>{selectedSession.location}</dd></div> : null}
         </dl>

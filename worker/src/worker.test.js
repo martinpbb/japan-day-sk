@@ -122,3 +122,42 @@ test('simultaneous registrations cannot overbook the session', async () => {
   assert.equal(sqlite.prepare("SELECT COUNT(*) n FROM registrations WHERE status = 'registered'").get().n, 1);
   assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM registration_payments').get().n, 1);
 });
+
+test('invalid input is rejected without writes', async () => {
+  const { sqlite, call, register } = setup();
+  for (const body of ['{', 'null', '[]']) {
+    assert.equal((await call('/api/sessions/s1/register', { method: 'POST', body })).status, 400);
+  }
+  for (const extra of [{ email: 'invalid' }, { phone: ' '.repeat(3) }, { first_name: 'a'.repeat(101) }, { last_name: null }]) {
+    assert.equal((await register('test@example.com', 's1', extra)).status, 400);
+  }
+  assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM registrations').get().n, 0);
+});
+
+test('missing beneficiary fails safely and full paid sessions need no payment config', async () => {
+  const { sqlite, env, register } = setup();
+  delete env.PAYMENT_BENEFICIARY_NAME;
+  assert.equal((await register()).status, 503);
+  assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM registrations').get().n, 0);
+  env.PAYMENT_BENEFICIARY_NAME = 'Test';
+  assert.equal((await register()).status, 201);
+  delete env.PAYMENT_IBAN;
+  const { data } = await (await register('wait@example.com')).json();
+  assert.equal(data.status, 'waitlist');
+  assert.equal(data.payment, null);
+  assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM registration_payments').get().n, 1);
+});
+
+test('public capacity excludes waitlist and cancelled registrations, including empty sessions', async () => {
+  const { sqlite, register, call } = setup();
+  sqlite.exec('UPDATE workshops SET price_cents = 0');
+  await register();
+  await register('wait@example.com');
+  sqlite.exec("UPDATE registrations SET status = 'cancelled' WHERE status = 'registered'");
+  let result = await (await call('/api/workshops/test')).json();
+  assert.equal(result.data.sessions[0].registered_count, 0);
+  assert.equal(result.data.sessions[0].remaining_capacity, 1);
+  sqlite.exec('UPDATE workshop_sessions SET active = 0');
+  result = await (await call('/api/workshops/test')).json();
+  assert.deepEqual(result.data.sessions, []);
+});

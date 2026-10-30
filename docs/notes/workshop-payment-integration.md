@@ -37,3 +37,20 @@ date remains its existing creation-day default, frozen in the stored payload.
 
 Next action: review local changes and complete same-site HTTPS browser acceptance
 before separately authorizing migration/deploy. Stop at local implementation.
+
+## Follow-up review, 2026-10-30
+
+Starting HEAD: fc2892b8620952aba390252027374aeba99ca9a1 (main, clean).
+The requested migration/API/payment integration was already committed at start.
+Fixed detail price to use API values, session formatting to respect confirmed
+end_at, and payment confirmation to display the stored transfer message.
+Added validation/no-write, missing beneficiary, waitlist-without-config,
+cancelled/waitlist capacity exclusion and empty-session API coverage.
+
+TESTED: node --test worker/src/*.test.js: 17 passed. Focused formatter assertion
+passed: confirmed end time overrides catalog duration.
+VERIFIED: npm.cmd run build (138 routes); npm.cmd run lint -- --ignore-pattern
+'**/.wrangler/**'; git diff --check; graphify update . (no topology changes).
+PowerShell blocked npm.ps1; invoking npm.cmd completed the same build successfully.
+No full Playwright suite, browser acceptance, remote migration, seeds or deploy.
+Prior production blockers and cookie limitations above still apply.

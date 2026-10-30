@@ -26,6 +26,7 @@
   "duplicate": "Na tento termín už existuje registrácia s týmto e-mailom.",
   "paymentInstructions": "Platbu odošlite na uvedený účet. Ako variabilný symbol uveďte platobnú referenciu. Registrácia čaká na platbu.",
   "amount": "Suma",
+  "paymentMessage": "Správa pre príjemcu",
   "reference": "Variabilný symbol",
   "beneficiary": "Príjemca",
   "qrAlt": "PAY by square – platobný QR kód",
