@@ -4,44 +4,99 @@
       "id": "origami",
       "slug": "origami",
       "title": "Origami",
-      "category": "",
+      "category": "Japonská kultúra",
       "lecturerId": null,
-      "short": "Tradičné japonské umenie skladania papiera.",
-      "description": "Tradičné japonské umenie skladania papiera.",
+      "short": "Tradičné japonské umenie skladania papiera, pri ktorom z jednoduchého listu vznikajú zvieratá, kvety a ďalšie dekoratívne tvary.",
+      "description": "Origami je tradičné japonské umenie skladania papiera. Z jedného listu papiera možno bez strihania vytvoriť množstvo rôznych tvarov – od jednoduchých zvierat a kvetov až po zložitejšie dekoratívne objekty.\n\nNa workshope sa účastníci zoznámia so základnými princípmi skladania origami a pod vedením lektoriek si krok za krokom vytvoria niekoľko vlastných papierových modelov.\n\nWorkshop je vhodný aj pre úplných začiatočníkov a deti. Predchádzajúce skúsenosti nie sú potrebné.",
       "image": "",
       "registrationRequired": true,
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
-      "durationMinutes": null,
+      "durationMinutes": 90,
       "registrationOpen": false,
       "waitlistEnabled": true,
-      "sessions": []
+      "sessions": [
+        {
+          "id": "origami-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "origami-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": null,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "asuka-emura"
+        },
+        {
+          "performerId": "hisayo-yasuda"
+        }
+      ]
     },
     {
       "id": "shodo",
       "slug": "shodo",
       "title": "Shodō – japonská kaligrafia",
-      "category": "",
+      "category": "Japonská kultúra",
       "lecturerId": "akiko-komura",
-      "short": "Praktický workshop tradičnej japonskej kaligrafie.",
-      "description": "Praktický workshop tradičnej japonskej kaligrafie.",
+      "short": "Praktický workshop tradičnej japonskej kaligrafie, na ktorom sa účastníci zoznámia so štetcom, tušom a základnými princípmi písania japonských znakov.",
+      "description": "Shodō (書道), doslova „cesta písma“, je tradičné japonské umenie kaligrafie. Spája presnosť pohybu, prácu so štetcom, tušom a papierom so sústredením a estetikou jednotlivých ťahov.\n\nNa workshope sa účastníci zoznámia so základnými pomôckami používanými pri japonskej kaligrafii, správnym držaním štetca a základnými princípmi vedenia jednotlivých ťahov.\n\nPod vedením lektorov si následne sami vyskúšajú napísať jednoduché japonské znaky a vytvoria si vlastnú kaligrafiu.\n\nWorkshop je vhodný aj pre úplných začiatočníkov. Predchádzajúca znalosť japončiny ani kaligrafie nie je potrebná.",
       "image": "",
       "registrationRequired": true,
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
-      "durationMinutes": null,
+      "durationMinutes": 90,
       "registrationOpen": false,
       "waitlistEnabled": true,
-      "sessions": []
+      "sessions": [
+        {
+          "id": "shodo-1040",
+          "start": "2026-11-07T10:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1210",
+          "start": "2026-11-07T12:10:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": 20,
+          "location": null
+        }
+      ],
+      "lecturers": [
+        {
+          "performerId": "akiko-komura"
+        },
+        {
+          "name": "Mgr. František Paulovič, PhD.",
+          "affiliation": "Univerzita Komenského v Bratislave, Filozofická fakulta, Katedra východoázijských štúdií – odborný asistent"
+        }
+      ]
     },
     {
       "id": "japoncina",
       "slug": "japoncina",
       "title": "Japončina",
-      "category": "",
-      "lecturerId": null,
+      "category": "Japonský jazyk",
+      "lecturerId": "hisayo-yasuda",
       "short": "Workshop venovaný základom japonského jazyka.",
       "description": "Workshop venovaný základom japonského jazyka.",
       "image": "",
@@ -57,11 +112,11 @@
     {
       "id": "tvorba-kombiku",
       "slug": "tvorba-kombiku",
-      "title": "Tvorba kombíku",
-      "category": "",
-      "lecturerId": null,
-      "short": "Workshop tvorby kombíku. Podrobnosti pripravujeme.",
-      "description": "Workshop tvorby kombíku. Podrobnosti pripravujeme.",
+      "title": "Tvorba gombíkov",
+      "category": "Japonská kultúra",
+      "lecturerId": "aiko-bosak",
+      "short": "Workshop výroby originálnych gombíkov z japonských látok.",
+      "description": "Na workshope si účastníci vytvoria vlastný dekoratívny gombík z látok s japonskými vzormi pod vedením Aiko Bosák.\n\nAiko Bosák bude mať na podujatí k dispozícii aj kimoná na predaj.",
       "image": "",
       "registrationRequired": true,
       "paid": false,
@@ -76,8 +131,8 @@
       "id": "cajova-degustacia",
       "slug": "cajova-degustacia",
       "title": "Čajová degustácia",
-      "category": "",
-      "lecturerId": null,
+      "category": "Japonský čaj",
+      "lecturerId": "martin-labudik",
       "short": "Riadená degustácia japonských čajov.",
       "description": "Riadená degustácia japonských čajov.",
       "image": "",
@@ -91,17 +146,17 @@
       "sessions": []
     },
     {
-      "id": "cajove-rozdiely",
-      "slug": "cajove-rozdiely",
-      "title": "Čajové rozdiely",
-      "category": "",
+      "id": "tsumami-zaiku",
+      "slug": "tsumami-zaiku",
+      "title": "Tsumami zaiku つまみ細工",
+      "category": "Japonská kultúra",
       "lecturerId": null,
-      "short": "Praktické porovnanie rôznych druhov a štýlov japonského čaju.",
-      "description": "Praktické porovnanie rôznych druhov a štýlov japonského čaju.",
+      "short": "Tradičná japonská technika skladania drobných kúskov látky do kvetov a dekoratívnych motívov. Účastníci si vytvoria vlastnú ozdobu.",
+      "description": "Tsumami zaiku je tradičná japonská technika tvorby drobných ozdôb z kúskov látky. Malé štvorčeky látky sa precízne skladajú a tvarujú do jednotlivých lupienkov, z ktorých následne vznikajú kvety a ďalšie dekoratívne motívy.\n\nTechnika sa v Japonsku preslávila najmä vďaka ozdobám kanzashi, ktoré sa používajú do vlasov a sú známe napríklad zo slávnostných účesov maiko a geiko.\n\nNa workshope si účastníci techniku sami vyskúšajú a vytvoria si vlastnú drobnú ozdobu, ktorú si môžu odniesť domov.\n\nWorkshop je vhodný aj pre začiatočníkov a nie sú potrebné žiadne predchádzajúce skúsenosti.\n\nÚčasť na workshope je spoplatnená sumou 10 € na osobu. Registrácia vopred je potrebná.",
       "image": "",
       "registrationRequired": true,
-      "paid": false,
-      "priceCents": 0,
+      "paid": true,
+      "priceCents": 1000,
       "currency": "EUR",
       "durationMinutes": null,
       "registrationOpen": false,
@@ -109,17 +164,17 @@
       "sessions": []
     },
     {
-      "id": "plateny-workshop",
-      "slug": "plateny-workshop",
-      "title": "Platený workshop – detaily pripravujeme",
-      "category": "",
+      "id": "ayatori",
+      "slug": "ayatori",
+      "title": "Ayatori あやとり",
+      "category": "Japonská kultúra",
       "lecturerId": null,
-      "short": "Podrobnosti plateného workshopu pripravujeme.",
-      "description": "Podrobnosti plateného workshopu pripravujeme.",
+      "short": "Tradičná japonská hra so slučkou zo špagátu, pri ktorej sa pomocou prstov vytvárajú rôzne obrazce a figúry.",
+      "description": "Ayatori je tradičná japonská hra so slučkou zo špagátu alebo povrázku. Pomocou prstov sa z nej vytvárajú rôzne obrazce a figúry, ktoré sa môžu postupne meniť z jedného tvaru na ďalší.\n\nHra je v Japonsku známa najmä medzi deťmi, no vďaka množstvu rôznych postupov a úrovní náročnosti dokáže zabaviť aj dospelých. Rozvíja jemnú motoriku, sústredenie, pamäť a koordináciu rúk.\n\nNa workshope sa účastníci naučia základné postupy a vyskúšajú si vytvoriť niekoľko tradičných ayatori obrazcov.\n\nWorkshop je bezplatný.",
       "image": "",
       "registrationRequired": true,
-      "paid": true,
-      "priceCents": null,
+      "paid": false,
+      "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": null,
       "registrationOpen": false,

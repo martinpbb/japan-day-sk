@@ -15,3 +15,11 @@ export function formatSession(session, durationMinutes) {
   }
   return durationMinutes ? `${startText} – ${format(new Date(start.getTime() + durationMinutes * 60_000))}` : startText;
 }
+
+// Array entries reuse performer profiles; lecturerId remains a supported fallback.
+export function workshopLecturers(workshop, performers) {
+  const entries = workshop.lecturers ?? (workshop.lecturerId ? [{ performerId: workshop.lecturerId }] : []);
+  return entries.map((entry) => entry.performerId
+    ? performers.find((person) => person.id === entry.performerId)
+    : entry).filter(Boolean);
+}

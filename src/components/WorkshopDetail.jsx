@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Section from "./Section.jsx";
 import WorkshopRegistrationForm from "./WorkshopRegistrationForm.jsx";
-import { formatSession, workshopPrice } from "../lib/workshops.js";
+import { formatSession, workshopPrice, workshopLecturers } from "../lib/workshops.js";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
 
@@ -15,18 +15,18 @@ export default function WorkshopDetail({ workshop }) {
   const registrationWorkshop = { ...workshop, ...(live ? { paid: live.price_cents > 0, priceCents: live.price_cents, currency: live.currency } : {}), registrationOpen: !!live };
   const [selectedId, setSelectedId] = useState(sessions[0]?.id || "");
   const selectedSession = sessions.find((session) => session.id === selectedId) || sessions[0] || null;
-  const lecturer = workshop.lecturerId ? content.performers.items.find((person) => person.id === workshop.lecturerId) : null;
+  const people = workshopLecturers(workshop, content.performers.items);
   return <Section className="performerDetailSection workshopDetail">
     <a className="backLink" href={addLocalePrefix("/workshopy", locale)}>← Všetky workshopy</a>
     {workshop.category ? <div className="programMeta">{workshop.category}</div> : null}
     {workshop.image ? <img className="workshopDetailImage" src={workshop.image} alt={workshop.title} /> : null}
     <div className="workshopDetailGrid">
-      <div className="workshopDescription"><p>{workshop.description}</p>
+      <div className="workshopDescription">{workshop.description.split(/\n\n+/).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         <dl className="workshopFacts workshopDetailFacts">
-          {lecturer ? <div><dt>Lektor</dt><dd>{lecturer.name}</dd></div> : null}
+          {people.length ? <div><dt>{people.length > 1 ? "Lektori" : "Lektor"}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.affiliation ? <div>{person.affiliation}</div> : null}</div>)}</dd></div> : null}
           {workshop.durationMinutes ? <div><dt>Trvanie</dt><dd>{workshop.durationMinutes} min</dd></div> : null}
           <div><dt>Cena</dt><dd>{workshopPrice(registrationWorkshop)}</dd></div>
-          {selectedSession?.capacity != null ? <div><dt>Kapacita</dt><dd>{selectedSession.capacity}</dd></div> : null}
+          {selectedSession?.capacity != null ? <div><dt>Kapacita</dt><dd>{selectedSession.capacity} osôb na termín</dd></div> : null}
           {selectedSession?.location ? <div><dt>Miesto</dt><dd>{selectedSession.location}</dd></div> : null}
         </dl>
       </div>
