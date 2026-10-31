@@ -7,8 +7,7 @@ const localeLabels = {
   en: { code: "EN", label: "English" },
   de: { code: "DE", label: "Deutsch" },
   es: { code: "ES", label: "Español" },
-  zh: { code: "ZH", label: "中文" },
-  vi: { code: "VI", label: "Tiếng Việt" }
+  ja: { code: "JA", label: "日本語" }
 };
 
 function LanguageSwitcher({ onSelect }) {

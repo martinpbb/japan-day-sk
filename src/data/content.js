@@ -38,36 +38,25 @@ import esExhibitors from "./locales/es/exhibitors.json";
 import esWorkshops from "./locales/es/workshops.json";
 import esGallery from "./locales/es/gallery.json";
 import esPartners from "./locales/es/partners.json";
-import zhSite from "./locales/zh/site.json";
-import zhSeo from "./locales/zh/seo.json";
-import zhProgram from "./locales/zh/program.json";
-import zhPerformers from "./locales/zh/performers.json";
-import zhGastronomy from "./locales/zh/gastronomy.json";
-import zhChildren from "./locales/zh/children.json";
-import zhExhibitors from "./locales/zh/exhibitors.json";
-import zhWorkshops from "./locales/zh/workshops.json";
-import zhGallery from "./locales/zh/gallery.json";
-import zhPartners from "./locales/zh/partners.json";
-import viSite from "./locales/vi/site.json";
-import viSeo from "./locales/vi/seo.json";
-import viProgram from "./locales/vi/program.json";
-import viPerformers from "./locales/vi/performers.json";
-import viGastronomy from "./locales/vi/gastronomy.json";
-import viChildren from "./locales/vi/children.json";
-import viExhibitors from "./locales/vi/exhibitors.json";
-import viWorkshops from "./locales/vi/workshops.json";
-import viGallery from "./locales/vi/gallery.json";
-import viPartners from "./locales/vi/partners.json";
+import jaSite from "./locales/ja/site.json";
+import jaSeo from "./locales/ja/seo.json";
+import jaProgram from "./locales/ja/program.json";
+import jaPerformers from "./locales/ja/performers.json";
+import jaGastronomy from "./locales/ja/gastronomy.json";
+import jaChildren from "./locales/ja/children.json";
+import jaExhibitors from "./locales/ja/exhibitors.json";
+import jaWorkshops from "./locales/ja/workshops.json";
+import jaGallery from "./locales/ja/gallery.json";
+import jaPartners from "./locales/ja/partners.json";
 
 export const defaultLocale = "sk";
-export const supportedLocales = ["sk", "en", "de", "es", "zh", "vi"];
+export const supportedLocales = ["sk", "en", "de", "es", "ja"];
 export const localeDocumentLanguages = {
   sk: "sk",
   en: "en",
   de: "de",
   es: "es",
-  zh: "zh-CN",
-  vi: "vi",
+  ja: "ja",
 };
 
 const localeContent = {
@@ -75,8 +64,7 @@ const localeContent = {
   en: { site: enSite, seo: enSeo, program: enProgram, performers: enPerformers, gastronomy: enGastronomy, children: enChildren, exhibitors: enExhibitors, workshops: enWorkshops, gallery: enGallery, partners: enPartners },
   de: { site: deSite, seo: deSeo, program: deProgram, performers: dePerformers, gastronomy: deGastronomy, children: deChildren, exhibitors: deExhibitors, workshops: deWorkshops, gallery: deGallery, partners: dePartners },
   es: { site: esSite, seo: esSeo, program: esProgram, performers: esPerformers, gastronomy: esGastronomy, children: esChildren, exhibitors: esExhibitors, workshops: esWorkshops, gallery: esGallery, partners: esPartners },
-  zh: { site: zhSite, seo: zhSeo, program: zhProgram, performers: zhPerformers, gastronomy: zhGastronomy, children: zhChildren, exhibitors: zhExhibitors, workshops: zhWorkshops, gallery: zhGallery, partners: zhPartners },
-  vi: { site: viSite, seo: viSeo, program: viProgram, performers: viPerformers, gastronomy: viGastronomy, children: viChildren, exhibitors: viExhibitors, workshops: viWorkshops, gallery: viGallery, partners: viPartners },
+  ja: { site: jaSite, seo: jaSeo, program: jaProgram, performers: jaPerformers, gastronomy: jaGastronomy, children: jaChildren, exhibitors: jaExhibitors, workshops: jaWorkshops, gallery: jaGallery, partners: jaPartners },
 };
 
 export function getLocaleContent(locale) {

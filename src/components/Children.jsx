@@ -29,7 +29,6 @@ export default function Children({ compact = false }) {
   return (
     <Section id="pre-deti" kicker={route.sectionKicker || route.breadcrumb} title={route.sectionTitle || route.h1} className="childrenSection">
       <p className="childrenIntro">{data.intro}</p>
-      <p className="childrenFreeEntry">{data.freeEntry}</p>
       {data.activities.length ? (
         <div className="featureGrid childrenGrid">
           {data.activities.map((activity, index) => {
@@ -62,17 +61,18 @@ export default function Children({ compact = false }) {
               </article>;
             })}
           </div>
-          <div className="childrenPrize"><Trophy size={28} aria-hidden="true" /><div><h3>{data.competition.prize.title}</h3><p>{data.competition.prize.text}</p></div></div>
+          <div className="childrenSupportGrid">
+            <div className="childrenPrize"><Trophy size={28} aria-hidden="true" /><div><h3>{data.competition.prize.title}</h3><p>{data.competition.prize.text}</p></div></div>
+            <div className="childrenSafety">
+              <h3>{data.safety.title}</h3>
+              <p>{data.safety.text}</p>
+            </div>
+          </div>
         </section>
       )}
       {compact ? (
         <a className="childrenCta" href={detailPath}>{data.cta}</a>
-      ) : (
-        <div className="childrenSafety">
-          <h3>{data.safety.title}</h3>
-          <p>{data.safety.text}</p>
-        </div>
-      )}
+      ) : null}
     </Section>
   );
 }

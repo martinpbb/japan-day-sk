@@ -104,7 +104,7 @@
                       "role":  "Samurajské bojové umění",
                       "short":  "Ukázky samurajského bojového umění, Kyujutsu a Tamešigiri.",
                       "description":  "Silvestr založil oddíl Iaido a Kendo v roce 1994 v Plzni. Postupem času se od ukázek použití japonského meče a jiných zbraní propracovali až k soubojům v plné samurajské zbroji, ukázkám Kyujutsu – bojové lukostřelby – a Tamešigiri, tedy sekacím testům. Z japonské historie je oslovilo zejména období Sengoku džidai, období válčících klanů, ve kterém se bojová umění rozvinula do mimořádné úrovně.",
-                      "image":  ""
+                      "image":  "/images/performers/silvestr_prajer.png"
                   },
                   {
                       "id":  "hisayo-yasuda",
@@ -168,20 +168,12 @@
                       "image":  "/images/performers/akiko_komura.jpg"
                   },
                   {
-                      "id":  "samuraj-bratislava",
-                      "name":  "Samurajské bojové umění",
-                      "role":  "Bojové umění samurajů 16. století",
-                      "short":  "Ukázky bojového umění samurajů z období 16. století.",
-                      "description":  "Účinkující z Bratislavy. Jméno a další podrobnosti doplníme.",
-                      "image":  ""
-                  },
-                  {
                       "id":  "judo-povazska-bystrica",
                       "name":  "Judo Považská Bystrica",
                       "role":  "Judo",
                       "short":  "Ukázky juda a japonského bojového umění.",
                       "description":  "Podrobnosti o programu doplníme.",
-                      "image":  ""
+                      "image":  "/images/performers/judo_klub_povazska_bystrica.jpg"
                   },
                   {
                       "id":  "japonske-kvety",
@@ -214,7 +206,7 @@
                       "short":  "Ukážka tradičnej japonskej techniky kumihimo – splietania ozdobných a funkčných šnúr.",
                       "heroTitle":  "Mgr. Ivana Mičkalová",
                       "heroSubtitle":  "Kumihimo – tradičné japonské splietanie šnúr",
-                      "description":  "",
+                      "description":  "image",                      
                       "website":  {
                                       "label":  "Webová stránka",
                                       "url":  "https://www.kumihimo.cz/"
@@ -237,7 +229,7 @@
                                           "text":  "Na Japonskom dni predstaví návštevníkom tradičnú techniku splietania japonských šnúr a ukáže, ako kumihimo vzniká v praxi. Záujemcovia si budú môcť prezrieť spôsob práce so šnúrami a bližšie spoznať remeslo, ktoré má v japonskej kultúre dlhú tradíciu."
                                       }
                                   ],
-                      "image":  ""
+                      "image":  "/images/performers/ivana_mickalova.png"
                   },
                   {
                       "id":  "aiko-bosak",

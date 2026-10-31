@@ -1,12 +1,62 @@
 {
-  "kicker": "",
-  "title": "",
-  "intro": "Program pre deti a rodiny pripravujeme. Jednotlivé aktivity budeme zverejňovať postupne.",
-  "cta": "Viac informácií",
-  "freeEntry": "Vstup na celé podujatie je zdarma.",
-  "activities": [],
+  "kicker": "PRE DETI A RODINY",
+  "title": "Japonsko, ktoré si deti môžu samy vyskúšať",
+  "intro": "Príďte si s deťmi užiť Japonský deň trochu inak. Pripravujeme tvorenie, tradičné japonské hry, sladké dobroty aj súťaž vo vyfarbovaní japonských motívov.",
+  "cta": "Zistiť viac",
+  "activities": [
+    {
+      "id": "japanese-colouring",
+      "title": "Vyfarbovanie japonských motívov",
+      "short": "Vyfarbite si obrázky inšpirované Japonskom a zapojte sa do súťaže.",
+      "description": "Deti dostanú pripravené obrázky s japonskou a anime tematikou, ktoré si môžu vyfarbiť podľa vlastnej fantázie. Hotové obrázky sa budú môcť zapojiť do súťaže o najkrajšie vyfarbený motív."
+    },
+    {
+      "id": "origami",
+      "title": "Origami",
+      "short": "Vyskúšajte si tradičné japonské skladanie papiera.",
+      "description": "Deti aj rodičia si budú môcť vyskúšať origami, tradičné japonské umenie skladania papiera, a vytvoriť si vlastný jednoduchý papierový model."
+    },
+    {
+      "id": "ayatori",
+      "title": "Ayatori あやとり",
+      "short": "Tradičná japonská hra so slučkou zo špagátu.",
+      "description": "Pomocou prstov a slučky zo špagátu sa vytvárajú rôzne obrazce a figúry. Ayatori je jednoduchá, zábavná hra, ktorá rozvíja jemnú motoriku, sústredenie a koordináciu."
+    },
+    {
+      "id": "shogi",
+      "title": "Šógi 将棋",
+      "short": "Vyskúšajte si tradičný japonský šach.",
+      "description": "Deti aj dospelí si budú môcť vyskúšať šógi, tradičnú japonskú strategickú hru podobnú šachu, a zoznámiť sa so základnými pravidlami."
+    },
+    {
+      "id": "japanese-sweets",
+      "title": "Japonské sladkosti",
+      "short": "Ochutnajte sladké dobroty z Japonska.",
+      "description": "Počas dňa budú k dispozícii rôzne japonské a ázijské sladkosti a drobné dobroty pre deti aj dospelých."
+    }
+  ],
+  "competition": {
+    "eyebrow": "DETSKÁ SÚŤAŽ",
+    "title": "Vyfarbi Japonsko podľa svojej fantázie!",
+    "intro": "Pre deti pripravujeme súťaž vo vyfarbovaní japonských motívov.",
+    "categories": [
+      {
+        "id": "colouring",
+        "title": "Najlepšie vyfarbený obrázok",
+        "intro": "Súťaž je určená najmä pre našich najmenších návštevníkov.",
+        "body": "Na mieste dostanete pripravené obrázky s japonskou a anime tematikou, ktoré môžete vyfarbiť podľa vlastnej fantázie.",
+        "detail": "Pastelky do ruky a ide sa na to!",
+        "evaluationLabel": "Hodnotiť budeme:",
+        "evaluation": "najmä nápad, prácu s farbami, precíznosť a celkový dojem."
+      }
+    ],
+    "prize": {
+      "title": "Na víťaza čaká odmena.",
+      "text": "Najdôležitejšie je zapojiť fantáziu, zabaviť sa a užiť si Japonský deň spolu s nami."
+    }
+  },
   "safety": {
     "title": "Dohľad nad deťmi",
-    "text": "Detské aktivity nie sú službou stráženia detí. Deti zostávajú pod dohľadom rodiča alebo inej sprevádzajúcej dospelej osoby."
+    "text": "Detské aktivity nie sú službou stráženia detí. Deti zostávajú po celý čas pod dohľadom a zodpovednosťou rodiča alebo inej sprevádzajúcej dospelej osoby."
   }
 }

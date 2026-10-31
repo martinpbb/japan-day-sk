@@ -1,0 +1,48 @@
+{
+  "intro": "出展者、販売者、プレゼンターは順次公開していきます。",
+  "items": [
+    {
+      "id": "nagomi-tea",
+      "name": "Nagomi tea",
+      "website": "https://www.nagomitea.eu/",
+      "category": "日本茶",
+      "description": "日本の生産者から直接仕入れた厳選日本茶。",
+      "image": "/images/exhibitors/nagomi_tea.png",
+      "imageMode": "logo"
+    },
+    {
+      "id": "nagomi-sake",
+      "name": "Nagomi sake",
+      "website": "https://www.nagomisake.cz/",
+      "category": "日本酒",
+      "description": "日本酒の紹介と試飲。",
+      "image": "/images/exhibitors/nagomi_sake.png",
+      "imageMode": "logo",
+      "imageScale": 1.15
+    },
+    {
+      "id": "kumihimo",
+      "name": "Kumihimo – 日本の組紐",
+      "category": "伝統工芸",
+      "description": "日本の伝統的な組紐づくりの実演。",
+      "image": "/images/exhibitors/kumihimo_japonske_snury.png",
+      "imageMode": "photo"
+    },
+    {
+      "id": "matcha-tea",
+      "name": "Matcha & tea latte (Nagomi tea)",
+      "category": "日本茶",
+      "description": "抹茶、和紅茶、ほうじ茶、烏龍茶、白茶などの粉末茶を使った抹茶・ティーラテ。",
+      "imageMode": "photo"
+    },
+    {
+      "id": "samurai-cz",
+      "name": "SAMURAI.cz",
+      "image": "/images/exhibitors/samurai_noze.png",
+      "website": "https://www.samurai.cz/",
+      "category": "日本・ダマスカス包丁",
+      "short": "切れ味、精度、仕上げにこだわったプレミアムなキッチンナイフ。三徳、牛刀、切付、菜切などの日本式包丁を紹介します。",
+      "description": "SAMURAI.czは、切れ味、精度、品質に重点を置いたプレミアムキッチンナイフを取り扱っています。三徳、牛刀、切付、菜切などの日本式包丁に加え、寿司や刺身の調理に適した包丁も揃えています。ダマスカス包丁、手鍛造モデル、VG10や最新の粉末鋼など高品質な鋼材を芯材に使用したモデルもあります。日本デーでは、さまざまなタイプの包丁を実際に見ながら、日本料理での用途について知ることができます。"
+    }
+  ]
+}

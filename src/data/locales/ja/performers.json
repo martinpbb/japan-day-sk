@@ -1,0 +1,307 @@
+{
+  "items": [
+    {
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "日本料理",
+      "short": "チェコ共和国における日本料理のアンバサダーで、ヨーロッパと日本の両方で経験を積んだ著名なシェフ。",
+      "description": "会場で新鮮な魚をさばき、刺身、握り、巻き寿司などの作り方を実演します。",
+      "content": [
+        {
+          "type": "p",
+          "text": "マレク・ホラは30年以上にわたり日本料理に携わり、日本でも直接経験を積んできました。"
+        },
+        {
+          "type": "h2",
+          "text": "刺身と寿司を目の前で"
+        },
+        {
+          "type": "p",
+          "text": "ポヴァジュスカー・ビストリツァでは、新鮮な魚の扱い方や刺身、握り、巻き寿司などの実演を行います。"
+        }
+      ],
+      "image": "/images/performers/marek_hora.png"
+    },
+    {
+      "id": "gorin",
+      "name": "Gorin",
+      "category": "侍",
+      "short": "侍文化、歴史的な武術の伝統、戦国時代を紹介するグループ。",
+      "description": "弓術、立ち合い、試し斬りの実演と、侍やその伝統についてのお話をお楽しみいただけます。",
+      "content": [
+        {
+          "type": "p",
+          "text": "Gorinがポヴァジュスカー・ビストリツァに侍の時代の日本の雰囲気を届け、武具、伝統、歴史的な武術を紹介します。"
+        },
+        {
+          "type": "h2",
+          "text": "弓術、立ち合い、試し斬り"
+        },
+        {
+          "type": "p",
+          "text": "プログラムでは、弓術、立ち合い、そして刀の切れ味と技術を試す伝統的な試し斬りを実演します。"
+        }
+      ],
+      "image": "/images/performers/gorin_samurai_show.png"
+    },
+    {
+      "id": "noriko-komiyama",
+      "name": "Noriko Komiyama",
+      "category": "日本文化",
+      "short": "草月流の日本人いけばな講師。池坊と草月流の違いを紹介し、日本の花の生け方を実演します。",
+      "heroTitle": "Noriko Komiyama",
+      "heroSubtitle": "草月流いけばな講師",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Noriko Komiyamaは、長年プラハで暮らす日本人のいけばな講師です。主に草月流を学び、公開実演やワークショップを通じてその経験を伝えています。"
+        },
+        {
+          "type": "p",
+          "text": "彼女のいけばな実演は日本大使館の後援を受けた催しでも行われており、例えばFlóra Bratislavaでは舞台実演に加え、実践的なワークショップも担当しました。"
+        },
+        {
+          "type": "h2",
+          "text": "いけばなは特別な花から始めなくてもいい"
+        },
+        {
+          "type": "p",
+          "text": "日本デーでは、身近にある普通の花や植物をどのように生かせるかを紹介します。また、いけばなの代表的な二つの流派、池坊と草月流の異なる考え方も紹介します。"
+        },
+        {
+          "type": "p",
+          "text": "身近な植物からでも印象的な日本風の作品を作れることを知り、家でも試していただけます。"
+        }
+      ],
+      "image": "/images/performers/noriko_komiyama.png"
+    },
+    {
+      "id": "martin-labudik",
+      "name": "Ing. Martin Labudík",
+      "category": "日本茶・日本酒",
+      "short": "Nagomi tea創設者、日本茶講師。",
+      "description": "日本茶の多様性や淹れ方、日本の茶農園での仕事、緑茶と抗酸化物質について紹介します。",
+      "content": [
+        {
+          "type": "p",
+          "text": "Nagomi teaのMartin Labudíkが、日本茶のさまざまなカテゴリーと実践的な淹れ方を紹介します。"
+        },
+        {
+          "type": "h2",
+          "text": "茶畑から一杯のお茶まで"
+        },
+        {
+          "type": "p",
+          "text": "日本の茶農園での仕事や製茶について、さらに抗酸化物質、酸化ストレス、スキンケアにおけるお茶の活用について現在わかっていることもお話しします。"
+        }
+      ],
+      "image": "/images/performers/martin_labudik.png"
+    },
+    {
+      "id": "silvestr-prajer",
+      "name": "Silvestr Prajer",
+      "role": "侍武術",
+      "short": "侍武術、弓術、試し斬りの実演。",
+      "description": "Silvestrは1994年にプルゼニで居合道と剣道のクラブを設立しました。日本刀やその他の武器の使い方の実演から始まり、やがて本格的な侍甲冑を着用した立ち合い、弓術、そして試し斬りへと活動を広げました。日本史の中でも特に、武術が高度に発展した戦国時代に強く惹かれています。",
+      "image": ""
+    },
+    {
+      "id": "hisayo-yasuda",
+      "name": "Hisayo Yasuda",
+      "category": "日本文化",
+      "short": "日本語と日本文化の講師。日本の伝統文化である折り紙を紹介します。",
+      "heroTitle": "Hisayo Yasuda",
+      "heroSubtitle": "日本語・日本文化講師",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Hisayo Yasudaは長年ブラチスラヴァで暮らす日本語講師です。日本語教育と日本文化の紹介に取り組み、公共イベントや小学校で子どもたちを対象に折り紙のワークショップや実演も行っています。"
+        },
+        {
+          "type": "p",
+          "text": "折り紙は日本の伝統的な紙の芸術です。日本デーでは、色とりどりの折り紙から、ハート、風船、箱といった簡単なものから伝統的な鶴まで、さまざまな作品を一つずつ作る方法をHisayoが紹介します。"
+        },
+        {
+          "type": "p",
+          "text": "彼女の折り紙実演は、在スロバキア日本国大使館が主催する桜祭りにも参加しています。"
+        },
+        {
+          "type": "p",
+          "text": "Hisayoはワークショップで一つずつ丁寧に進めるため、初心者でも安心して参加できます。目的はきれいな作品を作るだけでなく、折り紙を通じて日本文化の一端に触れることです。"
+        },
+        {
+          "type": "quote",
+          "text": "一緒に楽しみながら、色とりどりの折り紙でかわいい小物を作りましょう。"
+        }
+      ],
+      "image": "/images/performers/hisayo_yasuda.jpg"
+    },
+    {
+      "id": "akiko-komura",
+      "name": "Mgr. Akiko Komura, Ph.D.",
+      "category": "日本文化",
+      "short": "日本人研究者・大学講師。日本の伝統的な書道を紹介します。",
+      "heroTitle": "Mgr. Akiko Komura, Ph.D.",
+      "heroSubtitle": "日本人研究者・大学講師",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Mgr. Akiko Komura, Ph.D.は、ブラチスラヴァのコメニウス大学哲学部・東アジア研究学科で大学講師を務めています。研究では日本の社会、文化、伝統に関するテーマを扱っています。"
+        },
+        {
+          "type": "p",
+          "text": "日本デーでは、日本の伝統的な書の芸術である書道を紹介します。日本文化における意味、筆の基本的な使い方、文字がどのように形作られるかを解説します。"
+        },
+        {
+          "type": "p",
+          "text": "プログラムには講演だけでなく、実践的なワークショップも含まれます。参加者は実際に書道筆を使い、自分で文字を書くことができます。"
+        },
+        {
+          "type": "p",
+          "text": "ワークショップでは、書道を単なる文字の書き方としてではなく、動きの正確さ、集中力、美意識が一体となった伝統芸術として体験できます。"
+        }
+      ],
+      "website": "https://fphil.uniba.sk/katedry-a-odborne-pracoviska/katedra-vychodoazijskych-studii/clenovia-katedry/",
+      "image": "/images/performers/akiko_komura.jpg"
+    },
+    {
+      "id": "judo-povazska-bystrica",
+      "name": "Judo Považská Bystrica",
+      "role": "柔道",
+      "short": "柔道と日本武道の実演。",
+      "description": "プログラムの詳細は後日追加します。",
+      "image": "/images/performers/judo_povazska_bystrica.jpg"
+    },
+    {
+      "id": "japonske-kvety",
+      "name": "Jana Michalková",
+      "category": "日本文化",
+      "short": "日本の花と、日本文化におけるその役割を紹介します。",
+      "heroTitle": "Jana Michalková",
+      "heroSubtitle": "日本の花",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Jana Michalkováが、日本の花の美しさと日本文化の中での位置づけを紹介します。"
+        },
+        {
+          "type": "p",
+          "text": "日本デーでは、日本と結びつきの深いさまざまな植物や花を紹介し、私たちの身近な環境でも日本らしい雰囲気を作る方法をお見せします。"
+        },
+        {
+          "type": "p",
+          "text": "日本の美意識、自然のモチーフ、日常生活や装飾の中で花が持つ意味についても知ることができます。"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "kumihimo",
+      "name": "Mgr. Ivana Mičkalová",
+      "category": "日本文化",
+      "short": "装飾や実用品として使われる日本の伝統的な組紐技法の実演。",
+      "heroTitle": "Mgr. Ivana Mičkalová",
+      "heroSubtitle": "組紐 – 日本の伝統的な紐づくり",
+      "description": "",
+      "website": {
+        "label": "Webová stránka",
+        "url": "https://www.kumihimo.cz/"
+      },
+      "content": [
+        {
+          "type": "p",
+          "text": "Mgr. Ivana Mičkalováは、装飾用・実用の紐を組む日本の伝統技法「組紐」に取り組んでいます。2015年に侍ショーGorinの公演を初めて見たことをきっかけに日本文化に興味を持ち、次第にグループの活動環境に関わりながら、日本の伝統工芸への関心を深めました。"
+        },
+        {
+          "type": "p",
+          "text": "Gorinのメンバーが丸台や高台といった伝統的な組台を使っていたことをきっかけに、組紐に出会いました。技法の精密さと、一本一本の糸が複雑で美しい模様へと組み上がっていく過程に魅了されました。"
+        },
+        {
+          "type": "p",
+          "text": "2022年からは公共イベントで自ら組紐を実演し、希望者に基本を教えています。簡単な模様から始め、経験や知識、専門文献を通じた学びを広げてきました。"
+        },
+        {
+          "type": "p",
+          "text": "日本デーでは、日本の伝統的な組紐技法を紹介し、実際にどのように作られるのかを実演します。来場者は紐を組む工程を間近で見ながら、日本文化に長い歴史を持つ工芸について知ることができます。"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "aiko-bosak",
+      "name": "Aiko Bosák",
+      "category": "日本文化",
+      "short": "日本の布を使った小さな装飾品作りと、伝統的な着物を紹介します。",
+      "heroTitle": "Aiko Bosák",
+      "heroSubtitle": "日本の布・装飾品・着物",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Aiko Bosákが、日本の布やテキスタイルを使った小さな装飾品作りを紹介します。"
+        },
+        {
+          "type": "p",
+          "text": "プレゼンテーションでは着物の販売も行い、日本の伝統的な布、柄、その使い方について知ることができます。"
+        },
+        {
+          "type": "p",
+          "text": "日本デーでは、完成した作品、日本の布、着物を会場で実際にご覧いただけます。"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "asuka-emura",
+      "name": "Asuka Emura",
+      "category": "日本文化",
+      "short": "日本の伝統的な紙折り文化「折り紙」を紹介します。",
+      "heroTitle": "Asuka Emura",
+      "heroSubtitle": "折り紙 – 日本の伝統的な紙折り",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Asuka Emuraが、日本の伝統的な紙折り文化である折り紙を紹介します。"
+        },
+        {
+          "type": "p",
+          "text": "一枚の正方形の紙を順番に折ることで、さまざまな形、物、キャラクターが生まれる様子を紹介します。"
+        },
+        {
+          "type": "p",
+          "text": "日本を代表する創作文化の一つをより身近に知り、折り紙の基本を実際に体験できます。"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "satoko-kino",
+      "name": "Satoko Kino",
+      "category": "日本茶・日本料理",
+      "short": "日本人の視点から、日本茶、食文化、日常の食卓文化を紹介します。",
+      "heroTitle": "Satoko Kino",
+      "heroSubtitle": "日本茶・日本料理",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Satoko Kinoは日本出身で、チェコとスロバキアで日本文化、食文化、日常の伝統を紹介する活動に長く携わっています。日本茶や日本の商品を扱うNagomiブランドにも関わっています。"
+        },
+        {
+          "type": "p",
+          "text": "日本デーでは、日本文化の中で育った人の視点から、日本茶と食文化を紹介します。日本の日常生活でお茶や食事がどのように登場し、どのように提供され、家族や友人との食卓やおもてなしの中でどんな役割を果たしているかをお話しします。"
+        },
+        {
+          "type": "p",
+          "text": "実演や試食・試飲も予定しています。来場者は日本の味をより身近に体験しながら、ヨーロッパでの日本茶や日本食の捉え方と、日本の日常生活でのあり方の違いについて知ることができます。"
+        }
+      ],
+      "image": ""
+    }
+  ]
+}

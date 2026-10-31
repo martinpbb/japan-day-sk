@@ -16,6 +16,7 @@ import Performers from "./components/Performers.jsx";
 import PerformerDetail from "./components/PerformerDetail.jsx";
 import Gastronomy from "./components/Gastronomy.jsx";
 import Children from "./components/Children.jsx";
+import WorkshopsTeaser from "./components/WorkshopsTeaser.jsx";
 import ExhibitorDetail from "./components/ExhibitorDetail.jsx";
 import Exhibitors from "./components/Exhibitors.jsx";
 import Workshops from "./components/Workshops.jsx";
@@ -76,6 +77,7 @@ function HomePage() {
       <About />
       <Program />
       <Children compact />
+      <WorkshopsTeaser />
       <Performers />
       <Gastronomy compact />
       <Exhibitors />

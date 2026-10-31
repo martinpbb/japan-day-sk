@@ -1,0 +1,140 @@
+{
+  "baseUrl": "https://japanday.sk",
+  "siteName": "日本茶と文化の日",
+  "locale": "ja_JP",
+  "language": "ja-JP",
+  "defaultImage": "/images/social/japan-day-povazska-bystrica-2026-og.png",
+  "semanticTopics": [
+    "Japan Day Považská Bystrica",
+    "日本デー Považská Bystrica",
+    "日本文化",
+    "日本料理",
+    "寿司",
+    "刺身",
+    "日本茶",
+    "日本酒",
+    "侍",
+    "Gorin",
+    "いけばな",
+    "Noriko Komiyama",
+    "Marek Hora",
+    "Nagomi tea"
+  ],
+  "routes": {
+    "/": {
+      "title": "日本茶と文化の日 2026 | Považská Bystrica",
+      "description": "ポヴァジュスカー・ビストリツァで開催される第3回「日本茶と文化の日」。日本料理、お茶、いけばな、侍、武道、展示。入場無料。",
+      "h1": "日本茶と文化の日",
+      "intro": "ポヴァジュスカー・ビストリツァで一日、日本を体験。",
+      "schema": [
+        "festival",
+        "organization"
+      ]
+    },
+    "/program": {
+      "title": "プログラム | 日本茶と文化の日 2026",
+      "description": "プログラムは現在準備中です。出演時間と追加ゲストは順次公開します。",
+      "h1": "日本茶と文化の日 2026 プログラム",
+      "intro": "詳細タイムテーブルを準備中です。",
+      "breadcrumb": "プログラム",
+      "schema": [
+        "festival",
+        "breadcrumb"
+      ]
+    },
+    "/ucinkujuci": {
+      "title": "ゲスト・出演者 | 日本茶と文化の日",
+      "description": "ポヴァジュスカー・ビストリツァの日本茶と文化の日に出演するゲストをご紹介します。",
+      "h1": "ゲスト・出演者",
+      "intro": "日本料理、日本茶、いけばな、侍文化を通じて日本を紹介する人々。",
+      "breadcrumb": "ゲスト",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "ゲスト・出演者",
+      "sectionTitle": "日本を身近に伝える人々をご紹介します"
+    },
+    "/gastronomia": {
+      "title": "日本料理と日本茶 | Japan Day Považská Bystrica",
+      "description": "刺身、寿司、日本料理、日本茶、日本酒などのテイスティング。",
+      "h1": "日本料理と日本茶",
+      "intro": "ポヴァジュスカー・ビストリツァで日本の味をお楽しみください。",
+      "breadcrumb": "日本料理",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/pre-deti": {
+      "title": "子ども・ファミリー向け | Japan Day Považská Bystrica",
+      "description": "子どもと家族向けのプログラムを準備中です。",
+      "h1": "子ども・ファミリー向け",
+      "intro": "子ども向けアクティビティは順次ご紹介します。",
+      "breadcrumb": "子ども",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "子ども・ファミリー向け",
+      "sectionTitle": "子どもたちが自分で体験できる日本"
+    },
+    "/vystavovatelia": {
+      "title": "出展者・販売者 | Japan Day Považská Bystrica",
+      "description": "日本デーでの展示、プレゼンテーション、日本関連商品の販売。",
+      "h1": "出展者・販売者",
+      "intro": "出展者と販売者の一覧を準備中です。",
+      "breadcrumb": "出展者",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/workshopy": {
+      "title": "ワークショップ | 日本茶と文化の日",
+      "description": "日本茶と文化の日のワークショップ一覧。",
+      "h1": "ワークショップ",
+      "intro": "実践的なワークショップを通して日本文化を体験してください。",
+      "breadcrumb": "ワークショップ",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/prakticke-informacie": {
+      "title": "ご来場案内 | 日本茶と文化の日 2026",
+      "description": "ポヴァジュスカー・ビストリツァでのイベントの日付、会場、無料入場、交通などの情報。",
+      "h1": "ご来場案内",
+      "intro": "日付、会場、入場、来場に必要な情報。",
+      "breadcrumb": "ご来場案内",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/galeria": {
+      "title": "ギャラリー | 日本茶と文化の日",
+      "description": "ポヴァジュスカー・ビストリツァで開催される日本茶と文化の日のギャラリー。",
+      "h1": "ギャラリー",
+      "intro": "過去開催の写真は後日追加します。",
+      "breadcrumb": "ギャラリー",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/o-podujati": {
+      "title": "イベントについて | 日本茶と文化の日",
+      "description": "ポヴァジュスカー・ビストリツァで開催される第3回日本茶と文化の日。",
+      "h1": "日本茶と文化の日について",
+      "intro": "日本文化・食・伝統のフェスティバル。",
+      "breadcrumb": "イベントについて",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/kontakt": {
+      "title": "お問い合わせ | 日本茶と文化の日",
+      "description": "ポヴァジュスカー・ビストリツァの日本茶と文化の日の主催者へのお問い合わせ。",
+      "h1": "お問い合わせ",
+      "intro": "来場者、パートナー、出展者向けのお問い合わせ窓口。",
+      "breadcrumb": "お問い合わせ",
+      "schema": [
+        "breadcrumb"
+      ]
+    }
+  }
+}
