@@ -104,7 +104,7 @@
                       "role":  "Samurai martial arts",
                       "short":  "Demonstrations of samurai martial arts, kyūjutsu and tameshigiri.",
                       "description":  "Silvestr founded an iaidō and kendō group in Plzeň in 1994. Over time, they progressed from demonstrations of the use of the Japanese sword and other weapons to full-armour samurai combat, demonstrations of kyūjutsu – combat archery – and tameshigiri, or test cutting. In Japanese history, they were particularly inspired by the Sengoku jidai, the period of warring clans, when martial arts developed to an extraordinary level.",
-                      "image":  ""
+                      "image":  "/images/performers/silvestr_prajer.png"
                   },
                   {
                       "id":  "hisayo-yasuda",
@@ -181,7 +181,7 @@
                       "role":  "Judo",
                       "short":  "Demonstrations of judo and Japanese martial arts.",
                       "description":  "Further programme details will be added later.",
-                      "image":  ""
+                      "image":  "/images/performers/judo_klub_povazska_bystrica.jpg"
                   },
                   {
                       "id":  "japonske-kvety",
@@ -221,7 +221,7 @@
                                           "text":  "At Japan Day, she will introduce visitors to the traditional technique of braiding Japanese cords and show how kumihimo is created in practice. Visitors will be able to observe the method of working with the cords and learn more about a craft with a long tradition in Japanese culture."
                                       }
                                   ],
-                      "image":  ""
+                      "image":  "/images/performers/ivana_mickalova.png"
                   }
               ]
 }

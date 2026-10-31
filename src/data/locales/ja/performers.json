@@ -104,7 +104,7 @@
       "role": "侍武術",
       "short": "侍武術、弓術、試し斬りの実演。",
       "description": "Silvestrは1994年にプルゼニで居合道と剣道のクラブを設立しました。日本刀やその他の武器の使い方の実演から始まり、やがて本格的な侍甲冑を着用した立ち合い、弓術、そして試し斬りへと活動を広げました。日本史の中でも特に、武術が高度に発展した戦国時代に強く惹かれています。",
-      "image": ""
+      "image": "/images/performers/silvestr_prajer.png"
     },
     {
       "id": "hisayo-yasuda",
@@ -173,7 +173,7 @@
       "role": "柔道",
       "short": "柔道と日本武道の実演。",
       "description": "プログラムの詳細は後日追加します。",
-      "image": "/images/performers/judo_povazska_bystrica.jpg"
+      "image": "/images/performers/judo_klub_povazska_bystrica.jpg"
     },
     {
       "id": "japonske-kvety",
@@ -229,7 +229,7 @@
           "text": "日本デーでは、日本の伝統的な組紐技法を紹介し、実際にどのように作られるのかを実演します。来場者は紐を組む工程を間近で見ながら、日本文化に長い歴史を持つ工芸について知ることができます。"
         }
       ],
-      "image": ""
+      "image": "/images/performers/ivana_mickalova.png"
     },
     {
       "id": "aiko-bosak",
@@ -301,7 +301,7 @@
           "text": "実演や試食・試飲も予定しています。来場者は日本の味をより身近に体験しながら、ヨーロッパでの日本茶や日本食の捉え方と、日本の日常生活でのあり方の違いについて知ることができます。"
         }
       ],
-      "image": ""
+      "image": "images/performers/satoko_kino.jpg"
     }
   ]
 }

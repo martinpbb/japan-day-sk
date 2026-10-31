@@ -104,7 +104,7 @@
                       "role":  "Artes marciales samurái",
                       "short":  "Demostraciones de artes marciales samurái, kyūjutsu y tameshigiri.",
                       "description":  "Silvestr fundó un grupo de iaidō y kendō en Plzeň en 1994. Con el tiempo pasaron de las demostraciones del uso de la espada japonesa y otras armas a combates con armadura samurái completa, demostraciones de kyūjutsu —tiro con arco de combate— y tameshigiri, es decir, pruebas de corte. De la historia japonesa les atrajo especialmente el periodo Sengoku jidai, la época de los clanes en guerra, cuando las artes marciales alcanzaron un extraordinario nivel de desarrollo.",
-                      "image":  ""
+                      "image":  "/images/performers/silvestr_prajer.png"
                   },
                   {
                       "id":  "hisayo-yasuda",
@@ -181,7 +181,7 @@
                       "role":  "Judo",
                       "short":  "Demostraciones de judo y artes marciales japonesas.",
                       "description":  "Se añadirán más detalles del programa próximamente.",
-                      "image":  ""
+                      "image":  "/images/performers/judo_klub_povazska_bystrica.jpg"
                   },
                   {
                       "id":  "japonske-kvety",
@@ -221,7 +221,7 @@
                                           "text":  "En Japan Day presentará a los visitantes la técnica tradicional de trenzado de cordones japoneses y mostrará cómo se crea el kumihimo en la práctica. Los visitantes podrán observar la forma de trabajar con los cordones y conocer mejor una artesanía con una larga tradición en la cultura japonesa."
                                       }
                                   ],
-                      "image":  ""
+                      "image":  "/images/performers/ivana_mickalova.png"
                   }
               ]
 }

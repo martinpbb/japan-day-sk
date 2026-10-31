@@ -104,7 +104,7 @@
                       "role":  "Samurai-Kampfkünste",
                       "short":  "Vorführungen von Samurai-Kampfkünsten, Kyūjutsu und Tameshigiri.",
                       "description":  "Silvestr gründete 1994 in Plzeň eine Iaido- und Kendo-Gruppe. Im Laufe der Zeit entwickelten sich die Vorführungen vom Umgang mit dem japanischen Schwert und anderen Waffen bis hin zu Kämpfen in vollständiger Samurai-Rüstung, Kyūjutsu – dem Kampfbogenschießen – und Tameshigiri, also Testschnitten. Besonders faszinierte sie in der japanischen Geschichte die Sengoku-Zeit, die Epoche der kriegführenden Clans, in der sich die Kampfkünste auf außergewöhnlichem Niveau entwickelten.",
-                      "image":  ""
+                      "image":  "/images/performers/silvestr_prajer.png"
                   },
                   {
                       "id":  "hisayo-yasuda",
@@ -181,7 +181,7 @@
                       "role":  "Judo",
                       "short":  "Vorführungen von Judo und japanischen Kampfkünsten.",
                       "description":  "Weitere Programmdetails werden später ergänzt.",
-                      "image":  ""
+                      "image":  "/images/performers/judo_klub_povazska_bystrica.jpg"
                   },
                   {
                       "id":  "japonske-kvety",
@@ -221,7 +221,7 @@
                                           "text":  "Beim Japan Day stellt sie den Besuchern die traditionelle Technik des Flechtens japanischer Schnüre vor und zeigt, wie Kumihimo praktisch entsteht. Die Besucher können die Arbeitsweise mit den Schnüren beobachten und ein Handwerk mit langer Tradition in der japanischen Kultur näher kennenlernen."
                                       }
                                   ],
-                      "image":  ""
+                      "image":  "/images/performers/ivana_mickalova.png"
                   }
               ]
 }
