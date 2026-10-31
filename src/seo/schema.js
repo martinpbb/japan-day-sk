@@ -15,8 +15,7 @@ const schemaLanguage = {
   "en-GB": "en",
   "de-DE": "de",
   "es-ES": "es",
-  "zh-CN": "zh-CN",
-  "vi-VN": "vi"
+  "ja-JP": "ja"
 };
 
 export function buildFestivalSchema({ seo, site, path = "/" }) {
@@ -24,8 +23,7 @@ export function buildFestivalSchema({ seo, site, path = "/" }) {
     "en-GB": "/en",
     "de-DE": "/de",
     "es-ES": "/es",
-    "zh-CN": "/zh",
-    "vi-VN": "/vi"
+    "ja-JP": "/ja"
   }[seo.language] || "";
   const localizedPath = path === "/" && localePrefix ? `${localePrefix}/` : path;
   const image = seo.defaultImage ? absoluteUrl(seo.baseUrl, seo.defaultImage) : undefined;

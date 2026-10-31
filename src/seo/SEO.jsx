@@ -55,7 +55,7 @@ export default function SEO({ path, route }) {
     for (const locale of supportedLocales) {
       const link = document.createElement("link");
       link.rel = "alternate";
-      link.hreflang = locale === "zh" ? "zh-CN" : locale;
+      link.hreflang = locale;
       link.href = absoluteUrl(seo.baseUrl, localePath(locale, path));
       document.head.appendChild(link);
     }
@@ -67,7 +67,7 @@ export default function SEO({ path, route }) {
 
     document.head.querySelectorAll('script[data-japanday-schema="true"]').forEach((node) => node.remove());
     // Schema URLs must include the locale prefix used by the current document.
-    const localePrefix = { "en-GB": "/en", "de-DE": "/de", "es-ES": "/es", "zh-CN": "/zh", "vi-VN": "/vi" }[seo.language] || "";
+    const localePrefix = { "en-GB": "/en", "de-DE": "/de", "es-ES": "/es", "ja-JP": "/ja" }[seo.language] || "";
     const schemaPath = `${localePrefix}${path}`;
     buildSchemas({ seo, site, path: schemaPath, route }).forEach((schema) => {
       const script = document.createElement("script");

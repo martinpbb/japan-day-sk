@@ -15,8 +15,7 @@ const locales = [
   { locale: "en", prefix: "/en" },
   { locale: "de", prefix: "/de" },
   { locale: "es", prefix: "/es" },
-  { locale: "zh-CN", contentLocale: "zh", prefix: "/zh" },
-  { locale: "vi", prefix: "/vi" }
+  { locale: "ja", prefix: "/ja" }
 ];
 
 function escapeHtml(value) {
