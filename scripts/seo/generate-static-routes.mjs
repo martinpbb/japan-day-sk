@@ -33,12 +33,13 @@ function replaceTitle(html, title) {
 
 const gtmHead = `    <!-- Google Tag Manager -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-MGF62FC3');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
     </script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MGF62FC3"></script>
     <!-- End Google Tag Manager -->`;
 
 const gtmNoScript = `    <!-- Google Tag Manager (noscript) -->
@@ -53,13 +54,14 @@ const gtmNoScript = `    <!-- Google Tag Manager (noscript) -->
     <!-- End Google Tag Manager (noscript) -->`;
 
 const ga4Head = `    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPT8F3EETE"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80MZ8NGTCN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
-
-      gtag('config', 'G-ZPT8F3EETE');
+      gtag('config', 'G-80MZ8NGTCN');
     </script>`;
 
 function ensureGtm(html) {
@@ -70,8 +72,8 @@ function ensureGtm(html) {
 }
 
 function ensureGa4(html) {
-  const scriptCount = html.split("https://www.googletagmanager.com/gtag/js?id=G-ZPT8F3EETE").length - 1;
-  const configCount = (html.match(/gtag\('config', 'G-ZPT8F3EETE'\)/g) || []).length;
+  const scriptCount = html.split("https://www.googletagmanager.com/gtag/js?id=G-80MZ8NGTCN").length - 1;
+  const configCount = (html.match(/gtag\('config', 'G-80MZ8NGTCN'\)/g) || []).length;
   if (scriptCount === 1 && configCount === 1) return html;
   if (scriptCount > 1 || configCount > 1 || scriptCount !== configCount) {
     throw new Error("Expected exactly one complete GA4 integration in the route template.");
