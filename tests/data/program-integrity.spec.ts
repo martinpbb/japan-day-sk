@@ -48,11 +48,11 @@ test("@data workshop sessions match the confirmed schedule in each locale", () =
     japoncina: [["11:00", 45], ["12:15", 45], ["13:30", 45]],
     origami: [["11:00", 90], ["13:00", 90]],
     "tsumami-zaiku": [["11:00", 90], ["13:00", 90]],
-    ayatori: [["15:00", 60]],
+    ayatori: [["11:00", 60], ["13:00", 60]],
     shodo: [["11:00", 90], ["13:00", 90]],
     kumihimo: [["11:00", 90], ["13:00", 90], ["15:00", 90]],
-    "tvorba-kombiku": [],
-    "cajova-degustacia": [],
+    "tvorba-kombiku": [["11:00", 90], ["13:00", 90]],
+    "cajova-degustacia": [["13:30", 45]],
   };
   for (const locale of ["sk", "en", "de", "es", "ja"]) {
     const data = JSON.parse(fs.readFileSync(path.join(root, locale, "workshops.json"), "utf8"));
@@ -61,7 +61,7 @@ test("@data workshop sessions match the confirmed schedule in each locale", () =
       expect(workshop).toBeTruthy();
       expect(workshop.sessions.map((session: any) => [session.start.slice(11, 16), workshop.durationMinutes])).toEqual(sessions);
       expect(workshop.sessions.every((session: any) => session.start.endsWith("+01:00"))).toBeTruthy();
-      if (["tsumami-zaiku", "ayatori"].includes(id)) expect(workshop.lecturerId).toBe("aiko-bosak");
+      if (["tvorba-kombiku", "tsumami-zaiku", "ayatori"].includes(id)) expect(workshop.lecturerId).toBe("aiko-bosak");
     }
     const workshops = Object.fromEntries(data.items.map((item: any) => [item.id, item]));
     expect(workshops.japoncina.sessions.map((session: any) => session.id)).toEqual(["japoncina-1100", "japoncina-1215", "japoncina-1330"]);
@@ -69,6 +69,7 @@ test("@data workshop sessions match the confirmed schedule in each locale", () =
     expect(workshops.shodo.sessions[1].start.slice(11, 16)).toBe("13:00");
     expect(workshops.shodo.durationMinutes).toBe(90);
     expect(workshops.ayatori.sessions[0].capacity).toBe(10);
+    expect(workshops["cajova-degustacia"]).toMatchObject({ lecturerId: "martin-labudik", durationMinutes: 45, paid: false, priceCents: 0 });
     expect(workshops.origami.sessions.map((session: any) => session.start)).toEqual(workshops["tsumami-zaiku"].sessions.map((session: any) => session.start));
     expect(workshops.origami.durationMinutes).toBe(90);
     expect(workshops["tsumami-zaiku"].durationMinutes).toBe(90);
@@ -81,8 +82,9 @@ test("@data workshop sessions match the confirmed schedule in each locale", () =
     expect(workshops["tsumami-zaiku"]).toMatchObject({ paid: true, priceCents: 1000, currency: "EUR", lecturerId: "aiko-bosak" });
     expect(workshops.origami.sessions.every((session: any) => session.areaId === "shared-workshop-area")).toBeTruthy();
     expect(workshops["tsumami-zaiku"].sessions.every((session: any) => session.areaId === "shared-workshop-area")).toBeTruthy();
-    expect(workshops["tvorba-kombiku"].sessions).toEqual([]);
-    expect(workshops["cajova-degustacia"].sessions).toEqual([]);
+    expect(workshops["tvorba-kombiku"].sessions.every((session: any) => session.areaId === "shared-workshop-area")).toBeTruthy();
+    expect(workshops.ayatori.sessions.every((session: any) => session.areaId === "shared-workshop-area")).toBeTruthy();
+    expect(workshops["cajova-degustacia"].sessions.map((session: any) => session.start.slice(11, 16))).toEqual(["13:30"]);
   }
 });
 
