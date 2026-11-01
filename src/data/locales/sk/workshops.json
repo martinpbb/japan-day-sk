@@ -13,7 +13,7 @@
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
-      "durationMinutes": 45,
+      "durationMinutes": 60,
       "registrationOpen": false,
       "waitlistEnabled": true,
       "sessions": [
@@ -24,14 +24,14 @@
           "location": null
         },
         {
-          "id": "japoncina-1215",
-          "start": "2026-11-07T12:15:00+01:00",
+          "id": "japoncina-1230",
+          "start": "2026-11-07T12:30:00+01:00",
           "capacity": null,
           "location": null
         },
         {
-          "id": "japoncina-1330",
-          "start": "2026-11-07T13:30:00+01:00",
+          "id": "japoncina-1400",
+          "start": "2026-11-07T14:00:00+01:00",
           "capacity": null,
           "location": null
         }
@@ -104,8 +104,14 @@
           "location": null
         },
         {
-          "id": "shodo-1300",
-          "start": "2026-11-07T13:00:00+01:00",
+          "id": "shodo-1330",
+          "start": "2026-11-07T13:30:00+01:00",
+          "capacity": 20,
+          "location": null
+        },
+        {
+          "id": "shodo-1530",
+          "start": "2026-11-07T15:30:00+01:00",
           "capacity": 20,
           "location": null
         }
