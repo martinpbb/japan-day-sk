@@ -24,8 +24,14 @@
           "location": null
         },
         {
-          "id": "japoncina-1400",
-          "start": "2026-11-07T14:00:00+01:00",
+          "id": "japoncina-1215",
+          "start": "2026-11-07T12:15:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "japoncina-1330",
+          "start": "2026-11-07T13:30:00+01:00",
           "capacity": null,
           "location": null
         }
@@ -36,7 +42,7 @@
       "slug": "origami",
       "title": "Origami",
       "category": "Japanische Kultur",
-      "lecturerId": null,
+      "lecturerId": "asuka-emura",
       "short": "Traditionelle japanische Papierfaltkunst, bei der aus einem einfachen Blatt Tiere, Blumen und andere dekorative Formen entstehen.",
       "description": "Origami ist die traditionelle japanische Kunst des Papierfaltens. Aus einem einzigen Blatt Papier lassen sich ohne Schneiden zahlreiche Formen gestalten – von einfachen Tieren und Blumen bis zu komplexeren Dekorationsobjekten.\n\nIm Workshop lernen die Teilnehmenden die Grundprinzipien des Origami kennen und gestalten unter Anleitung Schritt für Schritt mehrere eigene Papiermodelle.\n\nDer Workshop ist auch für Anfänger und Kinder geeignet. Vorkenntnisse sind nicht erforderlich.",
       "image": "",
@@ -49,30 +55,28 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "origami-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "origami-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
         },
         {
-          "id": "origami-1210",
-          "start": "2026-11-07T12:10:00+01:00",
+          "id": "origami-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": null,
-          "location": null
-        },
-        {
-          "id": "origami-1340",
-          "start": "2026-11-07T13:40:00+01:00",
-          "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
         }
       ],
       "lecturers": [
         {
-          "performerId": "asuka-emura"
+          "performerId": "asuka-emura",
+          "role": "lead"
         },
         {
-          "performerId": "hisayo-yasuda"
+          "performerId": "hisayo-yasuda",
+          "role": "support"
         }
       ]
     },
@@ -94,20 +98,14 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "shodo-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "shodo-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": 20,
           "location": null
         },
         {
-          "id": "shodo-1210",
-          "start": "2026-11-07T12:40:00+01:00",
-          "capacity": 20,
-          "location": null
-        },
-        {
-          "id": "shodo-1340",
-          "start": "2026-11-07T14:40:00+01:00",
+          "id": "shodo-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": 20,
           "location": null
         }
@@ -145,7 +143,7 @@
       "slug": "tsumami-zaiku",
       "title": "Tsumami zaiku つまみ細工",
       "category": "Japanische Kultur",
-      "lecturerId": "hisayo-yasuda",
+      "lecturerId": "aiko-bosak",
       "short": "Traditionelle japanische Technik, bei der kleine Stoffstücke zu Blumen und dekorativen Motiven gefaltet werden. Die Teilnehmenden gestalten ihren eigenen Schmuck.",
       "description": "Tsumami zaiku ist eine traditionelle japanische Technik zur Herstellung kleiner Verzierungen aus Stoffstücken. Kleine Stoffquadrate werden sorgfältig gefaltet und zu einzelnen Blütenblättern geformt, aus denen anschließend Blumen und weitere dekorative Motive entstehen.\n\nBekannt wurde die Technik in Japan besonders durch Kanzashi-Haarschmuck, wie er etwa bei festlichen Frisuren von Maiko und Geiko verwendet wird.\n\nIm Workshop probieren die Teilnehmenden die Technik selbst aus und gestalten eine kleine Verzierung zum Mitnehmen.\n\nDer Workshop ist auch für Anfänger geeignet; Vorkenntnisse sind nicht erforderlich.\n\nDie Teilnahme kostet 10 € pro Person. Eine Anmeldung im Voraus ist erforderlich.",
       "image": "",
@@ -153,15 +151,23 @@
       "paid": true,
       "priceCents": 1000,
       "currency": "EUR",
-      "durationMinutes": 60,
+      "durationMinutes": 90,
       "registrationOpen": false,
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "tsumami-zaiku-1215",
-          "start": "2026-11-07T12:15:00+01:00",
+          "id": "tsumami-zaiku-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
+        },
+        {
+          "id": "tsumami-zaiku-1300",
+          "start": "2026-11-07T13:00:00+01:00",
+          "capacity": null,
+          "location": null,
+          "areaId": "shared-workshop-area"
         }
       ]
     },
@@ -170,7 +176,7 @@
       "slug": "ayatori",
       "title": "Ayatori あやとり",
       "category": "Japanische Kultur",
-      "lecturerId": "hisayo-yasuda",
+      "lecturerId": "aiko-bosak",
       "short": "Traditionelles japanisches Fadenspiel, bei dem mit den Fingern verschiedene Muster und Figuren entstehen.",
       "description": "Ayatori ist ein traditionelles japanisches Spiel mit einer geschlossenen Schnur. Mit den Fingern entstehen unterschiedliche Muster und Figuren, die sich Schritt für Schritt in neue Formen verwandeln können.\n\nIn Japan ist das Spiel besonders bei Kindern bekannt, durch die vielen Techniken und Schwierigkeitsstufen macht es aber auch Erwachsenen Spaß. Es fördert Feinmotorik, Konzentration, Gedächtnis und Handkoordination.\n\nIm Workshop lernen die Teilnehmenden grundlegende Techniken und probieren mehrere traditionelle Ayatori-Figuren aus.\n\nDer Workshop ist kostenlos.\n\nMaximal 10 Teilnehmende.",
       "image": "",
@@ -183,8 +189,8 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "ayatori-1515",
-          "start": "2026-11-07T15:15:00+01:00",
+          "id": "ayatori-1500",
+          "start": "2026-11-07T15:00:00+01:00",
           "capacity": 10,
           "location": null
         }
@@ -208,20 +214,20 @@
       "waitlistEnabled": false,
       "sessions": [
         {
-          "id": "kumihimo-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "kumihimo-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
           "location": null
         },
         {
-          "id": "kumihimo-1210",
-          "start": "2026-11-07T12:10:00+01:00",
+          "id": "kumihimo-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": null,
           "location": null
         },
         {
-          "id": "kumihimo-1340",
-          "start": "2026-11-07T13:40:00+01:00",
+          "id": "kumihimo-1500",
+          "start": "2026-11-07T15:00:00+01:00",
           "capacity": null,
           "location": null
         }

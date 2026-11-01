@@ -96,7 +96,7 @@ function SubPage({ path, route }) {
     <main>
       <Breadcrumbs current={route.breadcrumb || route.h1} />
       <PageIntro title={route.h1} intro={route.intro} />
-      <Content />
+      <Content includeWorkshopsTeaser={path === "/program"} />
     </main>
   );
 }

@@ -2,21 +2,33 @@
   "organizers": [
     {
       "name": "Consejo de Juventud de la Región de Trenčín",
-      "image": ""
+      "image": "/images/organizers/rmtnk.png"
     },
     {
       "name": "Ciudad de Považská Bystrica",
-      "image": ""
+      "image": "/images/organizers/mesto_pb.png"
     },
     {
       "name": "Mladí pre Považskú",
-      "image": ""
+      "image": "/images/organizers/mpp.png"
     }
   ],
   "partners": [
     {
-      "name": "Nagomi tea",
-      "image": "/images/partners/nagomi.png"
+      "name": "Považsko-bystrické novinky",
+      "image": "/images/partners/pbn.jpg"
+    },
+    {
+      "name": "MY Považský Obzor",
+      "image": "/images/partners/obzor.jpg"
+    },
+    {
+      "name": "iTV",
+      "image": "/images/partners/itv.jpg"
+    },
+    {
+      "name": "TV Považie",
+      "image": "/images/partners/tv_povazie.jpg"
     }
   ]
 }

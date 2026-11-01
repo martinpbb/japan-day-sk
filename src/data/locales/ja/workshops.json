@@ -24,8 +24,14 @@
           "location": null
         },
         {
-          "id": "japoncina-1400",
-          "start": "2026-11-07T14:00:00+01:00",
+          "id": "japoncina-1215",
+          "start": "2026-11-07T12:15:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "japoncina-1330",
+          "start": "2026-11-07T13:30:00+01:00",
           "capacity": null,
           "location": null
         }
@@ -36,7 +42,7 @@
       "slug": "origami",
       "title": "折り紙",
       "category": "日本文化",
-      "lecturerId": null,
+      "lecturerId": "asuka-emura",
       "short": "一枚の紙から動物や花、さまざまな飾りを作る日本の伝統的な折り紙を体験します。",
       "description": "折り紙は、日本の伝統的な紙の造形文化です。一枚の紙を切らずに折ることで、簡単な動物や花から、より複雑な装飾作品まで、さまざまな形を作ることができます。\n\nワークショップでは、折り紙の基本を学び、講師の案内に沿って一つずつ自分の作品を作ります。\n\n初心者や子どもにも適しており、事前の経験は必要ありません。",
       "image": "",
@@ -49,30 +55,28 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "origami-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "origami-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
         },
         {
-          "id": "origami-1210",
-          "start": "2026-11-07T12:10:00+01:00",
+          "id": "origami-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": null,
-          "location": null
-        },
-        {
-          "id": "origami-1340",
-          "start": "2026-11-07T13:40:00+01:00",
-          "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
         }
       ],
       "lecturers": [
         {
-          "performerId": "asuka-emura"
+          "performerId": "asuka-emura",
+          "role": "lead"
         },
         {
-          "performerId": "hisayo-yasuda"
+          "performerId": "hisayo-yasuda",
+          "role": "support"
         }
       ]
     },
@@ -94,20 +98,14 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "shodo-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "shodo-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": 20,
           "location": null
         },
         {
-          "id": "shodo-1210",
-          "start": "2026-11-07T12:40:00+01:00",
-          "capacity": 20,
-          "location": null
-        },
-        {
-          "id": "shodo-1340",
-          "start": "2026-11-07T14:40:00+01:00",
+          "id": "shodo-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": 20,
           "location": null
         }
@@ -145,7 +143,7 @@
       "slug": "tsumami-zaiku",
       "title": "つまみ細工",
       "category": "日本文化",
-      "lecturerId": "hisayo-yasuda",
+      "lecturerId": "aiko-bosak",
       "short": "小さな布を折って花や装飾モチーフを作る日本の伝統技法です。参加者は自分だけの飾りを作ります。",
       "description": "つまみ細工は、小さな布を折って作る日本の伝統的な装飾技法です。小さな正方形の布を丁寧に折り、花びらを作り、それらを組み合わせて花やさまざまな装飾モチーフに仕上げます。\n\n日本では、舞妓や芸妓の華やかな髪飾りとして知られる「かんざし」に使われる技法としても有名です。\n\nワークショップでは、この技法を実際に体験し、持ち帰ることのできる小さな飾りを作ります。\n\n初心者でも参加でき、事前の経験は必要ありません。\n\n参加費は1名10ユーロです。事前登録が必要です。",
       "image": "",
@@ -153,15 +151,23 @@
       "paid": true,
       "priceCents": 1000,
       "currency": "EUR",
-      "durationMinutes": 60,
+      "durationMinutes": 90,
       "registrationOpen": false,
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "tsumami-zaiku-1215",
-          "start": "2026-11-07T12:15:00+01:00",
+          "id": "tsumami-zaiku-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
+        },
+        {
+          "id": "tsumami-zaiku-1300",
+          "start": "2026-11-07T13:00:00+01:00",
+          "capacity": null,
+          "location": null,
+          "areaId": "shared-workshop-area"
         }
       ]
     },
@@ -170,7 +176,7 @@
       "slug": "ayatori",
       "title": "あやとり",
       "category": "日本文化",
-      "lecturerId": "hisayo-yasuda",
+      "lecturerId": "aiko-bosak",
       "short": "輪にしたひもを指にかけ、さまざまな形を作る日本の伝統的な遊びです。",
       "description": "あやとりは、輪にしたひもを指にかけて、さまざまな形や模様を作る日本の伝統的な遊びです。一つの形から次の形へと変化させて楽しむこともできます。\n\n日本では特に子どもたちに親しまれていますが、多くの手順や難易度があり、大人も楽しめます。手先の器用さ、集中力、記憶力、手の協調性を育てます。\n\nワークショップでは基本的なやり方を学び、いくつかの伝統的なあやとりの形に挑戦します。\n\n参加は無料です。\n\n定員は最大10名です。",
       "image": "",
@@ -183,8 +189,8 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "ayatori-1515",
-          "start": "2026-11-07T15:15:00+01:00",
+          "id": "ayatori-1500",
+          "start": "2026-11-07T15:00:00+01:00",
           "capacity": 10,
           "location": null
         }
@@ -208,20 +214,20 @@
       "waitlistEnabled": false,
       "sessions": [
         {
-          "id": "kumihimo-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "kumihimo-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
           "location": null
         },
         {
-          "id": "kumihimo-1210",
-          "start": "2026-11-07T12:10:00+01:00",
+          "id": "kumihimo-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": null,
           "location": null
         },
         {
-          "id": "kumihimo-1340",
-          "start": "2026-11-07T13:40:00+01:00",
+          "id": "kumihimo-1500",
+          "start": "2026-11-07T15:00:00+01:00",
           "capacity": null,
           "location": null
         }

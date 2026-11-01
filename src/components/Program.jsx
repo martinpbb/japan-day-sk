@@ -1,25 +1,63 @@
 import React from "react";
-import { ChevronRight } from "lucide-react";
+import { MapPin } from "lucide-react";
 import Section from "./Section.jsx";
-import RegistrationForm from "./RegistrationForm.jsx";
+import WorkshopsTeaser from "./WorkshopsTeaser.jsx";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
 
-export default function Program() {
+function VenueSchedule({ venue, title, subtitle, capacity, items, performers, locale }) {
+  return (
+    <section className="programVenue" aria-labelledby={`venue-${venue}`}>
+      <header className="programVenueHeader">
+        <MapPin size={19} aria-hidden="true" />
+        <div>
+          <h2 id={`venue-${venue}`}>{title}</h2>
+          <p>{subtitle}{capacity ? <span className="programCapacity">Kapacita: {capacity} osôb</span> : null}</p>
+        </div>
+      </header>
+      <div className="programVenueList">
+        {items.map((item, index) => {
+          const performer = item.performerId ? performers.get(item.performerId) : null;
+          return (
+            <article className="programVenueItem" key={`${venue}-${item.time}-${index}`}>
+              <time className="programVenueTime" dateTime={`2026-11-07T${item.time}:00+01:00`}>
+                {item.endTime ? `${item.time}–${item.endTime}` : item.time}
+              </time>
+              <div className="programVenueDetails">
+                <h3>{item.title}</h3>
+                {item.presenter ? <span className="programVenuePerformer">{item.presenter}</span> : null}
+                {!item.presenter && performer ? <a className="programVenuePerformer" href={addLocalePrefix(`/ucinkujuci/${performer.id}`, locale)}>{performer.name}</a> : null}
+                {item.durationMinutes ? <span className="programVenueDuration">{item.durationMinutes} min</span> : null}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+export default function Program({ includeWorkshopsTeaser = false }) {
   const { locale, site, content } = useI18n();
-  const performerMap = new Map(content.performers.items.map((item) => [item.id, item]));
   const route = content.seo.routes["/program"];
-  const performerPath = (id) => addLocalePrefix(`/ucinkujuci/${id}`, locale);
+  const performers = new Map(content.performers.items.map((item) => [item.id, item]));
+  const hall = content.program.items.filter((item) => item.venue === "hall");
+  const theatre = content.program.items.filter((item) => item.venue === "theatre");
+
   if (!content.program.items.length) {
     return <Section id="program" kicker={route.breadcrumb} title={route.h1} className="sectionTint"><div className="emptyState programPending"><strong>{site.ui.programPending}</strong><p>{content.program.note}</p></div></Section>;
   }
-  return <Section id="program" kicker={route.breadcrumb} title={route.h1} className="sectionTint"><div className="timeline">{content.program.items.map((item, index) => { const performer = item.performerId ? performerMap.get(item.performerId) : null; return <article className="programItem" key={`${item.time}-${index}`}><time className="programTime"><strong>{item.time}</strong>{item.endTime ? <span>{site.ui.programmeUntil.replace("{time}", item.endTime)}</span> : null}</time><div className="timelineDotWrapper" aria-hidden="true"><div className="timelineDot" /></div><div className="programAvatarSlot">{performer ? <a className="programAvatarLink" href={performerPath(performer.id)} aria-label={site.ui.moreAbout.replace("{name}", performer.name)}><img className="programAvatar" src={performer.image} alt="" /></a> : null}</div><div className="programHeading"><div className="programMeta">{performer?.category || (item.type === "ceremony" ? site.ui.inProgramme : content.seo.routes["/prakticke-informacie"].breadcrumb)}</div>{performer ? <h3><a className="programTitleLink" href={performerPath(performer.id)}>{item.title}</a></h3> : <h3>{item.title}</h3>}</div>{(item.description || performer?.short) ? <p className="programDescription">{item.description || performer.short}</p> : <div className="programDescription" />}{performer ? <a className="iconLink" href={performerPath(performer.id)} aria-label={site.ui.moreAbout.replace("{name}", performer.name)}><ChevronRight size={20}/></a> : null}{item.registration ? <RegistrationForm workshop={{ title: item.title, term: item.registration.term, location: item.registration.location }} /> : null}</article>; })}</div>{content.program.plan ? <section className="programPlanSection" aria-label={content.program.plan.title || content.program.plan.alt}>{content.program.plan.title ? <h2>{content.program.plan.title}</h2> : null}{content.program.plan.description ? <p>{content.program.plan.description}</p> : null}<img className="programPlan" src={content.program.plan.image} alt={content.program.plan.alt} /></section> : null}</Section>;
+
+  return (
+    <>
+      <Section id="program" kicker={route.breadcrumb} title={route.h1} className="sectionTint">
+        <div className="programVenues">
+          <VenueSchedule venue="hall" title="Veľký sál" subtitle="Hlavný program" items={hall} performers={performers} locale={locale} />
+          <VenueSchedule venue="theatre" title="Bábkové divadlo" subtitle="Prednášky" capacity={100} items={theatre} performers={performers} locale={locale} />
+        </div>
+        {content.program.plan ? <section className="programPlanSection" aria-label={content.program.plan.title || content.program.plan.alt}>{content.program.plan.title ? <h2>{content.program.plan.title}</h2> : null}{content.program.plan.description ? <p>{content.program.plan.description}</p> : null}<img className="programPlan" src={content.program.plan.image} alt={content.program.plan.alt} /></section> : null}
+      </Section>
+      {includeWorkshopsTeaser ? <WorkshopsTeaser /> : null}
+    </>
+  );
 }
-/**
- * Copyright © 2026 Martin Labudík
- * All rights reserved.
- *
- * Unauthorized copying, modification, redistribution or reuse
- * of this source code, in whole or in part, is prohibited
- * without prior written permission from the copyright holder.
- */

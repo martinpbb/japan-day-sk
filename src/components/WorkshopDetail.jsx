@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Section from "./Section.jsx";
 import WorkshopRegistrationForm from "./WorkshopRegistrationForm.jsx";
-import { formatSession, workshopPrice, workshopLecturers } from "../lib/workshops.js";
+import { formatSession, lecturerRoleLabel, workshopPrice, workshopLecturers } from "../lib/workshops.js";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
 
@@ -23,7 +23,7 @@ export default function WorkshopDetail({ workshop }) {
     <div className="workshopDetailGrid">
       <div className="workshopDescription">{workshop.description.split(/\n\n+/).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         <dl className="workshopFacts workshopDetailFacts">
-          {people.length ? <div><dt>{people.length > 1 ? "Lektori" : "Lektor"}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.affiliation ? <div>{person.affiliation}</div> : null}</div>)}</dd></div> : null}
+          {people.length ? <div><dt>{people.length > 1 ? "Lektori" : "Lektor"}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.role ? ` (${lecturerRoleLabel(person.role, locale)})` : ""}{person.affiliation ? <div>{person.affiliation}</div> : null}</div>)}</dd></div> : null}
           {workshop.durationMinutes ? <div><dt>Trvanie</dt><dd>{workshop.durationMinutes} min</dd></div> : null}
           <div><dt>Cena</dt><dd>{workshopPrice(registrationWorkshop)}</dd></div>
           {selectedSession?.capacity != null ? <div><dt>Kapacita</dt><dd>{selectedSession.capacity} osôb na termín</dd></div> : null}

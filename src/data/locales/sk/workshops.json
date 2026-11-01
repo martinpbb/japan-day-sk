@@ -24,8 +24,14 @@
           "location": null
         },
         {
-          "id": "japoncina-1400",
-          "start": "2026-11-07T14:00:00+01:00",
+          "id": "japoncina-1215",
+          "start": "2026-11-07T12:15:00+01:00",
+          "capacity": null,
+          "location": null
+        },
+        {
+          "id": "japoncina-1330",
+          "start": "2026-11-07T13:30:00+01:00",
           "capacity": null,
           "location": null
         }
@@ -36,7 +42,7 @@
       "slug": "origami",
       "title": "Origami",
       "category": "Japonská kultúra",
-      "lecturerId": null,
+      "lecturerId": "asuka-emura",
       "short": "Tradičné japonské umenie skladania papiera, pri ktorom z jednoduchého listu vznikajú zvieratá, kvety a ďalšie dekoratívne tvary.",
       "description": "Origami je tradičné japonské umenie skladania papiera. Z jedného listu papiera možno bez strihania vytvoriť množstvo rôznych tvarov – od jednoduchých zvierat a kvetov až po zložitejšie dekoratívne objekty.\n\nNa workshope sa účastníci zoznámia so základnými princípmi skladania origami a pod vedením lektoriek si krok za krokom vytvoria niekoľko vlastných papierových modelov.\n\nWorkshop je vhodný aj pre úplných začiatočníkov a deti. Predchádzajúce skúsenosti nie sú potrebné.",
       "image": "",
@@ -49,30 +55,28 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "origami-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "origami-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
         },
         {
-          "id": "origami-1210",
-          "start": "2026-11-07T12:10:00+01:00",
+          "id": "origami-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": null,
-          "location": null
-        },
-        {
-          "id": "origami-1340",
-          "start": "2026-11-07T13:40:00+01:00",
-          "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
         }
       ],
       "lecturers": [
         {
-          "performerId": "asuka-emura"
+          "performerId": "asuka-emura",
+          "role": "lead"
         },
         {
-          "performerId": "hisayo-yasuda"
+          "performerId": "hisayo-yasuda",
+          "role": "support"
         }
       ]
     },
@@ -94,20 +98,14 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "shodo-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "shodo-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": 20,
           "location": null
         },
         {
-          "id": "shodo-1210",
-          "start": "2026-11-07T12:40:00+01:00",
-          "capacity": 20,
-          "location": null
-        },
-        {
-          "id": "shodo-1340",
-          "start": "2026-11-07T14:40:00+01:00",
+          "id": "shodo-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": 20,
           "location": null
         }
@@ -145,7 +143,7 @@
       "slug": "tsumami-zaiku",
       "title": "Tsumami zaiku つまみ細工",
       "category": "Japonská kultúra",
-      "lecturerId": "hisayo-yasuda",
+      "lecturerId": "aiko-bosak",
       "short": "Tradičná japonská technika skladania drobných kúskov látky do kvetov a dekoratívnych motívov. Účastníci si vytvoria vlastnú ozdobu.",
       "description": "Tsumami zaiku je tradičná japonská technika tvorby drobných ozdôb z kúskov látky. Malé štvorčeky látky sa precízne skladajú a tvarujú do jednotlivých lupienkov, z ktorých následne vznikajú kvety a ďalšie dekoratívne motívy.\n\nTechnika sa v Japonsku preslávila najmä vďaka ozdobám kanzashi, ktoré sa používajú do vlasov a sú známe napríklad zo slávnostných účesov maiko a geiko.\n\nNa workshope si účastníci techniku sami vyskúšajú a vytvoria si vlastnú drobnú ozdobu, ktorú si môžu odniesť domov.\n\nWorkshop je vhodný aj pre začiatočníkov a nie sú potrebné žiadne predchádzajúce skúsenosti.\n\nÚčasť na workshope je spoplatnená sumou 10 € na osobu. Registrácia vopred je potrebná.",
       "image": "",
@@ -153,15 +151,23 @@
       "paid": true,
       "priceCents": 1000,
       "currency": "EUR",
-      "durationMinutes": 60,
+      "durationMinutes": 90,
       "registrationOpen": false,
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "tsumami-zaiku-1215",
-          "start": "2026-11-07T12:15:00+01:00",
+          "id": "tsumami-zaiku-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
-          "location": null
+          "location": null,
+          "areaId": "shared-workshop-area"
+        },
+        {
+          "id": "tsumami-zaiku-1300",
+          "start": "2026-11-07T13:00:00+01:00",
+          "capacity": null,
+          "location": null,
+          "areaId": "shared-workshop-area"
         }
       ]
     },
@@ -170,7 +176,7 @@
       "slug": "ayatori",
       "title": "Ayatori あやとり",
       "category": "Japonská kultúra",
-      "lecturerId": "hisayo-yasuda",
+      "lecturerId": "aiko-bosak",
       "short": "Tradičná japonská hra so slučkou zo špagátu, pri ktorej sa pomocou prstov vytvárajú rôzne obrazce a figúry.",
       "description": "Ayatori je tradičná japonská hra so slučkou zo špagátu alebo povrázku. Pomocou prstov sa z nej vytvárajú rôzne obrazce a figúry, ktoré sa môžu postupne meniť z jedného tvaru na ďalší.\n\nHra je v Japonsku známa najmä medzi deťmi, no vďaka množstvu rôznych postupov a úrovní náročnosti dokáže zabaviť aj dospelých. Rozvíja jemnú motoriku, sústredenie, pamäť a koordináciu rúk.\n\nNa workshope sa účastníci naučia základné postupy a vyskúšajú si vytvoriť niekoľko tradičných ayatori obrazcov.\n\nWorkshop je bezplatný.\n\nKapacita workshopu je najviac 10 účastníkov.",
       "image": "",
@@ -183,8 +189,8 @@
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "ayatori-1515",
-          "start": "2026-11-07T15:15:00+01:00",
+          "id": "ayatori-1500",
+          "start": "2026-11-07T15:00:00+01:00",
           "capacity": 10,
           "location": null
         }
@@ -208,20 +214,20 @@
       "waitlistEnabled": false,
       "sessions": [
         {
-          "id": "kumihimo-1040",
-          "start": "2026-11-07T10:40:00+01:00",
+          "id": "kumihimo-1100",
+          "start": "2026-11-07T11:00:00+01:00",
           "capacity": null,
           "location": null
         },
         {
-          "id": "kumihimo-1210",
-          "start": "2026-11-07T12:10:00+01:00",
+          "id": "kumihimo-1300",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": null,
           "location": null
         },
         {
-          "id": "kumihimo-1340",
-          "start": "2026-11-07T13:40:00+01:00",
+          "id": "kumihimo-1500",
+          "start": "2026-11-07T15:00:00+01:00",
           "capacity": null,
           "location": null
         }

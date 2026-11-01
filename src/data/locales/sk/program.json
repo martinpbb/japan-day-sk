@@ -1,5 +1,144 @@
 {
-  "status": "draft",
-  "note": "Podrobný program pripravujeme. Presné časy a ďalších hostí budeme zverejňovať postupne.",
-  "items": []
+  "status": "confirmed",
+  "note": "",
+  "items": [
+    {
+      "venue": "hall",
+      "time": "10:00",
+      "endTime": "10:35",
+      "title": "Otvorenie priestorov pre verejnosť",
+      "presenter": "Organizátor",
+      "durationMinutes": 35
+    },
+    {
+      "venue": "hall",
+      "time": "10:35",
+      "endTime": "10:50",
+      "title": "Operný spev – prvé vystúpenie",
+      "presenter": "Nao Higano",
+      "durationMinutes": 15
+    },
+    {
+      "venue": "hall",
+      "time": "10:50",
+      "endTime": "11:05",
+      "type": "ceremony",
+      "title": "Oficiálne otvorenie a príhovor primátora a hostí",
+      "presenter": "Primátor a hostia",
+      "durationMinutes": 15
+    },
+    {
+      "venue": "hall",
+      "time": "11:05",
+      "endTime": "11:20",
+      "title": "Operný spev – druhé vystúpenie",
+      "presenter": "Nao Higano",
+      "durationMinutes": 15
+    },
+    {
+      "venue": "hall",
+      "time": "11:30",
+      "endTime": "12:00",
+      "performerId": "gorin",
+      "title": "Samurajská show",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "12:10",
+      "endTime": "12:50",
+      "performerId": "noriko-komiyama",
+      "title": "Ikebana – japonské umenie aranžovania kvetov",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "hall",
+      "time": "13:00",
+      "endTime": "13:30",
+      "performerId": "gorin",
+      "title": "Tradičná japonská lukostreľba",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "13:40",
+      "endTime": "14:10",
+      "performerId": "gorin",
+      "title": "Obliekanie do samurajského brnenia",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "14:30",
+      "endTime": "15:00",
+      "performerId": "judo-povazska-bystrica",
+      "title": "Judo – ukážka japonského bojového umenia",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "16:20",
+      "endTime": "16:50",
+      "performerId": "gorin",
+      "title": "Tameshigiri – ukážka sekania japonským mečom",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "16:50",
+      "endTime": "17:00",
+      "title": "Záverečné poďakovanie",
+      "presenter": "Organizátor",
+      "durationMinutes": 10
+    },
+    {
+      "venue": "theatre",
+      "time": "11:30",
+      "endTime": "12:10",
+      "performerId": "hisayo-yasuda",
+      "title": "Príťažlivosť Japonska",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "12:20",
+      "endTime": "13:00",
+      "performerId": "martin-labudik",
+      "title": "Ako japonský čaj prospieva ľudskému telu",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "13:10",
+      "endTime": "13:50",
+      "performerId": "japonske-kvety",
+      "title": "Ľaliovky – kúsok Japonska v záhrade i na tanieri",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "14:00",
+      "endTime": "14:40",
+      "performerId": "akiko-komura",
+      "presenter": "Mgr. Akiko Komura, PhD.",
+      "title": "Shodō: japonská kaligrafia",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "14:50",
+      "endTime": "15:30",
+      "performerId": "martin-labudik",
+      "title": "Japonský čaj a jeho rozdelenie",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "15:40",
+      "endTime": "16:20",
+      "performerId": "silvestr-prajer",
+      "title": "Sengoku jidai: obdobie bojujúcich štátov",
+      "durationMinutes": 40
+    }
+  ]
 }

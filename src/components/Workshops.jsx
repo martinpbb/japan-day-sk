@@ -2,7 +2,7 @@ import React from "react";
 import Section from "./Section.jsx";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
-import { formatSession, workshopPrice, workshopLecturers } from "../lib/workshops.js";
+import { formatSession, lecturerRoleLabel, workshopPrice, workshopLecturers } from "../lib/workshops.js";
 
 function WorkshopCard({ workshop, lecturers, locale }) {
   const people = workshopLecturers(workshop, lecturers);
@@ -13,7 +13,7 @@ function WorkshopCard({ workshop, lecturers, locale }) {
       <div className="performerTitleRow"><h3>{workshop.title}</h3><span aria-hidden="true">›</span></div>
       <p className="shortText">{workshop.short || workshop.description}</p>
       <dl className="workshopFacts">
-        {people.length ? <div><dt>{people.length > 1 ? "Lektori" : "Lektor"}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}</div>)}</dd></div> : null}
+        {people.length ? <div><dt>{people.length > 1 ? "Lektori" : "Lektor"}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.role ? ` (${lecturerRoleLabel(person.role, locale)})` : ""}</div>)}</dd></div> : null}
         {workshop.durationMinutes ? <div><dt>Trvanie</dt><dd>{workshop.durationMinutes} min</dd></div> : null}
         <div><dt>Cena</dt><dd>{workshopPrice(workshop)}</dd></div>
         <div><dt>Termín</dt><dd>{workshop.sessions?.length ? workshop.sessions.map((session) => formatSession(session, workshop.durationMinutes)).join(", ") : "Termín bude doplnený"}</dd></div>

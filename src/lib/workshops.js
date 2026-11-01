@@ -21,6 +21,15 @@ export function formatSession(session, durationMinutes) {
 export function workshopLecturers(workshop, performers) {
   const entries = workshop.lecturers ?? (workshop.lecturerId ? [{ performerId: workshop.lecturerId }] : []);
   return entries.map((entry) => entry.performerId
-    ? performers.find((person) => person.id === entry.performerId)
-    : entry).filter(Boolean);
+    ? { ...performers.find((person) => person.id === entry.performerId), role: entry.role }
+    : entry).filter((person) => person.name);
+}
+
+export function lecturerRoleLabel(role, locale) {
+  if (!role) return "";
+  const labels = {
+    lead: { sk: "hlavná lektorka", en: "lead instructor", de: "Hauptleitung", es: "instructora principal", ja: "主担当" },
+    support: { sk: "podpora", en: "support", de: "Unterstützung", es: "apoyo", ja: "サポート" },
+  };
+  return labels[role]?.[locale] || labels[role]?.en || "";
 }
