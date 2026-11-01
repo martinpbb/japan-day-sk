@@ -37,14 +37,14 @@ const gtmHead = `    <!-- Google Tag Manager -->
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-N5S65NK8');
+      })(window,document,'script','dataLayer','GTM-MGF62FC3');
     </script>
     <!-- End Google Tag Manager -->`;
 
 const gtmNoScript = `    <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-N5S65NK8"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MGF62FC3"
         height="0"
         width="0"
         style="display:none;visibility:hidden"
@@ -63,8 +63,8 @@ const ga4Head = `    <!-- Google tag (gtag.js) -->
     </script>`;
 
 function ensureGtm(html) {
-  const withHead = html.includes("'GTM-N5S65NK8'") ? html : html.replace(/<head>/i, `<head>\n${gtmHead}`);
-  return withHead.includes('googletagmanager.com/ns.html?id=GTM-N5S65NK8')
+  const withHead = html.includes("'GTM-MGF62FC3'") ? html : html.replace(/<head>/i, `<head>\n${gtmHead}`);
+  return withHead.includes('googletagmanager.com/ns.html?id=GTM-MGF62FC3')
     ? withHead
     : withHead.replace(/<body>/i, `<body>\n${gtmNoScript}`);
 }

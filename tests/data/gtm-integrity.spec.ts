@@ -24,7 +24,7 @@ test("@data generated HTML contains exactly one GA4 and GTM integration", () => 
     const html = fs.readFileSync(file, "utf8");
     expect((html.match(/https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-ZPT8F3EETE/g) || [])).toHaveLength(1);
     expect((html.match(/gtag\('config', 'G-ZPT8F3EETE'\)/g) || [])).toHaveLength(1);
-    expect((html.match(/<script>[\s\S]*?GTM-N5S65NK8[\s\S]*?<\/script>/g) || [])).toHaveLength(1);
-    expect((html.match(/<noscript>[\s\S]*?GTM-N5S65NK8[\s\S]*?<\/noscript>/g) || [])).toHaveLength(1);
+    expect((html.match(/<script>[\s\S]*?GTM-MGF62FC3[\s\S]*?<\/script>/g) || [])).toHaveLength(1);
+    expect((html.match(/<noscript>[\s\S]*?GTM-MGF62FC3[\s\S]*?<\/noscript>/g) || [])).toHaveLength(1);
   }
 });
