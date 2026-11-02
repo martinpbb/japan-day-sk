@@ -1,26 +1,56 @@
 {
   "items": [
     {
-      "id": "marek-hora",
-      "name": "Marek Hora",
-      "category": "Gastronomía",
-      "short": "Embajador de la cocina japonesa en la República Checa y reconocido chef con experiencia en Europa y Japón.",
-      "description": "Mostrará cómo cortar pescado fresco y preparar sashimi, nigiri, maki y otros tipos de sushi.",
+      "id": "nao-higano",
+      "name": "Nao Higano",
+      "category": "Cantante de ópera / Soprano",
+      "short": "Soprano japonesa originaria de Chiba. Estudió canto operístico y de concierto en Japón y en la Academia de Artes Escénicas de Bratislava, donde completó sus estudios de doctorado con el título ArtD.",
+      "heroTitle": "Nao Higano",
+      "heroSubtitle": "Cantante de ópera / Soprano",
+      "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Marek Hora lleva más de treinta años dedicado a la gastronomía japonesa y adquirió parte de su experiencia directamente en Japón."
-        },
-        {
-          "type": "h2",
-          "text": "Sashimi y sushi preparados ante los visitantes"
+          "text": "La soprano Nao Higano es originaria de Chiba, Japón. Estudió canto operístico y de concierto en la Universidad Seitoku y en el Departamento de Canto de la Academia de Artes Escénicas de Bratislava, donde completó sus estudios de doctorado con el profesor Peter Mikuláš y obtuvo el título ArtD."
         },
         {
           "type": "p",
-          "text": "En Považská Bystrica realizará demostraciones prácticas del procesamiento de pescado fresco y de la preparación de sashimi, nigiri, maki y otros tipos de sushi."
+          "text": "Participó en numerosos cursos magistrales internacionales de canto, entre otros con P. de Neapoli, D. Iordachescu, Y. Hayashi, M. Janková, G. Beňačková, S. Kopčák, P. Dvorský, Z. Livorová y V. Chmelo."
+        },
+        {
+          "type": "p",
+          "text": "Se ha presentado con éxito en festivales internacionales de música y ha realizado grabaciones para radio y televisión, entre ellas ORF, Radio Húngara, Radio Checa, Radio Eslovaca, ČT y STV, así como para editoriales musicales."
+        },
+        {
+          "type": "p",
+          "text": "En sus recitales como solista interpreta repertorio de canción y música de cámara, además de oratorios, misas y cantatas. Su repertorio abarca desde el Renacimiento hasta la música del siglo XXI, con especial atención a las composiciones eslavas."
+        },
+        {
+          "type": "p",
+          "text": "Fue miembro del trío de cámara Sen Tegmento, fundado por el clarinetista Martin Adámek, solista y miembro del Ensemble Intercontemporain de París."
+        },
+        {
+          "type": "p",
+          "text": "Ha colaborado con numerosas orquestas y formaciones de cámara, entre ellas la Filarmónica de Tokio, la Filarmónica Eslovaca, la Orquesta de Cámara Eslovaca Bohdan Warchal, la Orquesta Sinfónica de la Radio Eslovaca, la Orquesta Sinfónica de la Radio Checa, la Filarmónica Estatal de Košice, la Orquesta de Cámara Estatal de Žilina, Capella Istropolitana, el Cuarteto Moyzes y la Filarmónica Bohuslav Martinů."
+        },
+        {
+          "type": "p",
+          "text": "Preparó un recital de canciones para el Rudolfinum de Praga y actuó en el Concertgebouw de Ámsterdam. Obtuvo el primer premio de la Yamaha Foundation y varios premios del Fondo de Música de Bratislava."
+        },
+        {
+          "type": "p",
+          "text": "Como solista ha sido invitada en la Ópera del Teatro Nacional Eslovaco de Bratislava, el Teatro Nacional de Brno, el Teatro Nacional de Praga, la Ópera Estatal de Banská Bystrica y la ópera de Košice."
+        },
+        {
+          "type": "p",
+          "text": "Logró un éxito especial en el papel de la Mujer en Erwartung de Arnold Schoenberg, en su estreno eslovaco en la Ópera del SND en 2002."
+        },
+        {
+          "type": "p",
+          "text": "En los últimos años también se dedica a las artes visuales y expone sus obras en Chequia, Eslovaquia y otros países. Es miembro honorario del Rotary Club Kroměříž, con el que participa en conciertos benéficos."
         }
       ],
-      "image": "/images/performers/marek_hora.png"
+      "image": "/images/performers/nao_higano.jpeg"
     },
     {
       "id": "gorin",
@@ -197,7 +227,7 @@
           "text": "Súčasťou prezentácie bude aj možnosť bližšie sa zoznámiť s japonskou estetikou, prírodnými motívmi a významom kvetov v každodennom živote a dekorácii."
         }
       ],
-      "image": "",
+      "image": "/images/performers/jana_michalkova.png",
       "role": "Flores y decoración japonesas"
     },
     {
@@ -305,56 +335,26 @@
       "image": "/images/performers/satoko_kino.jpg"
     },
     {
-      "id": "nao-higano",
-      "name": "Nao Higano",
-      "category": "Cantante de ópera / Soprano",
-      "short": "Soprano japonesa originaria de Chiba. Estudió canto operístico y de concierto en Japón y en la Academia de Artes Escénicas de Bratislava, donde completó sus estudios de doctorado con el título ArtD.",
-      "heroTitle": "Nao Higano",
-      "heroSubtitle": "Cantante de ópera / Soprano",
-      "description": "",
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "Gastronomía",
+      "short": "Embajador de la cocina japonesa en la República Checa y reconocido chef con experiencia en Europa y Japón.",
+      "description": "Mostrará cómo cortar pescado fresco y preparar sashimi, nigiri, maki y otros tipos de sushi.",
       "content": [
         {
           "type": "p",
-          "text": "La soprano Nao Higano es originaria de Chiba, Japón. Estudió canto operístico y de concierto en la Universidad Seitoku y en el Departamento de Canto de la Academia de Artes Escénicas de Bratislava, donde completó sus estudios de doctorado con el profesor Peter Mikuláš y obtuvo el título ArtD."
+          "text": "Marek Hora lleva más de treinta años dedicado a la gastronomía japonesa y adquirió parte de su experiencia directamente en Japón."
+        },
+        {
+          "type": "h2",
+          "text": "Sashimi y sushi preparados ante los visitantes"
         },
         {
           "type": "p",
-          "text": "Participó en numerosos cursos magistrales internacionales de canto, entre otros con P. de Neapoli, D. Iordachescu, Y. Hayashi, M. Janková, G. Beňačková, S. Kopčák, P. Dvorský, Z. Livorová y V. Chmelo."
-        },
-        {
-          "type": "p",
-          "text": "Se ha presentado con éxito en festivales internacionales de música y ha realizado grabaciones para radio y televisión, entre ellas ORF, Radio Húngara, Radio Checa, Radio Eslovaca, ČT y STV, así como para editoriales musicales."
-        },
-        {
-          "type": "p",
-          "text": "En sus recitales como solista interpreta repertorio de canción y música de cámara, además de oratorios, misas y cantatas. Su repertorio abarca desde el Renacimiento hasta la música del siglo XXI, con especial atención a las composiciones eslavas."
-        },
-        {
-          "type": "p",
-          "text": "Fue miembro del trío de cámara Sen Tegmento, fundado por el clarinetista Martin Adámek, solista y miembro del Ensemble Intercontemporain de París."
-        },
-        {
-          "type": "p",
-          "text": "Ha colaborado con numerosas orquestas y formaciones de cámara, entre ellas la Filarmónica de Tokio, la Filarmónica Eslovaca, la Orquesta de Cámara Eslovaca Bohdan Warchal, la Orquesta Sinfónica de la Radio Eslovaca, la Orquesta Sinfónica de la Radio Checa, la Filarmónica Estatal de Košice, la Orquesta de Cámara Estatal de Žilina, Capella Istropolitana, el Cuarteto Moyzes y la Filarmónica Bohuslav Martinů."
-        },
-        {
-          "type": "p",
-          "text": "Preparó un recital de canciones para el Rudolfinum de Praga y actuó en el Concertgebouw de Ámsterdam. Obtuvo el primer premio de la Yamaha Foundation y varios premios del Fondo de Música de Bratislava."
-        },
-        {
-          "type": "p",
-          "text": "Como solista ha sido invitada en la Ópera del Teatro Nacional Eslovaco de Bratislava, el Teatro Nacional de Brno, el Teatro Nacional de Praga, la Ópera Estatal de Banská Bystrica y la ópera de Košice."
-        },
-        {
-          "type": "p",
-          "text": "Logró un éxito especial en el papel de la Mujer en Erwartung de Arnold Schoenberg, en su estreno eslovaco en la Ópera del SND en 2002."
-        },
-        {
-          "type": "p",
-          "text": "En los últimos años también se dedica a las artes visuales y expone sus obras en Chequia, Eslovaquia y otros países. Es miembro honorario del Rotary Club Kroměříž, con el que participa en conciertos benéficos."
+          "text": "En Považská Bystrica realizará demostraciones prácticas del procesamiento de pescado fresco y de la preparación de sashimi, nigiri, maki y otros tipos de sushi."
         }
       ],
-      "image": null
+      "image": "/images/performers/marek_hora.png"
     }
   ],
   "performerPromotion": {

@@ -1,26 +1,56 @@
 {
   "items": [
     {
-      "id": "marek-hora",
-      "name": "Marek Hora",
-      "category": "Gastronomy",
-      "short": "Ambassador of Japanese cuisine in the Czech Republic and an acclaimed chef with experience from Europe and Japan.",
-      "description": "He will demonstrate cutting fresh fish and preparing sashimi, nigiri, maki and other types of sushi.",
+      "id": "nao-higano",
+      "name": "Nao Higano",
+      "category": "Opera singer / Soprano",
+      "short": "Japanese soprano from Chiba. She studied opera and concert singing in Japan and at the Academy of Performing Arts in Bratislava, where she completed doctoral studies and earned the ArtD. degree.",
+      "heroTitle": "Nao Higano",
+      "heroSubtitle": "Opera singer / Soprano",
+      "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Marek Hora has devoted more than thirty years to Japanese gastronomy and gained part of his experience directly in Japan."
-        },
-        {
-          "type": "h2",
-          "text": "Sashimi and sushi prepared in front of visitors"
+          "text": "Nao Higano is a soprano from Chiba, Japan. She studied opera and concert singing at Seitoku University and at the Department of Voice of the Academy of Performing Arts in Bratislava, where she completed doctoral studies under Prof. Peter Mikuláš and earned the ArtD. degree."
         },
         {
           "type": "p",
-          "text": "In Považská Bystrica, he will give practical demonstrations of processing fresh fish and preparing sashimi, nigiri, maki and other types of sushi."
+          "text": "She took part in numerous international masterclasses with teachers including P. de Neapoli, D. Iordachescu, Y. Hayashi, M. Janková, G. Beňačková, S. Kopčák, P. Dvorský, Z. Livorová and V. Chmelo."
+        },
+        {
+          "type": "p",
+          "text": "She has successfully appeared at international music festivals and has recorded for radio and television broadcasters including ORF, Hungarian Radio, Czech Radio, Slovak Radio, Czech Television and Slovak Television, as well as for music publishers."
+        },
+        {
+          "type": "p",
+          "text": "In solo recitals she performs song and chamber repertoire as well as oratorio, mass and cantata literature. Her repertoire ranges from the Renaissance to music of the 21st century, with particular attention to Slavic compositions."
+        },
+        {
+          "type": "p",
+          "text": "She was a member of the chamber trio Sen Tegmento, founded by clarinettist Martin Adámek, a soloist and member of Ensemble Intercontemporain in Paris."
+        },
+        {
+          "type": "p",
+          "text": "She has collaborated with numerous orchestras and chamber ensembles, including the Tokyo Philharmonic Orchestra, Slovak Philharmonic, Bohdan Warchal Slovak Chamber Orchestra, Slovak Radio Symphony Orchestra, Czech Radio Symphony Orchestra, State Philharmonic Košice, Slovak Sinfonietta Žilina, Capella Istropolitana, Moyzes Quartet and Bohuslav Martinů Philharmonic."
+        },
+        {
+          "type": "p",
+          "text": "She prepared a song recital for Prague’s Rudolfinum and has performed at the Concertgebouw in Amsterdam. She received first prize from the Yamaha Foundation and several awards from the Music Fund in Bratislava."
+        },
+        {
+          "type": "p",
+          "text": "As a soloist she has appeared as a guest at the Slovak National Theatre Opera in Bratislava, the National Theatre Brno, the National Theatre Prague, the State Opera in Banská Bystrica and the opera in Košice."
+        },
+        {
+          "type": "p",
+          "text": "She achieved particular success in the role of the Woman in Arnold Schoenberg’s Erwartung at its Slovak premiere at the SND Opera in 2002."
+        },
+        {
+          "type": "p",
+          "text": "In recent years she has also developed as a visual artist, exhibiting her work in Czechia, Slovakia and abroad. She is an honorary member of Rotary Club Kroměříž, with which she participates in charity concerts."
         }
       ],
-      "image": "/images/performers/marek_hora.png"
+      "image": "/images/performers/nao_higano.jpeg"
     },
     {
       "id": "gorin",
@@ -197,7 +227,7 @@
           "text": "Súčasťou prezentácie bude aj možnosť bližšie sa zoznámiť s japonskou estetikou, prírodnými motívmi a významom kvetov v každodennom živote a dekorácii."
         }
       ],
-      "image": "",
+      "image": "/images/performers/jana_michalkova.png",
       "role": "Japanese flowers and decorations"
     },
     {
@@ -305,56 +335,26 @@
       "image": "/images/performers/satoko_kino.jpg"
     },
     {
-      "id": "nao-higano",
-      "name": "Nao Higano",
-      "category": "Opera singer / Soprano",
-      "short": "Japanese soprano from Chiba. She studied opera and concert singing in Japan and at the Academy of Performing Arts in Bratislava, where she completed doctoral studies and earned the ArtD. degree.",
-      "heroTitle": "Nao Higano",
-      "heroSubtitle": "Opera singer / Soprano",
-      "description": "",
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "Gastronomy",
+      "short": "Ambassador of Japanese cuisine in the Czech Republic and an acclaimed chef with experience from Europe and Japan.",
+      "description": "He will demonstrate cutting fresh fish and preparing sashimi, nigiri, maki and other types of sushi.",
       "content": [
         {
           "type": "p",
-          "text": "Nao Higano is a soprano from Chiba, Japan. She studied opera and concert singing at Seitoku University and at the Department of Voice of the Academy of Performing Arts in Bratislava, where she completed doctoral studies under Prof. Peter Mikuláš and earned the ArtD. degree."
+          "text": "Marek Hora has devoted more than thirty years to Japanese gastronomy and gained part of his experience directly in Japan."
+        },
+        {
+          "type": "h2",
+          "text": "Sashimi and sushi prepared in front of visitors"
         },
         {
           "type": "p",
-          "text": "She took part in numerous international masterclasses with teachers including P. de Neapoli, D. Iordachescu, Y. Hayashi, M. Janková, G. Beňačková, S. Kopčák, P. Dvorský, Z. Livorová and V. Chmelo."
-        },
-        {
-          "type": "p",
-          "text": "She has successfully appeared at international music festivals and has recorded for radio and television broadcasters including ORF, Hungarian Radio, Czech Radio, Slovak Radio, Czech Television and Slovak Television, as well as for music publishers."
-        },
-        {
-          "type": "p",
-          "text": "In solo recitals she performs song and chamber repertoire as well as oratorio, mass and cantata literature. Her repertoire ranges from the Renaissance to music of the 21st century, with particular attention to Slavic compositions."
-        },
-        {
-          "type": "p",
-          "text": "She was a member of the chamber trio Sen Tegmento, founded by clarinettist Martin Adámek, a soloist and member of Ensemble Intercontemporain in Paris."
-        },
-        {
-          "type": "p",
-          "text": "She has collaborated with numerous orchestras and chamber ensembles, including the Tokyo Philharmonic Orchestra, Slovak Philharmonic, Bohdan Warchal Slovak Chamber Orchestra, Slovak Radio Symphony Orchestra, Czech Radio Symphony Orchestra, State Philharmonic Košice, Slovak Sinfonietta Žilina, Capella Istropolitana, Moyzes Quartet and Bohuslav Martinů Philharmonic."
-        },
-        {
-          "type": "p",
-          "text": "She prepared a song recital for Prague’s Rudolfinum and has performed at the Concertgebouw in Amsterdam. She received first prize from the Yamaha Foundation and several awards from the Music Fund in Bratislava."
-        },
-        {
-          "type": "p",
-          "text": "As a soloist she has appeared as a guest at the Slovak National Theatre Opera in Bratislava, the National Theatre Brno, the National Theatre Prague, the State Opera in Banská Bystrica and the opera in Košice."
-        },
-        {
-          "type": "p",
-          "text": "She achieved particular success in the role of the Woman in Arnold Schoenberg’s Erwartung at its Slovak premiere at the SND Opera in 2002."
-        },
-        {
-          "type": "p",
-          "text": "In recent years she has also developed as a visual artist, exhibiting her work in Czechia, Slovakia and abroad. She is an honorary member of Rotary Club Kroměříž, with which she participates in charity concerts."
+          "text": "In Považská Bystrica, he will give practical demonstrations of processing fresh fish and preparing sashimi, nigiri, maki and other types of sushi."
         }
       ],
-      "image": null
+      "image": "/images/performers/marek_hora.png"
     }
   ],
   "performerPromotion": {

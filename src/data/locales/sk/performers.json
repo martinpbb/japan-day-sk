@@ -1,26 +1,56 @@
 {
   "items": [
     {
-      "id": "marek-hora",
-      "name": "Marek Hora",
-      "category": "Gastronómia",
-      "short": "Ambasádor japonskej kuchyne v Českej republike a uznávaný šéfkuchár so skúsenosťami z Európy aj Japonska.",
-      "description": "Na mieste predvedie krájanie čerstvej ryby a prípravu sashimi, nigiri, maki a ďalších druhov sushi.",
+      "id": "nao-higano",
+      "name": "Nao Higano",
+      "category": "Operná speváčka / Sopranistka",
+      "short": "Japonská sopranistka pochádzajúca z mesta Chiba. Študovala operný a koncertný spev v Japonsku a na Vysokej škole múzických umení v Bratislave, kde ukončila doktorandské štúdium s titulom ArtD.",
+      "heroTitle": "Nao Higano",
+      "heroSubtitle": "Operná speváčka / Sopranistka",
+      "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Marek Hora sa japonskej gastronómii venuje viac ako tridsať rokov a svoje skúsenosti získaval aj priamo v Japonsku."
-        },
-        {
-          "type": "h2",
-          "text": "Sashimi a sushi priamo pred návštevníkmi"
+          "text": "Sopranistka Nao Higano pochádza z mesta Chiba v Japonsku. Študovala operný a koncertný spev na Univerzite Seitoku a na Katedre spevu Vysokej školy múzických umení v Bratislave, kde ukončila doktorandské štúdium s titulom ArtD u prof. Petra Mikuláša."
         },
         {
           "type": "p",
-          "text": "V Považskej Bystrici predvedie praktické ukážky spracovania čerstvej ryby a prípravy sashimi, nigiri, maki a ďalších druhov sushi."
+          "text": "Absolvovala viaceré medzinárodné majstrovské spevácke kurzy, okrem iných u P. de Neapoliho, D. Iordachesca, Y. Hayashi, M. Jankovej, G. Beňačkovej, S. Kopčáka, P. Dvorského, Z. Livorovej a V. Chmela."
+        },
+        {
+          "type": "p",
+          "text": "Úspešne sa predstavila aj na medzinárodných hudobných festivaloch a nahrávala pre rozhlasové a televízne vysielanie, medzi inými pre ORF, Maďarský rozhlas, Český rozhlas, Slovenský rozhlas, ČT a STV, ako aj pre hudobné vydavateľstvá."
+        },
+        {
+          "type": "p",
+          "text": "Na sólových recitáloch sa venuje piesňovej a komornej tvorbe, ako aj interpretácii oratoriálnej, omšovej a kantátovej literatúry. Jej repertoár siaha od renesancie až po hudbu 21. storočia, pričom osobitnú pozornosť venovala štúdiu slovanskej hudobnej tvorby."
+        },
+        {
+          "type": "p",
+          "text": "Bola členkou komorného tria Sen Tegmento, ktoré založil klarinetista Martin Adámek, sólista a člen Ensemble Intercontemporain v Paríži."
+        },
+        {
+          "type": "p",
+          "text": "Spolupracovala s viacerými orchestrami a komornými telesami, medzi ktoré patria Tokijská filharmónia, Slovenská filharmónia, Slovenský komorný orchester Bohdana Warchala, Symfonický orchester Slovenského rozhlasu, Symfonický orchester Českého rozhlasu, Štátna filharmónia Košice, Štátny komorný orchester Žilina, Capella Istropolitana, Moyzesovo kvarteto a Filharmónia Bohuslava Martinů."
+        },
+        {
+          "type": "p",
+          "text": "Pripravila piesňový recitál pre pražské Rudolfinum a vystupovala aj v amsterdamskom Concertgebouw. Získala prvú cenu Yamaha Foundation a viacero prémií Hudobného fondu v Bratislave."
+        },
+        {
+          "type": "p",
+          "text": "Ako sólistka hosťovala v opere Slovenského národného divadla v Bratislave, v Národnom divadle Brno, Národnom divadle Praha, Štátnej opere Banská Bystrica a v opere v Košiciach."
+        },
+        {
+          "type": "p",
+          "text": "Výrazný úspech zaznamenala najmä v úlohe Ženy v diele Očakávanie od Arnolda Schoenberga pri slovenskej premiére v Opere SND v roku 2002."
+        },
+        {
+          "type": "p",
+          "text": "V posledných rokoch sa venuje aj výtvarnej tvorbe a svoje diela vystavuje v Česku, na Slovensku aj v zahraničí. Je čestnou členkou Rotary Klubu Kroměříž, s ktorým sa podieľa na charitatívnych koncertoch."
         }
       ],
-      "image": "/images/performers/marek_hora.png"
+      "image": "/images/performers/nao_higano.jpeg"
     },
     {
       "id": "gorin",
@@ -197,7 +227,7 @@
           "text": "Súčasťou prezentácie bude aj možnosť bližšie sa zoznámiť s japonskou estetikou, prírodnými motívmi a významom kvetov v každodennom živote a dekorácii."
         }
       ],
-      "image": ""
+      "image": "/images/performers/jana_michalkova.png"
     },
     {
       "id": "kumihimo",
@@ -304,56 +334,26 @@
       "image": "/images/performers/satoko_kino.jpg"
     },
     {
-      "id": "nao-higano",
-      "name": "Nao Higano",
-      "category": "Operná speváčka / Sopranistka",
-      "short": "Japonská sopranistka pochádzajúca z mesta Chiba. Študovala operný a koncertný spev v Japonsku a na Vysokej škole múzických umení v Bratislave, kde ukončila doktorandské štúdium s titulom ArtD.",
-      "heroTitle": "Nao Higano",
-      "heroSubtitle": "Operná speváčka / Sopranistka",
-      "description": "",
+      "id": "marek-hora",
+      "name": "Marek Hora",
+      "category": "Gastronómia",
+      "short": "Ambasádor japonskej kuchyne v Českej republike a uznávaný šéfkuchár so skúsenosťami z Európy aj Japonska.",
+      "description": "Na mieste predvedie krájanie čerstvej ryby a prípravu sashimi, nigiri, maki a ďalších druhov sushi.",
       "content": [
         {
           "type": "p",
-          "text": "Sopranistka Nao Higano pochádza z mesta Chiba v Japonsku. Študovala operný a koncertný spev na Univerzite Seitoku a na Katedre spevu Vysokej školy múzických umení v Bratislave, kde ukončila doktorandské štúdium s titulom ArtD u prof. Petra Mikuláša."
+          "text": "Marek Hora sa japonskej gastronómii venuje viac ako tridsať rokov a svoje skúsenosti získaval aj priamo v Japonsku."
+        },
+        {
+          "type": "h2",
+          "text": "Sashimi a sushi priamo pred návštevníkmi"
         },
         {
           "type": "p",
-          "text": "Absolvovala viaceré medzinárodné majstrovské spevácke kurzy, okrem iných u P. de Neapoliho, D. Iordachesca, Y. Hayashi, M. Jankovej, G. Beňačkovej, S. Kopčáka, P. Dvorského, Z. Livorovej a V. Chmela."
-        },
-        {
-          "type": "p",
-          "text": "Úspešne sa predstavila aj na medzinárodných hudobných festivaloch a nahrávala pre rozhlasové a televízne vysielanie, medzi inými pre ORF, Maďarský rozhlas, Český rozhlas, Slovenský rozhlas, ČT a STV, ako aj pre hudobné vydavateľstvá."
-        },
-        {
-          "type": "p",
-          "text": "Na sólových recitáloch sa venuje piesňovej a komornej tvorbe, ako aj interpretácii oratoriálnej, omšovej a kantátovej literatúry. Jej repertoár siaha od renesancie až po hudbu 21. storočia, pričom osobitnú pozornosť venovala štúdiu slovanskej hudobnej tvorby."
-        },
-        {
-          "type": "p",
-          "text": "Bola členkou komorného tria Sen Tegmento, ktoré založil klarinetista Martin Adámek, sólista a člen Ensemble Intercontemporain v Paríži."
-        },
-        {
-          "type": "p",
-          "text": "Spolupracovala s viacerými orchestrami a komornými telesami, medzi ktoré patria Tokijská filharmónia, Slovenská filharmónia, Slovenský komorný orchester Bohdana Warchala, Symfonický orchester Slovenského rozhlasu, Symfonický orchester Českého rozhlasu, Štátna filharmónia Košice, Štátny komorný orchester Žilina, Capella Istropolitana, Moyzesovo kvarteto a Filharmónia Bohuslava Martinů."
-        },
-        {
-          "type": "p",
-          "text": "Pripravila piesňový recitál pre pražské Rudolfinum a vystupovala aj v amsterdamskom Concertgebouw. Získala prvú cenu Yamaha Foundation a viacero prémií Hudobného fondu v Bratislave."
-        },
-        {
-          "type": "p",
-          "text": "Ako sólistka hosťovala v opere Slovenského národného divadla v Bratislave, v Národnom divadle Brno, Národnom divadle Praha, Štátnej opere Banská Bystrica a v opere v Košiciach."
-        },
-        {
-          "type": "p",
-          "text": "Výrazný úspech zaznamenala najmä v úlohe Ženy v diele Očakávanie od Arnolda Schoenberga pri slovenskej premiére v Opere SND v roku 2002."
-        },
-        {
-          "type": "p",
-          "text": "V posledných rokoch sa venuje aj výtvarnej tvorbe a svoje diela vystavuje v Česku, na Slovensku aj v zahraničí. Je čestnou členkou Rotary Klubu Kroměříž, s ktorým sa podieľa na charitatívnych koncertoch."
+          "text": "V Považskej Bystrici predvedie praktické ukážky spracovania čerstvej ryby a prípravy sashimi, nigiri, maki a ďalších druhov sushi."
         }
       ],
-      "image": null
+      "image": "/images/performers/marek_hora.png"
     }
   ],
   "performerPromotion": {
