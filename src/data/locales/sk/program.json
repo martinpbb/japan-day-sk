@@ -16,7 +16,8 @@
       "endTime": "10:50",
       "title": "Operný spev – prvé vystúpenie",
       "presenter": "Nao Higano",
-      "durationMinutes": 15
+      "durationMinutes": 15,
+      "performerId": "nao-higano"
     },
     {
       "venue": "hall",
@@ -33,7 +34,8 @@
       "endTime": "11:20",
       "title": "Operný spev – druhé vystúpenie",
       "presenter": "Nao Higano",
-      "durationMinutes": 15
+      "durationMinutes": 15,
+      "performerId": "nao-higano"
     },
     {
       "venue": "hall",

@@ -20,19 +20,19 @@
         {
           "id": "japoncina-1100",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": null,
+          "capacity": 15,
           "location": null
         },
         {
           "id": "japoncina-1230",
           "start": "2026-11-07T12:30:00+01:00",
-          "capacity": null,
+          "capacity": 15,
           "location": null
         },
         {
           "id": "japoncina-1400",
           "start": "2026-11-07T14:00:00+01:00",
-          "capacity": null,
+          "capacity": 15,
           "location": null
         }
       ]
@@ -50,21 +50,42 @@
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
-      "durationMinutes": 90,
+      "durationMinutes": 30,
       "registrationOpen": false,
       "waitlistEnabled": true,
       "sessions": [
         {
           "id": "origami-1100",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": null,
+          "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         },
         {
-          "id": "origami-1300",
-          "start": "2026-11-07T13:00:00+01:00",
-          "capacity": null,
+          "id": "origami-1145",
+          "start": "2026-11-07T11:45:00+01:00",
+          "capacity": 15,
+          "location": null,
+          "areaId": "shared-workshop-area"
+        },
+        {
+          "id": "origami-1230",
+          "start": "2026-11-07T12:30:00+01:00",
+          "capacity": 15,
+          "location": null,
+          "areaId": "shared-workshop-area"
+        },
+        {
+          "id": "origami-1315",
+          "start": "2026-11-07T13:15:00+01:00",
+          "capacity": 15,
+          "location": null,
+          "areaId": "shared-workshop-area"
+        },
+        {
+          "id": "origami-1400",
+          "start": "2026-11-07T14:00:00+01:00",
+          "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         }
@@ -129,11 +150,12 @@
     {
       "id": "tvorba-kombiku",
       "slug": "tvorba-kombiku",
-      "title": "Tvorba gombíkov",
+      "title": "Tvorba gombíkov z japonských látok & predaj kimona",
       "category": "Japonská kultúra",
       "lecturerId": "aiko-bosak",
-      "short": "Workshop výroby originálnych gombíkov z japonských látok.",
-      "description": "Na workshope si účastníci vytvoria vlastný dekoratívny gombík z látok s japonskými vzormi pod vedením Aiko Bosák.\n\nAiko Bosák bude mať na podujatí k dispozícii aj kimoná na predaj.",
+      "short": "Vyrobte si vlastný originálny gombík z krásnych japonských látok.",
+      "description": "Pod vedením Aiko Bosák si môžete vytvoriť vlastné originálne gombíky z krásnych japonských textílií. Vyberiete si látku, ktorá sa vám najviac páči, a vytvoríte si jedinečný gombík, ktorý si odnesiete domov.\n\nVýroba jedného gombíka trvá približne 10 minút. Cena: od 2 € za kus.\n\nPočas podujatia budú k dispozícii aj kimono na predaj.",
+      "priceDisplay": "od 2 € za kus",
       "image": "",
       "registrationRequired": true,
       "paid": false,
@@ -146,14 +168,14 @@
         {
           "id": "tvorba-kombiku-1100",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": null,
+          "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         },
         {
           "id": "tvorba-kombiku-1300",
           "start": "2026-11-07T13:00:00+01:00",
-          "capacity": null,
+          "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         }
@@ -179,14 +201,14 @@
         {
           "id": "tsumami-zaiku-1100",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": null,
+          "capacity": 2,
           "location": null,
           "areaId": "shared-workshop-area"
         },
         {
           "id": "tsumami-zaiku-1300",
           "start": "2026-11-07T13:00:00+01:00",
-          "capacity": null,
+          "capacity": 2,
           "location": null,
           "areaId": "shared-workshop-area"
         }
@@ -212,14 +234,14 @@
         {
           "id": "ayatori-1100",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": 10,
+          "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         },
         {
           "id": "ayatori-1300",
           "start": "2026-11-07T13:00:00+01:00",
-          "capacity": 10,
+          "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         }
@@ -245,19 +267,19 @@
         {
           "id": "kumihimo-1100",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": null,
+          "capacity": 10,
           "location": null
         },
         {
           "id": "kumihimo-1300",
           "start": "2026-11-07T13:00:00+01:00",
-          "capacity": null,
+          "capacity": 10,
           "location": null
         },
         {
           "id": "kumihimo-1500",
           "start": "2026-11-07T15:00:00+01:00",
-          "capacity": null,
+          "capacity": 10,
           "location": null
         }
       ],
@@ -287,7 +309,7 @@
         {
           "id": "cajova-degustacia-1330",
           "start": "2026-11-07T13:30:00+01:00",
-          "capacity": null,
+          "capacity": 15,
           "location": null
         }
       ]

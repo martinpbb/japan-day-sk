@@ -1,4 +1,5 @@
 export function workshopPrice(workshop) {
+  if (workshop.priceDisplay) return workshop.priceDisplay;
   if (workshop.paid == null) return "Cena bude doplnená";
   if (!workshop.paid) return "Zadarmo";
   if (workshop.priceCents == null) return "Cena bude doplnená";
