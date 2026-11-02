@@ -160,7 +160,7 @@
   ],
   "ui": {
     "workshops": {
-      "title": "ワークショップ", "lecturer": "講師", "lecturers": "講師", "duration": "所要時間", "price": "料金", "time": "開催時間", "free": "無料", "pricePending": "料金は後日お知らせします", "sessionPending": "開催時間は後日お知らせします", "registrationOpen": "予約受付中", "registrationClosed": "現在、事前予約はまだ開始していません", "register": "予約する", "full": "満席", "available": "空きあり", "waitlist": "キャンセル待ち", "capacity": "定員", "people": "名", "peopleShort": "名", "sessions": "開催回", "all": "すべてのワークショップ", "registrationTitle": "ワークショップの予約", "workshop": "ワークショップ", "location": "会場", "locationPending": "未定", "contactPurpose": "ご連絡先は、時間や会場の変更、中止、キャンセル待ちから空きが出た場合など、ワークショップに関するご連絡にのみ使用します。", "capacityForSession": "各回{capacity}名", "pricePerPiece": "1個 {price}〜"
+      "title": "ワークショップ", "lecturer": "講師", "lecturers": "講師", "duration": "所要時間", "price": "料金", "time": "開催時間", "free": "無料", "pricePending": "料金は後日お知らせします", "sessionPending": "開催時間は後日お知らせします", "registrationOpen": "予約受付中", "registrationClosed": "現在、事前予約はまだ開始していません", "register": "予約する", "full": "満席", "available": "空きあり", "waitlist": "キャンセル待ち", "capacity": "定員", "people": "名", "peopleShort": "名", "sessions": "開催回", "all": "すべてのワークショップ", "registrationTitle": "ワークショップの予約", "workshop": "ワークショップ", "location": "会場", "locationPending": "未定", "contactPurpose": "ご連絡先は、時間や会場の変更、中止、キャンセル待ちから空きが出た場合など、ワークショップに関するご連絡にのみ使用します。", "capacityForSession": "各回{capacity}名", "pricePerPiece": "1個 {price}〜", "walkInNote": "事前登録に間に合いませんでしたか？ご心配なく。会場で講師または運営スタッフに、空きがあるかお尋ねください。定員に達していない場合は、事前登録なしでもご参加いただけます。"
     },
     "organizersKicker": "主催者・パートナー",
     "organizersTitle": "日本デーを支える人々",

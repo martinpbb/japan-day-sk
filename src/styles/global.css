@@ -363,6 +363,9 @@ button {
   box-shadow: none;
 }
 .programVenues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+.infoNote { max-width: 880px; padding: 14px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255, 255, 255, .55); color: var(--muted); font-size: 15px; line-height: 1.6; }
+.programInfoNote { margin: 24px 0 0; }
+.workshopInfoNote { margin: 0 0 24px; }
 .programVenue { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
 .programVenueHeader { display: flex; align-items: flex-start; gap: 13px; padding: 24px; color: var(--red); border-bottom: 1px solid var(--line); background: rgba(169, 159, 142, .08); }
 .programVenueHeader h2 { margin: 0; color: var(--ink); font-family: var(--font-heading); font-size: clamp(23px, 2vw, 30px); line-height: 1.15; }

@@ -29,6 +29,7 @@ export default function Workshops() {
   const lecturers = content.performers.items;
   const copy = site.ui.workshops;
   return <Section kicker={copy.title} title={copy.title} className="sectionTint">
+    <p className="infoNote workshopInfoNote">{copy.walkInNote}</p>
     <div className="workshopGrid">{workshops.map((workshop) => <WorkshopCard key={workshop.id} workshop={workshop} lecturers={lecturers} locale={locale} copy={copy} />)}</div>
   </Section>;
 }

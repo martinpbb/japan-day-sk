@@ -55,6 +55,7 @@ export default function Program({ includeWorkshopsTeaser = false }) {
           <VenueSchedule venue="hall" title="Veľký sál" subtitle="Hlavný program" items={hall} performers={performers} locale={locale} />
           <VenueSchedule venue="theatre" title="Bábkové divadlo" subtitle="Prednášky" capacity={100} items={theatre} performers={performers} locale={locale} />
         </div>
+        {content.program.note ? <p className="infoNote programInfoNote">{content.program.note}</p> : null}
         {content.program.plan ? <section className="programPlanSection" aria-label={content.program.plan.title || content.program.plan.alt}>{content.program.plan.title ? <h2>{content.program.plan.title}</h2> : null}{content.program.plan.description ? <p>{content.program.plan.description}</p> : null}<img className="programPlan" src={content.program.plan.image} alt={content.program.plan.alt} /></section> : null}
       </Section>
       {includeWorkshopsTeaser ? <WorkshopsTeaser /> : null}
