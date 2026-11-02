@@ -10,8 +10,9 @@ import { useWorkshopAvailability } from "../lib/workshopApi.js";
 export default function WorkshopDetail({ workshop }) {
   const { content, locale, site } = useI18n();
   const copy = site.ui.workshops;
-  const live = useWorkshopAvailability(workshop.slug);
-  const sessions = live ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: false }));
+  const dropIn = workshop.registrationRequired === false;
+  const live = useWorkshopAvailability(dropIn ? null : workshop.slug);
+  const sessions = !dropIn && live ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: false }));
   const registrationWorkshop = { ...workshop, ...(live ? { paid: live.price_cents > 0, priceCents: live.price_cents, currency: live.currency } : {}), registrationOpen: !!live };
   const [selectedId, setSelectedId] = useState(sessions[0]?.id || "");
   const selectedSession = sessions.find((session) => session.id === selectedId) || sessions[0] || null;
@@ -31,14 +32,14 @@ export default function WorkshopDetail({ workshop }) {
         </dl>
       </div>
       <section className="workshopSessions" aria-labelledby="workshop-sessions-title">
-        <h2 id="workshop-sessions-title">{copy.sessions}</h2>
-        {sessions.length ? sessions.map((session) => <label className="workshopSession" key={session.id}>
+        <h2 id="workshop-sessions-title">{dropIn ? copy.time : copy.sessions}</h2>
+        {dropIn ? <><p>{workshop.availabilityWindow}</p><p>{workshop.availabilityNote}</p></> : sessions.length ? sessions.map((session) => <label className="workshopSession" key={session.id}>
           <input type="radio" name="workshop-session" value={session.id} checked={session.id === (selectedSession?.id || "")} onChange={() => setSelectedId(session.id)} />
           <span><strong>{formatSession(session, workshop.durationMinutes, locale)}</strong>{session.location ? <span>{session.location}</span> : null}{session.capacity != null ? <span>{session.remaining_capacity == null ? `${copy.capacity}: ${session.capacity}` : session.remaining_capacity === 0 ? copy.full : `${session.remaining_capacity} ${copy.peopleShort}`}</span> : null}</span>
         </label>) : <p>{copy.sessionPending}</p>}
-        {!registrationWorkshop.registrationOpen ? <p className="workshopRegistrationState">{copy.registrationClosed}</p> : null}
+        {!dropIn && !registrationWorkshop.registrationOpen ? <p className="workshopRegistrationState">{copy.registrationClosed}</p> : null}
       </section>
     </div>
-    <WorkshopRegistrationForm key={selectedSession?.id || "none"} workshop={registrationWorkshop} session={selectedSession} copy={copy} locale={locale} />
+    {!dropIn ? <WorkshopRegistrationForm key={selectedSession?.id || "none"} workshop={registrationWorkshop} session={selectedSession} copy={copy} locale={locale} /> : null}
   </Section>;
 }

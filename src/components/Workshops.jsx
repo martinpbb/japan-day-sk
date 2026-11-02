@@ -16,9 +16,10 @@ function WorkshopCard({ workshop, lecturers, locale, copy }) {
         {people.length ? <div><dt>{people.length > 1 ? copy.lecturers : copy.lecturer}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.role ? ` (${lecturerRoleLabel(person.role, locale)})` : ""}</div>)}</dd></div> : null}
         {workshop.durationMinutes ? <div><dt>{copy.duration}</dt><dd>{formatDuration(workshop.durationMinutes, locale)}</dd></div> : null}
         <div><dt>{copy.price}</dt><dd>{workshopPrice(workshop, copy, locale)}</dd></div>
-        <div><dt>{copy.time}</dt><dd>{workshop.sessions?.length ? workshop.sessions.map((session) => formatSession(session, workshop.durationMinutes, locale)).join(", ") : copy.sessionPending}</dd></div>
+        <div><dt>{copy.time}</dt><dd>{workshop.availabilityWindow || (workshop.sessions?.length ? workshop.sessions.map((session) => formatSession(session, workshop.durationMinutes, locale)).join(", ") : copy.sessionPending)}</dd></div>
+        {workshop.availabilityNote ? <div className="workshopAvailabilityNote">{workshop.availabilityNote}</div> : null}
       </dl>
-      <span className="workshopRegistrationState">{workshop.registrationOpen ? copy.registrationOpen : copy.registrationClosed}</span>
+      {workshop.registrationRequired !== false ? <span className="workshopRegistrationState">{workshop.registrationOpen ? copy.registrationOpen : copy.registrationClosed}</span> : null}
     </div>
   </a>;
 }

@@ -154,32 +154,25 @@
       "category": "Japonská kultúra",
       "lecturerId": "aiko-bosak",
       "short": "Vyrobte si vlastný originálny gombík z krásnych japonských látok.",
-      "description": "Pod vedením Aiko Bosák si môžete vytvoriť vlastné originálne gombíky z krásnych japonských textílií. Vyberiete si látku, ktorá sa vám najviac páči, a vytvoríte si jedinečný gombík, ktorý si odnesiete domov.\n\nVýroba jedného gombíka trvá približne 10 minút. Cena: od 2 € za kus.\n\nPočas podujatia budú k dispozícii aj kimono na predaj.",
+      "description": "Pod vedením Aiko Bosák si môžete vytvoriť vlastné originálne gombíky z krásnych japonských textílií. Vyberiete si látku, ktorá sa vám najviac páči, a vytvoríte si jedinečný gombík, ktorý si odnesiete domov.\n\nVýroba jedného gombíka trvá približne 15 minút. Cena: od 2 € za kus.\n\nPočas podujatia budú k dispozícii aj kimono na predaj.",
       "priceDisplay": "od 2 € za kus",
       "image": "",
-      "registrationRequired": true,
-      "paid": false,
-      "priceCents": 0,
-      "currency": "EUR",
-      "durationMinutes": 90,
+      "registrationRequired": false,
+      "durationMinutes": 15,
       "registrationOpen": false,
-      "waitlistEnabled": true,
+      "waitlistEnabled": false,
       "sessions": [
         {
-          "id": "tvorba-kombiku-1100",
+          "id": "tvorba-kombiku-drop-in",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": 15,
-          "location": null,
-          "areaId": "shared-workshop-area"
-        },
-        {
-          "id": "tvorba-kombiku-1300",
-          "start": "2026-11-07T13:00:00+01:00",
-          "capacity": 15,
+          "end_at": "2026-11-07T14:30:00+01:00",
+          "capacity": null,
           "location": null,
           "areaId": "shared-workshop-area"
         }
-      ]
+      ],
+      "availabilityWindow": "11:00–14:30",
+      "availabilityNote": "Workshop je priebežný – prísť a zapojiť sa môžete kedykoľvek medzi 11:00 a 14:30."
     },
     {
       "id": "tsumami-zaiku",

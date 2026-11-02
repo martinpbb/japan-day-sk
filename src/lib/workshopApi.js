@@ -3,6 +3,7 @@ export const workshopApi = 'https://api.japanday.sk';
 export function useWorkshopAvailability(slug) {
   const [state, setState] = useState(null);
   useEffect(() => {
+    if (!slug) return undefined;
     const controller = new AbortController();
     fetch(`${workshopApi}/api/workshops/${encodeURIComponent(slug)}`, { credentials: 'include', signal: controller.signal })
       .then(response => response.json()).then(result => { if (result.ok) setState({ slug, data: result.data }); }).catch(() => {});

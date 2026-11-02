@@ -155,31 +155,24 @@
       "lecturerId": "aiko-bosak",
       "short": "日本の柄の布を使ってオリジナルの装飾ボタンを作るワークショップです。",
       "description": "ワークショップでは、Aiko Bosákの指導のもと、日本の柄の布を使って自分だけの装飾ボタンを作ります。\n\nAiko Bosákは会場で着物の販売も行います。",
-      "priceDisplay": "od 2 € za kus",
+      "priceDisplay": "ボタン1個2ユーロから",
       "image": "",
-      "registrationRequired": true,
-      "paid": false,
-      "priceCents": 0,
-      "currency": "EUR",
-      "durationMinutes": 90,
+      "registrationRequired": false,
+      "durationMinutes": 15,
       "registrationOpen": false,
-      "waitlistEnabled": true,
+      "waitlistEnabled": false,
       "sessions": [
         {
-          "id": "tvorba-kombiku-1100",
+          "id": "tvorba-kombiku-drop-in",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": 15,
-          "location": null,
-          "areaId": "shared-workshop-area"
-        },
-        {
-          "id": "tvorba-kombiku-1300",
-          "start": "2026-11-07T13:00:00+01:00",
-          "capacity": 15,
+          "end_at": "2026-11-07T14:30:00+01:00",
+          "capacity": null,
           "location": null,
           "areaId": "shared-workshop-area"
         }
-      ]
+      ],
+      "availabilityWindow": "11:00–14:30",
+      "availabilityNote": "11:00〜14:30の間、いつでも参加できます。"
     },
     {
       "id": "tsumami-zaiku",

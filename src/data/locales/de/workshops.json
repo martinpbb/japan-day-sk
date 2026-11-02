@@ -155,31 +155,24 @@
       "lecturerId": "aiko-bosak",
       "short": "Workshop zur Herstellung origineller Knöpfe aus japanischen Stoffen.",
       "description": "Unter Anleitung von Aiko Bosák gestalten die Teilnehmenden einen eigenen dekorativen Knopf aus Stoffen mit japanischen Mustern.\n\nAiko Bosák wird bei der Veranstaltung auch Kimonos zum Verkauf anbieten.",
-      "priceDisplay": "od 2 € za kus",
+      "priceDisplay": "ab 2 € pro Knopf",
       "image": "",
-      "registrationRequired": true,
-      "paid": false,
-      "priceCents": 0,
-      "currency": "EUR",
-      "durationMinutes": 90,
+      "registrationRequired": false,
+      "durationMinutes": 15,
       "registrationOpen": false,
-      "waitlistEnabled": true,
+      "waitlistEnabled": false,
       "sessions": [
         {
-          "id": "tvorba-kombiku-1100",
+          "id": "tvorba-kombiku-drop-in",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": 15,
-          "location": null,
-          "areaId": "shared-workshop-area"
-        },
-        {
-          "id": "tvorba-kombiku-1300",
-          "start": "2026-11-07T13:00:00+01:00",
-          "capacity": 15,
+          "end_at": "2026-11-07T14:30:00+01:00",
+          "capacity": null,
           "location": null,
           "areaId": "shared-workshop-area"
         }
-      ]
+      ],
+      "availabilityWindow": "11:00–14:30",
+      "availabilityNote": "Offener Workshop – Sie können jederzeit zwischen 11:00 und 14:30 Uhr teilnehmen."
     },
     {
       "id": "tsumami-zaiku",
