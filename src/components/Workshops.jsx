@@ -2,9 +2,9 @@ import React from "react";
 import Section from "./Section.jsx";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
-import { formatSession, lecturerRoleLabel, workshopPrice, workshopLecturers } from "../lib/workshops.js";
+import { formatDuration, formatSession, lecturerRoleLabel, workshopPrice, workshopLecturers } from "../lib/workshops.js";
 
-function WorkshopCard({ workshop, lecturers, locale }) {
+function WorkshopCard({ workshop, lecturers, locale, copy }) {
   const people = workshopLecturers(workshop, lecturers);
   return <a className="performerCard performerCardLink workshopCard" href={addLocalePrefix(`/workshopy/${workshop.slug || workshop.id}`, locale)}>
     {workshop.image ? <img className="workshopImage" src={workshop.image} alt="" loading="lazy" /> : null}
@@ -13,21 +13,22 @@ function WorkshopCard({ workshop, lecturers, locale }) {
       <div className="performerTitleRow"><h3>{workshop.title}</h3><span aria-hidden="true">›</span></div>
       <p className="shortText">{workshop.short || workshop.description}</p>
       <dl className="workshopFacts">
-        {people.length ? <div><dt>{people.length > 1 ? "Lektori" : "Lektor"}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.role ? ` (${lecturerRoleLabel(person.role, locale)})` : ""}</div>)}</dd></div> : null}
-        {workshop.durationMinutes ? <div><dt>Trvanie</dt><dd>{workshop.durationMinutes} min</dd></div> : null}
-        <div><dt>Cena</dt><dd>{workshopPrice(workshop)}</dd></div>
-        <div><dt>Termín</dt><dd>{workshop.sessions?.length ? workshop.sessions.map((session) => formatSession(session, workshop.durationMinutes)).join(", ") : "Termín bude doplnený"}</dd></div>
+        {people.length ? <div><dt>{people.length > 1 ? copy.lecturers : copy.lecturer}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.role ? ` (${lecturerRoleLabel(person.role, locale)})` : ""}</div>)}</dd></div> : null}
+        {workshop.durationMinutes ? <div><dt>{copy.duration}</dt><dd>{formatDuration(workshop.durationMinutes, locale)}</dd></div> : null}
+        <div><dt>{copy.price}</dt><dd>{workshopPrice(workshop, copy, locale)}</dd></div>
+        <div><dt>{copy.time}</dt><dd>{workshop.sessions?.length ? workshop.sessions.map((session) => formatSession(session, workshop.durationMinutes, locale)).join(", ") : copy.sessionPending}</dd></div>
       </dl>
-      <span className="workshopRegistrationState">{workshop.registrationOpen ? "Registrácia je otvorená" : "Registrácia zatiaľ nie je otvorená"}</span>
+      <span className="workshopRegistrationState">{workshop.registrationOpen ? copy.registrationOpen : copy.registrationClosed}</span>
     </div>
   </a>;
 }
 
 export default function Workshops() {
-  const { content, locale } = useI18n();
+  const { content, locale, site } = useI18n();
   const workshops = content.workshops?.items || [];
   const lecturers = content.performers.items;
-  return <Section kicker="Workshopy" title="Workshopy" className="sectionTint">
-    <div className="workshopGrid">{workshops.map((workshop) => <WorkshopCard key={workshop.id} workshop={workshop} lecturers={lecturers} locale={locale} />)}</div>
+  const copy = site.ui.workshops;
+  return <Section kicker={copy.title} title={copy.title} className="sectionTint">
+    <div className="workshopGrid">{workshops.map((workshop) => <WorkshopCard key={workshop.id} workshop={workshop} lecturers={lecturers} locale={locale} copy={copy} />)}</div>
   </Section>;
 }

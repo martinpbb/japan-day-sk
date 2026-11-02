@@ -159,6 +159,9 @@
     }
   ],
   "ui": {
+    "workshops": {
+      "title": "Talleres", "lecturer": "Instructor", "lecturers": "Instructores", "duration": "Duración", "price": "Precio", "time": "Horario", "free": "Gratis", "pricePending": "Precio próximamente", "sessionPending": "Horario próximamente", "registrationOpen": "Inscripción abierta", "registrationClosed": "La inscripción aún no está abierta", "register": "Inscribirse", "full": "Completo", "available": "Plazas disponibles", "waitlist": "Lista de espera", "capacity": "Aforo", "people": "personas", "peopleShort": "plazas", "sessions": "Horarios", "all": "Todos los talleres", "registrationTitle": "Inscripción al taller", "workshop": "Taller", "location": "Lugar", "locationPending": "Por confirmar", "contactPurpose": "Usaremos tus datos de contacto únicamente para comunicarnos sobre el taller, por ejemplo, si cambia el horario o el lugar, se cancela o queda una plaza disponible en la lista de espera.", "capacityForSession": "{capacity} personas por sesión", "pricePerPiece": "desde {price} por pieza"
+    },
     "organizersKicker": "ORGANIZADORES Y SOCIOS",
     "organizersTitle": "Quién está detrás del Día Japonés",
     "openingFrom": "Abierto desde las {time}",

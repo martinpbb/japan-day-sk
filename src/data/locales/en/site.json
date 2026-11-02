@@ -159,6 +159,9 @@
     }
   ],
   "ui": {
+    "workshops": {
+      "title": "Workshops", "lecturer": "Lecturer", "lecturers": "Lecturers", "duration": "Duration", "price": "Price", "time": "Time", "free": "Free", "pricePending": "Price to be announced", "sessionPending": "Time to be announced", "registrationOpen": "Registration is open", "registrationClosed": "Registration is not open yet", "register": "Register", "full": "Full", "available": "Places available", "waitlist": "Waiting list", "capacity": "Capacity", "people": "people", "peopleShort": "places", "sessions": "Sessions", "all": "All workshops", "registrationTitle": "Workshop registration", "workshop": "Workshop", "location": "Location", "locationPending": "To be confirmed", "contactPurpose": "We will use your contact details only for communication about the workshop, such as changes to the time or location, cancellation, or a place becoming available from the waiting list.", "capacityForSession": "{capacity} people per session", "pricePerPiece": "from {price} per piece"
+    },
     "organizersKicker": "ORGANISERS AND PARTNERS",
     "organizersTitle": "Who is behind Japan Day",
     "openingFrom": "Open from {time}",

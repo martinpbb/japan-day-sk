@@ -5,7 +5,7 @@ import { formatSession } from "../lib/workshops.js";
 import "../styles/registration.css";
 import { workshopApi } from "../lib/workshopApi.js";
 
-export default function WorkshopRegistrationForm({ workshop, session }) {
+export default function WorkshopRegistrationForm({ workshop, session, copy: workshopCopy, locale }) {
   const id = useId();
   const [values, setValues] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [errors, setErrors] = useState({});
@@ -34,13 +34,13 @@ export default function WorkshopRegistrationForm({ workshop, session }) {
   }
   const selectedLocation = session?.location || "";
   return <form className="registrationForm" noValidate onSubmit={validate} aria-labelledby={`${id}-title`}>
-    <h2 id={`${id}-title`}>Registrácia na workshop</h2>
+    <h2 id={`${id}-title`}>{workshopCopy.registrationTitle}</h2>
     <dl className="registrationSummary">
-      {[["Workshop", workshop.title], ["Termín", session ? formatSession(session, workshop.durationMinutes) : "Termín bude doplnený"], ["Miesto", selectedLocation || "Bude upresnené"]].map(([label, value]) =>
+      {[[workshopCopy.workshop, workshop.title], [workshopCopy.time, session ? formatSession(session, workshop.durationMinutes, locale) : workshopCopy.sessionPending], [workshopCopy.location, selectedLocation || workshopCopy.locationPending]].map(([label, value]) =>
         <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
     </dl>
-    {!open ? <p>{copy.preview}</p> : null}
-    <p id={`${id}-purpose`}>Kontaktné údaje použijeme iba na komunikáciu súvisiacu s workshopom – napríklad pri zmene času, miesta, zrušení workshopu alebo uvoľnení miesta z čakacej listiny.</p>
+    {!open ? <p>{workshopCopy.registrationClosed}</p> : null}
+    <p id={`${id}-purpose`}>{workshopCopy.contactPurpose}</p>
     {result ? <div role="status">
       <p>{copy.success}</p><p>{result.status === 'waitlist' ? copy.waitlist : copy.registered}</p>
       {result.payment ? <>
@@ -66,7 +66,7 @@ export default function WorkshopRegistrationForm({ workshop, session }) {
       </div>)}
     </div>
     <p role="alert">{failure}</p>
-    <button type="submit" className="btn" disabled={!open || busy}>{busy ? copy.sending : copy.submit}</button>
+    <button type="submit" className="btn" disabled={!open || busy}>{busy ? copy.sending : workshopCopy.register}</button>
     </>}
   </form>;
 }

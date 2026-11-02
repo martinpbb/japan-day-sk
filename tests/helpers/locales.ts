@@ -3,8 +3,7 @@ export const locales = {
   en: { prefix: "/en/", lang: "en", hreflang: "en", label: "English" },
   de: { prefix: "/de/", lang: "de", hreflang: "de", label: "Deutsch" },
   es: { prefix: "/es/", lang: "es", hreflang: "es", label: "Español" },
-  zh: { prefix: "/zh/", lang: "zh-CN", hreflang: "zh-CN", label: "中文" },
-  vi: { prefix: "/vi/", lang: "vi", hreflang: "vi", label: "Tiếng Việt" },
+  ja: { prefix: "/ja/", lang: "ja", hreflang: "ja", label: "日本語" },
 } as const;
 
 export type Locale = keyof typeof locales;

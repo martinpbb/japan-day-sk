@@ -159,6 +159,9 @@
     }
   ],
   "ui": {
+    "workshops": {
+      "title": "Workshops", "lecturer": "Kursleitung", "lecturers": "Kursleitung", "duration": "Dauer", "price": "Preis", "time": "Termin", "free": "Kostenlos", "pricePending": "Preis folgt", "sessionPending": "Termin folgt", "registrationOpen": "Anmeldung geöffnet", "registrationClosed": "Anmeldung ist noch nicht geöffnet", "register": "Anmelden", "full": "Ausgebucht", "available": "Freie Plätze", "waitlist": "Warteliste", "capacity": "Kapazität", "people": "Personen", "peopleShort": "Plätze", "sessions": "Termine", "all": "Alle Workshops", "registrationTitle": "Workshop-Anmeldung", "workshop": "Workshop", "location": "Ort", "locationPending": "Wird noch bekannt gegeben", "contactPurpose": "Wir verwenden Ihre Kontaktdaten ausschließlich für Mitteilungen zum Workshop, etwa bei Änderungen von Zeit oder Ort, einer Absage oder einem frei werdenden Platz auf der Warteliste.", "capacityForSession": "{capacity} Personen pro Termin", "pricePerPiece": "ab {price} pro Stück"
+    },
     "organizersKicker": "VERANSTALTER UND PARTNER",
     "organizersTitle": "Wer hinter dem Japan-Tag steht",
     "openingFrom": "Geöffnet ab {time}",
