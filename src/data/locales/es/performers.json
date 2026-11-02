@@ -168,14 +168,6 @@
       "image": "/images/performers/akiko_komura.jpg"
     },
     {
-      "id": "samuraj-bratislava",
-      "name": "Artes marciales samurái",
-      "role": "Artes marciales samurái del siglo XVI",
-      "short": "Demostraciones de artes marciales samurái del siglo XVI.",
-      "description": "Participantes de Bratislava. El nombre y más detalles se añadirán más adelante.",
-      "image": ""
-    },
-    {
       "id": "judo-povazska-bystrica",
       "name": "Judo Považská Bystrica",
       "role": "Judo",
@@ -185,11 +177,28 @@
     },
     {
       "id": "japonske-kvety",
-      "name": "Flores japonesas",
-      "role": "Flores y decoración japonesas",
+      "name": "Jana Michalková",
+      "category": "Japonská kultúra",
       "short": "Una presentación inspirada en las flores japonesas.",
+      "heroTitle": "Jana Michalková",
+      "heroSubtitle": "Japonské kvety",
       "description": "Una participante de Pezinok. El nombre y más detalles se añadirán más adelante.",
-      "image": ""
+      "content": [
+        {
+          "type": "p",
+          "text": "Jana Michalková predstaví návštevníkom krásu japonských kvetov a ich miesto v japonskej kultúre."
+        },
+        {
+          "type": "p",
+          "text": "Na Japonskom dni priblíži rôzne druhy rastlín a kvetov spájaných s Japonskom a ukáže, ako môžu vytvoriť pôsobivú atmosféru aj v našom prostredí."
+        },
+        {
+          "type": "p",
+          "text": "Súčasťou prezentácie bude aj možnosť bližšie sa zoznámiť s japonskou estetikou, prírodnými motívmi a významom kvetov v každodennom živote a dekorácii."
+        }
+      ],
+      "image": "",
+      "role": "Flores y decoración japonesas"
     },
     {
       "id": "kumihimo",
@@ -224,21 +233,149 @@
       "image": "/images/performers/ivana_mickalova.png"
     },
     {
-      "id": "nao-higano",
-      "name": "Nao Higano",
-      "category": "Cantante de ?pera / Soprano",
-      "short": "Soprano japonesa originaria de Chiba. Estudi? canto oper?stico y concert?stico en Jap?n y en la Academia de Artes Esc?nicas de Bratislava, donde complet? estudios de doctorado con el t?tulo ArtD.",
-      "heroTitle": "Nao Higano",
-      "heroSubtitle": "Cantante de ?pera / Soprano",
+      "id": "aiko-bosak",
+      "name": "Aiko Bosák",
+      "category": "Cultura japonesa",
+      "short": "Presentará la elaboración de broches con telas japonesas y una selección de kimonos tradicionales japoneses.",
+      "heroTitle": "Aiko Bosák",
+      "heroSubtitle": "Telas japonesas, broches y kimono",
       "description": "",
       "content": [
         {
           "type": "p",
-          "text": "La soprano Nao Higano es originaria de Chiba, Jap?n. Estudi? canto oper?stico y concert?stico en la Universidad Seitoku y en el Departamento de Canto de la Academia de Artes Esc?nicas de Bratislava, donde complet? sus estudios de doctorado bajo la direcci?n del profesor Peter Mikul?? y obtuvo el t?tulo ArtD."
+          "text": "Aiko Bosák mostrará a los visitantes cómo se elaboran pequeños broches decorativos con telas y tejidos japoneses."
+        },
+        {
+          "type": "p",
+          "text": "Su presentación incluirá también una selección de kimonos japoneses a la venta y la posibilidad de conocer mejor los tejidos tradicionales japoneses, sus motivos y sus usos."
+        },
+        {
+          "type": "p",
+          "text": "Durante el Día de Japón, los visitantes podrán ver productos terminados, telas japonesas y kimonos directamente en el recinto."
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "asuka-emura",
+      "name": "Asuka Emura",
+      "category": "Cultura japonesa",
+      "short": "Presentará el arte tradicional japonés del plegado de papel: el origami.",
+      "heroTitle": "Asuka Emura",
+      "heroSubtitle": "Origami – plegado tradicional japonés de papel",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Asuka Emura presentará a los visitantes el origami, el arte tradicional japonés del plegado de papel."
+        },
+        {
+          "type": "p",
+          "text": "Mostrará cómo un simple cuadrado de papel puede transformarse, mediante sucesivos pliegues, en distintas formas, objetos y figuras."
+        },
+        {
+          "type": "p",
+          "text": "Los visitantes podrán conocer más de cerca una de las tradiciones creativas japonesas más conocidas y probar por sí mismos los principios básicos del origami."
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "satoko-kino",
+      "name": "Satoko Kino",
+      "category": "Té japonés y gastronomía",
+      "short": "Presentará el té japonés, la gastronomía y la cultura cotidiana de la mesa desde una perspectiva japonesa.",
+      "heroTitle": "Satoko Kino",
+      "heroSubtitle": "Té japonés y gastronomía",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "Satoko Kino es originaria de Japón y desde hace años acerca la cultura japonesa, la gastronomía y las tradiciones cotidianas al público de Chequia y Eslovaquia. Está vinculada a la marca Nagomi, dedicada al té japonés y a otros productos de Japón."
+        },
+        {
+          "type": "p",
+          "text": "Durante el Día de Japón presentará el té y la gastronomía japoneses desde la perspectiva de una persona que creció con la cultura japonesa. Explicará cómo el té y la comida forman parte de la vida cotidiana en Japón, cómo se sirven y qué papel desempeñan en las comidas compartidas y la hospitalidad."
+        },
+        {
+          "type": "p",
+          "text": "La presentación incluirá también demostraciones prácticas y degustaciones. Los visitantes podrán conocer mejor los sabores de Japón y descubrir las diferencias entre la forma en que percibimos el té y la comida japoneses en Europa y su papel en la vida diaria en Japón."
+        }
+      ],
+      "image": "/images/performers/satoko_kino.jpg"
+    },
+    {
+      "id": "nao-higano",
+      "name": "Nao Higano",
+      "category": "Cantante de ópera / Soprano",
+      "short": "Soprano japonesa originaria de Chiba. Estudió canto operístico y de concierto en Japón y en la Academia de Artes Escénicas de Bratislava, donde completó sus estudios de doctorado con el título ArtD.",
+      "heroTitle": "Nao Higano",
+      "heroSubtitle": "Cantante de ópera / Soprano",
+      "description": "",
+      "content": [
+        {
+          "type": "p",
+          "text": "La soprano Nao Higano es originaria de Chiba, Japón. Estudió canto operístico y de concierto en la Universidad Seitoku y en el Departamento de Canto de la Academia de Artes Escénicas de Bratislava, donde completó sus estudios de doctorado con el profesor Peter Mikuláš y obtuvo el título ArtD."
+        },
+        {
+          "type": "p",
+          "text": "Participó en numerosos cursos magistrales internacionales de canto, entre otros con P. de Neapoli, D. Iordachescu, Y. Hayashi, M. Janková, G. Beňačková, S. Kopčák, P. Dvorský, Z. Livorová y V. Chmelo."
+        },
+        {
+          "type": "p",
+          "text": "Se ha presentado con éxito en festivales internacionales de música y ha realizado grabaciones para radio y televisión, entre ellas ORF, Radio Húngara, Radio Checa, Radio Eslovaca, ČT y STV, así como para editoriales musicales."
+        },
+        {
+          "type": "p",
+          "text": "En sus recitales como solista interpreta repertorio de canción y música de cámara, además de oratorios, misas y cantatas. Su repertorio abarca desde el Renacimiento hasta la música del siglo XXI, con especial atención a las composiciones eslavas."
+        },
+        {
+          "type": "p",
+          "text": "Fue miembro del trío de cámara Sen Tegmento, fundado por el clarinetista Martin Adámek, solista y miembro del Ensemble Intercontemporain de París."
+        },
+        {
+          "type": "p",
+          "text": "Ha colaborado con numerosas orquestas y formaciones de cámara, entre ellas la Filarmónica de Tokio, la Filarmónica Eslovaca, la Orquesta de Cámara Eslovaca Bohdan Warchal, la Orquesta Sinfónica de la Radio Eslovaca, la Orquesta Sinfónica de la Radio Checa, la Filarmónica Estatal de Košice, la Orquesta de Cámara Estatal de Žilina, Capella Istropolitana, el Cuarteto Moyzes y la Filarmónica Bohuslav Martinů."
+        },
+        {
+          "type": "p",
+          "text": "Preparó un recital de canciones para el Rudolfinum de Praga y actuó en el Concertgebouw de Ámsterdam. Obtuvo el primer premio de la Yamaha Foundation y varios premios del Fondo de Música de Bratislava."
+        },
+        {
+          "type": "p",
+          "text": "Como solista ha sido invitada en la Ópera del Teatro Nacional Eslovaco de Bratislava, el Teatro Nacional de Brno, el Teatro Nacional de Praga, la Ópera Estatal de Banská Bystrica y la ópera de Košice."
+        },
+        {
+          "type": "p",
+          "text": "Logró un éxito especial en el papel de la Mujer en Erwartung de Arnold Schoenberg, en su estreno eslovaco en la Ópera del SND en 2002."
+        },
+        {
+          "type": "p",
+          "text": "En los últimos años también se dedica a las artes visuales y expone sus obras en Chequia, Eslovaquia y otros países. Es miembro honorario del Rotary Club Kroměříž, con el que participa en conciertos benéficos."
         }
       ],
       "image": null
     }
   ],
-  "performerPromotion": {"kicker":"RECOMENDADO","title":"Japanese Speech Contest & Prize Draw","intro":"Hisayo Yasuda te invita a un concurso de oratoria japonesa en Bratislava.","dateLabel":"Fecha","date":"14 de noviembre de 2026","timeLabel":"Hora","time":"13:30–14:45","venueLabel":"Lugar","venue":"Galería Nedbalka","addressLabel":"Dirección","address":"Nedbalova 17, 811 01 Bratislava","levelsLabel":"Niveles","levels":"Beginner / Intermediate / Advanced","participationLabel":"Participación","participation":"La participación es gratuita","organizerLabel":"Organizador","organizer":"J-Pad.eu s.r.o.","cta":"Más información","posterAlt":"Cartel de Japanese Speech Contest & Prize Draw"}
+  "performerPromotion": {
+    "kicker": "RECOMENDAMOS",
+    "title": "Japanese Speech Contest & Prize Draw",
+    "intro": "Hisayo Yasuda invita a un concurso de discursos en japonés en Bratislava.",
+    "dateLabel": "Fecha",
+    "date": "14 de noviembre de 2026",
+    "timeLabel": "Hora",
+    "time": "13:30–14:45",
+    "venueLabel": "Lugar",
+    "venue": "Galéria Nedbalka",
+    "addressLabel": "Dirección",
+    "address": "Nedbalova 17, 811 01 Bratislava",
+    "levelsLabel": "Niveles",
+    "levels": "Principiante / Intermedio / Avanzado",
+    "participationLabel": "Participación",
+    "participation": "La participación es gratuita",
+    "organizerLabel": "Organizador",
+    "organizer": "J-Pad.eu s.r.o.",
+    "cta": "Más información",
+    "posterAlt": "Cartel del Japanese Speech Contest & Prize Draw"
+  }
 }

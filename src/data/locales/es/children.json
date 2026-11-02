@@ -1,12 +1,62 @@
 {
-  "kicker": "",
-  "title": "",
-  "intro": "Estamos preparando el programa para niños y familias. Las actividades se anunciarán progresivamente.",
+  "kicker": "PARA NIÑOS Y FAMILIAS",
+  "title": "Un Japón que los niños pueden experimentar por sí mismos",
+  "intro": "Ven a disfrutar del Día de Japón con tus hijos de una forma un poco diferente. Estamos preparando actividades creativas, juegos tradicionales japoneses, dulces y un concurso para colorear motivos japoneses.",
   "cta": "Más información",
-  "freeEntry": "La entrada a todo el evento es gratuita.",
-  "activities": [],
+  "activities": [
+    {
+      "id": "japanese-colouring",
+      "title": "Colorear motivos japoneses",
+      "short": "Colorea imágenes inspiradas en Japón y participa en el concurso.",
+      "description": "Los niños recibirán dibujos preparados con temática japonesa y de anime que podrán colorear según su propia imaginación. Los dibujos terminados podrán participar en el concurso al motivo mejor coloreado."
+    },
+    {
+      "id": "origami",
+      "title": "Origami",
+      "short": "Prueba el tradicional arte japonés del plegado de papel.",
+      "description": "Niños y padres podrán probar el origami, el arte tradicional japonés del plegado de papel, y crear su propio modelo sencillo de papel."
+    },
+    {
+      "id": "ayatori",
+      "title": "Ayatori あやとり",
+      "short": "Un juego tradicional japonés con un lazo de cuerda.",
+      "description": "Con los dedos y un lazo de cuerda se crean diferentes figuras y patrones. El ayatori es un juego sencillo y divertido que desarrolla la motricidad fina, la concentración y la coordinación."
+    },
+    {
+      "id": "shogi",
+      "title": "Shōgi 将棋",
+      "short": "Prueba el ajedrez tradicional japonés.",
+      "description": "Niños y adultos podrán probar el shōgi, un juego estratégico tradicional japonés parecido al ajedrez, y conocer sus reglas básicas."
+    },
+    {
+      "id": "japanese-sweets",
+      "title": "Dulces japoneses",
+      "short": "Prueba dulces y golosinas de Japón.",
+      "description": "Durante todo el día habrá distintos dulces japoneses y asiáticos y pequeños caprichos para niños y adultos."
+    }
+  ],
+  "competition": {
+    "eyebrow": "CONCURSO INFANTIL",
+    "title": "¡Colorea Japón con tu imaginación!",
+    "intro": "Estamos preparando para los niños un concurso para colorear motivos japoneses.",
+    "categories": [
+      {
+        "id": "colouring",
+        "title": "El dibujo mejor coloreado",
+        "intro": "El concurso está pensado principalmente para nuestros visitantes más pequeños.",
+        "body": "En el recinto recibirás dibujos preparados con temática japonesa y de anime que podrás colorear según tu propia imaginación.",
+        "detail": "¡Lápices de colores en mano y a empezar!",
+        "evaluationLabel": "Valoraremos:",
+        "evaluation": "sobre todo la idea, el uso de los colores, la precisión y la impresión general."
+      }
+    ],
+    "prize": {
+      "title": "El ganador recibirá un premio.",
+      "text": "Lo más importante es usar la imaginación, divertirse y disfrutar del Día de Japón con nosotros."
+    }
+  },
   "safety": {
-    "title": "Supervisión de niños",
-    "text": "Las actividades infantiles no son un servicio de guardería. Los niños permanecen bajo la supervisión de un padre o adulto acompañante."
+    "title": "Supervisión de los niños",
+    "text": "Las actividades infantiles no son un servicio de guardería. Los niños permanecen en todo momento bajo la supervisión y responsabilidad de un padre, madre u otro adulto acompañante."
   }
 }

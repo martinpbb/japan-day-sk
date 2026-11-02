@@ -1,5 +1,146 @@
 {
-  "status": "draft",
-  "note": "The detailed programme is being prepared. Exact times and additional guests will be announced gradually.",
-  "items": []
+  "status": "confirmed",
+  "note": "",
+  "items": [
+    {
+      "venue": "hall",
+      "time": "10:00",
+      "endTime": "10:35",
+      "title": "Opening of the venue to the public",
+      "presenter": "Organizer",
+      "durationMinutes": 35
+    },
+    {
+      "venue": "hall",
+      "time": "10:35",
+      "endTime": "10:50",
+      "title": "Opera singing – first performance",
+      "presenter": "Nao Higano",
+      "durationMinutes": 15,
+      "performerId": "nao-higano"
+    },
+    {
+      "venue": "hall",
+      "time": "10:50",
+      "endTime": "11:05",
+      "type": "ceremony",
+      "title": "Official opening and address by the mayor and guests",
+      "presenter": "Mayor and guests",
+      "durationMinutes": 15
+    },
+    {
+      "venue": "hall",
+      "time": "11:05",
+      "endTime": "11:20",
+      "title": "Opera singing – second performance",
+      "presenter": "Nao Higano",
+      "durationMinutes": 15,
+      "performerId": "nao-higano"
+    },
+    {
+      "venue": "hall",
+      "time": "11:30",
+      "endTime": "12:00",
+      "performerId": "gorin",
+      "title": "Samurai show",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "12:10",
+      "endTime": "12:50",
+      "performerId": "noriko-komiyama",
+      "title": "Ikebana – the Japanese art of flower arrangement",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "hall",
+      "time": "13:00",
+      "endTime": "13:30",
+      "performerId": "gorin",
+      "title": "Traditional Japanese archery",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "13:40",
+      "endTime": "14:10",
+      "performerId": "gorin",
+      "title": "Putting on samurai armour",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "14:30",
+      "endTime": "15:00",
+      "performerId": "judo-povazska-bystrica",
+      "title": "Judo – demonstration of a Japanese martial art",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "16:20",
+      "endTime": "16:50",
+      "performerId": "gorin",
+      "title": "Tameshigiri – Japanese sword-cutting demonstration",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "16:50",
+      "endTime": "17:00",
+      "title": "Closing thanks",
+      "presenter": "Organizer",
+      "durationMinutes": 10
+    },
+    {
+      "venue": "theatre",
+      "time": "11:00",
+      "endTime": "11:40",
+      "performerId": "japonske-kvety",
+      "title": "Daylilies – a piece of Japan in the garden and on the plate",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "11:50",
+      "endTime": "12:30",
+      "performerId": "martin-labudik",
+      "title": "Japanese tea and its classification",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "12:40",
+      "endTime": "13:20",
+      "performerId": "akiko-komura",
+      "presenter": "Mgr. Akiko Komura, PhD.",
+      "title": "Shodō: Japanese calligraphy",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "14:10",
+      "endTime": "14:50",
+      "performerId": "silvestr-prajer",
+      "title": "Sengoku jidai: the age of warring states",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "15:00",
+      "endTime": "15:40",
+      "performerId": "martin-labudik",
+      "title": "How Japanese tea benefits the human body",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "15:40",
+      "endTime": "16:20",
+      "performerId": "hisayo-yasuda",
+      "title": "The appeal of Japan",
+      "durationMinutes": 40
+    }
+  ]
 }

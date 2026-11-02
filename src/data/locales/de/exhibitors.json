@@ -1,4 +1,48 @@
 {
-  "intro": "Die Liste der Aussteller, Verkäufer und Präsentierenden wird schrittweise veröffentlicht.",
-  "items": []
+  "intro": "Die Liste der Aussteller, Händler und Präsentierenden wird nach und nach veröffentlicht.",
+  "items": [
+    {
+      "id": "nagomi-tea",
+      "name": "Nagomi tea",
+      "website": "https://www.nagomitea.eu/",
+      "category": "Japanischer Tee",
+      "description": "Ausgewählte japanische Tees direkt von Teebauern aus Japan.",
+      "image": "/images/exhibitors/nagomi_tea.png",
+      "imageMode": "logo"
+    },
+    {
+      "id": "nagomi-sake",
+      "name": "Nagomi sake",
+      "website": "https://www.nagomisake.cz/",
+      "category": "Sake",
+      "description": "Präsentation und Verkostung von japanischem Sake.",
+      "image": "/images/exhibitors/nagomi_sake.png",
+      "imageMode": "logo",
+      "imageScale": 1.15
+    },
+    {
+      "id": "kumihimo",
+      "name": "Kumihimo – japanische Schnüre",
+      "category": "Traditionelles Handwerk",
+      "description": "Vorführung der traditionellen japanischen Technik des Kumihimo-Flechtens.",
+      "image": "/images/exhibitors/kumihimo_japonske_snury.png",
+      "imageMode": "photo"
+    },
+    {
+      "id": "matcha-tea",
+      "name": "Matcha & Tea Latte (Nagomi tea)",
+      "category": "Japanischer Tee",
+      "description": "Matcha und Tea Lattes aus gemahlenen Tees: Wakocha, Hōjicha, Oolongcha, Hakucha und Matcha.",
+      "imageMode": "photo"
+    },
+    {
+      "id": "samurai-cz",
+      "name": "SAMURAI.cz",
+      "image": "/images/exhibitors/samurai_noze.png",
+      "website": "https://www.samurai.cz/",
+      "category": "Japanische und Damast-Küchenmesser",
+      "short": "Hochwertige Küchenmesser, Damastklingen und japanische Messertypen wie Santoku, Gyuto, Kiritsuke oder Nakiri.",
+      "description": "SAMURAI.cz konzentriert sich auf hochwertige Küchenmesser mit besonderem Augenmerk auf Schärfe, Präzision und sorgfältige Verarbeitung. Das Sortiment umfasst japanische Messertypen wie Santoku, Gyuto, Kiritsuke und Nakiri sowie Messer für die Zubereitung von Sushi und Sashimi. Dazu kommen Damastmesser, handgeschmiedete Modelle und Messer mit Kernen aus hochwertigen Stählen wie VG10 oder modernen Pulverstählen. Beim Japan-Tag können Besucher verschiedene Küchenmessertypen kennenlernen und mehr über ihren Einsatz in der japanischen Gastronomie erfahren."
+    }
+  ]
 }

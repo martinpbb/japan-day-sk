@@ -356,5 +356,25 @@
       "image": null
     }
   ],
-  "performerPromotion": {"kicker":"ODPORÚČAME","title":"Japanese Speech Contest & Prize Draw","intro":"Hisayo Yasuda pozýva na súťaž v japonskom prejave v Bratislave.","dateLabel":"Dátum","date":"14. november 2026","timeLabel":"Čas","time":"13:30–14:45","venueLabel":"Miesto","venue":"Galéria Nedbalka","addressLabel":"Adresa","address":"Nedbalova 17, 811 01 Bratislava","levelsLabel":"Úrovne","levels":"Beginner / Intermediate / Advanced","participationLabel":"Účasť","participation":"Účasť je bezplatná","organizerLabel":"Organizátor","organizer":"J-Pad.eu s.r.o.","cta":"Viac informácií","posterAlt":"Plagát súťaže Japanese Speech Contest & Prize Draw"}
+  "performerPromotion": {
+    "kicker": "ODPORÚČAME",
+    "title": "Japanese Speech Contest & Prize Draw",
+    "intro": "Hisayo Yasuda pozýva na súťaž v japonskom prejave v Bratislave.",
+    "dateLabel": "Dátum",
+    "date": "14. november 2026",
+    "timeLabel": "Čas",
+    "time": "13:30–14:45",
+    "venueLabel": "Miesto",
+    "venue": "Galéria Nedbalka",
+    "addressLabel": "Adresa",
+    "address": "Nedbalova 17, 811 01 Bratislava",
+    "levelsLabel": "Úrovne",
+    "levels": "Beginner / Intermediate / Advanced",
+    "participationLabel": "Účasť",
+    "participation": "Účasť je bezplatná",
+    "organizerLabel": "Organizátor",
+    "organizer": "J-Pad.eu s.r.o.",
+    "cta": "Viac informácií",
+    "posterAlt": "Plagát súťaže Japanese Speech Contest & Prize Draw"
+  }
 }

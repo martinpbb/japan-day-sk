@@ -1,5 +1,146 @@
 {
-  "status": "draft",
-  "note": "Estamos preparando el programa detallado. Los horarios y nuevos invitados se anunciarán progresivamente.",
-  "items": []
+  "status": "confirmed",
+  "note": "",
+  "items": [
+    {
+      "venue": "hall",
+      "time": "10:00",
+      "endTime": "10:35",
+      "title": "Apertura del recinto al público",
+      "presenter": "Organizador",
+      "durationMinutes": 35
+    },
+    {
+      "venue": "hall",
+      "time": "10:35",
+      "endTime": "10:50",
+      "title": "Canto operístico – primera actuación",
+      "presenter": "Nao Higano",
+      "durationMinutes": 15,
+      "performerId": "nao-higano"
+    },
+    {
+      "venue": "hall",
+      "time": "10:50",
+      "endTime": "11:05",
+      "type": "ceremony",
+      "title": "Apertura oficial y discurso del alcalde y de los invitados",
+      "presenter": "Alcalde e invitados",
+      "durationMinutes": 15
+    },
+    {
+      "venue": "hall",
+      "time": "11:05",
+      "endTime": "11:20",
+      "title": "Canto operístico – segunda actuación",
+      "presenter": "Nao Higano",
+      "durationMinutes": 15,
+      "performerId": "nao-higano"
+    },
+    {
+      "venue": "hall",
+      "time": "11:30",
+      "endTime": "12:00",
+      "performerId": "gorin",
+      "title": "Espectáculo samurái",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "12:10",
+      "endTime": "12:50",
+      "performerId": "noriko-komiyama",
+      "title": "Ikebana – el arte japonés del arreglo floral",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "hall",
+      "time": "13:00",
+      "endTime": "13:30",
+      "performerId": "gorin",
+      "title": "Tiro con arco tradicional japonés",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "13:40",
+      "endTime": "14:10",
+      "performerId": "gorin",
+      "title": "Cómo ponerse una armadura samurái",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "14:30",
+      "endTime": "15:00",
+      "performerId": "judo-povazska-bystrica",
+      "title": "Judo – demostración de un arte marcial japonés",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "16:20",
+      "endTime": "16:50",
+      "performerId": "gorin",
+      "title": "Tameshigiri – demostración de corte con espada japonesa",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "16:50",
+      "endTime": "17:00",
+      "title": "Agradecimiento final",
+      "presenter": "Organizador",
+      "durationMinutes": 10
+    },
+    {
+      "venue": "theatre",
+      "time": "11:00",
+      "endTime": "11:40",
+      "performerId": "japonske-kvety",
+      "title": "Hemerocallis – un pedacito de Japón en el jardín y en el plato",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "11:50",
+      "endTime": "12:30",
+      "performerId": "martin-labudik",
+      "title": "El té japonés y su clasificación",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "12:40",
+      "endTime": "13:20",
+      "performerId": "akiko-komura",
+      "presenter": "Mgr. Akiko Komura, PhD.",
+      "title": "Shodō: caligrafía japonesa",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "14:10",
+      "endTime": "14:50",
+      "performerId": "silvestr-prajer",
+      "title": "Sengoku jidai: el período de los estados en guerra",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "15:00",
+      "endTime": "15:40",
+      "performerId": "martin-labudik",
+      "title": "Cómo beneficia el té japonés al cuerpo humano",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "15:40",
+      "endTime": "16:20",
+      "performerId": "hisayo-yasuda",
+      "title": "El atractivo de Japón",
+      "durationMinutes": 40
+    }
+  ]
 }

@@ -1,12 +1,62 @@
 {
-  "kicker": "",
-  "title": "",
-  "intro": "Das Programm für Kinder und Familien wird vorbereitet. Einzelne Aktivitäten werden schrittweise veröffentlicht.",
-  "cta": "Mehr Informationen",
-  "freeEntry": "Der Eintritt zur gesamten Veranstaltung ist frei.",
-  "activities": [],
+  "kicker": "FÜR KINDER UND FAMILIEN",
+  "title": "Japan, das Kinder selbst erleben können",
+  "intro": "Erleben Sie den Japan-Tag mit Ihren Kindern einmal etwas anders. Wir bereiten kreative Aktivitäten, traditionelle japanische Spiele, süße Leckereien und einen Malwettbewerb mit japanischen Motiven vor.",
+  "cta": "Mehr erfahren",
+  "activities": [
+    {
+      "id": "japanese-colouring",
+      "title": "Japanische Motive ausmalen",
+      "short": "Malt von Japan inspirierte Bilder aus und nehmt am Wettbewerb teil.",
+      "description": "Kinder erhalten vorbereitete Bilder mit japanischen und Anime-Motiven, die sie nach ihrer eigenen Fantasie ausmalen können. Die fertigen Bilder können am Wettbewerb um das schönste ausgemalte Motiv teilnehmen."
+    },
+    {
+      "id": "origami",
+      "title": "Origami",
+      "short": "Probiert die traditionelle japanische Kunst des Papierfaltens aus.",
+      "description": "Kinder und Eltern können Origami, die traditionelle japanische Kunst des Papierfaltens, ausprobieren und ein eigenes einfaches Papiermodell gestalten."
+    },
+    {
+      "id": "ayatori",
+      "title": "Ayatori あやとり",
+      "short": "Ein traditionelles japanisches Spiel mit einer Schnurschlinge.",
+      "description": "Mit den Fingern und einer geschlossenen Schnur entstehen verschiedene Muster und Figuren. Ayatori ist ein einfaches und unterhaltsames Spiel, das Feinmotorik, Konzentration und Koordination fördert."
+    },
+    {
+      "id": "shogi",
+      "title": "Shōgi 将棋",
+      "short": "Probiert das traditionelle japanische Schach aus.",
+      "description": "Kinder und Erwachsene können Shōgi, ein traditionelles japanisches Strategiespiel ähnlich dem Schach, ausprobieren und die Grundregeln kennenlernen."
+    },
+    {
+      "id": "japanese-sweets",
+      "title": "Japanische Süßigkeiten",
+      "short": "Probiert süße Leckereien aus Japan.",
+      "description": "Den ganzen Tag über werden verschiedene japanische und asiatische Süßigkeiten und kleine Leckereien für Kinder und Erwachsene angeboten."
+    }
+  ],
+  "competition": {
+    "eyebrow": "KINDERWETTBEWERB",
+    "title": "Male Japan nach deiner Fantasie aus!",
+    "intro": "Für Kinder bereiten wir einen Malwettbewerb mit japanischen Motiven vor.",
+    "categories": [
+      {
+        "id": "colouring",
+        "title": "Das schönste ausgemalte Bild",
+        "intro": "Der Wettbewerb richtet sich vor allem an unsere jüngsten Besucher.",
+        "body": "Vor Ort erhaltet ihr vorbereitete Bilder mit japanischen und Anime-Motiven, die ihr nach eurer eigenen Fantasie ausmalen könnt.",
+        "detail": "Buntstifte in die Hand und los geht’s!",
+        "evaluationLabel": "Bewertet werden:",
+        "evaluation": "vor allem Idee, Farbgestaltung, Sorgfalt und Gesamteindruck."
+      }
+    ],
+    "prize": {
+      "title": "Auf den Gewinner wartet ein Preis.",
+      "text": "Am wichtigsten ist es, die Fantasie einzusetzen, Spaß zu haben und den Japan-Tag gemeinsam mit uns zu genießen."
+    }
+  },
   "safety": {
     "title": "Aufsicht über Kinder",
-    "text": "Kinderaktivitäten sind keine Kinderbetreuung. Kinder bleiben unter Aufsicht eines Elternteils oder einer begleitenden erwachsenen Person."
+    "text": "Die Kinderaktivitäten sind keine Kinderbetreuung. Kinder bleiben jederzeit unter der Aufsicht und Verantwortung eines Elternteils oder einer anderen begleitenden erwachsenen Person."
   }
 }

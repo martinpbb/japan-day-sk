@@ -1,4 +1,48 @@
 {
   "intro": "La lista de expositores, vendedores y participantes se publicará progresivamente.",
-  "items": []
+  "items": [
+    {
+      "id": "nagomi-tea",
+      "name": "Nagomi tea",
+      "website": "https://www.nagomitea.eu/",
+      "category": "Té japonés",
+      "description": "Tés japoneses seleccionados directamente de productores de Japón.",
+      "image": "/images/exhibitors/nagomi_tea.png",
+      "imageMode": "logo"
+    },
+    {
+      "id": "nagomi-sake",
+      "name": "Nagomi sake",
+      "website": "https://www.nagomisake.cz/",
+      "category": "Sake",
+      "description": "Presentación y degustación de sake japonés.",
+      "image": "/images/exhibitors/nagomi_sake.png",
+      "imageMode": "logo",
+      "imageScale": 1.15
+    },
+    {
+      "id": "kumihimo",
+      "name": "Kumihimo – cordones japoneses",
+      "category": "Artesanía tradicional",
+      "description": "Demostración de la técnica tradicional japonesa de trenzado de cordones kumihimo.",
+      "image": "/images/exhibitors/kumihimo_japonske_snury.png",
+      "imageMode": "photo"
+    },
+    {
+      "id": "matcha-tea",
+      "name": "Matcha & tea latte (Nagomi tea)",
+      "category": "Té japonés",
+      "description": "Matcha y lattes de té preparados con tés molidos: wakocha, hōjicha, oolongcha, hakucha y matcha.",
+      "imageMode": "photo"
+    },
+    {
+      "id": "samurai-cz",
+      "name": "SAMURAI.cz",
+      "image": "/images/exhibitors/samurai_noze.png",
+      "website": "https://www.samurai.cz/",
+      "category": "Cuchillos de cocina japoneses y de Damasco",
+      "short": "Cuchillos de cocina prémium, hojas de Damasco y tipos japoneses como Santoku, Gyuto, Kiritsuke o Nakiri.",
+      "description": "SAMURAI.cz se especializa en cuchillos de cocina prémium, con especial atención al filo, la precisión y la calidad de fabricación. Su oferta incluye tipos de cuchillos japoneses como Santoku, Gyuto, Kiritsuke y Nakiri, además de cuchillos destinados a la preparación de sushi y sashimi. También cuenta con cuchillos de Damasco, modelos forjados a mano y cuchillos con núcleos de aceros prémium, como VG10 o modernos aceros en polvo. Durante el Día de Japón, los visitantes podrán ver distintos tipos de cuchillos de cocina y conocer mejor su uso en la gastronomía japonesa."
+    }
+  ]
 }

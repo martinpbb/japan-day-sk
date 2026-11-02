@@ -70,7 +70,9 @@
       "h1": "Workshops",
       "intro": "Discover Japanese culture through hands-on workshops.",
       "breadcrumb": "Workshops",
-      "schema": ["breadcrumb"]
+      "schema": [
+        "breadcrumb"
+      ]
     },
     "/pre-deti": {
       "title": "For children and families | Japan Day Považská Bystrica",

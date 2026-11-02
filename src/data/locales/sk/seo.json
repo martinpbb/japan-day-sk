@@ -92,7 +92,9 @@
       "h1": "Workshopy",
       "intro": "Spoznajte japonskú kultúru prostredníctvom praktických workshopov.",
       "breadcrumb": "Workshopy",
-      "schema": ["breadcrumb"]
+      "schema": [
+        "breadcrumb"
+      ]
     },
     "/prakticke-informacie": {
       "title": "Praktické informácie | Japonský deň čaju a kultúry 2026",

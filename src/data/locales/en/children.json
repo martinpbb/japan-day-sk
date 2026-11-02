@@ -1,12 +1,62 @@
 {
-  "kicker": "",
-  "title": "",
-  "intro": "The programme for children and families is being prepared and activities will be announced gradually.",
-  "cta": "More information",
-  "freeEntry": "Admission to the entire event is free.",
-  "activities": [],
+  "kicker": "FOR CHILDREN AND FAMILIES",
+  "title": "Japan that children can experience for themselves",
+  "intro": "Come and enjoy Japan Day with your children in a slightly different way. We are preparing creative activities, traditional Japanese games, sweet treats and a colouring competition with Japanese motifs.",
+  "cta": "Find out more",
+  "activities": [
+    {
+      "id": "japanese-colouring",
+      "title": "Colouring Japanese motifs",
+      "short": "Colour pictures inspired by Japan and take part in the competition.",
+      "description": "Children will receive prepared pictures with Japanese and anime themes that they can colour using their own imagination. Finished pictures can be entered in the competition for the best-coloured motif."
+    },
+    {
+      "id": "origami",
+      "title": "Origami",
+      "short": "Try traditional Japanese paper folding.",
+      "description": "Children and parents can try origami, the traditional Japanese art of paper folding, and create their own simple paper model."
+    },
+    {
+      "id": "ayatori",
+      "title": "Ayatori あやとり",
+      "short": "A traditional Japanese game played with a loop of string.",
+      "description": "Different patterns and figures are created with the fingers and a loop of string. Ayatori is a simple and entertaining game that develops fine motor skills, concentration and coordination."
+    },
+    {
+      "id": "shogi",
+      "title": "Shogi 将棋",
+      "short": "Try traditional Japanese chess.",
+      "description": "Children and adults can try shogi, a traditional Japanese strategy game similar to chess, and learn the basic rules."
+    },
+    {
+      "id": "japanese-sweets",
+      "title": "Japanese sweets",
+      "short": "Taste sweet treats from Japan.",
+      "description": "Various Japanese and Asian sweets and small treats for children and adults will be available throughout the day."
+    }
+  ],
+  "competition": {
+    "eyebrow": "CHILDREN’S COMPETITION",
+    "title": "Colour Japan with your imagination!",
+    "intro": "We are preparing a colouring competition with Japanese motifs for children.",
+    "categories": [
+      {
+        "id": "colouring",
+        "title": "Best-coloured picture",
+        "intro": "The competition is intended mainly for our youngest visitors.",
+        "body": "At the venue you will receive prepared pictures with Japanese and anime themes that you can colour using your own imagination.",
+        "detail": "Pick up your coloured pencils and get started!",
+        "evaluationLabel": "We will judge:",
+        "evaluation": "especially the idea, use of colour, precision and overall impression."
+      }
+    ],
+    "prize": {
+      "title": "A prize awaits the winner.",
+      "text": "The most important thing is to use your imagination, have fun and enjoy Japan Day with us."
+    }
+  },
   "safety": {
     "title": "Supervision of children",
-    "text": "Children's activities are not a childcare service. Children remain under the supervision of a parent or accompanying adult."
+    "text": "Children’s activities are not a childcare service. Children remain under the supervision and responsibility of a parent or another accompanying adult at all times."
   }
 }

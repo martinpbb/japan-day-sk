@@ -301,24 +301,80 @@
           "text": "実演や試食・試飲も予定しています。来場者は日本の味をより身近に体験しながら、ヨーロッパでの日本茶や日本食の捉え方と、日本の日常生活でのあり方の違いについて知ることができます。"
         }
       ],
-      "image": "images/performers/satoko_kino.jpg"
+      "image": "/images/performers/satoko_kino.jpg"
     },
     {
       "id": "nao-higano",
       "name": "Nao Higano",
-      "category": "??????????",
-      "short": "???????????????????????????????????????????????????????????ArtD.????????",
+      "category": "オペラ歌手・ソプラノ",
+      "short": "日本・千葉市出身のソプラノ歌手。日本でオペラとコンサート歌唱を学び、ブラチスラヴァ舞台芸術大学で博士課程を修了し、ArtD.を取得しました。",
       "heroTitle": "Nao Higano",
-      "heroSubtitle": "??????????",
+      "heroSubtitle": "オペラ歌手・ソプラノ",
       "description": "",
       "content": [
         {
           "type": "p",
-          "text": "???????Nao Higano????????????????????????????????????????????????????Peter Mikul?????????????????ArtD.????????"
+          "text": "ソプラノ歌手のNao Higanoは日本の千葉市出身です。聖徳大学でオペラとコンサート歌唱を学び、ブラチスラヴァ舞台芸術大学声楽科ではPeter Mikuláš教授のもとで博士課程を修了し、ArtD.を取得しました。"
+        },
+        {
+          "type": "p",
+          "text": "P. de Neapoli、D. Iordachescu、Y. Hayashi、M. Janková、G. Beňačková、S. Kopčák、P. Dvorský、Z. Livorová、V. Chmeloなどによる国際的な声楽マスタークラスにも参加しました。"
+        },
+        {
+          "type": "p",
+          "text": "国際音楽祭にも数多く出演し、ORF、ハンガリー放送、チェコ放送、スロバキア放送、チェコテレビ、スロバキアテレビなどのラジオ・テレビ番組や音楽出版社のための録音も行っています。"
+        },
+        {
+          "type": "p",
+          "text": "ソロリサイタルでは歌曲や室内楽作品に加え、オラトリオ、ミサ、カンタータ作品も演奏しています。レパートリーはルネサンスから21世紀の作品まで幅広く、特にスラヴ系作曲家の作品研究にも力を注いできました。"
+        },
+        {
+          "type": "p",
+          "text": "パリのEnsemble Intercontemporainのソリスト兼メンバーであるクラリネット奏者Martin Adámekが結成した室内楽トリオSen Tegmentoのメンバーとしても活動しました。"
+        },
+        {
+          "type": "p",
+          "text": "東京フィルハーモニー交響楽団、スロバキア・フィルハーモニー管弦楽団、Bohdan Warchalスロバキア室内管弦楽団、スロバキア放送交響楽団、チェコ放送交響楽団、Košice国立フィルハーモニー、Žilina国立室内管弦楽団、Capella Istropolitana、Moyzes Quartet、Bohuslav Martinů Philharmonicなど、多くのオーケストラや室内楽団と共演しています。"
+        },
+        {
+          "type": "p",
+          "text": "プラハのRudolfinumで歌曲リサイタルを行い、アムステルダムのConcertgebouwにも出演しました。Yamaha Foundationの第1位を受賞し、ブラチスラヴァのMusic Fundからも複数の賞を受けています。"
+        },
+        {
+          "type": "p",
+          "text": "ソリストとして、ブラチスラヴァのスロバキア国立劇場オペラ、ブルノ国立劇場、プラハ国立劇場、Banská Bystrica国立オペラ、Košiceのオペラなどに客演しています。"
+        },
+        {
+          "type": "p",
+          "text": "特に2002年、スロバキア国立劇場オペラで行われたArnold Schoenberg作「Erwartung」のスロバキア初演で「女」役を演じ、高い評価を得ました。"
+        },
+        {
+          "type": "p",
+          "text": "近年は美術作家としても活動の幅を広げ、チェコ、スロバキア、海外で作品を展示しています。Rotary Club Kroměřížの名誉会員でもあり、同クラブとともに慈善コンサートにも参加しています。"
         }
       ],
       "image": null
     }
   ],
-  "performerPromotion": {"kicker":"おすすめ","title":"Japanese Speech Contest & Prize Draw","intro":"Hisayo Yasudaがブラチスラヴァで開催される日本語スピーチコンテストにご案内します。","dateLabel":"日付","date":"2026年11月14日","timeLabel":"時間","time":"13:30–14:45","venueLabel":"会場","venue":"ネドバルカ・ギャラリー","addressLabel":"住所","address":"Nedbalova 17, 811 01 Bratislava","levelsLabel":"レベル","levels":"Beginner / Intermediate / Advanced","participationLabel":"参加費","participation":"参加無料","organizerLabel":"主催","organizer":"J-Pad.eu s.r.o.","cta":"詳細はこちら","posterAlt":"Japanese Speech Contest & Prize Drawのポスター"}
+  "performerPromotion": {
+    "kicker": "おすすめ",
+    "title": "Japanese Speech Contest & Prize Draw",
+    "intro": "Hisayo Yasudaがブラチスラヴァで開催される日本語スピーチコンテストにご招待します。",
+    "dateLabel": "日付",
+    "date": "2026年11月14日",
+    "timeLabel": "時間",
+    "time": "13:30–14:45",
+    "venueLabel": "会場",
+    "venue": "Galéria Nedbalka",
+    "addressLabel": "住所",
+    "address": "Nedbalova 17, 811 01 Bratislava",
+    "levelsLabel": "レベル",
+    "levels": "初級 / 中級 / 上級",
+    "participationLabel": "参加費",
+    "participation": "参加無料",
+    "organizerLabel": "主催",
+    "organizer": "J-Pad.eu s.r.o.",
+    "cta": "詳しく見る",
+    "posterAlt": "Japanese Speech Contest & Prize Drawのポスター"
+  }
 }

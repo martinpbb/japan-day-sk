@@ -1,5 +1,146 @@
 {
-  "status": "draft",
-  "note": "Das detaillierte Programm wird vorbereitet. Genaue Zeiten und weitere Gäste werden schrittweise veröffentlicht.",
-  "items": []
+  "status": "confirmed",
+  "note": "",
+  "items": [
+    {
+      "venue": "hall",
+      "time": "10:00",
+      "endTime": "10:35",
+      "title": "Öffnung der Veranstaltungsräume für die Öffentlichkeit",
+      "presenter": "Veranstalter",
+      "durationMinutes": 35
+    },
+    {
+      "venue": "hall",
+      "time": "10:35",
+      "endTime": "10:50",
+      "title": "Operngesang – erster Auftritt",
+      "presenter": "Nao Higano",
+      "durationMinutes": 15,
+      "performerId": "nao-higano"
+    },
+    {
+      "venue": "hall",
+      "time": "10:50",
+      "endTime": "11:05",
+      "type": "ceremony",
+      "title": "Offizielle Eröffnung und Grußwort des Bürgermeisters und der Gäste",
+      "presenter": "Bürgermeister und Gäste",
+      "durationMinutes": 15
+    },
+    {
+      "venue": "hall",
+      "time": "11:05",
+      "endTime": "11:20",
+      "title": "Operngesang – zweiter Auftritt",
+      "presenter": "Nao Higano",
+      "durationMinutes": 15,
+      "performerId": "nao-higano"
+    },
+    {
+      "venue": "hall",
+      "time": "11:30",
+      "endTime": "12:00",
+      "performerId": "gorin",
+      "title": "Samurai-Show",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "12:10",
+      "endTime": "12:50",
+      "performerId": "noriko-komiyama",
+      "title": "Ikebana – die japanische Kunst des Blumenarrangements",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "hall",
+      "time": "13:00",
+      "endTime": "13:30",
+      "performerId": "gorin",
+      "title": "Traditionelles japanisches Bogenschießen",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "13:40",
+      "endTime": "14:10",
+      "performerId": "gorin",
+      "title": "Anlegen einer Samurai-Rüstung",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "14:30",
+      "endTime": "15:00",
+      "performerId": "judo-povazska-bystrica",
+      "title": "Judo – Vorführung einer japanischen Kampfkunst",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "16:20",
+      "endTime": "16:50",
+      "performerId": "gorin",
+      "title": "Tameshigiri – Vorführung des Schneidens mit dem japanischen Schwert",
+      "durationMinutes": 30
+    },
+    {
+      "venue": "hall",
+      "time": "16:50",
+      "endTime": "17:00",
+      "title": "Abschließender Dank",
+      "presenter": "Veranstalter",
+      "durationMinutes": 10
+    },
+    {
+      "venue": "theatre",
+      "time": "11:00",
+      "endTime": "11:40",
+      "performerId": "japonske-kvety",
+      "title": "Taglilien – ein Stück Japan im Garten und auf dem Teller",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "11:50",
+      "endTime": "12:30",
+      "performerId": "martin-labudik",
+      "title": "Japanischer Tee und seine Einteilung",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "12:40",
+      "endTime": "13:20",
+      "performerId": "akiko-komura",
+      "presenter": "Mgr. Akiko Komura, PhD.",
+      "title": "Shodō: japanische Kalligrafie",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "14:10",
+      "endTime": "14:50",
+      "performerId": "silvestr-prajer",
+      "title": "Sengoku jidai: Zeitalter der streitenden Reiche",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "15:00",
+      "endTime": "15:40",
+      "performerId": "martin-labudik",
+      "title": "Wie japanischer Tee dem menschlichen Körper zugutekommt",
+      "durationMinutes": 40
+    },
+    {
+      "venue": "theatre",
+      "time": "15:40",
+      "endTime": "16:20",
+      "performerId": "hisayo-yasuda",
+      "title": "Die Faszination Japans",
+      "durationMinutes": 40
+    }
+  ]
 }
