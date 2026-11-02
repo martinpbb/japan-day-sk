@@ -60,11 +60,11 @@ export const localeDocumentLanguages = {
 };
 
 const localeContent = {
-  sk: { site: skSite, seo: skSeo, program: skProgram, performers: skPerformers, gastronomy: skGastronomy, children: skChildren, exhibitors: skExhibitors, workshops: skWorkshops, gallery: skGallery, partners: skPartners },
-  en: { site: enSite, seo: enSeo, program: enProgram, performers: enPerformers, gastronomy: enGastronomy, children: enChildren, exhibitors: enExhibitors, workshops: enWorkshops, gallery: enGallery, partners: enPartners },
-  de: { site: deSite, seo: deSeo, program: deProgram, performers: dePerformers, gastronomy: deGastronomy, children: deChildren, exhibitors: deExhibitors, workshops: deWorkshops, gallery: deGallery, partners: dePartners },
-  es: { site: esSite, seo: esSeo, program: esProgram, performers: esPerformers, gastronomy: esGastronomy, children: esChildren, exhibitors: esExhibitors, workshops: esWorkshops, gallery: esGallery, partners: esPartners },
-  ja: { site: jaSite, seo: jaSeo, program: jaProgram, performers: jaPerformers, gastronomy: jaGastronomy, children: jaChildren, exhibitors: jaExhibitors, workshops: jaWorkshops, gallery: jaGallery, partners: jaPartners },
+  sk: { site: skSite, seo: skSeo, program: skProgram, performers: skPerformers, performerPromotion: skPerformers.performerPromotion, gastronomy: skGastronomy, children: skChildren, exhibitors: skExhibitors, workshops: skWorkshops, gallery: skGallery, partners: skPartners },
+  en: { site: enSite, seo: enSeo, program: enProgram, performers: enPerformers, performerPromotion: enPerformers.performerPromotion, gastronomy: enGastronomy, children: enChildren, exhibitors: enExhibitors, workshops: enWorkshops, gallery: enGallery, partners: enPartners },
+  de: { site: deSite, seo: deSeo, program: deProgram, performers: dePerformers, performerPromotion: dePerformers.performerPromotion, gastronomy: deGastronomy, children: deChildren, exhibitors: deExhibitors, workshops: deWorkshops, gallery: deGallery, partners: dePartners },
+  es: { site: esSite, seo: esSeo, program: esProgram, performers: esPerformers, performerPromotion: esPerformers.performerPromotion, gastronomy: esGastronomy, children: esChildren, exhibitors: esExhibitors, workshops: esWorkshops, gallery: esGallery, partners: esPartners },
+  ja: { site: jaSite, seo: jaSeo, program: jaProgram, performers: jaPerformers, performerPromotion: jaPerformers.performerPromotion, gastronomy: jaGastronomy, children: jaChildren, exhibitors: jaExhibitors, workshops: jaWorkshops, gallery: jaGallery, partners: jaPartners },
 };
 
 export function getLocaleContent(locale) {

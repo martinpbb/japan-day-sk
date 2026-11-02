@@ -239,5 +239,6 @@
       ],
       "image": null
     }
-  ]
+  ],
+  "performerPromotion": {"kicker":"RECOMENDADO","title":"Japanese Speech Contest & Prize Draw","intro":"Hisayo Yasuda te invita a un concurso de oratoria japonesa en Bratislava.","dateLabel":"Fecha","date":"14 de noviembre de 2026","timeLabel":"Hora","time":"13:30–14:45","venueLabel":"Lugar","venue":"Galería Nedbalka","addressLabel":"Dirección","address":"Nedbalova 17, 811 01 Bratislava","levelsLabel":"Niveles","levels":"Beginner / Intermediate / Advanced","participationLabel":"Participación","participation":"La participación es gratuita","organizerLabel":"Organizador","organizer":"J-Pad.eu s.r.o.","cta":"Más información","posterAlt":"Cartel de Japanese Speech Contest & Prize Draw"}
 }

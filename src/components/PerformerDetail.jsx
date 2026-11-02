@@ -7,7 +7,7 @@
  * without prior written permission from the copyright holder.
  */
 
-import React from "react";
+import React, { useState } from "react";
 import { ArrowLeft, Clock3 } from "lucide-react";
 import ImageWithFallback from "./ImageWithFallback.jsx";
 import Section from "./Section.jsx";
@@ -17,6 +17,7 @@ import { addLocalePrefix } from "../lib/i18nPaths.js";
 
 export default function PerformerDetail({ performer }) {
   const { locale, site, content } = useI18n();
+  const [posterAvailable, setPosterAvailable] = useState(true);
   const appearances = content.program.items.filter((item) => item.performerId === performer.id);
 
   return (
@@ -45,6 +46,37 @@ export default function PerformerDetail({ performer }) {
           ) : null}
           <ContentRenderer content={performer.content} />
 
+          {performer.id === "hisayo-yasuda" && content.performerPromotion ? (
+            <section className={`performerPromotion${posterAvailable ? "" : " performerPromotionNoPoster"}`} aria-labelledby="performer-promotion-title">
+              {posterAvailable ? (
+                <div className="performerPromotionPoster">
+                  <img
+                    src="/images/events/hisayo-japanese-speech-contest-2026.png"
+                    alt={content.performerPromotion.posterAlt}
+                    onError={() => setPosterAvailable(false)}
+                  />
+                </div>
+              ) : null}
+              <div className="performerPromotionContent">
+                <div className="eyebrow">{content.performerPromotion.kicker}</div>
+                <h2 id="performer-promotion-title">{content.performerPromotion.title}</h2>
+                <p className="performerLead">{content.performerPromotion.intro}</p>
+                <dl className="performerPromotionFacts">
+                  <div><dt>{content.performerPromotion.dateLabel}</dt><dd>{content.performerPromotion.date}</dd></div>
+                  <div><dt>{content.performerPromotion.timeLabel}</dt><dd>{content.performerPromotion.time}</dd></div>
+                  <div><dt>{content.performerPromotion.venueLabel}</dt><dd>{content.performerPromotion.venue}</dd></div>
+                  <div><dt>{content.performerPromotion.addressLabel}</dt><dd>{content.performerPromotion.address}</dd></div>
+                  <div><dt>{content.performerPromotion.levelsLabel}</dt><dd>{content.performerPromotion.levels}</dd></div>
+                  <div><dt>{content.performerPromotion.participationLabel}</dt><dd>{content.performerPromotion.participation}</dd></div>
+                  <div><dt>{content.performerPromotion.organizerLabel}</dt><dd>{content.performerPromotion.organizer}</dd></div>
+                </dl>
+                <a className="performerPromotionCta" href="https://www.j-pad.eu/" target="_blank" rel="noopener noreferrer">
+                  {content.performerPromotion.cta}
+                </a>
+              </div>
+            </section>
+          ) : null}
+
           {appearances.length > 0 ? (
             <div className="performerSchedule">
               <h2>{site.ui.inProgrammeHeading}</h2>
@@ -65,6 +97,7 @@ export default function PerformerDetail({ performer }) {
           ) : null}
         </div>
       </div>
+
     </Section>
   );
 }

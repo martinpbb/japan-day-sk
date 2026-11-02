@@ -319,5 +319,6 @@
       ],
       "image": null
     }
-  ]
+  ],
+  "performerPromotion": {"kicker":"おすすめ","title":"Japanese Speech Contest & Prize Draw","intro":"Hisayo Yasudaがブラチスラヴァで開催される日本語スピーチコンテストにご案内します。","dateLabel":"日付","date":"2026年11月14日","timeLabel":"時間","time":"13:30–14:45","venueLabel":"会場","venue":"ネドバルカ・ギャラリー","addressLabel":"住所","address":"Nedbalova 17, 811 01 Bratislava","levelsLabel":"レベル","levels":"Beginner / Intermediate / Advanced","participationLabel":"参加費","participation":"参加無料","organizerLabel":"主催","organizer":"J-Pad.eu s.r.o.","cta":"詳細はこちら","posterAlt":"Japanese Speech Contest & Prize Drawのポスター"}
 }
