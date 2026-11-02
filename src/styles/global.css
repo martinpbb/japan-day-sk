@@ -218,6 +218,26 @@ button {
   overflow: hidden;
   box-shadow: var(--shadow);
 }
+.heroCardPb {
+  position: relative;
+  overflow: hidden;
+}
+.pbMountain {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: min(38%, 180px);
+  height: 45%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: rgba(25, 40, 73, 0.12);
+  font-family: Georgia, "Yu Mincho", serif;
+  font-size: clamp(72px, 10vw, 140px);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
 .sunDisc {
   position: absolute;
   width: 245px;
