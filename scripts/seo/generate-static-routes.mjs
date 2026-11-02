@@ -137,7 +137,7 @@ for (const { locale, contentLocale = locale, prefix } of locales) {
   const performers = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/performers.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const exhibitors = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/exhibitors.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const workshopsPath = path.join(root, `src/data/locales/${contentLocale}/workshops.json`);
-  const workshops = contentLocale === "sk" ? JSON.parse((await fs.readFile(workshopsPath, "utf8")).replace(/^\\uFEFF/, "")) : { items: [] };
+  const workshops = JSON.parse((await fs.readFile(workshopsPath, "utf8")).replace(/^\\uFEFF/, ""));
   const performerRoutes = Object.fromEntries(performers.items.map((performer) => [
     `/ucinkujuci/${performer.id}`, buildPerformerRoute(performer, seo)
   ]));
