@@ -65,7 +65,7 @@ const ga4Head = `    <!-- Google tag (gtag.js) -->
     </script>`;
 
 function ensureGtm(html) {
-  const withHead = html.includes("'GTM-MGF62FC3'") ? html : html.replace(/<head>/i, `<head>\n${gtmHead}`);
+  const withHead = html.includes("googletagmanager.com/gtm.js?id=GTM-MGF62FC3") ? html : html.replace(/<head>/i, `<head>\n${gtmHead}`);
   return withHead.includes('googletagmanager.com/ns.html?id=GTM-MGF62FC3')
     ? withHead
     : withHead.replace(/<body>/i, `<body>\n${gtmNoScript}`);

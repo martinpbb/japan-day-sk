@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useI18n } from "../lib/useI18n.js";
 
-export const COOKIE_CONSENT_KEY = "japanday_cookie_consent";
+export const COOKIE_CONSENT_KEY = "japanday_sk_cookie_consent";
 
 function updateConsent(preference) {
   const gtag = window.gtag;
@@ -16,7 +16,8 @@ function updateConsent(preference) {
 
 function readConsent() {
   try {
-    return window.localStorage.getItem(COOKIE_CONSENT_KEY);
+    const preference = window.localStorage.getItem(COOKIE_CONSENT_KEY);
+    return preference === "necessary" || preference === "analytics" ? preference : null;
   } catch {
     return null;
   }
@@ -27,10 +28,6 @@ export default function CookieConsent({ isOpen, onClose }) {
   const copy = site.ui.cookieConsent;
   const [preference, setPreference] = useState(readConsent);
   const visible = isOpen || !preference;
-
-  useEffect(() => {
-    if (preference) updateConsent(preference);
-  }, [preference]);
 
   const savePreference = (nextPreference) => {
     try {
@@ -46,7 +43,7 @@ export default function CookieConsent({ isOpen, onClose }) {
   if (!visible) return null;
 
   return (
-    <section className="cookieConsent" role="dialog" aria-labelledby="cookie-consent-title" aria-live="polite">
+    <section className="cookieConsent" role="dialog" aria-labelledby="cookie-consent-title">
       <div className="cookieConsentContent">
         <h2 id="cookie-consent-title">{copy.title}</h2>
         <p>{copy.text}</p>

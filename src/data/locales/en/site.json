@@ -207,8 +207,8 @@
       "Stánky": "Stalls"
     },
     "cookieConsent": {
-      "title": "We use analytics cookies",
-      "text": "We use Google Analytics to understand how visitors use the Japan Day website. This data helps us improve the site.",
+      "title": "Cookie settings",
+      "text": "We use essential technologies needed for the site to work. With your permission, we may also use analytics tools to understand visits and improve the website.",
       "necessary": "Necessary only",
       "analytics": "Allow analytics",
       "settings": "Cookie settings"

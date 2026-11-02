@@ -1,7 +1,7 @@
 import { test, expect } from "../helpers/fixtures";
 import AxeBuilder from "@axe-core/playwright";
 
-const consentKey = "japanday_cookie_consent";
+const consentKey = "japanday_sk_cookie_consent";
 
 async function dataLayer(page) {
   return page.evaluate(() => ((window as Window & { dataLayer?: unknown[] }).dataLayer || []).map((entry) => {
@@ -11,10 +11,23 @@ async function dataLayer(page) {
 }
 
 test.describe("@ui cookie consent", () => {
+  test("defaults all consent categories to denied before analytics starts", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("dialog")).toBeVisible();
+    const calls = await dataLayer(page);
+    const defaultIndex = calls.findIndex((entry) => Array.isArray(entry) && entry[0] === "consent" && entry[1] === "default");
+    const gtmIndex = calls.findIndex((entry) => entry && typeof entry === "object" && Object.values(entry as Record<string, unknown>).includes("gtm.js"));
+    expect(defaultIndex).toBeGreaterThanOrEqual(0);
+    expect(calls[defaultIndex]).toEqual(["consent", "default", expect.objectContaining({
+      analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied",
+    })]);
+    expect(defaultIndex).toBeLessThan(gtmIndex);
+  });
+
   test("shows banner and stores necessary consent", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("dialog")).toBeVisible();
-    await page.getByRole("button", { name: "Iba nevyhnutné" }).click();
+    await page.getByRole("button", { name: "Len nevyhnutné" }).click();
     await expect(page.getByRole("dialog")).toHaveCount(0);
     await expect.poll(() => page.evaluate((key) => localStorage.getItem(key), consentKey)).toBe("necessary");
     await page.reload();
@@ -30,21 +43,25 @@ test.describe("@ui cookie consent", () => {
     let calls = await dataLayer(page);
     expect(calls).toContainEqual(["consent", "update", expect.objectContaining({ analytics_storage: "granted", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" })]);
 
+    await page.reload();
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+    calls = await dataLayer(page);
+    expect(calls).toContainEqual(["consent", "update", expect.objectContaining({ analytics_storage: "granted", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" })]);
+
     await page.getByRole("button", { name: "Nastavenie cookies" }).click();
     await expect(page.getByRole("dialog")).toBeVisible();
-    await page.getByRole("button", { name: "Iba nevyhnutné" }).click();
+    await page.getByRole("button", { name: "Len nevyhnutné" }).click();
     await expect.poll(() => page.evaluate((key) => localStorage.getItem(key), consentKey)).toBe("necessary");
     calls = await dataLayer(page);
     expect(calls.at(-1)).toEqual(["consent", "update", expect.objectContaining({ analytics_storage: "denied", ad_storage: "denied" })]);
   });
 
   for (const [locale, title] of Object.entries({
-    sk: "Používame analytické cookies",
-    en: "We use analytics cookies",
-    de: "Wir verwenden Analyse-Cookies",
-    es: "Usamos cookies analíticas",
-    zh: "我们使用分析 Cookie",
-    vi: "Chúng tôi sử dụng cookie phân tích",
+    sk: "Nastavenie cookies",
+    en: "Cookie settings",
+    de: "Cookie-Einstellungen",
+    es: "Configuración de cookies",
+    ja: "Cookieの設定",
   })) {
     test(`${locale} renders translated consent copy`, async ({ page }) => {
       await page.goto(locale === "sk" ? "/" : `/${locale}/`);
@@ -64,7 +81,7 @@ test("@responsive cookie consent fits on mobile", async ({ page }) => {
 
 test("@a11y cookie consent is keyboard usable", async ({ page }) => {
   await page.goto("/");
-  const necessary = page.getByRole("button", { name: "Iba nevyhnutné" });
+  const necessary = page.getByRole("button", { name: "Len nevyhnutné" });
   await necessary.focus();
   await expect(necessary).toBeFocused();
   await page.keyboard.press("Enter");

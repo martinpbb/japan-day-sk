@@ -207,9 +207,9 @@
       "Stánky": "Stánky"
     },
     "cookieConsent": {
-      "title": "Používame analytické cookies",
-      "text": "Používame Google Analytics, aby sme zistili, ako návštevníci používajú web Japonského dňa. Tieto údaje nám pomáhajú web zlepšovať.",
-      "necessary": "Iba nevyhnutné",
+      "title": "Nastavenie cookies",
+      "text": "Používame nevyhnutné technológie potrebné na fungovanie stránky. So súhlasom môžeme používať aj analytické nástroje, ktoré nám pomáhajú pochopiť návštevnosť a zlepšovať web.",
+      "necessary": "Len nevyhnutné",
       "analytics": "Povoliť štatistiky",
       "settings": "Nastavenie cookies"
     },
