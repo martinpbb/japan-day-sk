@@ -101,9 +101,9 @@
     {
       "id": "silvestr-prajer",
       "name": "Silvestr Prajer",
-      "role": "Samurajské bojové umění",
-      "short": "Ukázky samurajského bojového umění, Kyujutsu a Tamešigiri.",
-      "description": "Silvestr založil oddíl Iaido a Kendo v roce 1994 v Plzni. Postupem času se od ukázek použití japonského meče a jiných zbraní propracovali až k soubojům v plné samurajské zbroji, ukázkám Kyujutsu – bojové lukostřelby – a Tamešigiri, tedy sekacím testům. Z japonské historie je oslovilo zejména období Sengoku džidai, období válčících klanů, ve kterém se bojová umění rozvinula do mimořádné úrovně.",
+      "role": "Samurajské bojové umenia",
+      "short": "Ukážky samurajských bojových umení, kjúdžucu a tameshigiri.",
+      "description": "Silvestr založil oddiel Iaido a Kendo v roku 1994 v Plzni. Postupne sa od ukážok použitia japonského meča a iných zbraní dopracovali až k súbojom v plnej samurajskej zbroji, ukážkam kjúdžucu – bojovej lukostreľby – a tameshigiri, teda skúškam sekania. Z japonskej histórie ich oslovilo najmä obdobie Sengoku džidai, obdobie bojujúcich klanov, v ktorom sa bojové umenia rozvinuli na mimoriadnu úroveň.",
       "image": "/images/performers/silvestr_prajer.png"
     },
     {
@@ -171,8 +171,8 @@
       "id": "judo-povazska-bystrica",
       "name": "Judo Považská Bystrica",
       "role": "Judo",
-      "short": "Ukázky juda a japonského bojového umění.",
-      "description": "Podrobnosti o programu doplníme.",
+      "short": "Ukážky juda a japonského bojového umenia.",
+      "description": "Podrobnosti o programe doplníme.",
       "image": "/images/performers/judo_klub_povazska_bystrica.jpg"
     },
     {
@@ -206,7 +206,7 @@
       "short": "Ukážka tradičnej japonskej techniky kumihimo – splietania ozdobných a funkčných šnúr.",
       "heroTitle": "Mgr. Ivana Mičkalová",
       "heroSubtitle": "Kumihimo – tradičné japonské splietanie šnúr",
-      "description": "image",
+      "description": "Predstaví tradičnú japonskú techniku kumihimo – splietanie ozdobných a funkčných šnúr.",
       "website": {
         "label": "Webová stránka",
         "url": "https://www.kumihimo.cz/"
@@ -301,56 +301,56 @@
           "text": "Súčasťou prezentácie budú aj praktické ukážky a ochutnávky. Návštevníci tak budú môcť bližšie spoznať chute Japonska a zároveň sa dozvedieť viac o rozdieloch medzi tým, ako japonský čaj a jedlo vnímame v Európe a ako sú súčasťou bežného života priamo v Japonsku."
         }
       ],
-      "image": "images/performers/satoko_kino.jpg"
+      "image": "/images/performers/satoko_kino.jpg"
     },
     {
       "id": "nao-higano",
       "name": "Nao Higano",
-      "category": "Opern? spev??ka / Sopranistka",
-      "short": "Japonsk? sopranistka poch?dzaj?ca z mesta Chiba. ?tudovala opern? a koncertn? spev v Japonsku a na Vysokej ?kole m?zick?ch umen? v Bratislave, kde ukon?ila doktorandsk? ?t?dium s titulom ArtD.",
+      "category": "Operná speváčka / Sopranistka",
+      "short": "Japonská sopranistka pochádzajúca z mesta Chiba. Študovala operný a koncertný spev v Japonsku a na Vysokej škole múzických umení v Bratislave, kde ukončila doktorandské štúdium s titulom ArtD.",
       "heroTitle": "Nao Higano",
-      "heroSubtitle": "Opern? spev??ka / Sopranistka",
+      "heroSubtitle": "Operná speváčka / Sopranistka",
       "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Sopranistka Nao Higano poch?dza z mesta Chiba v Japonsku. ?tudovala opern? a koncertn? spev na Univerzite Seitoku a na Katedre spevu Vysokej ?koly m?zick?ch umen? v Bratislave, kde ukon?ila doktorandsk? ?t?dium s titulom ArtD u prof. Petra Mikul??a."
+          "text": "Sopranistka Nao Higano pochádza z mesta Chiba v Japonsku. Študovala operný a koncertný spev na Univerzite Seitoku a na Katedre spevu Vysokej školy múzických umení v Bratislave, kde ukončila doktorandské štúdium s titulom ArtD u prof. Petra Mikuláša."
         },
         {
           "type": "p",
-          "text": "Absolvovala viacer? medzin?rodn? majstrovsk? spev?cke kurzy, okrem in?ch u P. de Neapoliho, D. Iordachesca, Y. Hayashi, M. Jankovej, G. Be?a?kovej, S. Kop??ka, P. Dvorsk?ho, Z. Livorovej a V. Chmela."
+          "text": "Absolvovala viaceré medzinárodné majstrovské spevácke kurzy, okrem iných u P. de Neapoliho, D. Iordachesca, Y. Hayashi, M. Jankovej, G. Beňačkovej, S. Kopčáka, P. Dvorského, Z. Livorovej a V. Chmela."
         },
         {
           "type": "p",
-          "text": "?spe?ne sa predstavila aj na medzin?rodn?ch hudobn?ch festivaloch a nahr?vala pre rozhlasov? a telev?zne vysielanie, medzi in?mi pre ORF, Ma?arsk? rozhlas, ?esk? rozhlas, Slovensk? rozhlas, ?T a STV, ako aj pre hudobn? vydavate?stv?."
+          "text": "Úspešne sa predstavila aj na medzinárodných hudobných festivaloch a nahrávala pre rozhlasové a televízne vysielanie, medzi inými pre ORF, Maďarský rozhlas, Český rozhlas, Slovenský rozhlas, ČT a STV, ako aj pre hudobné vydavateľstvá."
         },
         {
           "type": "p",
-          "text": "Na s?lov?ch recit?loch sa venuje pies?ovej a komornej tvorbe, ako aj interpret?cii oratori?lnej, om?ovej a kant?tovej literat?ry. Jej reperto?r siaha od renesancie a? po hudbu 21. storo?ia, pri?om osobitn? pozornos? venovala ?t?diu slovanskej hudobnej tvorby."
+          "text": "Na sólových recitáloch sa venuje piesňovej a komornej tvorbe, ako aj interpretácii oratoriálnej, omšovej a kantátovej literatúry. Jej repertoár siaha od renesancie až po hudbu 21. storočia, pričom osobitnú pozornosť venovala štúdiu slovanskej hudobnej tvorby."
         },
         {
           "type": "p",
-          "text": "Bola ?lenkou komorn?ho tria Sen Tegmento, ktor? zalo?il klarinetista Martin Ad?mek, s?lista a ?len Ensemble Intercontemporain v Par??i."
+          "text": "Bola členkou komorného tria Sen Tegmento, ktoré založil klarinetista Martin Adámek, sólista a člen Ensemble Intercontemporain v Paríži."
         },
         {
           "type": "p",
-          "text": "Spolupracovala s viacer?mi orchestrami a komorn?mi telesami, medzi ktor? patria Tokijsk? filharm?nia, Slovensk? filharm?nia, Slovensk? komorn? orchester Bohdana Warchala, Symfonick? orchester Slovensk?ho rozhlasu, Symfonick? orchester ?esk?ho rozhlasu, ?t?tna filharm?nia Ko?ice, ?t?tny komorn? orchester ?ilina, Capella Istropolitana, Moyzesovo kvarteto a Filharm?nia Bohuslava Martin?."
+          "text": "Spolupracovala s viacerými orchestrami a komornými telesami, medzi ktoré patria Tokijská filharmónia, Slovenská filharmónia, Slovenský komorný orchester Bohdana Warchala, Symfonický orchester Slovenského rozhlasu, Symfonický orchester Českého rozhlasu, Štátna filharmónia Košice, Štátny komorný orchester Žilina, Capella Istropolitana, Moyzesovo kvarteto a Filharmónia Bohuslava Martinů."
         },
         {
           "type": "p",
-          "text": "Pripravila pies?ov? recit?l pre pra?sk? Rudolfinum a vystupovala aj v amsterdamskom Concertgebouw. Z?skala prv? cenu Yamaha Foundation a viacero pr?mi? Hudobn?ho fondu v Bratislave."
+          "text": "Pripravila piesňový recitál pre pražské Rudolfinum a vystupovala aj v amsterdamskom Concertgebouw. Získala prvú cenu Yamaha Foundation a viacero prémií Hudobného fondu v Bratislave."
         },
         {
           "type": "p",
-          "text": "Ako s?listka hos?ovala v opere Slovensk?ho n?rodn?ho divadla v Bratislave, v N?rodnom divadle Brno, N?rodnom divadle Praha, ?t?tnej opere Bansk? Bystrica a v opere v Ko?iciach."
+          "text": "Ako sólistka hosťovala v opere Slovenského národného divadla v Bratislave, v Národnom divadle Brno, Národnom divadle Praha, Štátnej opere Banská Bystrica a v opere v Košiciach."
         },
         {
           "type": "p",
-          "text": "V?razn? ?spech zaznamenala najm? v ?lohe ?eny v diele O?ak?vanie od Arnolda Schoenberga pri slovenskej premi?re v Opere SND v roku 2002."
+          "text": "Výrazný úspech zaznamenala najmä v úlohe Ženy v diele Očakávanie od Arnolda Schoenberga pri slovenskej premiére v Opere SND v roku 2002."
         },
         {
           "type": "p",
-          "text": "V posledn?ch rokoch sa venuje aj v?tvarnej tvorbe a svoje diela vystavuje v ?esku, na Slovensku aj v zahrani??. Je ?estnou ?lenkou Rotary Klubu Krom????, s ktor?m sa podie?a na charitat?vnych koncertoch."
+          "text": "V posledných rokoch sa venuje aj výtvarnej tvorbe a svoje diela vystavuje v Česku, na Slovensku aj v zahraničí. Je čestnou členkou Rotary Klubu Kroměříž, s ktorým sa podieľa na charitatívnych koncertoch."
         }
       ],
       "image": null
