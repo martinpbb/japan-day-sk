@@ -260,7 +260,7 @@
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
-      "durationMinutes": 90,
+      "durationMinutes": 45,
       "registrationOpen": false,
       "waitlistEnabled": false,
       "sessions": [
@@ -271,14 +271,20 @@
           "location": null
         },
         {
-          "id": "kumihimo-1300",
-          "start": "2026-11-07T13:00:00+01:00",
+          "id": "kumihimo-1215",
+          "start": "2026-11-07T12:15:00+01:00",
           "capacity": 10,
           "location": null
         },
         {
-          "id": "kumihimo-1500",
-          "start": "2026-11-07T15:00:00+01:00",
+          "id": "kumihimo-1330",
+          "start": "2026-11-07T13:30:00+01:00",
+          "capacity": 10,
+          "location": null
+        },
+        {
+          "id": "kumihimo-1445",
+          "start": "2026-11-07T14:45:00+01:00",
           "capacity": 10,
           "location": null
         }
