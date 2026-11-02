@@ -13,27 +13,27 @@
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
-      "durationMinutes": 60,
+      "durationMinutes": 30,
       "registrationOpen": false,
       "waitlistEnabled": true,
       "sessions": [
         {
+          "location": null,
           "id": "japoncina-1100",
           "start": "2026-11-07T11:00:00+01:00",
-          "capacity": 15,
-          "location": null
+          "capacity": 15
         },
         {
-          "id": "japoncina-1230",
-          "start": "2026-11-07T12:30:00+01:00",
-          "capacity": 15,
-          "location": null
+          "location": null,
+          "id": "japoncina-1300",
+          "start": "2026-11-07T13:00:00+01:00",
+          "capacity": 15
         },
         {
-          "id": "japoncina-1400",
-          "start": "2026-11-07T14:00:00+01:00",
-          "capacity": 15,
-          "location": null
+          "location": null,
+          "id": "japoncina-1500",
+          "start": "2026-11-07T15:00:00+01:00",
+          "capacity": 15
         }
       ]
     },
@@ -186,31 +186,31 @@
       "slug": "tsumami-zaiku",
       "title": "Tsumami zaiku つまみ細工",
       "category": "Cultura japonesa",
-      "lecturerId": "aiko-bosak",
-      "short": "Técnica tradicional japonesa que pliega pequeños trozos de tela para formar flores y motivos decorativos. Los participantes crearán su propio adorno.",
-      "description": "Tsumami zaiku es una técnica tradicional japonesa para crear pequeños adornos con trozos de tela. Pequeños cuadrados de tela se pliegan y moldean cuidadosamente en pétalos, que luego forman flores y otros motivos decorativos.\n\nEn Japón, la técnica es especialmente conocida por los adornos kanzashi para el cabello, presentes por ejemplo en los peinados formales de maiko y geiko.\n\nEn el taller, los participantes probarán la técnica y crearán un pequeño adorno que podrán llevarse a casa.\n\nEl taller es apto para principiantes y no requiere experiencia previa.\n\nEl precio es de 10 € por persona. Es necesario registrarse con antelación.",
+      "lecturerId": "hisayo-yasuda",
+      "short": "Taller creativo de tsumami zaiku con placas de manualidades.",
+      "description": "Hisayo Yasuda presentar? el tsumami zaiku utilizando placas especiales para esta t?cnica. Los participantes podr?n probar a plegar tela para crear peque?os motivos decorativos.",
       "image": "",
       "registrationRequired": true,
       "paid": true,
       "priceCents": 1000,
       "currency": "EUR",
-      "durationMinutes": 90,
+      "durationMinutes": 30,
       "registrationOpen": false,
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "tsumami-zaiku-1100",
-          "start": "2026-11-07T11:00:00+01:00",
-          "capacity": 2,
           "location": null,
-          "areaId": "shared-workshop-area"
+          "areaId": "shared-workshop-area",
+          "id": "tsumami-zaiku-1140",
+          "start": "2026-11-07T11:40:00+01:00",
+          "capacity": 2
         },
         {
-          "id": "tsumami-zaiku-1300",
-          "start": "2026-11-07T13:00:00+01:00",
-          "capacity": 2,
           "location": null,
-          "areaId": "shared-workshop-area"
+          "areaId": "shared-workshop-area",
+          "id": "tsumami-zaiku-1340",
+          "start": "2026-11-07T13:40:00+01:00",
+          "capacity": 2
         }
       ]
     },
@@ -219,7 +219,7 @@
       "slug": "ayatori",
       "title": "Ayatori あやとり",
       "category": "Cultura japonesa",
-      "lecturerId": "aiko-bosak",
+      "lecturerId": "hisayo-yasuda",
       "short": "Juego tradicional japonés con un lazo de cuerda en el que se crean diferentes figuras y patrones con los dedos.",
       "description": "Ayatori es un juego tradicional japonés realizado con un lazo de cuerda. Con los dedos se crean diferentes patrones y figuras que pueden transformarse progresivamente de una forma a otra.\n\nEn Japón es especialmente conocido entre los niños, pero sus numerosos procedimientos y niveles de dificultad también entretienen a los adultos. Desarrolla la motricidad fina, la concentración, la memoria y la coordinación de las manos.\n\nLos participantes aprenderán las técnicas básicas y probarán varios patrones tradicionales de ayatori.\n\nEl taller es gratuito.\n\nCapacidad máxima: 10 participantes.",
       "image": "",
@@ -227,23 +227,23 @@
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
-      "durationMinutes": 60,
+      "durationMinutes": 30,
       "registrationOpen": false,
       "waitlistEnabled": true,
       "sessions": [
         {
-          "id": "ayatori-1100",
-          "start": "2026-11-07T11:00:00+01:00",
-          "capacity": 15,
           "location": null,
-          "areaId": "shared-workshop-area"
+          "areaId": "shared-workshop-area",
+          "id": "ayatori-1220",
+          "start": "2026-11-07T12:20:00+01:00",
+          "capacity": 10
         },
         {
-          "id": "ayatori-1300",
-          "start": "2026-11-07T13:00:00+01:00",
-          "capacity": 15,
           "location": null,
-          "areaId": "shared-workshop-area"
+          "areaId": "shared-workshop-area",
+          "id": "ayatori-1420",
+          "start": "2026-11-07T14:20:00+01:00",
+          "capacity": 10
         }
       ]
     },
