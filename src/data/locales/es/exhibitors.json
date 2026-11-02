@@ -43,6 +43,14 @@
       "category": "Cuchillos de cocina japoneses y de Damasco",
       "short": "Cuchillos de cocina prémium, hojas de Damasco y tipos japoneses como Santoku, Gyuto, Kiritsuke o Nakiri.",
       "description": "SAMURAI.cz se especializa en cuchillos de cocina prémium, con especial atención al filo, la precisión y la calidad de fabricación. Su oferta incluye tipos de cuchillos japoneses como Santoku, Gyuto, Kiritsuke y Nakiri, además de cuchillos destinados a la preparación de sushi y sashimi. También cuenta con cuchillos de Damasco, modelos forjados a mano y cuchillos con núcleos de aceros prémium, como VG10 o modernos aceros en polvo. Durante el Día de Japón, los visitantes podrán ver distintos tipos de cuchillos de cocina y conocer mejor su uso en la gastronomía japonesa."
+    },
+    {
+      "id": "hemerocallis-slovensko",
+      "name": "Hemerocallis Slovensko",
+      "category": "Cultura japonesa / plantas",
+      "description": "Presentaci?n de los hemerocallis, su cultivo, hibridaci?n y selecci?n de variedades. En el puesto, los visitantes podr?n consultar sobre su cultivo y conocer sus usos culinarios.",
+      "image": "/images/performers/jana_michalkova.png",
+      "imageMode": "photo"
     }
   ]
 }

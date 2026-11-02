@@ -208,23 +208,31 @@
     {
       "id": "japonske-kvety",
       "name": "Jana Michalková",
-      "category": "Japonská kultúra",
-      "short": "Predstaví japonské kvety a ich miesto v japonskej kultúre.",
+      "category": "Japonsk? kult?ra",
+      "short": "Predstav? pestovanie ?alioviek, ich ??achtenie, vyu?itie v z?hrade aj ich menej zn?me vyu?itie v kuchyni.",
       "heroTitle": "Jana Michalková",
-      "heroSubtitle": "Japonské kvety",
+      "heroSubtitle": "?aliovky ? pestovanie, ??achtenie a vyu?itie",
       "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Jana Michalková predstaví návštevníkom krásu japonských kvetov a ich miesto v japonskej kultúre."
+          "text": "Pestovaniu ?alioviek sa venujem od roku 2010, ke? som si objednala prv?ch desa? rastl?n. Bola to l?ska na prv? poh?ad ? hne? po rozkvitnut? prv?ch kvetov. Postupne sa moja zbierka rozr?stla pribli?ne na 400 druhov."
         },
         {
           "type": "p",
-          "text": "Na Japonskom dni priblíži rôzne druhy rastlín a kvetov spájaných s Japonskom a ukáže, ako môžu vytvoriť pôsobivú atmosféru aj v našom prostredí."
+          "text": "O ?aliovk?ch som si ve?a na?tudovala a nesk?r som za?ala sk??a? aj ich kr??enie s cie?om vypestova? vlastn? kultivary. Ve?k?m pr?nosom pre m?a bolo stretnutie s Martinom Kamensk?m, ktor? sa ??achteniu ?alioviek venoval pribli?ne 40 rokov v USA a v tejto pr?ci pokra?uje aj na Slovensku."
         },
         {
           "type": "p",
-          "text": "Súčasťou prezentácie bude aj možnosť bližšie sa zoznámiť s japonskou estetikou, prírodnými motívmi a významom kvetov v každodennom živote a dekorácii."
+          "text": "V roku 2020 sme spolu zalo?ili OZ Hemerocallis Slovensko, ktor? zdru?uje pestovate?ov aj obdivovate?ov ?alioviek. Na??m cie?om je roz?irova? pestovanie t?chto nen?ro?n?ch, no mimoriadne p?sobiv?ch trvaliek po celom Slovensku."
+        },
+        {
+          "type": "p",
+          "text": "M?lokto vie, ?e kvety ?alioviek s? jedl?. V kuchyni sa daj? vyu?i? napr?klad do ?al?tov alebo ako dekor?cia dezertov."
+        },
+        {
+          "type": "p",
+          "text": "Pri na?om prezenta?nom st?nku rada porad?m s pestovan?m ?alioviek aj s v?berom vhodn?ch kultivarov."
         }
       ],
       "image": "/images/performers/jana_michalkova.png"

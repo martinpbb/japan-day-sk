@@ -43,6 +43,14 @@
       "category": "Japanese and Damascus kitchen knives",
       "short": "Premium kitchen knives, Damascus blades and Japanese knife types such as Santoku, Gyuto, Kiritsuke and Nakiri.",
       "description": "SAMURAI.cz focuses on premium kitchen knives with an emphasis on sharpness, precision and quality craftsmanship. The range includes Japanese knife types such as Santoku, Gyuto, Kiritsuke and Nakiri, as well as knives intended for preparing sushi and sashimi. It also includes Damascus knives, hand-forged models and knives with cores made from premium steels such as VG10 or modern powder steels. At Japan Day, visitors will be able to see different types of kitchen knives and learn more about their use in Japanese gastronomy."
+    },
+    {
+      "id": "hemerocallis-slovensko",
+      "name": "Hemerocallis Slovensko",
+      "category": "Japanese culture / plants",
+      "description": "A presentation of daylilies, their cultivation, breeding and cultivar selection. Visitors can ask for growing advice and learn about their culinary uses.",
+      "image": "/images/performers/jana_michalkova.png",
+      "imageMode": "photo"
     }
   ]
 }

@@ -208,23 +208,31 @@
     {
       "id": "japonske-kvety",
       "name": "Jana Michalková",
-      "category": "Japonská kultúra",
-      "short": "A presentation inspired by Japanese flowers.",
+      "category": "Japanese culture",
+      "short": "Discover daylily growing and breeding, their place in the garden, and their lesser-known culinary uses.",
       "heroTitle": "Jana Michalková",
-      "heroSubtitle": "Japonské kvety",
-      "description": "A performer from Pezinok. The name and further details will be added later.",
+      "heroSubtitle": "Daylilies ? growing, breeding and uses",
+      "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Jana Michalková predstaví návštevníkom krásu japonských kvetov a ich miesto v japonskej kultúre."
+          "text": "I have been growing daylilies since 2010, when I ordered my first ten plants. It was love at first sight, as soon as the first flowers bloomed. My collection gradually grew to around 400 varieties."
         },
         {
           "type": "p",
-          "text": "Na Japonskom dni priblíži rôzne druhy rastlín a kvetov spájaných s Japonskom a ukáže, ako môžu vytvoriť pôsobivú atmosféru aj v našom prostredí."
+          "text": "I studied daylilies extensively and later began experimenting with cross-breeding to develop my own cultivars. Meeting Martin Kamensk? was a great help to me. He worked on daylily breeding for about 40 years in the USA and continues this work in Slovakia."
         },
         {
           "type": "p",
-          "text": "Súčasťou prezentácie bude aj možnosť bližšie sa zoznámiť s japonskou estetikou, prírodnými motívmi a významom kvetov v každodennom živote a dekorácii."
+          "text": "In 2020, we co-founded Hemerocallis Slovensko, a civic association bringing together daylily growers and admirers. Our goal is to encourage the cultivation of these undemanding yet remarkably beautiful perennials throughout Slovakia."
+        },
+        {
+          "type": "p",
+          "text": "Few people know that daylily flowers are edible. They can be used in salads or as dessert decorations, for example."
+        },
+        {
+          "type": "p",
+          "text": "At our presentation stand, I will be happy to advise visitors on growing daylilies and choosing suitable cultivars."
         }
       ],
       "image": "/images/performers/jana_michalkova.png",

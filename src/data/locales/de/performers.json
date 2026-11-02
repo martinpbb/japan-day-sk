@@ -208,23 +208,31 @@
     {
       "id": "japonske-kvety",
       "name": "Jana Michalková",
-      "category": "Japonská kultúra",
-      "short": "Eine Präsentation, inspiriert von japanischen Blumen.",
+      "category": "Japanische Kultur",
+      "short": "Erfahren Sie mehr ?ber Anbau und Z?chtung von Taglilien, ihren Platz im Garten und ihre weniger bekannte Verwendung in der K?che.",
       "heroTitle": "Jana Michalková",
-      "heroSubtitle": "Japonské kvety",
-      "description": "Eine Mitwirkende aus Pezinok. Name und weitere Einzelheiten werden später ergänzt.",
+      "heroSubtitle": "Taglilien ? Anbau, Z?chtung und Verwendung",
+      "description": "",
       "content": [
         {
           "type": "p",
-          "text": "Jana Michalková predstaví návštevníkom krásu japonských kvetov a ich miesto v japonskej kultúre."
+          "text": "Ich besch?ftige mich seit 2010 mit Taglilien, als ich meine ersten zehn Pflanzen bestellte. Es war Liebe auf den ersten Blick, sobald die ersten Bl?ten aufgingen. Nach und nach wuchs meine Sammlung auf etwa 400 Sorten an."
         },
         {
           "type": "p",
-          "text": "Na Japonskom dni priblíži rôzne druhy rastlín a kvetov spájaných s Japonskom a ukáže, ako môžu vytvoriť pôsobivú atmosféru aj v našom prostredí."
+          "text": "Ich habe mir viel Wissen ?ber Taglilien angeeignet und sp?ter begonnen, sie zu kreuzen, um eigene Sorten zu z?chten. Eine gro?e Bereicherung war die Begegnung mit Martin Kamensk?, der sich in den USA etwa 40 Jahre lang mit der Taglilienzucht besch?ftigte und diese Arbeit auch in der Slowakei fortsetzt."
         },
         {
           "type": "p",
-          "text": "Súčasťou prezentácie bude aj možnosť bližšie sa zoznámiť s japonskou estetikou, prírodnými motívmi a významom kvetov v každodennom živote a dekorácii."
+          "text": "2020 gr?ndeten wir gemeinsam den Verein Hemerocallis Slovensko, der Z?chter und Bewunderer von Taglilien zusammenbringt. Unser Ziel ist es, den Anbau dieser anspruchslosen, aber au?ergew?hnlich eindrucksvollen Stauden in der ganzen Slowakei zu f?rdern."
+        },
+        {
+          "type": "p",
+          "text": "Nur wenige wissen, dass Taglilienbl?ten essbar sind. Sie lassen sich zum Beispiel in Salaten oder als Dessertdekoration verwenden."
+        },
+        {
+          "type": "p",
+          "text": "An unserem Pr?sentationsstand berate ich gerne zum Anbau von Taglilien und zur Auswahl geeigneter Sorten."
         }
       ],
       "image": "/images/performers/jana_michalkova.png",

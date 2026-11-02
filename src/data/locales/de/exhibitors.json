@@ -43,6 +43,14 @@
       "category": "Japanische und Damast-Küchenmesser",
       "short": "Hochwertige Küchenmesser, Damastklingen und japanische Messertypen wie Santoku, Gyuto, Kiritsuke oder Nakiri.",
       "description": "SAMURAI.cz konzentriert sich auf hochwertige Küchenmesser mit besonderem Augenmerk auf Schärfe, Präzision und sorgfältige Verarbeitung. Das Sortiment umfasst japanische Messertypen wie Santoku, Gyuto, Kiritsuke und Nakiri sowie Messer für die Zubereitung von Sushi und Sashimi. Dazu kommen Damastmesser, handgeschmiedete Modelle und Messer mit Kernen aus hochwertigen Stählen wie VG10 oder modernen Pulverstählen. Beim Japan-Tag können Besucher verschiedene Küchenmessertypen kennenlernen und mehr über ihren Einsatz in der japanischen Gastronomie erfahren."
+    },
+    {
+      "id": "hemerocallis-slovensko",
+      "name": "Hemerocallis Slovensko",
+      "category": "Japanische Kultur / Pflanzen",
+      "description": "Pr?sentation von Taglilien, ihrem Anbau, ihrer Z?chtung und der Sortenauswahl. Am Stand erhalten Besucher Tipps zum Anbau und erfahren mehr ?ber die Verwendung in der K?che.",
+      "image": "/images/performers/jana_michalkova.png",
+      "imageMode": "photo"
     }
   ]
 }
