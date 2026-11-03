@@ -1,5 +1,6 @@
 import { test, expect } from "../helpers/fixtures";
 import AxeBuilder from "@axe-core/playwright";
+import { gotoApp, reloadApp } from "../helpers/navigation";
 
 const consentKey = "japanday_sk_cookie_consent";
 
@@ -12,7 +13,7 @@ async function dataLayer(page) {
 
 test.describe("@ui cookie consent", () => {
   test("defaults all consent categories to denied before analytics starts", async ({ page }) => {
-    await page.goto("/");
+    await gotoApp(page, "/");
     await expect(page.getByRole("dialog")).toBeVisible();
     const calls = await dataLayer(page);
     const defaultIndex = calls.findIndex((entry) => Array.isArray(entry) && entry[0] === "consent" && entry[1] === "default");
@@ -25,25 +26,25 @@ test.describe("@ui cookie consent", () => {
   });
 
   test("shows banner and stores necessary consent", async ({ page }) => {
-    await page.goto("/");
+    await gotoApp(page, "/");
     await expect(page.getByRole("dialog")).toBeVisible();
     await page.getByRole("button", { name: "Len nevyhnutné" }).click();
     await expect(page.getByRole("dialog")).toHaveCount(0);
     await expect.poll(() => page.evaluate((key) => localStorage.getItem(key), consentKey)).toBe("necessary");
-    await page.reload();
+    await reloadApp(page);
     await expect(page.getByRole("dialog")).toHaveCount(0);
     const calls = await dataLayer(page);
     expect(calls).toContainEqual(["consent", "update", expect.objectContaining({ analytics_storage: "denied", ad_storage: "denied" })]);
   });
 
   test("grants analytics only and can be changed from the footer", async ({ page }) => {
-    await page.goto("/");
+    await gotoApp(page, "/");
     await page.getByRole("button", { name: "Povoliť štatistiky" }).click();
     await expect.poll(() => page.evaluate((key) => localStorage.getItem(key), consentKey)).toBe("analytics");
     let calls = await dataLayer(page);
     expect(calls).toContainEqual(["consent", "update", expect.objectContaining({ analytics_storage: "granted", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" })]);
 
-    await page.reload();
+    await reloadApp(page);
     await expect(page.getByRole("dialog")).toHaveCount(0);
     calls = await dataLayer(page);
     expect(calls).toContainEqual(["consent", "update", expect.objectContaining({ analytics_storage: "granted", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" })]);
@@ -64,7 +65,7 @@ test.describe("@ui cookie consent", () => {
     ja: "Cookieの設定",
   })) {
     test(`${locale} renders translated consent copy`, async ({ page }) => {
-      await page.goto(locale === "sk" ? "/" : `/${locale}/`);
+      await gotoApp(page, locale === "sk" ? "/" : `/${locale}/`);
       await expect(page.getByRole("dialog")).toBeVisible();
       await expect(page.getByRole("dialog").getByRole("heading")).toHaveText(title);
     });
@@ -73,14 +74,14 @@ test.describe("@ui cookie consent", () => {
 
 test("@responsive cookie consent fits on mobile", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
+  await gotoApp(page, "/");
   await expect(page.getByRole("dialog")).toBeVisible();
   await expect(page.getByRole("dialog").getByRole("button")).toHaveCount(2);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
 
 test("@a11y cookie consent is keyboard usable", async ({ page }) => {
-  await page.goto("/");
+  await gotoApp(page, "/");
   const necessary = page.getByRole("button", { name: "Len nevyhnutné" });
   await necessary.focus();
   await expect(necessary).toBeFocused();
@@ -89,7 +90,7 @@ test("@a11y cookie consent is keyboard usable", async ({ page }) => {
 });
 
 test("@a11y cookie consent has no serious violations", async ({ page }) => {
-  await page.goto("/");
+  await gotoApp(page, "/");
   const result = await new AxeBuilder({ page }).analyze();
   expect(result.violations.filter((item) => ["serious", "critical"].includes(item.impact || ""))).toEqual([]);
 });

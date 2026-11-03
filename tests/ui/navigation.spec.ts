@@ -1,15 +1,16 @@
 import { test, expect } from "../helpers/fixtures";
 import { headerRoutes } from "../helpers/routes";
+import { gotoApp } from "../helpers/navigation";
 
 test("@ui navigation exposes current routes", async ({ page }) => {
-  await page.goto("/");
+  await gotoApp(page, "/");
   const hrefs = await page.locator("header a").evaluateAll((links) => links.map((link) => link.getAttribute("href")));
   expect(hrefs).toEqual(["/", ...headerRoutes]);
 });
 
 test("@ui mobile navigation opens and closes", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
+  await gotoApp(page, "/");
   const menu = page.getByRole("button", { name: /menu/i });
   await expect(menu).toBeVisible();
   await menu.click();
