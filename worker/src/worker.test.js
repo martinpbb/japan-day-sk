@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { decode } from 'bysquare/pay';
 import worker from './worker.js';
+import workshopData from '../../src/data/locales/sk/workshops.json' with { type: 'json' };
 
 function setup() {
   const sqlite = new DatabaseSync(':memory:');
@@ -168,6 +169,39 @@ test('public capacity excludes waitlist and cancelled registrations, including e
   sqlite.exec('UPDATE workshop_sessions SET active = 0');
   result = await (await call('/api/workshops/test')).json();
   assert.deepEqual(result.data.sessions, []);
+});
+
+test('canonical tea tasting sessions register and appear in public availability', async () => {
+  const { sqlite, call, register } = setup();
+  const tea = workshopData.items.find(workshop => workshop.id === 'cajova-degustacia');
+  assert.deepEqual(tea.sessions.map(session => [session.id, session.start, session.capacity, session.location]), [
+    ['cajova-degustacia-1245','2026-11-07T12:45:00+01:00',15,null],
+    ['cajova-degustacia-1400','2026-11-07T14:00:00+01:00',15,null],
+  ]);
+  sqlite.exec(`INSERT INTO workshops (slug,title,lecturer,short_description,description,start_at,end_at,location,capacity,price_cents,registration_open)
+    VALUES ('cajova-degustacia','Tea tasting','Martin Labudik','Tea','Tea tasting','2026-11-07T12:45:00+01:00','2026-11-07T14:45:00+01:00','Tea room',15,0,1)`);
+  sqlite.prepare("UPDATE workshops SET price_cents = 0 WHERE slug = 'cajova-degustacia'").run();
+  const teaWorkshopId = String(sqlite.prepare("SELECT id FROM workshops WHERE slug = 'cajova-degustacia'").get().id);
+  sqlite.prepare('INSERT INTO workshop_sessions (id,workshop_id,start_at,end_at,location,capacity,active,registration_open) VALUES (?,?,?,?,NULL,?,1,1)')
+    .run('cajova-degustacia-1245',teaWorkshopId,'2026-11-07T12:45:00+01:00','2026-11-07T13:30:00+01:00',15);
+  sqlite.prepare('INSERT INTO workshop_sessions (id,workshop_id,start_at,end_at,location,capacity,active,registration_open) VALUES (?,?,?,?,NULL,?,1,1)')
+    .run('cajova-degustacia-1400',teaWorkshopId,'2026-11-07T14:00:00+01:00','2026-11-07T14:45:00+01:00',15);
+  for (const [index, id] of ['cajova-degustacia-1245','cajova-degustacia-1400'].entries()) {
+    const response = await register(`tea${index}@example.com`, id);
+    assert.equal(response.status, 201);
+    const { data } = await response.json();
+    assert.equal(data.status, 'registered');
+    assert.equal(data.payment, null);
+  }
+  const invalid = await register('invalid@example.com', 'cajova-degustacia-invalid');
+  assert.equal(invalid.status, 404);
+  assert.deepEqual((await invalid.json()).error.code, 'SESSION_NOT_FOUND');
+  const availability = await (await call('/api/workshops/cajova-degustacia')).json();
+  assert.deepEqual(availability.data.sessions.map(({id,start_at,capacity,registered_count,remaining_capacity}) =>
+    ({id,start_at,capacity,registered_count,remaining_capacity})), [
+    {id:'cajova-degustacia-1245',start_at:'2026-11-07T12:45:00+01:00',capacity:15,registered_count:1,remaining_capacity:14},
+    {id:'cajova-degustacia-1400',start_at:'2026-11-07T14:00:00+01:00',capacity:15,registered_count:1,remaining_capacity:14},
+  ]);
 });
 
 

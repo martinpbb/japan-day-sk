@@ -1,7 +1,7 @@
 import { test, expect } from "../helpers/fixtures";
 
 test("@seo GTM markup has one container", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   const gtm = await page.evaluate(() => ({
     scripts: [...document.scripts].filter((script) => script.src.includes("googletagmanager.com/gtm.js?id=GTM-MGF62FC3")).length,
     ga4Script: [...document.scripts].filter((script) => script.src === "https://www.googletagmanager.com/gtag/js?id=G-80MZ8NGTCN").length,

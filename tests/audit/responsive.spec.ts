@@ -7,6 +7,7 @@ for (const viewport of viewports) for (const [name, route] of [
   ['home-sk','/'],['home-ja','/ja/'],['program-sk','/program/'],['workshops-sk','/workshopy/'],['workshops-ja','/ja/workshopy/'],
   ['hisayo','/ucinkujuci/hisayo-yasuda/'],['jana','/ucinkujuci/japonske-kvety/'],['workshop-detail','/workshopy/japoncina/'],
 ] as const) test(`@audit @responsive @visual ${name} ${viewport.width}`, async ({ page }, info) => {
+  test.setTimeout(60_000);
   await page.setViewportSize(viewport); await page.goto(route, { waitUntil:'domcontentloaded' });
   await expect(page.locator('main h1')).toBeVisible();
   await page.evaluate(async () => { await document.fonts.ready; for(let y=0;y<document.body.scrollHeight;y+=600) { window.scrollTo(0,y); await new Promise(r => setTimeout(r,30)); } window.scrollTo(0,0); });

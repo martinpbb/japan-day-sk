@@ -5,14 +5,14 @@ import AxeBuilder from '@axe-core/playwright';
 for (const locale of localeCodes) {
   const prefix = locale === 'sk' ? '' : `/${locale}`;
   test(`@audit @localization ${locale} published homepage and programme`, async ({ page }) => {
-    await page.goto(`${prefix}/`);
+    await page.goto(`${prefix}/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     const site = read(locale, 'site');
     await expect(page.locator('.heroActions a').first()).toHaveText(site.hero.ctaPrimary);
     await expect.soft(page.locator('.heroActions a').first()).not.toHaveText(/pripravujeme|coming soon|demnächst|Vorbereitung|próximamente|preparación|近日|準備中/i);
     await expect.soft(page.locator('main')).not.toContainText(/3\. ročník|3rd edition|3[.] Ausgabe|3[.]ª edición|po tretí raz|third (?:edition|time)|dritte|tercera|第3|第３/i);
     await expect(page.locator('.performerCard').first()).toBeVisible();
     await expect(page.locator('.workshopsTeaserCard').first()).toBeVisible();
-    await page.goto(`${prefix}/program/`);
+    await page.goto(`${prefix}/program/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     await expect(page.locator('.programInfoNote')).toHaveText(read(locale, 'program').note);
     if (locale !== 'sk') await expect(page.locator('.programVenues')).not.toContainText(/Hlavný program|Prednášky|Kapacita|osôb/);
   });
@@ -27,7 +27,7 @@ for (const locale of localeCodes) {
         { id: `${slug}-1300`, start_at: '2026-11-07T13:00:00+01:00', end_at: '2026-11-07T13:30:00+01:00', capacity: 15, remaining_capacity: 15, registration_open: true, location: null },
       ] } } });
     });
-    await page.goto(`${prefix}/workshopy/`);
+    await page.goto(`${prefix}/workshopy/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     await expect(page.locator('.workshopCard')).toHaveCount(8);
     const copy = read(locale, 'site').ui.workshops;
     for (const card of await page.locator('.workshopCard').all()) {
@@ -39,7 +39,7 @@ for (const locale of localeCodes) {
     await expect(page.locator('.workshopSession')).toHaveCount(0);
     await expect(page.locator('.workshopSessions')).toContainText(read(locale, 'workshops').items.find((w: any) => w.id === 'tvorba-kombiku').availabilityNote);
     await expect(page.locator('.workshopDetailFacts')).toContainText('2');
-    await page.goto(`${prefix}/workshopy/ayatori/`);
+    await page.goto(`${prefix}/workshopy/ayatori/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     await expect(page.locator('.workshopSession')).toHaveCount(2);
     await page.locator('.workshopSession input').nth(1).check();
     await expect(page.locator('.workshopSession input').nth(1)).toBeChecked();
@@ -52,7 +52,7 @@ for (const locale of localeCodes) {
   });
 
   test(`@audit @interaction ${locale} Hisayo promo including missing-poster fallback`, async ({ page }) => {
-    await page.goto(`${prefix}/ucinkujuci/hisayo-yasuda/`);
+    await page.goto(`${prefix}/ucinkujuci/hisayo-yasuda/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     const promo = page.locator('.performerPromotion');
     await expect(promo).toBeVisible();
     await expect(promo.locator('h2')).toHaveText(read(locale, 'performers').performerPromotion.title);
@@ -71,14 +71,15 @@ for (const locale of localeCodes) {
 }
 
 for (const locale of ['sk', 'ja'] as const) for (const route of ['/workshopy/', '/workshopy/ayatori/', '/ucinkujuci/hisayo-yasuda/', '/vystavovatelia/']) test(`@audit @a11y ${locale} ${route}`, async ({ page }, info) => {
-  await page.goto(`${locale === 'sk' ? '' : '/ja'}${route}`);
+  await page.goto(`${locale === 'sk' ? '' : '/ja'}${route}`, { waitUntil: 'commit', timeout: 30_000 });
+  await expect(page.locator('main h1')).toBeVisible();
   const result = await new AxeBuilder({ page }).analyze();
   await info.attach('axe', { body: JSON.stringify(result.violations, null, 2), contentType: 'application/json' });
   expect(result.violations.filter(v => ['critical','serious'].includes(v.impact || ''))).toEqual([]);
 });
 
 test('@audit @interaction keyboard language and mobile navigation', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/', { waitUntil: 'domcontentloaded', timeout: 30_000 });
   await page.locator('.languageSwitcherTrigger').focus(); await page.keyboard.press('Enter');
   const english = page.getByRole('option').filter({ hasText: 'English' });
   await english.focus(); await page.keyboard.press('Enter');

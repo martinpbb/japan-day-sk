@@ -72,7 +72,7 @@ browserTest('localized detail registration displays fields, validates, posts, an
     ['en', ['First name', 'Last name', 'Email', 'Phone'], 'Register'],
     ['ja', ['名', '姓', 'メールアドレス', '電話番号'], '予約する'],
   ] as const) {
-    await page.goto(prefixFor(locale, '/workshopy/ayatori'));
+    await page.goto(prefixFor(locale, '/workshopy/ayatori'), { waitUntil: "domcontentloaded" });
     const form = page.locator('.registrationForm');
     await browserExpect(form.getByRole('heading')).toBeVisible();
     for (const label of labels) await browserExpect(form.getByLabel(new RegExp(label))).toBeVisible();
@@ -96,12 +96,12 @@ browserTest('localized list, open state, full state and drop-in exception use li
     return route.fulfill({ json: data });
   });
   for (const [locale, openText] of [['sk', 'Registrácia otvorená'], ['en', 'Registration is open'], ['de', 'Anmeldung geöffnet'], ['es', 'Inscripción abierta'], ['ja', '予約受付中']] as const) {
-    await page.goto(prefixFor(locale, '/workshopy'));
+    await page.goto(prefixFor(locale, '/workshopy'), { waitUntil: "domcontentloaded" });
     const list = page.locator('.workshopCard');
     await browserExpect(list.filter({ has: page.getByText(openText) }).first()).toBeVisible();
     await browserExpect(page.locator('a.workshopCard[href$="/workshopy/tvorba-kombiku"]')).not.toContainText(/Registro|Register|Anmelden|Inscribirse|予約する/);
   }
-  await page.goto('/workshopy/ayatori/');
+  await page.goto('/workshopy/ayatori/', { waitUntil: "domcontentloaded" });
   await browserExpect(page.locator('.registrationForm button[type="submit"]')).toBeDisabled();
   await browserExpect(page.locator('.workshopSession')).toContainText('Obsadené');
 });

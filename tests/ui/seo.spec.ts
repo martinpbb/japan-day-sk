@@ -6,7 +6,7 @@ test.describe("@seo route metadata", () => {
   for (const locale of localeCodes) {
     for (const route of routes.slice(0, 4)) {
       test(`${locale} ${route}`, async ({ page }) => {
-        await page.goto(prefixFor(locale, route));
+        await page.goto(prefixFor(locale, route), { waitUntil: "domcontentloaded" });
         await expect(page.locator("meta[name=description]")).toHaveCount(1);
         await expect(page.locator("link[rel=canonical]")).toHaveCount(1);
         await expect(page.locator("meta[property='og:title']")).toHaveCount(1);
@@ -28,7 +28,7 @@ test.describe("@seo Event JSON-LD", () => {
 
   for (const locale of localeCodes) {
     test(`${locale} homepage has complete Event schema`, async ({ page }) => {
-      await page.goto(prefixFor(locale, "/"));
+      await page.goto(prefixFor(locale, "/"), { waitUntil: "domcontentloaded" });
       const events = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) => scripts
         .map((script) => JSON.parse(script.textContent || "{}"))
         .filter((schema) => schema["@type"] === "Event"));

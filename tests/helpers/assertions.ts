@@ -20,25 +20,23 @@ export async function assertImages(page: Page) {
   for (const image of await page.locator("img:visible").all()) {
     await expect(image).toHaveAttribute("alt");
     await image.scrollIntoViewIfNeeded();
-    const details = await image.evaluate((element) => new Promise((resolve) => {
+    const details = await image.evaluate(async (element) => {
       const img = element as HTMLImageElement;
-      const report = () => resolve({
-        src: img.getAttribute("src"),
-        currentSrc: img.currentSrc,
-        alt: img.alt,
-        loading: img.getAttribute("loading"),
-        complete: img.complete,
-        naturalWidth: img.naturalWidth,
-        naturalHeight: img.naturalHeight,
+      const report = () => ({
+        src: img.getAttribute("src"), currentSrc: img.currentSrc, alt: img.alt,
+        loading: img.loading, complete: img.complete,
+        naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight,
       });
       if (img.complete) {
-        report();
-        return;
+        return report();
       }
-      img.addEventListener("load", report, { once: true });
-      img.addEventListener("error", report, { once: true });
-    }));
-    expect((details as { naturalWidth: number }).naturalWidth, JSON.stringify(details)).toBeGreaterThan(0);
+      return await new Promise<ReturnType<typeof report>>((resolve) => {
+        const done = () => resolve(report());
+        img.addEventListener("load", done, { once: true });
+        img.addEventListener("error", done, { once: true });
+      });
+    });
+    expect(details.naturalWidth, JSON.stringify(details)).toBeGreaterThan(0);
   }
 }
 

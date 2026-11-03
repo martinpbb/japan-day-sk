@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 const exhibitors = JSON.parse(readFileSync(new URL("../../src/data/locales/sk/exhibitors.json", import.meta.url), "utf8"));
 
 test("@ui exhibitors render configured cards and assets", async ({ page }) => {
-  await page.goto("/vystavovatelia");
+  await page.goto("/vystavovatelia", { waitUntil: "domcontentloaded" });
   await expect(page.locator("main h1")).toBeVisible();
   if (exhibitors.items.length) {
     await expect(page.locator(".exhibitorCard")).toHaveCount(exhibitors.items.length);

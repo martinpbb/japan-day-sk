@@ -1,7 +1,7 @@
 import { test, expect } from "../helpers/fixtures";
 
 test("@ui programme shows the approved theatre order and current Nao Higano title", async ({ page }) => {
-  await page.goto("/program");
+  await page.goto("/program", { waitUntil: "domcontentloaded" });
   await expect(page.locator(".programVenue")).toHaveCount(2);
   const theatre = page.locator(".programVenue").nth(1).locator(".programVenueItem");
   await expect(theatre).toHaveCount(6);
@@ -14,7 +14,7 @@ test("@ui programme shows the approved theatre order and current Nao Higano titl
 });
 
 test("@ui workshops show current lecturers, durations and session counts", async ({ page }) => {
-  await page.goto("/workshopy");
+  await page.goto("/workshopy", { waitUntil: "domcontentloaded" });
   const card = (slug: string) => page.locator(`a.workshopCard[href$="/workshopy/${slug}"]`);
   const japanese = card("japoncina");
   await expect(japanese.locator(".workshopFacts")).toContainText("30 min");
@@ -37,7 +37,7 @@ test("@ui workshops show current lecturers, durations and session counts", async
   await expect(buttons.locator(".workshopRegistrationState")).toHaveCount(0);
   const tea = card("cajova-degustacia");
   await expect(tea.locator(".workshopFacts")).toContainText("45 min");
-  await page.goto("/workshopy/japoncina");
+  await page.goto("/workshopy/japoncina", { waitUntil: "domcontentloaded" });
   await expect(page.locator(".workshopSessions")).toContainText(/11:00.*11:30/);
   await expect(page.locator(".workshopSessions")).toContainText(/15:00.*15:30/);
 });

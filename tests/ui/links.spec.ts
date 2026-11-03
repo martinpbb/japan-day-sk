@@ -1,7 +1,7 @@
 import { test, expect } from "../helpers/fixtures";
 
 test("@ui links have valid hrefs and safe external targets", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   for (const link of await page.locator("a").all()) {
     const href = await link.getAttribute("href");
     expect(href).toBeTruthy();

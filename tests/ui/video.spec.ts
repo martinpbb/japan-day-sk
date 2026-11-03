@@ -4,7 +4,7 @@ const reelId = "1067329319694945";
 const reelUrl = `https://www.facebook.com/reel/${reelId}`;
 
 test("@ui Facebook Reel is click-to-play with an accessible fallback", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   const video = page.locator(".videoWrapFacebook");
   await expect(video).toBeVisible();
   await expect(video.locator("iframe")).toHaveCount(0);
@@ -19,7 +19,7 @@ test("@ui Facebook Reel is click-to-play with an accessible fallback", async ({ 
 });
 
 test("@ui Facebook Reel is configured for English", async ({ page }) => {
-  await page.goto("/en/");
+  await page.goto("/en/", { waitUntil: "domcontentloaded" });
   const video = page.locator(".videoWrapFacebook");
   await expect(video).toBeVisible();
   await expect(video.locator("iframe")).toHaveCount(0);

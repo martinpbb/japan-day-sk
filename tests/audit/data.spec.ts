@@ -44,6 +44,12 @@ for (const locale of localeCodes) {
     expect(w).toMatchObject({ durationMinutes: 15, registrationRequired: false, lecturerId: 'aiko-bosak', availabilityWindow: '11:00–14:30' });
     expect(w.sessions).toHaveLength(1); expect(w.sessions[0].end_at.slice(11,16)).toBe('14:30');
     expect(w.priceDisplay).toMatch(/2/); expect(w.availabilityNote).toBeTruthy();
+    const tea = items.find((p: any) => p.id === 'cajova-degustacia');
+    expect(tea.sessions.map((s: any) => s.id)).toEqual(['cajova-degustacia-1245', 'cajova-degustacia-1400']);
+    expect(tea.sessions.map((s: any) => s.start)).toEqual(['2026-11-07T12:45:00+01:00', '2026-11-07T14:00:00+01:00']);
+    expect(tea.sessions.map((s: any) => s.capacity)).toEqual([15, 15]);
+    expect(tea.durationMinutes).toBe(45);
+    expect(tea.lecturerId).toBe('martin-labudik');
   });
 
   test(`@audit @data ${locale} Hisayo has no schedule overlap`, async ({}, info) => {

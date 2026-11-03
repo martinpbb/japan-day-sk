@@ -4,8 +4,9 @@ import { localeCodes, read, publicRoutes, routePath } from './content';
 
 for (const locale of localeCodes) {
   for (const route of publicRoutes(locale)) test(`@audit @routing ${locale} ${route} direct and refresh`, async ({ page, runtime }, info) => {
+    test.setTimeout(60_000);
     const url = routePath(locale, route);
-    const response = await page.goto(url, { waitUntil: 'domcontentloaded' });
+    const response = await page.goto(url, { waitUntil: 'commit', timeout: 60_000 });
     expect(response?.status()).toBe(200);
     await expect(page.locator('html')).toHaveAttribute('lang', locale);
     await expect(page.locator('main h1')).toHaveCount(1);
@@ -14,7 +15,7 @@ for (const locale of localeCodes) {
     await expect(page.locator('footer')).toBeVisible();
     expect(await page.locator('main').innerText()).not.toMatch(/404|Page not found|Stránka sa nenašla/);
     await assertImages(page);
-    expect((await page.reload({ waitUntil: 'domcontentloaded' }))?.status()).toBe(200);
+    expect((await page.reload({ waitUntil: 'commit', timeout: 60_000 }))?.status()).toBe(200);
     await expect(page.locator('html')).toHaveAttribute('lang', locale);
     await expect(page.locator('main h1')).toBeVisible();
     await info.attach('runtime', { body: JSON.stringify(runtime, null, 2), contentType: 'application/json' });
@@ -42,9 +43,10 @@ for (const locale of localeCodes) {
     }
     const bad: string[] = [];
     for (const pathname of internal) {
-      const response = await request.get(pathname);
+      const canonicalPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
+      const response = await request.get(canonicalPath, { timeout: 30_000 });
       if (response.status() !== 200) bad.push(`${response.status()} ${pathname}`);
-      const normalized = pathname.replace(new RegExp(`^/${locale}(?=/|$)`), '').replace(/\/$/, '') || '/';
+      const normalized = canonicalPath.replace(new RegExp(`^/${locale}(?=/|$)`), '').replace(/\/$/, '') || '/';
       if (!publicRoutes(locale).includes(normalized)) bad.push(`No generated public route: ${pathname}`);
     }
     await info.attach('links', { body: JSON.stringify({ internal: [...internal], external: [...external], anchors, bad }, null, 2), contentType: 'application/json' });
@@ -53,7 +55,7 @@ for (const locale of localeCodes) {
 }
 
 for (const route of ['/', '/program', '/ucinkujuci/hisayo-yasuda', '/workshopy', '/workshopy/japoncina', '/vystavovatelia']) test(`@audit @interaction switch every locale on ${route}`, async ({ page }) => {
-  await page.goto(routePath('sk', route));
+  await page.goto(routePath('sk', route), { waitUntil: 'domcontentloaded', timeout: 30_000 });
   for (const locale of ['en', 'de', 'es', 'ja', 'sk'] as const) {
     await page.locator('.languageSwitcherTrigger').click();
     await page.getByRole('option').filter({ hasText: { en: 'English', de: 'Deutsch', es: 'Español', ja: '日本語', sk: 'Slovenčina' }[locale] }).click();

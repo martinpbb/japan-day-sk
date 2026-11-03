@@ -13,6 +13,16 @@ The Worker runs separately from the React/Vite frontend. It binds the existing p
 When ready, run `npm run worker:deploy`. This targets the existing Worker `japanday-workshops-api` and its existing D1 binding.
 
 **Do not run the production migration again.** `migrations/0001_initial.sql` is historical: its integer registration IDs differ from the confirmed production TEXT IDs. Migration `0002` reconciles both starting points; do not replay `0001` remotely.
+
+To synchronize the tea tasting sessions, inspect current rows and linked registrations first, then apply the additive migration and deploy the Worker:
+
+```sh
+npx wrangler d1 execute japanday-workshops --remote --command "SELECT w.slug, s.id, s.start_at, s.capacity, s.active, s.registration_open, COUNT(r.id) AS registration_count FROM workshop_sessions s JOIN workshops w ON w.id = s.workshop_id LEFT JOIN registrations r ON r.session_id = s.id WHERE w.slug = 'cajova-degustacia' GROUP BY s.id ORDER BY s.start_at;" --config worker/wrangler.toml
+npx wrangler d1 execute japanday-workshops --remote --file worker/migrations/0003_tea_tasting_sessions.sql --config worker/wrangler.toml
+npm run worker:deploy
+```
+
+`0003` is additive and safe to rerun. It replaces the stale ID with the canonical 14:00 session, preserves linked registration references, and aborts if both stale and canonical rows coexist with stale registrations. If that guard aborts, reconcile those registration rows deliberately before retrying; do not bypass the guard.
 ## Session registration and payments (local implementation)
 
 Apply migrations in order only after review; this task does not authorize remote
