@@ -70,7 +70,7 @@ Important natural-language topics include Japan Day Považská Bystrica, Japonsk
 - Prefer WebP/AVIF for final photography when practical.
 - Social preview target: 1200 × 630 px.
 
-The current `public/images/social/japan-day-povazska-bystrica-2026-og.png` is a project placeholder and should be replaced by the final event key visual before launch without changing its public path.
+The current `public/images/social/japan-day-povazska-bystrica-2026.png` is a project placeholder and should be replaced by the final event key visual before launch without changing its public path.
 
 ## Video
 

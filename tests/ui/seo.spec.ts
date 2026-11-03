@@ -19,9 +19,9 @@ test.describe("@seo route metadata", () => {
 
 test.describe("@seo social preview image", () => {
   const socialRoutes = [
-    { route: "/", imageUrl: "https://japanday.sk/images/social/japan-day-povazska-bystrica-2026-og.png", height: "1200" },
+    { route: "/", imageUrl: "https://japanday.sk/images/social/japan-day-povazska-bystrica-2026.png", height: "1200" },
     { route: "/program", imageUrl: "https://japanday.sk/images/social/japan-day-mpb.png", height: "1200" },
-    { route: "/workshopy", imageUrl: "https://japanday.sk/images/social/japan-day-povazska-bystrica-2026-og.png", height: "630" }
+    { route: "/workshopy", imageUrl: "https://japanday.sk/images/social/japan-day-povazska-bystrica-2026.png", height: "630" }
   ];
 
   for (const { route, imageUrl, height } of socialRoutes) {
