@@ -10,7 +10,7 @@ test.describe("@seo route metadata", () => {
         await expect(page.locator("meta[name=description]")).toHaveCount(1);
         await expect(page.locator("link[rel=canonical]")).toHaveCount(1);
         await expect(page.locator("meta[property='og:title']")).toHaveCount(1);
-        await expect(page.locator("link[rel=alternate]")).toHaveCount(7);
+        await expect(page.locator("link[rel=alternate]")).toHaveCount(localeCodes.length + 1);
         await expect(page.locator("script[type='application/ld+json']").first()).toBeAttached();
       });
     }
@@ -23,8 +23,7 @@ test.describe("@seo Event JSON-LD", () => {
     en: "en",
     de: "de",
     es: "es",
-    zh: "zh-CN",
-    vi: "vi"
+    ja: "ja"
   };
 
   for (const locale of localeCodes) {

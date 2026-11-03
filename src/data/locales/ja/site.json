@@ -30,8 +30,8 @@
     "kicker": "2026年11月7日 • Považská Bystrica",
     "title": "日本茶と文化の日",
     "descriptor": "日本文化・食・伝統のフェスティバル",
-    "subtitle": "第3回となるイベントでは、日本料理、日本茶、伝統芸術、侍、武道、講演、展示などを通じて、日本をより身近に感じていただけます。",
-    "ctaPrimary": "プログラム準備中",
+    "subtitle": "イベントでは、日本料理、日本茶、伝統芸術、侍、武道、講演、展示などを通じて、日本をより身近に感じていただけます。",
+    "ctaPrimary": "プログラムを見る",
     "ctaSecondary": "ご来場案内",
     "shortName": "Japan Day Považská Bystrica 2026"
   },
@@ -39,7 +39,7 @@
     "kicker": "イベントについて",
     "title": "ポヴァジュスカー・ビストリツァで日本を一日体験",
     "paragraphs": [
-      "「日本茶と文化の日」は2026年、ポヴァジュスカー・ビストリツァで第3回を迎えます。日本料理、日本茶、伝統芸術、侍文化、武道、講演、展示を一つのイベントに集めます。",
+      "「日本茶と文化の日」は2026年11月7日にポヴァジュスカー・ビストリツァで開催されます。日本料理、日本茶、伝統芸術、侍文化、武道、講演、展示を一つのイベントに集めます。",
       "イベントは11月7日、ポヴァジュスカー・ビストリツァの文化会館で開催されます。大ホールと人形劇場のスペースを活用し、ステージ、プレゼンテーション、日本関連商品の販売、試食・試飲を行います。",
       "一日を通して、日本に長く関わってきた人々と出会い、本格的な料理やお茶を味わい、日本文化を間近に体験できます。"
     ]
@@ -160,8 +160,57 @@
   ],
   "ui": {
     "workshops": {
-      "title": "ワークショップ", "lecturer": "講師", "lecturers": "講師", "duration": "所要時間", "price": "料金", "time": "開催時間", "free": "無料", "pricePending": "料金は後日お知らせします", "sessionPending": "開催時間は後日お知らせします", "registrationOpen": "予約受付中", "registrationClosed": "現在、事前予約はまだ開始していません", "register": "予約する", "full": "満席", "available": "空きあり", "waitlist": "キャンセル待ち", "capacity": "定員", "people": "名", "peopleShort": "名", "sessions": "開催回", "all": "すべてのワークショップ", "registrationTitle": "ワークショップの予約", "workshop": "ワークショップ", "location": "会場", "locationPending": "未定", "contactPurpose": "ご連絡先は、時間や会場の変更、中止、キャンセル待ちから空きが出た場合など、ワークショップに関するご連絡にのみ使用します。", "capacityForSession": "各回{capacity}名", "pricePerPiece": "1個 {price}〜", "walkInNote": "事前登録に間に合いませんでしたか？ご心配なく。会場で講師または運営スタッフに、空きがあるかお尋ねください。定員に達していない場合は、事前登録なしでもご参加いただけます。"
+      "title": "ワークショップ",
+      "lecturer": "講師",
+      "lecturers": "講師",
+      "duration": "所要時間",
+      "price": "料金",
+      "time": "開催時間",
+      "free": "無料",
+      "pricePending": "料金は後日お知らせします",
+      "sessionPending": "開催時間は後日お知らせします",
+      "registrationOpen": "予約受付中",
+      "registrationClosed": "現在、事前予約はまだ開始していません",
+      "register": "予約する",
+      "full": "満席",
+      "available": "空きあり",
+      "waitlist": "キャンセル待ち",
+      "capacity": "定員",
+      "people": "名",
+      "peopleShort": "名",
+      "sessions": "開催回",
+      "all": "すべてのワークショップ",
+      "registrationTitle": "ワークショップの予約",
+      "workshop": "ワークショップ",
+      "location": "会場",
+      "locationPending": "未定",
+      "contactPurpose": "ご連絡先は、時間や会場の変更、中止、キャンセル待ちから空きが出た場合など、ワークショップに関するご連絡にのみ使用します。",
+      "capacityForSession": "各回{capacity}名",
+      "pricePerPiece": "1個 {price}〜",
+      "walkInNote": "事前登録に間に合いませんでしたか？ご心配なく。会場で講師または運営スタッフに、空きがあるかお尋ねください。定員に達していない場合は、事前登録なしでもご参加いただけます。"
     },
+    "registration": {
+      "fields": {
+        "firstName": "名",
+        "lastName": "姓",
+        "email": "メールアドレス",
+        "phone": "電話番号"
+      },
+      "required": "必須項目です。入力してください。",
+      "emailInvalid": "有効なメールアドレスを入力してください。",
+      "tooLong": "入力できる文字数は最大 {max} 文字です。",
+      "contactPurpose": "メールアドレスと電話番号は、ワークショップに関する連絡にのみ使用します。",
+      "check": "入力内容を確認",
+      "submit": "申し込む",
+      "sending": "送信中…",
+      "success": "申し込みが完了しました。",
+      "registered": "席を確保しました。",
+      "waitlist": "キャンセル待ちに登録されました。まだお支払いにならないでください。",
+      "failed": "申し込みを完了できませんでした。もう一度お試しください。",
+      "duplicate": "このメールアドレスでは、この回にすでに申し込み済みです。"
+      ,"paymentInstructions": "表示された口座にお振り込みください。支払いの際は決済参照番号を入力してください。入金確認まで申し込みは保留となります。", "amount": "金額", "paymentMessage": "受取人へのメッセージ", "reference": "決済参照番号", "beneficiary": "受取人", "qrAlt": "PAY by square 決済用QRコード"
+    },
+    "program": { "hallTitle": "大ホール", "hallSubtitle": "メインプログラム", "theatreTitle": "人形劇場", "theatreSubtitle": "講演", "capacity": "定員：{capacity}名" },
     "organizersKicker": "主催者・パートナー",
     "organizersTitle": "日本デーを支える人々",
     "openingFrom": "{time} 開場",
@@ -175,7 +224,7 @@
     "legalInformation": "法的情報",
     "socialLinks": "ウェブ / SNS",
     "exhibitorListPending": "リスト準備中。",
-    "previousYear": "過去の開催",
+    "previousYear": "",
     "galleryTitle": "日本デーの雰囲気",
     "all": "すべて",
     "showPhoto": "写真を表示：{alt}",
@@ -201,7 +250,7 @@
     "playVideoLabel": "日本茶と文化の日の動画を再生",
     "previousYearVideoAlt": "過去開催の動画",
     "programPending": "詳細プログラムは現在準備中です。正確な時間と追加ゲストは順次公開します。",
-    "galleryPending": "過去開催の写真は近日追加します。",
+    "galleryPending": "",
     "galleryCategories": {
       "Program": "プログラム",
       "Čaj": "お茶",

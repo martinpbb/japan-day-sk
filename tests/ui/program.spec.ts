@@ -1,70 +1,43 @@
 import { test, expect } from "../helpers/fixtures";
 
-test("@ui programme displays both venue schedules with start and end times", async ({ page }) => {
+test("@ui programme shows the approved theatre order and current Nao Higano title", async ({ page }) => {
   await page.goto("/program");
   await expect(page.locator(".programVenue")).toHaveCount(2);
-  await expect(page.getByText("Kapacita: 100 osôb")).toBeVisible();
-  await expect(page.locator(".programVenue").nth(0).locator(".programVenueItem")).toHaveCount(11);
-  await expect(page.locator(".programVenue").nth(1).locator(".programVenueItem")).toHaveCount(6);
-  await expect(page.getByText("Tameshigiri – ukážka sekania japonským mečom")).toBeVisible();
-  await expect(page.getByText("16:20–16:50")).toBeVisible();
-  await expect(page.getByText("Záverečné poďakovanie")).toBeVisible();
-  await expect(page.locator(".programVenue").nth(1).locator(".programVenueItem").nth(0).getByRole("link", { name: "Hisayo Yasuda" })).toBeVisible();
-  await expect(page.getByText("Ako japonský čaj prospieva ľudskému telu")).toBeVisible();
-  await expect(page.getByText("Shodō: japonská kaligrafia")).toBeVisible();
-  await expect(page.getByText("Japonský čaj a jeho rozdelenie")).toBeVisible();
-  await expect(page.getByText("Sengoku jidai: obdobie bojujúcich štátov")).toBeVisible();
-  await expect(page.getByText("Bez pódiového programu")).toHaveCount(0);
+  const theatre = page.locator(".programVenue").nth(1).locator(".programVenueItem");
+  await expect(theatre).toHaveCount(6);
+  for (const [index, times] of ["11:00.*11:40", "11:50.*12:30", "12:40.*13:20", "14:10.*14:50", "15:00.*15:40", "15:40.*16:20"].entries()) await expect(theatre.nth(index)).toContainText(new RegExp(times));
+  for (const [index, name] of [/Jana Michalkov/, /Martin Labud/, /Akiko Komura/, /Silvestr Prajer/, /Martin Labud/, /Hisayo Yasuda/].entries()) await expect(theatre.nth(index)).toContainText(name);
+  await expect(page.locator(".programVenue").first().getByText(/Nao Higano/)).toHaveCount(4);
   await expect(page.locator(".programPending")).toHaveCount(0);
-  await expect(page.locator("main h1")).toBeVisible();
-
   await page.setViewportSize({ width: 320, height: 800 });
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
 });
 
-test("@ui workshops show the corrected instructors and paid Tsumami zaiku price", async ({ page }) => {
+test("@ui workshops show current lecturers, durations and session counts", async ({ page }) => {
   await page.goto("/workshopy");
-  const japanese = page.locator(".workshopCard").filter({ has: page.getByRole("heading", { name: "Japončina", exact: true }) });
-  const origami = page.locator(".workshopCard").filter({ has: page.getByRole("heading", { name: "Origami", exact: true }) });
-  const tsumami = page.locator(".workshopCard").filter({ has: page.getByRole("heading", { name: "Tsumami zaiku つまみ細工", exact: true }) });
-  const ayatori = page.locator(".workshopCard").filter({ has: page.getByRole("heading", { name: "Ayatori あやとり", exact: true }) });
-  const buttons = page.locator("a.workshopCard[href$='/workshopy/tvorba-kombiku']");
-  const tea = page.locator("a.workshopCard[href$='/workshopy/cajova-degustacia']");
-
-  await expect(japanese.locator(".workshopFacts")).toContainText("45 min");
-  await expect(japanese.locator(".workshopFacts")).toContainText("11:00 – 11:45, 12:15 – 13:00, 13:30 – 14:15");
-  await expect(origami.getByText("Asuka Emura (hlavná lektorka)")).toBeVisible();
-  await expect(origami.getByText("Hisayo Yasuda (podpora)")).toBeVisible();
-  await expect(origami.locator(".workshopFacts")).toContainText("11:00 – 12:30, 13:00 – 14:30");
-  await expect(origami.getByText("Aiko Bosák", { exact: true })).toHaveCount(0);
-  await expect(tsumami.getByText("Aiko Bosák", { exact: true })).toBeVisible();
-  await expect(tsumami.locator(".workshopFacts")).toContainText("10,00");
-  await expect(buttons.locator(".workshopFacts")).toContainText("11:00");
-  await expect(buttons.locator(".workshopFacts")).toContainText("12:30");
-  await expect(buttons.locator(".workshopFacts")).toContainText("13:00");
-  await expect(buttons.locator(".workshopFacts")).toContainText("14:30");
-  await expect(buttons.getByText(/Aiko Bos/)).toBeVisible();
-  await expect(tsumami.locator(".workshopFacts")).toContainText("11:00 – 12:30, 13:00 – 14:30");
-  await expect(ayatori.getByText("Aiko Bosák", { exact: true })).toBeVisible();
-  await expect(ayatori.locator(".workshopFacts")).toContainText("11:00");
-  await expect(ayatori.locator(".workshopFacts")).toContainText("12:00");
-  await expect(ayatori.locator(".workshopFacts")).toContainText("13:00");
-  await expect(ayatori.locator(".workshopFacts")).toContainText("14:00");
-  await expect(tea.locator(".workshopFacts")).toContainText("13:30");
-  await expect(tea.locator(".workshopFacts")).toContainText("14:15");
-  const shodo = page.locator(".workshopCard").filter({ has: page.getByRole("heading", { name: /Shodō/ }) });
-  const kumihimo = page.locator(".workshopCard").filter({ has: page.getByRole("heading", { name: "Kumihimo", exact: true }) });
-  await expect(shodo.locator(".workshopFacts")).toContainText("11:00 – 12:30, 13:00 – 14:30");
-  await expect(kumihimo.locator(".workshopFacts")).toContainText("11:00 – 12:30, 13:00 – 14:30, 15:00 – 16:30");
-
-  for (const [slug, times] of [
-    ["origami", ["11:00", "12:30", "13:00", "14:30"]],
-    ["tvorba-kombiku", ["11:00", "12:30", "13:00", "14:30"]],
-    ["tsumami-zaiku", ["11:00", "12:30", "13:00", "14:30"]],
-    ["ayatori", ["11:00", "12:00", "13:00", "14:00"]],
-    ["cajova-degustacia", ["13:30", "14:15"]],
-  ] as const) {
-    await page.goto(`/workshopy/${slug}`);
-    for (const time of times) await expect(page.locator(".workshopSessions")).toContainText(time);
-  }
+  const card = (slug: string) => page.locator(`a.workshopCard[href$="/workshopy/${slug}"]`);
+  const japanese = card("japoncina");
+  await expect(japanese.locator(".workshopFacts")).toContainText("30 min");
+  await expect(japanese.locator(".workshopFacts")).toContainText(/11:00.*11:30.*13:00.*13:30.*15:00.*15:30/);
+  await expect(japanese.locator(".workshopFacts")).toContainText("Hisayo Yasuda");
+  const tsumami = card("tsumami-zaiku");
+  await expect(tsumami.locator(".workshopFacts")).toContainText("Hisayo Yasuda");
+  await expect(tsumami.locator(".workshopFacts")).toContainText("30 min");
+  await expect(tsumami.locator(".workshopFacts")).toContainText("10");
+  const ayatori = card("ayatori");
+  await expect(ayatori.locator(".workshopFacts")).toContainText("Hisayo Yasuda");
+  await expect(ayatori.locator(".workshopFacts")).toContainText("30 min");
+  const kumihimo = card("kumihimo");
+  await expect(kumihimo.locator(".workshopFacts")).toContainText("45 min");
+  await expect(kumihimo.locator(".workshopFacts")).toContainText("11:00");
+  await expect(kumihimo.locator(".workshopFacts")).toContainText("14:45");
+  const buttons = card("tvorba-kombiku");
+  await expect(buttons.locator(".workshopFacts")).toContainText(/11:00.*14:30/);
+  await expect(buttons.locator(".workshopFacts")).toContainText("2");
+  await expect(buttons.locator(".workshopRegistrationState")).toHaveCount(0);
+  const tea = card("cajova-degustacia");
+  await expect(tea.locator(".workshopFacts")).toContainText("45 min");
+  await page.goto("/workshopy/japoncina");
+  await expect(page.locator(".workshopSessions")).toContainText(/11:00.*11:30/);
+  await expect(page.locator(".workshopSessions")).toContainText(/15:00.*15:30/);
 });

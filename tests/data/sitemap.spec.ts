@@ -20,11 +20,14 @@ test("@data sitemap is valid when build output exists", () => {
     const seo = read("seo");
     const performers = read("performers");
     const exhibitors = read("exhibitors");
+    const workshops = read("workshops");
     const routes = new Set<string>([
       ...Object.keys(seo.routes),
       ...performers.items.map((item: { id: string }) => `/ucinkujuci/${item.id}`),
+      ...workshops.items.flatMap((item: { slug: string; id: string }) => [...new Set([`/workshopy/${item.slug}`, `/workshopy/${item.id}`])]),
       ...exhibitors.items.filter((item: { detail?: unknown }) => item.detail).map((item: { id: string }) => `/vystavovatelia/${item.id}`),
     ]);
+    if (workshops.items.some((item: { id: string }) => item.id === "japoncina")) routes.add("/workshopy/japonstina");
     for (const route of routes) {
       const localized = prefixFor(locale, route).replace(/\/$/, "");
       expected.add(`https://japanday.sk${localized || ""}/`);

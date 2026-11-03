@@ -82,7 +82,6 @@ function HomePage() {
       <Gastronomy compact />
       <Exhibitors />
       <VideoSection />
-      <Gallery />
       <PracticalInfo />
       <Partners />
     </main>

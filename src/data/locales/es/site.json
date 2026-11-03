@@ -30,8 +30,8 @@
     "kicker": "7. 11. 2026 • Považská Bystrica",
     "title": "Día Japonés del Té y la Cultura",
     "descriptor": "Festival de cultura, gastronomía y tradiciones japonesas",
-    "subtitle": "La 3.ª edición del evento traerá gastronomía japonesa, té, artes tradicionales, samuráis, artes marciales, charlas, exposiciones y la oportunidad de conocer Japón más de cerca.",
-    "ctaPrimary": "Programa en preparación",
+    "subtitle": "El evento traerá gastronomía japonesa, té, artes tradicionales, samuráis, artes marciales, charlas, exposiciones y la oportunidad de conocer Japón más de cerca.",
+    "ctaPrimary": "Ver programa",
     "ctaSecondary": "Información práctica",
     "shortName": "Japan Day Považská Bystrica 2026"
   },
@@ -39,7 +39,7 @@
     "kicker": "Sobre el evento",
     "title": "Japón en un solo lugar en Považská Bystrica",
     "paragraphs": [
-      "El Día Japonés del Té y la Cultura vuelve a Považská Bystrica por tercera vez en 2026. El evento reúne gastronomía japonesa, té, artes tradicionales, cultura samurái, artes marciales, charlas y exposiciones.",
+      "El Día Japonés del Té y la Cultura se celebra en Považská Bystrica el 7 de noviembre de 2026. El evento reúne gastronomía japonesa, té, artes tradicionales, cultura samurái, artes marciales, charlas y exposiciones.",
       "El evento tendrá lugar el 7 de noviembre en la Casa de la Cultura de Považská Bystrica. Utilizaremos la sala principal y el teatro de marionetas para actuaciones, presentaciones, venta de productos japoneses y degustaciones.",
       "Durante todo el día podrás conocer a personas dedicadas a Japón desde hace años, probar gastronomía y tés auténticos y descubrir de cerca la cultura japonesa."
     ]
@@ -160,8 +160,57 @@
   ],
   "ui": {
     "workshops": {
-      "title": "Talleres", "lecturer": "Instructor", "lecturers": "Instructores", "duration": "Duración", "price": "Precio", "time": "Horario", "free": "Gratis", "pricePending": "Precio próximamente", "sessionPending": "Horario próximamente", "registrationOpen": "Inscripción abierta", "registrationClosed": "La inscripción aún no está abierta", "register": "Inscribirse", "full": "Completo", "available": "Plazas disponibles", "waitlist": "Lista de espera", "capacity": "Aforo", "people": "personas", "peopleShort": "plazas", "sessions": "Horarios", "all": "Todos los talleres", "registrationTitle": "Inscripción al taller", "workshop": "Taller", "location": "Lugar", "locationPending": "Por confirmar", "contactPurpose": "Usaremos tus datos de contacto únicamente para comunicarnos sobre el taller, por ejemplo, si cambia el horario o el lugar, se cancela o queda una plaza disponible en la lista de espera.", "capacityForSession": "{capacity} personas por sesión", "pricePerPiece": "desde {price} por pieza", "walkInNote": "¿No pudiste inscribirte con antelación? No pasa nada. Acércate al lugar y pregunta al instructor o al equipo organizador si todavía quedan plazas. Si no se ha alcanzado el aforo, estaremos encantados de que participes sin inscripción previa."
+      "title": "Talleres",
+      "lecturer": "Instructor",
+      "lecturers": "Instructores",
+      "duration": "Duración",
+      "price": "Precio",
+      "time": "Horario",
+      "free": "Gratis",
+      "pricePending": "Precio próximamente",
+      "sessionPending": "Horario próximamente",
+      "registrationOpen": "Inscripción abierta",
+      "registrationClosed": "La inscripción aún no está abierta",
+      "register": "Inscribirse",
+      "full": "Completo",
+      "available": "Plazas disponibles",
+      "waitlist": "Lista de espera",
+      "capacity": "Aforo",
+      "people": "personas",
+      "peopleShort": "plazas",
+      "sessions": "Horarios",
+      "all": "Todos los talleres",
+      "registrationTitle": "Inscripción al taller",
+      "workshop": "Taller",
+      "location": "Lugar",
+      "locationPending": "Por confirmar",
+      "contactPurpose": "Usaremos tus datos de contacto únicamente para comunicarnos sobre el taller, por ejemplo, si cambia el horario o el lugar, se cancela o queda una plaza disponible en la lista de espera.",
+      "capacityForSession": "{capacity} personas por sesión",
+      "pricePerPiece": "desde {price} por pieza",
+      "walkInNote": "¿No pudiste inscribirte con antelación? No pasa nada. Acércate al lugar y pregunta al instructor o al equipo organizador si todavía quedan plazas. Si no se ha alcanzado el aforo, estaremos encantados de que participes sin inscripción previa."
     },
+    "registration": {
+      "fields": {
+        "firstName": "Nombre",
+        "lastName": "Apellidos",
+        "email": "Correo electrónico",
+        "phone": "Teléfono"
+      },
+      "required": "Complete este campo obligatorio.",
+      "emailInvalid": "Introduzca una dirección de correo válida.",
+      "tooLong": "Número máximo de caracteres: {max}.",
+      "contactPurpose": "Usaremos su correo y teléfono solo para coordinar asuntos relacionados con el taller.",
+      "check": "Revisar datos",
+      "submit": "Inscribirse",
+      "sending": "Enviando…",
+      "success": "La inscripción se ha creado correctamente.",
+      "registered": "Su plaza está reservada.",
+      "waitlist": "Está en la lista de espera. No realice el pago todavía.",
+      "failed": "No se pudo completar la inscripción. Inténtelo de nuevo.",
+      "duplicate": "Ya existe una inscripción con este correo para esta sesión."
+      ,"paymentInstructions": "Realice el pago en la cuenta indicada e incluya la referencia de pago. La inscripción quedará pendiente hasta recibir el pago.", "amount": "Importe", "paymentMessage": "Mensaje para el beneficiario", "reference": "Referencia de pago", "beneficiary": "Beneficiario", "qrAlt": "Código QR de pago PAY by square"
+    },
+    "program": { "hallTitle": "Sala principal", "hallSubtitle": "Programa principal", "theatreTitle": "Teatro de títeres", "theatreSubtitle": "Charlas", "capacity": "Capacidad: {capacity} personas" },
     "organizersKicker": "ORGANIZADORES Y SOCIOS",
     "organizersTitle": "Quién está detrás del Día Japonés",
     "openingFrom": "Abierto desde las {time}",
@@ -175,7 +224,7 @@
     "legalInformation": "Información legal",
     "socialLinks": "Web / redes sociales",
     "exhibitorListPending": "Lista en preparación.",
-    "previousYear": "Ediciones anteriores",
+    "previousYear": "",
     "galleryTitle": "Ambiente del Día Japonés",
     "all": "Todo",
     "showPhoto": "Mostrar foto: {alt}",
@@ -201,7 +250,7 @@
     "playVideoLabel": "Reproducir vídeo del Día Japonés del Té y la Cultura",
     "previousYearVideoAlt": "Vídeo de una edición anterior",
     "programPending": "Estamos preparando el programa detallado. Publicaremos progresivamente los horarios exactos y nuevos invitados.",
-    "galleryPending": "Añadiremos pronto fotografías de ediciones anteriores.",
+    "galleryPending": "",
     "galleryCategories": {
       "Program": "Programa",
       "Čaj": "Té",

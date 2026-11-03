@@ -1,11 +1,14 @@
 import React, { useId, useState } from "react";
-import copy from "../data/registration.json";
+import registrationCopy from "../data/registration.json";
 import { registrationLimits, validateRegistration } from "../lib/registration.js";
 import { formatSession } from "../lib/workshops.js";
 import "../styles/registration.css";
 import { workshopApi } from "../lib/workshopApi.js";
+import { useI18n } from "../lib/useI18n.js";
 
 export default function WorkshopRegistrationForm({ workshop, session, copy: workshopCopy, locale }) {
+  const { site } = useI18n();
+  const copy = { ...registrationCopy, ...site.ui.registration, fields: site.ui.registration.fields };
   const id = useId();
   const [values, setValues] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [errors, setErrors] = useState({});

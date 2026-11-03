@@ -23,9 +23,9 @@
   "routes": {
     "/": {
       "title": "Japanischer Tag des Tees und der Kultur 2026 | Považská Bystrica",
-      "description": "Die 3. Ausgabe bringt japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge, Ausstellungen und die Möglichkeit, Japan näher kennenzulernen.",
+      "description": "Die Veranstaltung bringt japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge, Ausstellungen und die Möglichkeit, Japan näher kennenzulernen.",
       "h1": "Japanischer Tag des Tees und der Kultur 2026 | Považská Bystrica",
-      "intro": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "intro": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "schema": [
         "festival",
         "organization"
@@ -44,7 +44,7 @@
     },
     "/ucinkujuci": {
       "title": "Gäste und Mitwirkende | Japan Day Považská Bystrica",
-      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "h1": "Gäste und Mitwirkende",
       "intro": "Gäste und Mitwirkende",
       "breadcrumb": "Gäste und Mitwirkende",
@@ -56,7 +56,7 @@
     },
     "/gastronomia": {
       "title": "Japanische Gastronomie und Tee | Japan Day Považská Bystrica",
-      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "h1": "Japanische Gastronomie und Tee",
       "intro": "Japanische Gastronomie und Tee",
       "breadcrumb": "Japanische Gastronomie und Tee",
@@ -66,7 +66,7 @@
     },
     "/pre-deti": {
       "title": "Für Kinder und Familien | Japan Day Považská Bystrica",
-      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "h1": "Für Kinder und Familien",
       "intro": "Für Kinder und Familien",
       "breadcrumb": "Für Kinder und Familien",
@@ -78,7 +78,7 @@
     },
     "/vystavovatelia": {
       "title": "Aussteller | Japan Day Považská Bystrica",
-      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "h1": "Aussteller",
       "intro": "Aussteller",
       "breadcrumb": "Aussteller",
@@ -88,7 +88,7 @@
     },
     "/prakticke-informacie": {
       "title": "Praktische Informationen | Japan Day Považská Bystrica",
-      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "h1": "Praktische Informationen",
       "intro": "Praktische Informationen",
       "breadcrumb": "Praktische Informationen",
@@ -98,7 +98,7 @@
     },
     "/galeria": {
       "title": "Galerie | Japan Day Považská Bystrica",
-      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "h1": "Galerie",
       "intro": "Galerie",
       "breadcrumb": "Galerie",
@@ -108,9 +108,9 @@
     },
     "/o-podujati": {
       "title": "Über die Veranstaltung | Japan Day Považská Bystrica",
-      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "h1": "Über die Veranstaltung",
-      "intro": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "intro": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "breadcrumb": "Über die Veranstaltung",
       "schema": [
         "breadcrumb"
@@ -118,7 +118,7 @@
     },
     "/kontakt": {
       "title": "Kontakt | Japan Day Považská Bystrica",
-      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "description": "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits am 7. November 2026 nach Považská Bystrica zurück und verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "h1": "Kontakt",
       "intro": "Kontakt",
       "breadcrumb": "Kontakt",

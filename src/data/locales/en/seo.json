@@ -23,7 +23,7 @@
   "routes": {
     "/": {
       "title": "Japanese Tea and Culture Day 2026 | Považská Bystrica",
-      "description": "The 3rd Japanese Tea and Culture Day in Považská Bystrica: gastronomy, tea, ikebana, samurai culture, martial arts, exhibitions and free admission.",
+      "description": "Japanese Tea and Culture Day in Považská Bystrica: gastronomy, tea, ikebana, samurai culture, martial arts, exhibitions and free admission.",
       "h1": "Japanese Tea and Culture Day",
       "intro": "Experience Japan for one day in Považská Bystrica.",
       "schema": [
@@ -110,7 +110,7 @@
       "title": "Gallery | Japanese Tea and Culture Day",
       "description": "Gallery of Japan Day Považská Bystrica.",
       "h1": "Gallery",
-      "intro": "Photos from previous editions will be added.",
+      "intro": "",
       "breadcrumb": "Gallery",
       "schema": [
         "breadcrumb"
@@ -118,7 +118,7 @@
     },
     "/o-podujati": {
       "title": "About the event | Japanese Tea and Culture Day",
-      "description": "The 3rd Japanese Tea and Culture Day in Považská Bystrica.",
+      "description": "Japanese Tea and Culture Day in Považská Bystrica.",
       "h1": "About Japanese Tea and Culture Day",
       "intro": "Festival of Japanese culture, gastronomy and traditions.",
       "breadcrumb": "About",

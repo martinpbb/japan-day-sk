@@ -30,8 +30,8 @@
     "kicker": "7. 11. 2026 • Považská Bystrica",
     "title": "Japanischer Tag des Tees und der Kultur",
     "descriptor": "Festival der japanischen Kultur, Gastronomie und Traditionen",
-    "subtitle": "Die 3. Ausgabe der Veranstaltung bringt japanische Gastronomie, Tee, traditionelle Kunst, Samurai, Kampfkünste, Vorträge, Ausstellungen und die Möglichkeit, Japan aus nächster Nähe kennenzulernen.",
-    "ctaPrimary": "Programm in Vorbereitung",
+    "subtitle": "Die Veranstaltung bringt japanische Gastronomie, Tee, traditionelle Kunst, Samurai, Kampfkünste, Vorträge, Ausstellungen und die Möglichkeit, Japan aus nächster Nähe kennenzulernen.",
+    "ctaPrimary": "Programm ansehen",
     "ctaSecondary": "Praktische Informationen",
     "shortName": "Japan Day Považská Bystrica 2026"
   },
@@ -39,7 +39,7 @@
     "kicker": "Über die Veranstaltung",
     "title": "Japan an einem Ort in Považská Bystrica",
     "paragraphs": [
-      "Der Japanische Tag des Tees und der Kultur kehrt 2026 bereits zum dritten Mal nach Považská Bystrica zurück. Die Veranstaltung verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
+      "Der Japanische Tag des Tees und der Kultur findet am 7. November 2026 in Považská Bystrica statt. Die Veranstaltung verbindet japanische Gastronomie, Tee, traditionelle Kunst, Samurai-Kultur, Kampfkünste, Vorträge und Ausstellungen.",
       "Die Veranstaltung findet am 7. November im Kulturhaus in Považská Bystrica statt. Wir nutzen den großen Saal und das Puppentheater für Auftritte, Präsentationen, den Verkauf japanischer Produkte und Verkostungen.",
       "Den ganzen Tag über können Sie Menschen treffen, die sich seit vielen Jahren mit Japan beschäftigen, authentische Gastronomie und Tees probieren und japanische Kultur aus nächster Nähe erleben."
     ]
@@ -160,8 +160,57 @@
   ],
   "ui": {
     "workshops": {
-      "title": "Workshops", "lecturer": "Kursleitung", "lecturers": "Kursleitung", "duration": "Dauer", "price": "Preis", "time": "Termin", "free": "Kostenlos", "pricePending": "Preis folgt", "sessionPending": "Termin folgt", "registrationOpen": "Anmeldung geöffnet", "registrationClosed": "Anmeldung ist noch nicht geöffnet", "register": "Anmelden", "full": "Ausgebucht", "available": "Freie Plätze", "waitlist": "Warteliste", "capacity": "Kapazität", "people": "Personen", "peopleShort": "Plätze", "sessions": "Termine", "all": "Alle Workshops", "registrationTitle": "Workshop-Anmeldung", "workshop": "Workshop", "location": "Ort", "locationPending": "Wird noch bekannt gegeben", "contactPurpose": "Wir verwenden Ihre Kontaktdaten ausschließlich für Mitteilungen zum Workshop, etwa bei Änderungen von Zeit oder Ort, einer Absage oder einem frei werdenden Platz auf der Warteliste.", "capacityForSession": "{capacity} Personen pro Termin", "pricePerPiece": "ab {price} pro Stück", "walkInNote": "Keine Zeit für eine Anmeldung im Voraus? Kein Problem. Fragen Sie vor Ort die Kursleitung oder das Organisationsteam, ob noch Plätze frei sind. Wenn die Kapazität noch nicht erreicht ist, freuen wir uns, Sie auch ohne vorherige Anmeldung begrüßen zu dürfen."
+      "title": "Workshops",
+      "lecturer": "Kursleitung",
+      "lecturers": "Kursleitung",
+      "duration": "Dauer",
+      "price": "Preis",
+      "time": "Termin",
+      "free": "Kostenlos",
+      "pricePending": "Preis folgt",
+      "sessionPending": "Termin folgt",
+      "registrationOpen": "Anmeldung geöffnet",
+      "registrationClosed": "Anmeldung ist noch nicht geöffnet",
+      "register": "Anmelden",
+      "full": "Ausgebucht",
+      "available": "Freie Plätze",
+      "waitlist": "Warteliste",
+      "capacity": "Kapazität",
+      "people": "Personen",
+      "peopleShort": "Plätze",
+      "sessions": "Termine",
+      "all": "Alle Workshops",
+      "registrationTitle": "Workshop-Anmeldung",
+      "workshop": "Workshop",
+      "location": "Ort",
+      "locationPending": "Wird noch bekannt gegeben",
+      "contactPurpose": "Wir verwenden Ihre Kontaktdaten ausschließlich für Mitteilungen zum Workshop, etwa bei Änderungen von Zeit oder Ort, einer Absage oder einem frei werdenden Platz auf der Warteliste.",
+      "capacityForSession": "{capacity} Personen pro Termin",
+      "pricePerPiece": "ab {price} pro Stück",
+      "walkInNote": "Keine Zeit für eine Anmeldung im Voraus? Kein Problem. Fragen Sie vor Ort die Kursleitung oder das Organisationsteam, ob noch Plätze frei sind. Wenn die Kapazität noch nicht erreicht ist, freuen wir uns, Sie auch ohne vorherige Anmeldung begrüßen zu dürfen."
     },
+    "registration": {
+      "fields": {
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "email": "E-Mail",
+        "phone": "Telefon"
+      },
+      "required": "Bitte füllen Sie dieses Pflichtfeld aus.",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "tooLong": "Maximale Zeichenanzahl: {max}.",
+      "contactPurpose": "Wir verwenden Ihre E-Mail-Adresse und Telefonnummer nur zur Abstimmung rund um den Workshop.",
+      "check": "Angaben prüfen",
+      "submit": "Anmelden",
+      "sending": "Wird gesendet…",
+      "success": "Ihre Anmeldung wurde erfolgreich erstellt.",
+      "registered": "Ihr Platz ist reserviert.",
+      "waitlist": "Sie stehen auf der Warteliste. Bitte noch nicht bezahlen.",
+      "failed": "Die Anmeldung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
+      "duplicate": "Für diesen Termin besteht bereits eine Anmeldung mit dieser E-Mail-Adresse."
+      ,"paymentInstructions": "Überweisen Sie den Betrag auf das angegebene Konto und verwenden Sie den Zahlungsreferenzcode als Verwendungszweck. Die Anmeldung bleibt bis zum Zahlungseingang ausstehend.", "amount": "Betrag", "paymentMessage": "Nachricht an den Empfänger", "reference": "Zahlungsreferenz", "beneficiary": "Empfänger", "qrAlt": "PAY by square Zahlungs-QR-Code"
+    },
+    "program": { "hallTitle": "Großer Saal", "hallSubtitle": "Hauptprogramm", "theatreTitle": "Puppentheater", "theatreSubtitle": "Vorträge", "capacity": "Kapazität: {capacity} Personen" },
     "organizersKicker": "VERANSTALTER UND PARTNER",
     "organizersTitle": "Wer hinter dem Japan-Tag steht",
     "openingFrom": "Geöffnet ab {time}",
@@ -175,7 +224,7 @@
     "legalInformation": "Rechtliche Informationen",
     "socialLinks": "Web / soziale Medien",
     "exhibitorListPending": "Liste in Vorbereitung.",
-    "previousYear": "Frühere Ausgaben",
+    "previousYear": "",
     "galleryTitle": "Atmosphäre des Japan-Tags",
     "all": "Alle",
     "showPhoto": "Foto anzeigen: {alt}",
@@ -201,7 +250,7 @@
     "playVideoLabel": "Video vom Japanischen Tag des Tees und der Kultur abspielen",
     "previousYearVideoAlt": "Video einer früheren Ausgabe",
     "programPending": "Das detaillierte Programm ist in Vorbereitung. Genaue Zeiten und weitere Gäste werden nach und nach veröffentlicht.",
-    "galleryPending": "Fotos früherer Ausgaben werden bald ergänzt.",
+    "galleryPending": "",
     "galleryCategories": {
       "Program": "Programm",
       "Čaj": "Tee",

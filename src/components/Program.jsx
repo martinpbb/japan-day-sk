@@ -5,14 +5,14 @@ import WorkshopsTeaser from "./WorkshopsTeaser.jsx";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
 
-function VenueSchedule({ venue, title, subtitle, capacity, items, performers, locale }) {
+function VenueSchedule({ venue, title, subtitle, capacity, capacityLabel, items, performers, locale }) {
   return (
     <section className="programVenue" aria-labelledby={`venue-${venue}`}>
       <header className="programVenueHeader">
         <MapPin size={19} aria-hidden="true" />
         <div>
           <h2 id={`venue-${venue}`}>{title}</h2>
-          <p>{subtitle}{capacity ? <span className="programCapacity">Kapacita: {capacity} osôb</span> : null}</p>
+          <p>{subtitle}{capacity ? <span className="programCapacity">{capacityLabel.replace("{capacity}", capacity)}</span> : null}</p>
         </div>
       </header>
       <div className="programVenueList">
@@ -39,6 +39,7 @@ function VenueSchedule({ venue, title, subtitle, capacity, items, performers, lo
 
 export default function Program({ includeWorkshopsTeaser = false }) {
   const { locale, site, content } = useI18n();
+  const copy = site.ui.program;
   const route = content.seo.routes["/program"];
   const performers = new Map(content.performers.items.map((item) => [item.id, item]));
   const hall = content.program.items.filter((item) => item.venue === "hall");
@@ -52,8 +53,8 @@ export default function Program({ includeWorkshopsTeaser = false }) {
     <>
       <Section id="program" kicker={route.breadcrumb} title={route.h1} className="sectionTint">
         <div className="programVenues">
-          <VenueSchedule venue="hall" title="Veľký sál" subtitle="Hlavný program" items={hall} performers={performers} locale={locale} />
-          <VenueSchedule venue="theatre" title="Bábkové divadlo" subtitle="Prednášky" capacity={100} items={theatre} performers={performers} locale={locale} />
+          <VenueSchedule venue="hall" title={copy.hallTitle} subtitle={copy.hallSubtitle} items={hall} performers={performers} locale={locale} />
+          <VenueSchedule venue="theatre" title={copy.theatreTitle} subtitle={copy.theatreSubtitle} capacity={100} capacityLabel={copy.capacity} items={theatre} performers={performers} locale={locale} />
         </div>
         {content.program.note ? <p className="infoNote programInfoNote">{content.program.note}</p> : null}
         {content.program.plan ? <section className="programPlanSection" aria-label={content.program.plan.title || content.program.plan.alt}>{content.program.plan.title ? <h2>{content.program.plan.title}</h2> : null}{content.program.plan.description ? <p>{content.program.plan.description}</p> : null}<img className="programPlan" src={content.program.plan.image} alt={content.program.plan.alt} /></section> : null}

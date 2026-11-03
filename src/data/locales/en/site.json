@@ -30,8 +30,8 @@
     "kicker": "7. 11. 2026 • Považská Bystrica",
     "title": "Japan Day of Tea and Culture",
     "descriptor": "Festival of Japanese culture, gastronomy and traditions",
-    "subtitle": "The 3rd edition of the event brings Japanese gastronomy, tea, traditional arts, samurai culture, martial arts, talks, exhibitions and a chance to discover Japan a little more closely.",
-    "ctaPrimary": "Programme coming soon",
+    "subtitle": "The event brings Japanese gastronomy, tea, traditional arts, samurai culture, martial arts, talks, exhibitions and a chance to discover Japan a little more closely.",
+    "ctaPrimary": "View programme",
     "ctaSecondary": "Practical information",
     "shortName": "Japan Day Považská Bystrica 2026"
   },
@@ -39,7 +39,7 @@
     "kicker": "About the event",
     "title": "Japan in one place in Považská Bystrica",
     "paragraphs": [
-      "Japan Day of Tea and Culture returns to Považská Bystrica for the third time in 2026. The event brings together Japanese gastronomy, tea, traditional arts, samurai culture, martial arts, talks and exhibitions.",
+      "Japan Day of Tea and Culture takes place in Považská Bystrica on 7 November 2026. The event brings together Japanese gastronomy, tea, traditional arts, samurai culture, martial arts, talks and exhibitions.",
       "The event will take place on 7 November at the House of Culture in Považská Bystrica. We will use the main hall as well as the puppet theatre, creating space for performances, presentations, Japanese products and tastings.",
       "Throughout the day you can meet people who have dedicated themselves to Japan for many years, taste authentic food and teas, and experience Japanese culture up close."
     ]
@@ -160,8 +160,57 @@
   ],
   "ui": {
     "workshops": {
-      "title": "Workshops", "lecturer": "Lecturer", "lecturers": "Lecturers", "duration": "Duration", "price": "Price", "time": "Time", "free": "Free", "pricePending": "Price to be announced", "sessionPending": "Time to be announced", "registrationOpen": "Registration is open", "registrationClosed": "Registration is not open yet", "register": "Register", "full": "Full", "available": "Places available", "waitlist": "Waiting list", "capacity": "Capacity", "people": "people", "peopleShort": "places", "sessions": "Sessions", "all": "All workshops", "registrationTitle": "Workshop registration", "workshop": "Workshop", "location": "Location", "locationPending": "To be confirmed", "contactPurpose": "We will use your contact details only for communication about the workshop, such as changes to the time or location, cancellation, or a place becoming available from the waiting list.", "capacityForSession": "{capacity} people per session", "pricePerPiece": "from {price} per piece", "walkInNote": "Couldn’t register in advance? No problem. Come to the venue and ask the instructor or organisers whether any places are still available. If capacity has not been reached, we’ll be happy to include you without prior registration."
+      "title": "Workshops",
+      "lecturer": "Lecturer",
+      "lecturers": "Lecturers",
+      "duration": "Duration",
+      "price": "Price",
+      "time": "Time",
+      "free": "Free",
+      "pricePending": "Price to be announced",
+      "sessionPending": "Time to be announced",
+      "registrationOpen": "Registration is open",
+      "registrationClosed": "Registration is not open yet",
+      "register": "Register",
+      "full": "Full",
+      "available": "Places available",
+      "waitlist": "Waiting list",
+      "capacity": "Capacity",
+      "people": "people",
+      "peopleShort": "places",
+      "sessions": "Sessions",
+      "all": "All workshops",
+      "registrationTitle": "Workshop registration",
+      "workshop": "Workshop",
+      "location": "Location",
+      "locationPending": "To be confirmed",
+      "contactPurpose": "We will use your contact details only for communication about the workshop, such as changes to the time or location, cancellation, or a place becoming available from the waiting list.",
+      "capacityForSession": "{capacity} people per session",
+      "pricePerPiece": "from {price} per piece",
+      "walkInNote": "Couldn’t register in advance? No problem. Come to the venue and ask the instructor or organisers whether any places are still available. If capacity has not been reached, we’ll be happy to include you without prior registration."
     },
+    "registration": {
+      "fields": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "phone": "Phone"
+      },
+      "required": "Please complete this required field.",
+      "emailInvalid": "Enter a valid email address.",
+      "tooLong": "Maximum number of characters: {max}.",
+      "contactPurpose": "We use your email and phone only for workshop-related coordination.",
+      "check": "Check details",
+      "submit": "Register",
+      "sending": "Submitting…",
+      "success": "Your registration was created successfully.",
+      "registered": "Your place is reserved.",
+      "waitlist": "You are on the waiting list. Please do not pay yet.",
+      "failed": "We could not complete your registration. Please try again.",
+      "duplicate": "A registration with this email already exists for this session."
+      ,"paymentInstructions": "Send payment to the account shown and use the payment reference as the payment symbol. Registration remains pending until payment is received.", "amount": "Amount", "paymentMessage": "Message to recipient", "reference": "Payment reference", "beneficiary": "Beneficiary", "qrAlt": "PAY by square payment QR code"
+    },
+    "program": { "hallTitle": "Great Hall", "hallSubtitle": "Main programme", "theatreTitle": "Puppet Theatre", "theatreSubtitle": "Talks", "capacity": "Capacity: {capacity} people" },
     "organizersKicker": "ORGANISERS AND PARTNERS",
     "organizersTitle": "Who is behind Japan Day",
     "openingFrom": "Open from {time}",
@@ -175,7 +224,7 @@
     "legalInformation": "Legal information",
     "socialLinks": "Web / social media",
     "exhibitorListPending": "List coming soon.",
-    "previousYear": "Previous editions",
+    "previousYear": "",
     "galleryTitle": "Japan Day atmosphere",
     "all": "All",
     "showPhoto": "Show photo: {alt}",
@@ -201,7 +250,7 @@
     "playVideoLabel": "Play video from Japan Day of Tea and Culture",
     "previousYearVideoAlt": "Video from a previous edition",
     "programPending": "We are preparing the detailed programme. Exact times and additional guests will be announced gradually.",
-    "galleryPending": "Photos from previous editions will be added soon.",
+    "galleryPending": "",
     "galleryCategories": {
       "Program": "Program",
       "Čaj": "Tea",

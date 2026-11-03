@@ -24,84 +24,51 @@ test("@data confirmed Slovak programme contains the complete venue schedule", ()
   for (let index = 1; index < talks.length; index += 1) {
     expect(talks[index].time >= talks[index - 1].endTime).toBeTruthy();
   }
-  expect(talks.map((item: any) => item.time)).toEqual(["11:30", "12:20", "13:10", "14:00", "14:50", "15:40"]);
-  expect(talks.map((item: any) => [item.time, item.performerId, item.title])).toEqual([
-    ["11:30", "hisayo-yasuda", "Príťažlivosť Japonska"],
-    ["12:20", "martin-labudik", "Ako japonský čaj prospieva ľudskému telu"],
-    ["13:10", "japonske-kvety", "Ľaliovky – kúsok Japonska v záhrade i na tanieri"],
-    ["14:00", "akiko-komura", "Shodō: japonská kaligrafia"],
-    ["14:50", "martin-labudik", "Japonský čaj a jeho rozdelenie"],
-    ["15:40", "silvestr-prajer", "Sengoku jidai: obdobie bojujúcich štátov"],
-  ]);
-  expect(talks[3].presenter).toBe("Mgr. Akiko Komura, PhD.");
+  expect(talks.map((item: any) => [item.time, item.performerId])).toEqual([["11:00", "japonske-kvety"], ["11:50", "martin-labudik"], ["12:40", "akiko-komura"], ["14:10", "silvestr-prajer"], ["15:00", "martin-labudik"], ["15:40", "hisayo-yasuda"]]);
+  expect(talks[2].presenter).toBe("Mgr. Akiko Komura, PhD.");
+  expect(data.items.filter((item: any) => item.performerId === "nao-higano").every((item: any) => item.title === "Japonské piesne – vystúpenie sopranistky Nao Higano")).toBeTruthy();
   expect(data.items.some((item: any) => item.title === "Bez pódiového programu")).toBeFalsy();
   expect(data.items.some((item: any) => item.title === "Ako japonský čaj pomáha zdraviu")).toBeFalsy();
-  const gorin = data.items.filter((item: any) => item.performerId === "gorin");
-  const sengoku = talks.find((item: any) => item.performerId === "silvestr-prajer");
-  const tameshigiri = gorin.find((item: any) => item.title.startsWith("Tameshigiri"));
-  expect(tameshigiri.time).toBe(sengoku.endTime);
-  expect(Number(tameshigiri.time.slice(0, 2)) * 60 + Number(tameshigiri.time.slice(3)) - (Number(sengoku.endTime.slice(0, 2)) * 60 + Number(sengoku.endTime.slice(3)))).toBe(0);
+  const tameshigiri = data.items.find((item: any) => item.title.startsWith("Tameshigiri"));
+  expect(tameshigiri.time).toBe("16:20");
 });
 
-test("@data workshop sessions match the confirmed schedule in each locale", () => {
-  const expected: Record<string, [string, number][]> = {
-    japoncina: [["11:00", 45], ["12:15", 45], ["13:30", 45]],
-    origami: [["11:00", 90], ["13:00", 90]],
-    "tsumami-zaiku": [["11:00", 90], ["13:00", 90]],
-    ayatori: [["11:00", 60], ["13:00", 60]],
-    shodo: [["11:00", 90], ["13:00", 90]],
-    kumihimo: [["11:00", 90], ["13:00", 90], ["15:00", 90]],
-    "tvorba-kombiku": [["11:00", 90], ["13:00", 90]],
-    "cajova-degustacia": [["13:30", 45]],
-  };
+test("@data workshop schedules match current approved requirements in every locale", () => {
   for (const locale of ["sk", "en", "de", "es", "ja"]) {
     const data = JSON.parse(fs.readFileSync(path.join(root, locale, "workshops.json"), "utf8"));
-    for (const [id, sessions] of Object.entries(expected)) {
-      const workshop = data.items.find((item: any) => item.id === id);
-      expect(workshop).toBeTruthy();
-      expect(workshop.sessions.map((session: any) => [session.start.slice(11, 16), workshop.durationMinutes])).toEqual(sessions);
-      expect(workshop.sessions.every((session: any) => session.start.endsWith("+01:00"))).toBeTruthy();
-      if (["tvorba-kombiku", "tsumami-zaiku", "ayatori"].includes(id)) expect(workshop.lecturerId).toBe("aiko-bosak");
-    }
     const workshops = Object.fromEntries(data.items.map((item: any) => [item.id, item]));
-    expect(workshops.japoncina.sessions.map((session: any) => session.id)).toEqual(["japoncina-1100", "japoncina-1215", "japoncina-1330"]);
-    expect(workshops.japoncina.durationMinutes).toBe(45);
-    expect(workshops.shodo.sessions[1].start.slice(11, 16)).toBe("13:00");
-    expect(workshops.shodo.durationMinutes).toBe(90);
-    expect(workshops.ayatori.sessions[0].capacity).toBe(10);
-    expect(workshops["cajova-degustacia"]).toMatchObject({ lecturerId: "martin-labudik", durationMinutes: 45, paid: false, priceCents: 0 });
-    expect(workshops.origami.sessions.map((session: any) => session.start)).toEqual(workshops["tsumami-zaiku"].sessions.map((session: any) => session.start));
-    expect(workshops.origami.durationMinutes).toBe(90);
-    expect(workshops["tsumami-zaiku"].durationMinutes).toBe(90);
-    expect(workshops.origami.lecturerId).toBe("asuka-emura");
-    expect(workshops.origami.lecturers).toEqual([
-      { performerId: "asuka-emura", role: "lead" },
-      { performerId: "hisayo-yasuda", role: "support" },
-    ]);
-    expect(workshops.origami.lecturers[0].performerId).not.toBe("aiko-bosak");
-    expect(workshops["tsumami-zaiku"]).toMatchObject({ paid: true, priceCents: 1000, currency: "EUR", lecturerId: "aiko-bosak" });
-    expect(workshops.origami.sessions.every((session: any) => session.areaId === "shared-workshop-area")).toBeTruthy();
-    expect(workshops["tsumami-zaiku"].sessions.every((session: any) => session.areaId === "shared-workshop-area")).toBeTruthy();
-    expect(workshops["tvorba-kombiku"].sessions.every((session: any) => session.areaId === "shared-workshop-area")).toBeTruthy();
-    expect(workshops.ayatori.sessions.every((session: any) => session.areaId === "shared-workshop-area")).toBeTruthy();
-    expect(workshops["cajova-degustacia"].sessions.map((session: any) => session.start.slice(11, 16))).toEqual(["13:30"]);
+    const starts = (id: string) => workshops[id].sessions.map((session: any) => session.start.slice(11, 16));
+    expect(starts("japoncina")).toEqual(["11:00", "13:00", "15:00"]);
+    expect(workshops.japoncina).toMatchObject({ lecturerId: "hisayo-yasuda", durationMinutes: 30 });
+    expect(workshops.japoncina.sessions.map((session: any) => session.capacity)).toEqual([15, 15, 15]);
+    expect(workshops["tsumami-zaiku"]).toMatchObject({ lecturerId: "hisayo-yasuda", durationMinutes: 30 });
+    expect(workshops["tsumami-zaiku"].sessions.map((session: any) => session.capacity)).toEqual([2, 2]);
+    expect(workshops.ayatori).toMatchObject({ lecturerId: "hisayo-yasuda", durationMinutes: 30 });
+    expect(workshops.ayatori.sessions.map((session: any) => session.capacity)).toEqual([10, 10]);
+    expect(workshops.kumihimo.durationMinutes).toBe(45);
+    expect(workshops.kumihimo.sessions).toHaveLength(4);
+    expect(workshops.kumihimo.sessions.map((session: any) => session.capacity)).toEqual([10, 10, 10, 10]);
+    expect(workshops["tvorba-kombiku"]).toMatchObject({ durationMinutes: 15, registrationRequired: false });
+    expect(workshops["tvorba-kombiku"].availabilityWindow).toMatch(/^11:00.*14:30$/);
+    expect(workshops["tvorba-kombiku"].priceDisplay).toMatch(/2/);
+    expect(workshops["tvorba-kombiku"].sessions).toHaveLength(1);
+    expect(workshops["cajova-degustacia"]).toMatchObject({ durationMinutes: 45 });
+    expect(workshops["cajova-degustacia"].sessions[0].capacity).toBe(15);
+    expect(data.items.every((workshop: any) => workshop.sessions.every((session: any) => session.start.endsWith("+01:00")))).toBeTruthy();
   }
 });
 
-test("@data reports real lecturer conflicts and the zero-buffer warning without treating intentional sharing as a conflict", () => {
+test("@data confirms Hisayo has no overlapping lead activities", () => {
   const workshops = JSON.parse(fs.readFileSync(path.join(root, "sk", "workshops.json"), "utf8")).items;
-  const byId = Object.fromEntries(workshops.map((item: any) => [item.id, item]));
-  const theatre = read("sk").items.filter((item: any) => item.venue === "theatre");
-  const overlaps = (startA: string, durationA: number, startB: string, durationB: number) => {
-    const minutes = (time: string) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3));
-    return minutes(startA) < minutes(startB) + durationB && minutes(startB) < minutes(startA) + durationA;
-  };
-
-  expect(overlaps(byId.japoncina.sessions[0].start.slice(11, 16), 45, theatre[0].time, 40)).toBeTruthy();
-  expect(overlaps(byId.shodo.sessions[1].start.slice(11, 16), 90, theatre[3].time, 40)).toBeTruthy();
-  expect(overlaps(byId.origami.sessions[0].start.slice(11, 16), 90, byId.japoncina.sessions[0].start.slice(11, 16), 45)).toBeTruthy();
-  expect(byId.origami.lecturers.find((person: any) => person.performerId === "hisayo-yasuda").role).toBe("support");
-  expect(byId.origami.sessions[0].areaId).toBe(byId["tsumami-zaiku"].sessions[0].areaId);
-  expect(theatre[5].endTime).toBe("16:20");
-  expect(read("sk").items.find((item: any) => item.title.startsWith("Tameshigiri")).time).toBe("16:20");
+  const activities: { start: number; end: number; support: boolean }[] = [];
+  const minute = (value: string) => Number(value.slice(0, 2)) * 60 + Number(value.slice(3, 5));
+  for (const workshop of workshops) {
+    const lead = workshop.lecturerId === "hisayo-yasuda";
+    const support = workshop.lecturers?.some((lecturer: any) => lecturer.performerId === "hisayo-yasuda" && lecturer.role === "support");
+    if (!lead && !support) continue;
+    for (const session of workshop.sessions) activities.push({ start: minute(session.start.slice(11, 16)), end: minute(session.start.slice(11, 16)) + workshop.durationMinutes, support: !lead && !!support });
+  }
+  for (const item of read("sk").items) if (item.performerId === "hisayo-yasuda") activities.push({ start: minute(item.time), end: minute(item.endTime), support: false });
+  const conflicts = activities.flatMap((a, i) => activities.slice(i + 1).filter(b => a.start < b.end && b.start < a.end && !a.support && !b.support));
+  expect(conflicts).toEqual([]);
 });

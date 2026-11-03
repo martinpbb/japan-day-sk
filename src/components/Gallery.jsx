@@ -16,7 +16,7 @@ export default function Gallery() {
   const labels = { all: ui.all, ...Object.fromEntries(Object.entries(ui.galleryCategories || {}).map(([label, value]) => [categoryKeys[label] || label, value])) };
 
   return (
-    <Section id="fotky" kicker={ui.previousYear} title={ui.galleryTitle}>
+    <Section id="fotky" kicker={ui.galleryTitle} title={ui.galleryTitle}>
       {!items.length ? <div className="emptyState"><strong>{ui.galleryPending}</strong></div> : <>
         <div className="filters">{categories.map((key) => <button className={active === key ? "active" : ""} key={key} onClick={() => setActive(key)}>{labels[key] || key}</button>)}</div>
         <div className="galleryGrid">{visible.map((item) => <button type="button" className="galleryItem" key={item.id} onClick={() => setSelected(item)} aria-label={ui.showPhoto.replace("{alt}", item.alt)}><ImageWithFallback src={item.src} alt={item.alt} className="galleryImage" /></button>)}</div>

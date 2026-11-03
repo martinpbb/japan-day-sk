@@ -45,7 +45,7 @@ test.describe("@ui workshop interface localization", () => {
     await expect(page.locator(".workshopCard").first()).toContainText(copy.duration);
     await expect(page.locator(".workshopCard").first()).toContainText(copy.price);
     await expect(page.locator(".workshopCard").first()).toContainText(copy.time);
-    await expect(page.locator(".workshopCard").filter({ hasText: "Ayatori あやとり" }).locator(".workshopFacts")).toContainText(copy.free);
+    await expect(page.locator('a.workshopCard[href$="/workshopy/ayatori"]').locator(".workshopFacts")).toContainText(copy.free);
     if (locale !== "sk") await expect(page.locator(".workshopGrid")).not.toContainText(copy.forbidden);
     await page.goto(prefixFor(locale, "/workshopy/ayatori"), { waitUntil: "domcontentloaded" });
     await expect(page.locator(".workshopDetailFacts")).toContainText(copy.lecturer);
