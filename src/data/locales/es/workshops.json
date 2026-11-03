@@ -14,7 +14,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 30,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -51,7 +51,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 30,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -115,7 +115,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 90,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -188,7 +188,7 @@
       "priceCents": 1000,
       "currency": "EUR",
       "durationMinutes": 30,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -221,7 +221,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 30,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -249,13 +249,13 @@
       "short": "Taller de trenzado tradicional japonés de cordones.",
       "description": "Taller de trenzado tradicional japonés de cordones dirigido por Mgr. Ivana Mičkalová. El taller es gratuito. La capacidad y las condiciones de inscripción se añadirán más adelante.",
       "image": "",
-      "registrationRequired": null,
+      "registrationRequired": true,
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 45,
-      "registrationOpen": false,
-      "waitlistEnabled": false,
+      "registrationOpen": true,
+      "waitlistEnabled": true,
       "sessions": [
         {
           "id": "kumihimo-1100",
@@ -302,7 +302,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 45,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {

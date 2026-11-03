@@ -33,7 +33,7 @@ for (const locale of localeCodes) {
     for (const [id, count, minutes, capacity, lecturer] of [
       ['japoncina', 3, 30, null, 'hisayo-yasuda'], ['tsumami-zaiku', 2, 30, 2, 'hisayo-yasuda'],
       ['ayatori', 2, 30, 10, 'hisayo-yasuda'], ['kumihimo', 4, 45, 10, null],
-      ['cajova-degustacia', 1, 45, 15, 'martin-labudik'], ['shodo', 3, 90, 20, 'akiko-komura'],
+      ['cajova-degustacia', 2, 45, 15, 'martin-labudik'], ['shodo', 3, 90, 20, 'akiko-komura'],
     ] as const) {
       const w = items.find((p: any) => p.id === id); expect(w, id).toBeTruthy();
       expect.soft(w.sessions.length, id).toBe(count); expect.soft(w.durationMinutes, id).toBe(minutes);

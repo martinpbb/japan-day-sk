@@ -43,6 +43,7 @@ export default function WorkshopRegistrationForm({ workshop, session, copy: work
         <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
     </dl>
     {!open ? <p>{workshopCopy.registrationClosed}</p> : null}
+    {workshop.registrationOpen ? <p className="workshopRegistrationState">{workshopCopy.registrationOpen}</p> : null}
     <p id={`${id}-purpose`}>{workshopCopy.contactPurpose}</p>
     {result ? <div role="status">
       <p>{copy.success}</p><p>{result.status === 'waitlist' ? copy.waitlist : copy.registered}</p>

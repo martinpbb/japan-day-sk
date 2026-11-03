@@ -3,8 +3,12 @@ import Section from "./Section.jsx";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
 import { formatDuration, formatSession, lecturerRoleLabel, workshopPrice, workshopLecturers } from "../lib/workshops.js";
+import { useWorkshopAvailability } from "../lib/workshopApi.js";
 
 function WorkshopCard({ workshop, lecturers, locale, copy }) {
+  const live = useWorkshopAvailability(workshop.registrationRequired === false ? null : workshop.slug);
+  const open = workshop.registrationRequired !== false && workshop.registrationOpen !== false;
+
   const people = workshopLecturers(workshop, lecturers);
   return <a className="performerCard performerCardLink workshopCard" href={addLocalePrefix(`/workshopy/${workshop.slug || workshop.id}`, locale)}>
     {workshop.image ? <img className="workshopImage" src={workshop.image} alt="" loading="lazy" /> : null}
@@ -19,7 +23,7 @@ function WorkshopCard({ workshop, lecturers, locale, copy }) {
         <div><dt>{copy.time}</dt><dd>{workshop.availabilityWindow || (workshop.sessions?.length ? workshop.sessions.map((session) => formatSession(session, workshop.durationMinutes, locale)).join(", ") : copy.sessionPending)}</dd></div>
       </dl>
       {workshop.availabilityNote ? <p className="workshopAvailabilityNote">{workshop.availabilityNote}</p> : null}
-      {workshop.registrationRequired !== false ? <span className="workshopRegistrationState">{workshop.registrationOpen ? copy.registrationOpen : copy.registrationClosed}</span> : null}
+      {workshop.registrationRequired !== false ? <span className="workshopRegistrationState">{open ? copy.registrationOpen : copy.registrationClosed}</span> : null}
     </div>
   </a>;
 }

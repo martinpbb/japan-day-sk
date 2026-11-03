@@ -12,8 +12,9 @@ export default function WorkshopDetail({ workshop }) {
   const copy = site.ui.workshops;
   const dropIn = workshop.registrationRequired === false;
   const live = useWorkshopAvailability(dropIn ? null : workshop.slug);
-  const sessions = !dropIn && live ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: false }));
-  const registrationWorkshop = { ...workshop, ...(live ? { paid: live.price_cents > 0, priceCents: live.price_cents, currency: live.currency } : {}), registrationOpen: !!live };
+  const sessions = !dropIn && live?.sessions?.length ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: false }));
+  const registrationWorkshop = { ...workshop, ...(live ? { paid: live.price_cents > 0, priceCents: live.price_cents, currency: live.currency } : {}), registrationOpen: workshop.registrationOpen };
+  const registrationOpen = !dropIn && registrationWorkshop.registrationOpen;
   const [selectedId, setSelectedId] = useState(sessions[0]?.id || "");
   const selectedSession = sessions.find((session) => session.id === selectedId) || sessions[0] || null;
   const people = workshopLecturers(workshop, content.performers.items);
@@ -37,7 +38,7 @@ export default function WorkshopDetail({ workshop }) {
           <input type="radio" name="workshop-session" value={session.id} checked={session.id === (selectedSession?.id || "")} onChange={() => setSelectedId(session.id)} />
           <span><strong>{formatSession(session, workshop.durationMinutes, locale)}</strong>{session.location ? <span>{session.location}</span> : null}{session.capacity != null ? <span>{session.remaining_capacity == null ? `${copy.capacity}: ${session.capacity}` : session.remaining_capacity === 0 ? copy.full : `${session.remaining_capacity} ${copy.peopleShort}`}</span> : null}</span>
         </label>) : <p>{copy.sessionPending}</p>}
-        {!dropIn && !registrationWorkshop.registrationOpen ? <p className="workshopRegistrationState">{copy.registrationClosed}</p> : null}
+        {!dropIn ? <p className="workshopRegistrationState">{registrationOpen ? copy.registrationOpen : copy.registrationClosed}</p> : null}
       </section>
     </div>
     {!dropIn ? <WorkshopRegistrationForm key={selectedSession?.id || "none"} workshop={registrationWorkshop} session={selectedSession} copy={copy} locale={locale} /> : null}

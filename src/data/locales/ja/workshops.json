@@ -14,7 +14,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 30,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -51,7 +51,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 30,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -115,7 +115,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 90,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -188,7 +188,7 @@
       "priceCents": 1000,
       "currency": "EUR",
       "durationMinutes": 30,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -221,7 +221,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 30,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
@@ -249,13 +249,13 @@
       "short": "日本の伝統的な組紐づくりを体験するワークショップです。",
       "description": "Mgr. Ivana Mičkalováの指導による、日本の伝統的な組紐づくりのワークショップです。参加は無料です。定員と登録条件は後日ご案内します。",
       "image": "",
-      "registrationRequired": null,
+      "registrationRequired": true,
       "paid": false,
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 45,
-      "registrationOpen": false,
-      "waitlistEnabled": false,
+      "registrationOpen": true,
+      "waitlistEnabled": true,
       "sessions": [
         {
           "id": "kumihimo-1100",
@@ -302,7 +302,7 @@
       "priceCents": 0,
       "currency": "EUR",
       "durationMinutes": 45,
-      "registrationOpen": false,
+      "registrationOpen": true,
       "waitlistEnabled": true,
       "sessions": [
         {
