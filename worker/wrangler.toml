@@ -5,7 +5,7 @@ preview_urls = false
 compatibility_date = "2026-10-29"
 
 [vars]
-ACCESS_TEAM_DOMAIN = "YOUR-TEAM.cloudflareaccess.com"
+ACCESS_TEAM_DOMAIN = "twilight-tree-b175.cloudflareaccess.com"
 # Set ACCESS_AUD as a Worker secret/var from the Cloudflare Access application.
 
 [[d1_databases]]

@@ -23,8 +23,8 @@ test('@ui admin routes are public shells and offer Access sign-in when unauthent
     const response = await page.goto(path, { waitUntil: 'domcontentloaded' });
     expect(response?.status()).toBe(200);
     await expect(page.getByRole('heading', { name: 'Workshop dashboard' })).toBeVisible();
-    await expect(page.getByRole('alert')).toContainText('You need to sign in to access workshop data.');
-    await expect(page.getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', 'https://api.japanday.sk/api/admin/summary');
+    await expect(page.getByRole('alert')).toContainText('Na prístup k údajom workshopov sa prihláste.');
+    await expect(page.getByRole('link', { name: 'Prihlásiť sa' })).toHaveAttribute('href', 'https://api.japanday.sk/api/admin/summary');
     expect(await page.locator('body').innerText()).not.toContain('attendee@example.com');
   }
 
@@ -47,28 +47,46 @@ test('@ui admin distinguishes authorization denial and API/Access fetch failure'
     body: JSON.stringify({ ok: false, error: { code: 'FORBIDDEN' } }),
   }));
   await page.goto('/admin/');
-  await expect(page.getByRole('alert')).toContainText('Your account is not authorized');
-  await expect(page.getByRole('link', { name: 'Sign in' })).toHaveCount(0);
+  await expect(page.getByRole('alert')).toContainText('Váš účet nemá oprávnenie');
+  await expect(page.getByRole('link', { name: 'Prihlásiť sa' })).toHaveCount(0);
 
   await page.unrouteAll();
   await page.route('https://api.japanday.sk/api/admin/**', route => route.abort('failed'));
   await page.goto('/admin/');
-  await expect(page.getByRole('alert')).toContainText('Could not reach the admin API');
-  await expect(page.getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', 'https://api.japanday.sk/api/admin/summary');
+  await expect(page.getByRole('alert')).toContainText('Administračné rozhranie sa nepodarilo načítať');
+  await expect(page.getByRole('link', { name: 'Prihlásiť sa' })).toHaveAttribute('href', 'https://api.japanday.sk/api/admin/summary');
 });
 
 test('@ui admin workshop and session details render protected data', async ({ page }) => {
   await page.route('https://api.japanday.sk/api/admin/**', async route => {
     const url = new URL(route.request().url());
     const data = url.pathname.endsWith('/registrations')
-      ? { session: { id: 'japoncina-1100', start_at: '2026-11-07 11:00', capacity: 1, registered_count: 1, waitlist_count: 0, available: 0 }, registrations: [{ first_name: 'Test', last_name: 'Person', email: 'person@example.com', phone: '123', status: 'registered', payment_status: 'free', created_at: '2026-01-01' }] }
-      : { workshop: { id: 'japoncina', title: 'Workshop One', lecturer: 'Lecturer', location: 'Hall', short_description: 'Description' }, sessions: [{ id: 'japoncina-1100', start_at: '2026-11-07 11:00', capacity: 1, registered_count: 1, waitlist_count: 0, available: 0 }] };
+      ? { session: { id: 'japoncina-1100', workshop_id: 'japoncina', start_at: '2026-11-07 11:00', end_at: '2026-11-07 12:30', capacity: 15, registered_count: 4, waitlist_count: 0, available: 11 }, registrations: [{ first_name: 'Test', last_name: 'Person', email: 'person@example.com', phone: '+421 900 000 000', status: 'registered', payment_status: 'free', created_at: '2026-11-03 08:56:38' }] }
+      : { workshop: { id: 'japoncina', title: 'Shodō – japonská kaligrafia', lecturer: 'Lecturer', location: 'Hall', short_description: 'Description' }, sessions: [{ id: 'japoncina-1100', start_at: '2026-11-07 11:00', end_at: '2026-11-07 12:30', capacity: 15, registered_count: 4, waitlist_count: 0, available: 11 }] };
     await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ok: true, data }) });
   });
   await page.goto('/admin/workshops/japoncina/');
-  await expect(page.getByRole('heading', { name: 'Workshop One' })).toBeVisible();
-  await expect(page.getByRole('link', { name: /2026-11-07/ })).toHaveAttribute('href', '/admin/sessions/japoncina-1100/');
+  await expect(page.getByRole('heading', { name: 'Shodō – japonská kaligrafia' })).toBeVisible();
+  await expect(page.getByRole('link', { name: '← Späť na workshopy' })).toHaveAttribute('href', '/admin/workshops/');
+  await expect(page.getByRole('link', { name: /7\. 11\. 2026/ })).toHaveAttribute('href', '/admin/sessions/japoncina-1100/');
+  await expect(page.getByText('11 voľných miest')).toBeVisible();
   await page.goto('/admin/sessions/japoncina-1100/');
-  await expect(page.getByRole('cell', { name: 'person@example.com' })).toBeVisible();
-  await expect(page.getByText('Registered: 1 / 1')).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Shodō – japonská kaligrafia.*7\. 11\. 2026/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: '← Späť na Shodō – japonská kaligrafia' })).toHaveAttribute('href', '/admin/workshops/japoncina/');
+  await expect(page.getByText('11:00–12:30')).toBeVisible();
+  await expect(page.locator('main')).not.toContainText(/2026-11-07T/);
+  await expect(page.getByText('4 / 15 registrovaných')).toBeVisible();
+  await expect(page.getByRole('columnheader', { name: 'Meno' })).toBeVisible();
+  await expect(page.getByRole('columnheader', { name: 'Priezvisko' })).toBeVisible();
+  await expect(page.getByRole('columnheader', { name: 'E-mail' })).toBeVisible();
+  await expect(page.getByRole('columnheader', { name: 'Telefón' })).toBeVisible();
+  await expect(page.getByRole('columnheader', { name: 'Stav' })).toBeVisible();
+  await expect(page.getByRole('columnheader', { name: 'Platba' })).toBeVisible();
+  await expect(page.getByRole('columnheader', { name: 'Registrovaný' })).toBeVisible();
+  await expect(page.getByRole('cell', { name: 'Registrovaný' })).toBeVisible();
+  await expect(page.getByRole('cell', { name: 'Bezplatné' })).toBeVisible();
+  await expect(page.getByRole('cell', { name: '3. 11. 2026, 08:56' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'person@example.com' })).toHaveAttribute('href', 'mailto:person@example.com');
+  await expect(page.getByRole('link', { name: '+421 900 000 000' })).toHaveAttribute('href', 'tel:+421 900 000 000');
+  await expect(page.getByRole('link', { name: 'Stiahnuť CSV' })).toHaveAttribute('href', 'https://api.japanday.sk/api/admin/sessions/japoncina-1100/export.csv');
 });

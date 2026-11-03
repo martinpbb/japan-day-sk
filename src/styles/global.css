@@ -1859,10 +1859,44 @@ button {
 @media (max-width: 760px) {
   .exhibitorDetailBody, .exhibitorDetailGallery { grid-template-columns: minmax(0, 1fr); }
 }
-.adminDashboard { max-width: 1180px; margin: 0 auto; padding: 48px 24px; min-height: 70vh; }
-.adminDashboard nav { margin: 16px 0 32px; }
-.adminDashboard li { margin: 12px 0; }
+.adminDashboard { max-width: 1180px; margin: 0 auto; padding: clamp(28px, 5vw, 52px) 24px; min-height: 70vh; color: var(--ink); }
+.adminDashboard nav.adminBreadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 16px 0 24px; color: var(--muted); font-size: .94rem; }
 .adminDashboard a { color: var(--red); }
-.adminTableWrap { overflow-x: auto; }
-.adminDashboard table { width: 100%; border-collapse: collapse; text-align: left; }
-.adminDashboard th, .adminDashboard td { padding: 10px; border-bottom: 1px solid #ddd; }
+.adminDashboard a:focus-visible, .adminTableWrap:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+.adminBackLink { display: inline-block; margin: 0 0 28px; font-weight: 700; text-underline-offset: 4px; }
+.adminWorkshopMeta { color: var(--muted); }
+.adminWorkshopList { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.adminWorkshopRow { display: flex; flex-direction: column; gap: 4px; padding: 16px 12px; border-bottom: 1px solid var(--line); }
+.adminWorkshopRow span { color: var(--muted); font-size: .94rem; }
+.adminSessionList { display: grid; gap: 12px; }
+.adminSessionCard { display: grid; grid-template-columns: minmax(90px, .45fr) minmax(120px, .6fr) 1.5fr; align-items: center; gap: 16px; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); color: var(--ink) !important; text-decoration: none; transition: border-color .15s ease, background-color .15s ease; }
+.adminSessionCard:hover { border-color: var(--red); background: var(--paper-2); }
+.adminSessionCard__date { color: var(--muted); font-size: .94rem; }
+.adminSessionCard__time { font-size: 1.1rem; }
+.adminOccupancy { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 14px 0; }
+.adminOccupancy span { color: var(--muted); }
+.adminOccupancy strong { color: var(--ink); }
+.adminOccupancy--compact { justify-content: flex-end; margin: 0; font-size: .88rem; }
+.adminSessionHeader { margin: 22px 0; padding: 20px 22px; border-left: 4px solid var(--red); border-radius: 0 var(--radius) var(--radius) 0; background: var(--paper-2); }
+.adminSessionHeader h3 { margin: 0; font-size: clamp(1.2rem, 2.5vw, 1.65rem); }
+.adminSessionHeader .adminOccupancy { margin-bottom: 0; }
+.adminCsvLink { display: inline-block; margin: 0 0 14px; font-weight: 700; }
+.adminTableWrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); -webkit-overflow-scrolling: touch; }
+.adminDashboard table { width: 100%; min-width: 780px; border-collapse: separate; border-spacing: 0; text-align: left; }
+.adminDashboard th, .adminDashboard td { padding: 13px 15px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.adminDashboard th { background: var(--paper-2); color: var(--ink); font-size: .88rem; font-weight: 700; white-space: nowrap; }
+.adminDashboard tbody tr:nth-child(even) { background: color-mix(in srgb, var(--paper-2) 45%, white); }
+.adminDashboard tbody tr:hover { background: color-mix(in srgb, var(--paper-2) 75%, white); }
+.adminDashboard tbody tr:last-child td { border-bottom: 0; }
+.adminDashboard td a { text-underline-offset: 3px; }
+.adminBadge { display: inline-block; padding: 4px 9px; border: 1px solid currentColor; border-radius: 999px; font-size: .82rem; font-weight: 650; white-space: nowrap; }
+.adminBadge--registration { color: #286241; background: #eaf4ed; }
+.adminBadge--payment { color: #75500a; background: #fff5d9; }
+.adminSummary { padding: 16px 18px; border-radius: var(--radius); background: var(--paper-2); }
+@media (max-width: 760px) {
+  .adminDashboard { padding-right: 16px; padding-left: 16px; }
+  .adminSessionCard { grid-template-columns: 1fr auto; gap: 8px 12px; }
+  .adminSessionCard__time { text-align: right; }
+  .adminSessionCard .adminOccupancy { grid-column: 1 / -1; justify-content: flex-start; }
+  .adminSessionHeader { padding: 17px; }
+}
