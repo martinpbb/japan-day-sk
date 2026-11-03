@@ -3,10 +3,8 @@ import Section from "./Section.jsx";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
 import { formatDuration, formatSession, lecturerRoleLabel, workshopPrice, workshopLecturers } from "../lib/workshops.js";
-import { useWorkshopAvailability } from "../lib/workshopApi.js";
 
 function WorkshopCard({ workshop, lecturers, locale, copy }) {
-  const live = useWorkshopAvailability(workshop.registrationRequired === false ? null : workshop.slug);
   const open = workshop.registrationRequired !== false && workshop.registrationOpen !== false;
 
   const people = workshopLecturers(workshop, lecturers);
