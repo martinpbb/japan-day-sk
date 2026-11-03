@@ -12,21 +12,33 @@ The Worker runs separately from the React/Vite frontend. It binds the existing p
 
 When ready, run `npm run worker:deploy`. This targets the existing Worker `japanday-workshops-api` and its existing D1 binding.
 
-**Do not run the production migration again.** `migrations/0001_initial.sql` is historical: its integer registration IDs differ from the confirmed production TEXT IDs. Migration `0002` reconciles both starting points; do not replay `0001` remotely.
+## Production migration ledger repair
 
-To synchronize the tea tasting sessions, inspect current rows and linked registrations first, then apply the additive migration and deploy the Worker:
+Production currently has the application schema but no applied migration
+records. The fresh local D1 chain (`0001` through `0004`) has been verified and
+matches the inspected production application schema. `0002` remains unchanged:
+it was previously executed directly against production, even though Wrangler's
+migration ledger is empty. The recommended repair is to drop only the four empty
+application schema is structurally equivalent to the schema after `0001` through
+`0003`, and all application tables are empty. The recommended repair is to record
+those three migrations as reconciled, then let Wrangler run `0004` normally.
+
+Do not execute these commands until the schema comparison and zero-row audit in
+`docs/notes/workshop-migration-chain-repair.md` have been reviewed. They preserve
+This intentionally inserts migration history, which is justified by the exact
+schema comparison. Confirm the ledger is empty first. These commands preserve
+all existing application tables and Cloudflare-managed objects:
 
 ```sh
-npx wrangler d1 execute japanday-workshops --remote --command "SELECT w.slug, s.id, s.start_at, s.capacity, s.active, s.registration_open, COUNT(r.id) AS registration_count FROM workshop_sessions s JOIN workshops w ON w.id = s.workshop_id LEFT JOIN registrations r ON r.session_id = s.id WHERE w.slug = 'cajova-degustacia' GROUP BY s.id ORDER BY s.start_at;" --config worker/wrangler.toml
-npx wrangler d1 execute japanday-workshops --remote --file worker/migrations/0003_tea_tasting_sessions.sql --config worker/wrangler.toml
-npm run worker:deploy
+npx.cmd wrangler d1 execute japanday-workshops --remote --command "SELECT name FROM d1_migrations ORDER BY name;" --config worker/wrangler.toml
+npx.cmd wrangler d1 execute japanday-workshops --remote --command "INSERT INTO d1_migrations (name) VALUES ('0001_initial.sql'), ('0002_workshop_sessions_and_payments.sql'), ('0003_tea_tasting_sessions.sql');" --config worker/wrangler.toml
+npx.cmd wrangler d1 migrations apply japanday-workshops --remote --config worker/wrangler.toml
 ```
 
-`0003` is additive and safe to rerun. It replaces the stale ID with the canonical 14:00 session, preserves linked registration references, and aborts if both stale and canonical rows coexist with stale registrations. If that guard aborts, reconcile those registration rows deliberately before retrying; do not bypass the guard.
+No Worker deployment is part of this database repair.
 ## Session registration and payments (local implementation)
 
-Apply migrations in order only after review; this task does not authorize remote
-migration or deployment. `0002` preserves historical registrations with null
+Apply historical migrations only after schema review. `0002` preserves historical registrations with null
 sessions, requires sessions for new inserts, and replaces workshop-wide duplicate
 protection with normalized session/email uniqueness. No sessions are invented or
 seeded. It rebuilds registrations with explicit TEXT UUID IDs, required phone,

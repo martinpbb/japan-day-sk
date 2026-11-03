@@ -1,7 +1,8 @@
 -- Synchronize the owner-confirmed tea tasting schedule with the public workshop data.
 PRAGMA defer_foreign_keys = ON;
 -- Refuse ambiguous merges instead of losing registration or uniqueness data.
-CREATE TEMP TABLE tea_session_merge_guard (valid INTEGER NOT NULL CHECK (valid = 1));
+-- D1 does not authorize TEMP tables; this transient helper is dropped below.
+CREATE TABLE tea_session_merge_guard (valid INTEGER NOT NULL CHECK (valid = 1));
 INSERT INTO tea_session_merge_guard
 SELECT CASE WHEN
   EXISTS (SELECT 1 FROM workshop_sessions WHERE id = 'cajova-degustacia-1330')

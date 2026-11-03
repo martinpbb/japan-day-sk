@@ -7,15 +7,35 @@ import { join } from 'node:path';
 import { decode } from 'bysquare/pay';
 import worker from './worker.js';
 import workshopData from '../../src/data/locales/sk/workshops.json' with { type: 'json' };
+import workshopDataEn from '../../src/data/locales/en/workshops.json' with { type: 'json' };
+import workshopDataEs from '../../src/data/locales/es/workshops.json' with { type: 'json' };
+import workshopDataDe from '../../src/data/locales/de/workshops.json' with { type: 'json' };
+import workshopDataJa from '../../src/data/locales/ja/workshops.json' with { type: 'json' };
+
+const localizedWorkshopData = [workshopData, workshopDataEn, workshopDataEs, workshopDataDe, workshopDataJa];
+
+function registrationStructure(data) {
+  return data.items.map(workshop => ({
+    id: workshop.id,
+    slug: workshop.slug,
+    registrationRequired: workshop.registrationRequired ?? false,
+    registrationOpen: workshop.registrationOpen ?? false,
+    waitlistEnabled: workshop.waitlistEnabled ?? false,
+    durationMinutes: workshop.durationMinutes,
+    sessions: (workshop.sessions || []).map(({ id, start, capacity }) => ({ id, start, capacity }))
+      .sort((a, b) => a.id.localeCompare(b.id)),
+  })).sort((a, b) => a.id.localeCompare(b.id));
+}
 
 function setup() {
   const sqlite = new DatabaseSync(':memory:');
   sqlite.exec('PRAGMA foreign_keys = ON');
   sqlite.exec(readFileSync(new URL('../migrations/0001_initial.sql', import.meta.url), 'utf8'));
   sqlite.exec(readFileSync(new URL('../migrations/0002_workshop_sessions_and_payments.sql', import.meta.url), 'utf8'));
-  sqlite.exec(`INSERT INTO workshops (slug,title,lecturer,short_description,description,start_at,end_at,location,capacity,price_cents,registration_open)
-    VALUES ('test','Test','Test','Test','Test','2027-01-01','2027-01-01','Test',99,1250,1);
-    INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('s1','1','2027-01-01',1), ('s2','1','2027-01-01',2);`);
+  sqlite.exec(readFileSync(new URL('../migrations/0003_tea_tasting_sessions.sql', import.meta.url), 'utf8'));
+  sqlite.exec(`INSERT INTO workshops (id,slug,title,lecturer,short_description,description,start_at,end_at,location,capacity,price_cents,registration_open)
+    VALUES ('test-workshop','test','Test','Test','Test','Test','2027-01-01','2027-01-01','Test',99,1250,1);
+    INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('s1','test-workshop','2027-01-01',1), ('s2','test-workshop','2027-01-01',2);`);
   function prepare(sql) {
     let args = [];
     return {
@@ -112,15 +132,15 @@ test('migration preserves historical data, indexes and foreign keys', () => {
   const db = new DatabaseSync(':memory:');
   db.exec('PRAGMA foreign_keys = ON');
   db.exec(readFileSync(new URL('../migrations/0001_initial.sql', import.meta.url), 'utf8'));
-  db.exec(`INSERT INTO workshops (slug,title,lecturer,short_description,description,start_at,end_at,location,capacity)
-    VALUES ('legacy','Legacy','Legacy','Legacy','Legacy','2027','2027','Legacy',1);
-    INSERT INTO registrations (workshop_id,first_name,last_name,email) VALUES (1,'Legacy','User','legacy@example.com');`);
+  db.exec(`INSERT INTO workshops (id,slug,title,lecturer,short_description,description,start_at,end_at,location,capacity)
+    VALUES ('legacy-workshop','legacy','Legacy','Legacy','Legacy','Legacy','2027','2027','Legacy',1);
+    INSERT INTO registrations (id,workshop_id,first_name,last_name,email) VALUES ('legacy-registration','legacy-workshop','Legacy','User','legacy@example.com');`);
   db.exec(readFileSync(new URL('../migrations/0002_workshop_sessions_and_payments.sql', import.meta.url), 'utf8'));
   assert.equal(db.prepare('SELECT email FROM registrations').get().email, 'legacy@example.com');
   assert.equal(db.prepare('SELECT session_id FROM registrations').get().session_id, null);
   assert.equal(db.prepare('PRAGMA foreign_key_check').all().length, 0);
-  assert.throws(() => db.exec(`INSERT INTO registrations (workshop_id,first_name,last_name,email) VALUES (1,'New','User','new@example.com')`), /session_id/);
-  assert.throws(() => db.exec(`INSERT INTO registrations (id,workshop_id,session_id,first_name,last_name,email,phone) VALUES ('new',1,'missing','New','User','new@example.com','123')`), /FOREIGN KEY/);
+  assert.throws(() => db.exec(`INSERT INTO registrations (workshop_id,first_name,last_name,email) VALUES ('legacy-workshop','New','User','new@example.com')`), /session_id/);
+  assert.throws(() => db.exec(`INSERT INTO registrations (id,workshop_id,session_id,first_name,last_name,email,phone) VALUES ('new','legacy-workshop','missing','New','User','new@example.com','123')`), /FOREIGN KEY/);
   const indexes = db.prepare("SELECT name FROM sqlite_master WHERE type = 'index'").all().map(row => row.name);
   assert.ok(indexes.includes('idx_registrations_payment_status'));
 });
@@ -178,8 +198,8 @@ test('canonical tea tasting sessions register and appear in public availability'
     ['cajova-degustacia-1245','2026-11-07T12:45:00+01:00',15,null],
     ['cajova-degustacia-1400','2026-11-07T14:00:00+01:00',15,null],
   ]);
-  sqlite.exec(`INSERT INTO workshops (slug,title,lecturer,short_description,description,start_at,end_at,location,capacity,price_cents,registration_open)
-    VALUES ('cajova-degustacia','Tea tasting','Martin Labudik','Tea','Tea tasting','2026-11-07T12:45:00+01:00','2026-11-07T14:45:00+01:00','Tea room',15,0,1)`);
+  sqlite.exec(`INSERT INTO workshops (id,slug,title,lecturer,short_description,description,start_at,end_at,location,capacity,price_cents,registration_open)
+    VALUES ('cajova-degustacia','cajova-degustacia','Tea tasting','Martin Labudik','Tea','Tea tasting','2026-11-07T12:45:00+01:00','2026-11-07T14:45:00+01:00','Tea room',15,0,1)`);
   sqlite.prepare("UPDATE workshops SET price_cents = 0 WHERE slug = 'cajova-degustacia'").run();
   const teaWorkshopId = String(sqlite.prepare("SELECT id FROM workshops WHERE slug = 'cajova-degustacia'").get().id);
   sqlite.prepare('INSERT INTO workshop_sessions (id,workshop_id,start_at,end_at,location,capacity,active,registration_open) VALUES (?,?,?,?,NULL,?,1,1)')
@@ -204,6 +224,138 @@ test('canonical tea tasting sessions register and appear in public availability'
   ]);
 });
 
+test('all locale registration structures match and the production repair seeds every canonical workshop and session', async () => {
+  const structures = localizedWorkshopData.map(registrationStructure);
+  for (const localized of structures.slice(1)) assert.deepEqual(localized, structures[0]);
+
+  const sqlite = new DatabaseSync(':memory:');
+  sqlite.exec('PRAGMA foreign_keys = ON');
+  sqlite.exec(readFileSync(new URL('../migrations/0001_initial.sql', import.meta.url), 'utf8'));
+  sqlite.exec(readFileSync(new URL('../migrations/0002_workshop_sessions_and_payments.sql', import.meta.url), 'utf8'));
+  sqlite.exec(readFileSync(new URL('../migrations/0003_tea_tasting_sessions.sql', import.meta.url), 'utf8'));
+  const repair = readFileSync(new URL('../migrations/0004_seed_registerable_workshops.sql', import.meta.url), 'utf8');
+  const apply = () => {
+    sqlite.exec('BEGIN');
+    try { sqlite.exec(repair); sqlite.exec('COMMIT'); }
+    catch (error) { sqlite.exec('ROLLBACK'); throw error; }
+  };
+  try {
+    apply();
+    apply();
+    const expected = workshopData.items.filter(workshop => workshop.registrationRequired !== false);
+    const parents = sqlite.prepare('SELECT id, slug, registration_open FROM workshops ORDER BY slug').all();
+    const sessions = sqlite.prepare(`SELECT s.id, s.start_at, s.capacity, s.registration_open, w.slug
+      FROM workshop_sessions s JOIN workshops w ON w.id = s.workshop_id ORDER BY s.id`).all();
+    assert.equal(parents.length, expected.length);
+    assert.equal(sessions.length, expected.reduce((count, workshop) => count + workshop.sessions.length, 0));
+    for (const workshop of expected) {
+      assert.ok(parents.some(parent => parent.slug === workshop.slug && parent.registration_open === 1), `missing or closed workshop ${workshop.id}`);
+      for (const session of workshop.sessions) {
+        assert.ok(sessions.some(row => row.id === session.id && row.slug === workshop.slug
+          && row.start_at === session.start && row.capacity === session.capacity && row.registration_open === 1),
+        `missing or mismatched session ${session.id}`);
+      }
+    }
+    const env = { DB: { prepare(sql) { let args = []; return {
+      bind(...values) { args = values; return this; },
+      async first() { return sqlite.prepare(sql).get(...args) || null; },
+      async all() { return { results: sqlite.prepare(sql).all(...args) }; },
+    }; }, async batch(statements) {
+      sqlite.exec('BEGIN');
+      try {
+        const results = [];
+        for (const statement of statements) results.push(await statement.all());
+        sqlite.exec('COMMIT');
+        return results;
+      } catch (error) {
+        sqlite.exec('ROLLBACK');
+        throw error;
+      }
+    } }, PAYMENT_IBAN: 'SK7700000000000000000000', PAYMENT_BENEFICIARY_NAME: 'Japan Day' };
+    const missingWorkshop = await worker.fetch(new Request('https://api.japanday.sk/api/workshops/not-a-workshop'), env);
+    assert.equal(missingWorkshop.status, 404);
+    assert.equal((await missingWorkshop.json()).error.code, 'WORKSHOP_NOT_FOUND');
+    const invalidSession = await worker.fetch(new Request('https://api.japanday.sk/api/sessions/not-a-session/register', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://japanday.sk' },
+      body: JSON.stringify({ first_name: 'Test', last_name: 'User', email: 'test@example.com', phone: '123' }),
+    }), env);
+    assert.equal(invalidSession.status, 404);
+    assert.equal((await invalidSession.json()).error.code, 'SESSION_NOT_FOUND');
+    const canonicalSessionIds = [
+      'japoncina-1100', 'origami-1100', 'shodo-1100', 'tsumami-zaiku-1140',
+      'ayatori-1220', 'kumihimo-1100', 'cajova-degustacia-1245', 'cajova-degustacia-1400',
+    ];
+    for (const [index, sessionId] of canonicalSessionIds.entries()) {
+      const response = await worker.fetch(new Request(`https://api.japanday.sk/api/sessions/${sessionId}/register`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://japanday.sk' },
+        body: JSON.stringify({ first_name: 'Test', last_name: 'User', email: `session-${index}@example.com`, phone: '123' }),
+      }), env);
+      assert.equal(response.status, 201, `${sessionId} should be found`);
+    }
+  } finally {
+    sqlite.close();
+  }
+});
+
+
+test('production tea seed creates the missing parent and sessions, preserves legacy registrations and is repeatable', async () => {
+  const { sqlite, call, register } = setup();
+  const seed = readFileSync(new URL('../migrations/0004_seed_registerable_workshops.sql', import.meta.url), 'utf8');
+  const apply = () => {
+    sqlite.exec('BEGIN');
+    try { sqlite.exec(seed); sqlite.exec('COMMIT'); }
+    catch (error) { sqlite.exec('ROLLBACK'); throw error; }
+  };
+  apply();
+  const tea = sqlite.prepare("SELECT id FROM workshops WHERE slug = 'cajova-degustacia'").get();
+  sqlite.exec("DELETE FROM workshop_sessions WHERE id = 'cajova-degustacia-1400'");
+  sqlite.prepare('INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES (?,?,?,?)')
+    .run('cajova-degustacia-1330', String(tea.id), '2026-11-07T13:30:00+01:00', 15);
+  const legacy = await (await register('legacy@example.com', 'cajova-degustacia-1330')).json();
+  apply();
+  apply();
+  assert.equal(sqlite.prepare('SELECT session_id FROM registrations WHERE id = ?').get(legacy.data.registration_id).session_id, 'cajova-degustacia-1400');
+  assert.deepEqual(sqlite.prepare('PRAGMA foreign_key_check').all(), []);
+  for (const id of ['cajova-degustacia-1245', 'cajova-degustacia-1400']) {
+    assert.equal((await register('seed@example.com', id)).status, 201);
+  }
+  const invalid = await register('invalid@example.com', 'cajova-degustacia-invalid');
+  assert.equal(invalid.status, 404);
+  assert.equal((await invalid.json()).error.code, 'SESSION_NOT_FOUND');
+  const { data } = await (await call('/api/workshops/cajova-degustacia')).json();
+  assert.deepEqual(data.sessions.map(s => [s.id, s.start_at, s.capacity]), [
+    ['cajova-degustacia-1245', '2026-11-07T12:45:00+01:00', 15],
+    ['cajova-degustacia-1400', '2026-11-07T14:00:00+01:00', 15],
+  ]);
+});
+
+test('repair aborts and preserves registrations attached to an unmapped stale session', async () => {
+  const sqlite = new DatabaseSync(':memory:');
+  sqlite.exec('PRAGMA foreign_keys = ON');
+  sqlite.exec(readFileSync(new URL('../migrations/0001_initial.sql', import.meta.url), 'utf8'));
+  sqlite.exec(readFileSync(new URL('../migrations/0002_workshop_sessions_and_payments.sql', import.meta.url), 'utf8'));
+  const repair = readFileSync(new URL('../migrations/0004_seed_registerable_workshops.sql', import.meta.url), 'utf8');
+  const apply = () => {
+    sqlite.exec('BEGIN');
+    try { sqlite.exec(repair); sqlite.exec('COMMIT'); }
+    catch (error) { sqlite.exec('ROLLBACK'); throw error; }
+  };
+  try {
+    apply();
+    const parentId = sqlite.prepare("SELECT id FROM workshops WHERE slug = 'japoncina'").get().id;
+    sqlite.prepare('INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES (?,?,?,?)')
+      .run('japoncina-1000', String(parentId), '2026-11-07T10:00:00+01:00', 15);
+    sqlite.prepare(`INSERT INTO registrations
+      (id,workshop_id,session_id,first_name,last_name,email,phone,status,payment_status)
+      VALUES ('preserve-me',?,'japoncina-1000','Test','User','preserve@example.com','123','registered','free')`)
+      .run(String(parentId));
+    assert.throws(apply, /CHECK constraint failed/);
+    assert.equal(sqlite.prepare("SELECT session_id FROM registrations WHERE id = 'preserve-me'").get().session_id, 'japoncina-1000');
+    assert.equal(sqlite.prepare("SELECT COUNT(*) AS count FROM workshop_sessions WHERE id = 'japoncina-1000'").get().count, 1);
+  } finally {
+    sqlite.close();
+  }
+});
 
 test('fresh on-disk migrations enforce canonical schema and constraints', () => {
   const directory = mkdtempSync(join(tmpdir(), 'workshop-migrations-'));
@@ -234,12 +386,12 @@ test('fresh on-disk migrations enforce canonical schema and constraints', () => 
     assert.ok(!indexes.some(row => row.name === 'idx_registrations_workshop_email'));
     assert.equal(db.prepare('PRAGMA table_info(registration_payments)').all().find(row => row.name === 'registration_id').type, 'TEXT');
     assert.ok(db.prepare('PRAGMA foreign_key_list(registration_payments)').all().some(row => row.from === 'registration_id' && row.table === 'registrations'));
-    db.exec(`INSERT INTO workshops (slug,title,lecturer,short_description,description,start_at,end_at,location,capacity)
-      VALUES ('schema','Test','Test','Test','Test','2027','2027','Test',2);
-      INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('schema','1','2027',2);`);
+    db.exec(`INSERT INTO workshops (id,slug,title,lecturer,short_description,description,start_at,end_at,location,capacity)
+      VALUES ('schema-workshop','schema','Test','Test','Test','Test','2027','2027','Test',2);
+      INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('schema','schema-workshop','2027',2);`);
     const insert = db.prepare(`INSERT INTO registrations
       (id,workshop_id,session_id,first_name,last_name,email,phone,status,payment_status,registration_access_token_hash)
-      VALUES (?, '1', 'schema', 'Test', 'User', ?, ?, ?, ?, 'hash')`);
+      VALUES (?, 'schema-workshop', 'schema', 'Test', 'User', ?, ?, ?, ?, 'hash')`);
     for (const status of ['free', 'not_due', 'pending', 'paid', 'cancelled']) {
       insert.run(status, `${status}@example.com`, '123', 'registered', status);
     }
