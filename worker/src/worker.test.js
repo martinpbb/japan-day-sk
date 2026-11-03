@@ -183,7 +183,22 @@ test('admin API verifies Access JWT, enforces lecturer scope, omits token hashes
     return `${signing}.${Buffer.from(sig).toString('base64url')}`;
   };
   try {
-    assert.equal((await call('/api/admin/summary')).status, 401);
+    const unauthenticated = await call('/api/admin/summary', { headers: { Origin: 'https://japanday.sk' } });
+    assert.equal(unauthenticated.status, 401);
+    assert.equal(unauthenticated.headers.get('Access-Control-Allow-Origin'), 'https://japanday.sk');
+    assert.equal(unauthenticated.headers.get('Access-Control-Allow-Credentials'), 'true');
+
+    for (const origin of ['https://japanday.sk', 'http://localhost:5173']) {
+      const preflight = await call('/api/admin/sessions/s1/registrations', {
+        method: 'OPTIONS', headers: { Origin: origin, 'Access-Control-Request-Method': 'GET' },
+      });
+      assert.equal(preflight.status, 204);
+      assert.equal(preflight.headers.get('Access-Control-Allow-Origin'), origin);
+      assert.equal(preflight.headers.get('Access-Control-Allow-Credentials'), 'true');
+      assert.match(preflight.headers.get('Access-Control-Allow-Methods'), /GET/);
+      assert.match(preflight.headers.get('Vary'), /Origin/);
+    }
+
     sqlite.exec("INSERT INTO workshops (id,slug,title,start_at,capacity) VALUES ('other','other','Other','2027',1)");
     sqlite.exec("INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('other-session','other','2027',1)");
     sqlite.exec("INSERT INTO admin_users(email,role,active) VALUES ('lecturer@example.com','lecturer',1),('admin@example.com','admin',1),('inactive@example.com','admin',0)");

@@ -27,14 +27,21 @@ to `admin_users` with role `admin`; add lecturer emails as `lecturer` and map
 only their workshop IDs in `lecturer_workshops`. Deactivate access by setting
 `active=0`. Do not put user assignments in frontend configuration.
 
-Create one Cloudflare Access self-hosted application covering both
-`japanday.sk/admin*` and `api.japanday.sk/api/admin/*`, with an allow policy for
-organizer/lecturer groups. Include both hostnames in the same application so the
-browser receives its authorization cookie for API requests; keep eager redirect
-cookies enabled. Use that application's AUD tag as `ACCESS_AUD`. Cloudflare
-Access injects `Cf-Access-Jwt-Assertion` to the Worker and the Worker
-independently verifies it. Keep admin URLs out of public navigation. Static
-admin shells are noindex and contain no participant data.
+Create a Cloudflare Access self-hosted application for only
+`api.japanday.sk/api/admin/*`, with an allow policy for organizer/lecturer
+groups. Do not protect `japanday.sk/admin*`: those static GitHub Pages routes
+are public shells, and protecting them sends the Access callback to a host that
+cannot serve Cloudflare's callback path. Keep eager redirect cookies enabled.
+Use the application's AUD tag as `ACCESS_AUD`. Cloudflare Access injects
+`Cf-Access-Jwt-Assertion` to the Worker and the Worker independently verifies
+it. The admin shell sends credentialed requests to the protected API and offers
+a direct sign-in link to its summary endpoint when Access authentication is
+needed. Keep admin URLs out of public navigation. Static admin shells are
+noindex and contain no participant data.
+
+Admin API CORS returns explicit origins with credentials enabled for
+`https://japanday.sk` and the existing local development origin
+`http://localhost:5173`. OPTIONS preflights are supported for admin paths.
 
 Deploy the frontend through the existing GitHub Pages workflow and deploy the
 Worker separately only after applying the migration and setting Access values.
