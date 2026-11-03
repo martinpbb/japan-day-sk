@@ -39,7 +39,7 @@ test.describe("@ui workshop interface localization", () => {
       es: { title: "Talleres", lecturer: "Instructor", duration: "Duración", price: "Precio", time: "Horario", free: "Gratis", open: "Inscripción abierta", register: "Inscribirse", heading: "Horarios", forbidden: /(?:Workshopy|Lektori?|Trvanie|Cena|Termín|Zadarmo|Registrácia)/ },
       ja: { title: "ワークショップ", lecturer: "講師", duration: "所要時間", price: "料金", time: "開催時間", free: "無料", open: "予約受付中", register: "予約する", heading: "開催回", forbidden: /(?:Workshopy|Lektori?|Trvanie|Cena|Termín|Zadarmo|Registrácia|Kapacita|miest)/ },
     }[locale];
-    await page.route('https://api.japanday.sk/api/workshops/**', route => {
+    await page.route('https://api.japanday.sk/api/workshops/ayatori', route => {
       const slug = new URL(route.request().url()).pathname.split('/').at(-1);
       return route.fulfill({ json: { ok: true, data: { slug, price_cents: 0, currency: 'EUR', sessions: [
         { id: `${slug}-1100`, start_at: '2026-11-07T11:00:00+01:00', end_at: '2026-11-07T11:30:00+01:00', capacity: 15, remaining_capacity: 15, registration_open: true, location: null },

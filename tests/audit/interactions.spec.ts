@@ -21,7 +21,7 @@ for (const locale of localeCodes) {
     await page.route('https://api.japanday.sk/**', route => {
       const path = new URL(route.request().url()).pathname;
       const slug = path.startsWith('/api/workshops/') ? path.split('/').at(-1) : null;
-      if (!slug || slug === 'tvorba-kombiku') return route.fulfill({ status: 503, contentType: 'application/json', body: '{"ok":false}' });
+      if (!slug) return route.fulfill({ status: 503, contentType: 'application/json', body: '{"ok":false}' });
       return route.fulfill({ json: { ok: true, data: { slug, price_cents: 0, currency: 'EUR', sessions: [
         { id: `${slug}-1100`, start_at: '2026-11-07T11:00:00+01:00', end_at: '2026-11-07T11:30:00+01:00', capacity: 15, remaining_capacity: 15, registration_open: true, location: null },
         { id: `${slug}-1300`, start_at: '2026-11-07T13:00:00+01:00', end_at: '2026-11-07T13:30:00+01:00', capacity: 15, remaining_capacity: 15, registration_open: true, location: null },

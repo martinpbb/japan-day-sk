@@ -12,7 +12,7 @@ export default function WorkshopDetail({ workshop }) {
   const copy = site.ui.workshops;
   const dropIn = workshop.registrationRequired === false;
   const live = useWorkshopAvailability(dropIn ? null : workshop.slug);
-  const sessions = !dropIn && live?.sessions?.length ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: false }));
+  const sessions = !dropIn && live?.sessions?.length ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: !!workshop.registrationOpen }));
   const registrationWorkshop = { ...workshop, ...(live ? { paid: live.price_cents > 0, priceCents: live.price_cents, currency: live.currency } : {}), registrationOpen: workshop.registrationOpen };
   const registrationOpen = !dropIn && registrationWorkshop.registrationOpen;
   const [selectedId, setSelectedId] = useState(sessions[0]?.id || "");
