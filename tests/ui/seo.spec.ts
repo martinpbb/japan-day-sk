@@ -18,19 +18,22 @@ test.describe("@seo route metadata", () => {
 });
 
 test.describe("@seo social preview image", () => {
-  const socialRoutes = ["/", "/program", "/workshopy"];
-  const imageUrl = "https://japanday.sk/images/social/japan-day-mpb.png";
+  const socialRoutes = [
+    { route: "/", imageUrl: "https://japanday.sk/images/social/japan-day-povazska-bystrica-2026-og.png", height: "1200" },
+    { route: "/program", imageUrl: "https://japanday.sk/images/social/japan-day-mpb.png", height: "1200" },
+    { route: "/workshopy", imageUrl: "https://japanday.sk/images/social/japan-day-povazska-bystrica-2026-og.png", height: "630" }
+  ];
 
-  for (const route of socialRoutes) {
-    test(`${route} uses the primary static social image`, async ({ page, baseURL, request }) => {
+  for (const { route, imageUrl, height } of socialRoutes) {
+    test(`${route} uses its configured static social image`, async ({ page, baseURL, request }) => {
       await page.goto(route, { waitUntil: "domcontentloaded" });
       await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", imageUrl);
       await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute("content", imageUrl);
       await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute("content", "1200");
-      await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute("content", "1200");
+      await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute("content", height);
       await expect(page.locator('meta[property="og:image:type"]')).toHaveAttribute("content", "image/png");
 
-      const response = await request.get(new URL("/images/social/japan-day-mpb.png", baseURL).toString());
+      const response = await request.get(new URL(imageUrl.replace("https://japanday.sk", ""), baseURL).toString());
       expect(response.ok()).toBeTruthy();
     });
   }

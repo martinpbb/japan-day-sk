@@ -109,7 +109,11 @@ function addHreflang(html, logicalPath, baseUrl) {
 
 function renderRoute({ seo, site, logicalPath, publicPath, route }) {
   const canonical = publicUrl(seo.baseUrl, publicPath);
-  const image = seo.defaultImage ? absoluteUrl(seo.baseUrl, seo.defaultImage) : "";
+  const templateImage = logicalPath === "/" && publicPath === "/"
+    ? baseHtml.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i)?.[1]
+    : "";
+  const imagePath = route.ogImage || (logicalPath === "/" ? "" : seo.defaultImage);
+  const image = templateImage || (imagePath ? absoluteUrl(seo.baseUrl, imagePath) : "");
   let html = ensureGa4(ensureGtm(baseHtml));
   html = replaceTitle(html, route.title);
   html = upsertMeta(html, "name", "description", route.description);
@@ -123,8 +127,8 @@ function renderRoute({ seo, site, logicalPath, publicPath, route }) {
   html = upsertMeta(html, "name", "twitter:card", "summary_large_image");
   if (image) {
     html = upsertMeta(html, "property", "og:image", image);
-    html = upsertMeta(html, "property", "og:image:width", "1200");
-    html = upsertMeta(html, "property", "og:image:height", "1200");
+    html = upsertMeta(html, "property", "og:image:width", String(route.ogImageWidth || 1200));
+    html = upsertMeta(html, "property", "og:image:height", String(route.ogImageHeight || 1200));
     html = upsertMeta(html, "property", "og:image:type", "image/png");
     html = upsertMeta(html, "name", "twitter:image", image);
   }

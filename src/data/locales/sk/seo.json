@@ -92,6 +92,9 @@
       "h1": "Workshopy",
       "intro": "Spoznajte japonskú kultúru prostredníctvom praktických workshopov.",
       "breadcrumb": "Workshopy",
+      "ogImage": "/images/social/japan-day-povazska-bystrica-2026-og.png",
+      "ogImageWidth": 1200,
+      "ogImageHeight": 630,
       "schema": [
         "breadcrumb"
       ]

@@ -43,10 +43,13 @@ export default function SEO({ path, route }) {
     ensureMeta('meta[property="og:locale"]', "property", "og:locale").content = seo.locale;
     ensureMeta('meta[name="twitter:card"]', "name", "twitter:card").content = "summary_large_image";
 
-    if (seo.defaultImage) {
-      const image = absoluteUrl(seo.baseUrl, seo.defaultImage);
+    const imagePath = route.ogImage || (path === "/" ? "" : seo.defaultImage);
+    if (imagePath) {
+      const image = absoluteUrl(seo.baseUrl, imagePath);
       ensureMeta('meta[property="og:image"]', "property", "og:image").content = image;
       ensureMeta('meta[name="twitter:image"]', "name", "twitter:image").content = image;
+      if (route.ogImageWidth) ensureMeta('meta[property="og:image:width"]', "property", "og:image:width").content = String(route.ogImageWidth);
+      if (route.ogImageHeight) ensureMeta('meta[property="og:image:height"]', "property", "og:image:height").content = String(route.ogImageHeight);
     }
 
     ensureLink("canonical").href = absoluteUrl(seo.baseUrl, path);

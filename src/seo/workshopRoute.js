@@ -7,6 +7,9 @@ export function buildWorkshopRoute(workshop, seo) {
     intro: workshop.short || "",
     breadcrumb: workshop.title,
     breadcrumbParent: { name: catalog.breadcrumb, path: "/workshopy" },
+    ogImage: catalog.ogImage,
+    ogImageWidth: catalog.ogImageWidth,
+    ogImageHeight: catalog.ogImageHeight,
     schema: ["breadcrumb"],
   };
 }
