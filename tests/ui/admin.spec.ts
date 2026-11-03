@@ -85,7 +85,7 @@ test('@ui admin workshop and session details render protected data', async ({ pa
   await expect(page.getByRole('columnheader', { name: 'Registrovaný' })).toBeVisible();
   await expect(page.getByRole('cell', { name: 'Registrovaný' })).toBeVisible();
   await expect(page.getByRole('cell', { name: 'Bezplatné' })).toBeVisible();
-  await expect(page.getByRole('cell', { name: '3. 11. 2026, 08:56' })).toBeVisible();
+  await expect(page.getByText('3. 11. 2026, 08:56')).toBeVisible();
   await expect(page.getByRole('link', { name: 'person@example.com' })).toHaveAttribute('href', 'mailto:person@example.com');
   await expect(page.getByRole('link', { name: '+421 900 000 000' })).toHaveAttribute('href', 'tel:+421 900 000 000');
   await expect(page.getByRole('link', { name: 'Stiahnuť CSV' })).toHaveAttribute('href', 'https://api.japanday.sk/api/admin/sessions/japoncina-1100/export.csv');

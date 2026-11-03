@@ -41,7 +41,10 @@ function formatSession(session) {
 
 function formatCreatedAt(value) {
   const date = parseDate(value);
-  return date ? new Intl.DateTimeFormat('sk-SK', { timeZone: timezone, day: 'numeric', month: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(date) : value || '—';
+  if (!date) return value || '—';
+  const datePart = new Intl.DateTimeFormat('sk-SK', { timeZone: timezone, day: 'numeric', month: 'numeric', year: 'numeric' }).format(date);
+  const timePart = new Intl.DateTimeFormat('sk-SK', { timeZone: timezone, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(date);
+  return `${datePart}, ${timePart}`;
 }
 
 const registrationStatuses = { registered: 'Registrovaný', waitlist: 'Čakacia listina', cancelled: 'Zrušený' };
@@ -53,10 +56,7 @@ function StatusBadge({ value, labels, kind }) {
 function useAdminData(path, enabled = true) {
   const [state, setState] = useState({ loading: true, data: null, error: null });
   useEffect(() => {
-    if (!enabled) {
-      setState({ loading: false, data: null, error: null });
-      return undefined;
-    }
+    if (!enabled) return undefined;
     let live = true;
     fetch(`${api}${path}`, { credentials: 'include', cache: 'no-store' })
       .then(async (response) => {
