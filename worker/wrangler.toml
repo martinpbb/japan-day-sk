@@ -4,6 +4,10 @@ workers_dev = false
 preview_urls = false
 compatibility_date = "2026-10-29"
 
+[vars]
+ACCESS_TEAM_DOMAIN = "YOUR-TEAM.cloudflareaccess.com"
+# Set ACCESS_AUD as a Worker secret/var from the Cloudflare Access application.
+
 [[d1_databases]]
 binding = "DB"
 database_name = "japanday-workshops"

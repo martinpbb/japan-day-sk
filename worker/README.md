@@ -12,6 +12,33 @@ The Worker runs separately from the React/Vite frontend. It binds the existing p
 
 When ready, run `npm run worker:deploy`. This targets the existing Worker `japanday-workshops-api` and its existing D1 binding.
 
+## Read-only admin dashboard
+
+The dashboard uses Cloudflare Access JWTs. Set `ACCESS_TEAM_DOMAIN` to the account's
+`<team>.cloudflareaccess.com` issuer and set Worker secret `ACCESS_AUD` to the
+Access application's audience tag. The Worker verifies RS256 signatures against
+the issuer JWKS, issuer, audience, expiry, not-before, and email, then checks the
+active D1 user and role for every `/api/admin/*` request. Missing/invalid Access
+configuration fails closed with 401.
+
+After the existing production D1 migration-ledger reconciliation described
+above, apply `0005_admin_authorization.sql`. Then add approved organizer emails
+to `admin_users` with role `admin`; add lecturer emails as `lecturer` and map
+only their workshop IDs in `lecturer_workshops`. Deactivate access by setting
+`active=0`. Do not put user assignments in frontend configuration.
+
+Create one Cloudflare Access self-hosted application covering both
+`japanday.sk/admin*` and `api.japanday.sk/api/admin/*`, with an allow policy for
+organizer/lecturer groups. Include both hostnames in the same application so the
+browser receives its authorization cookie for API requests; keep eager redirect
+cookies enabled. Use that application's AUD tag as `ACCESS_AUD`. Cloudflare
+Access injects `Cf-Access-Jwt-Assertion` to the Worker and the Worker
+independently verifies it. Keep admin URLs out of public navigation. Static
+admin shells are noindex and contain no participant data.
+
+Deploy the frontend through the existing GitHub Pages workflow and deploy the
+Worker separately only after applying the migration and setting Access values.
+
 ## Production migration ledger repair
 
 Production currently has the application schema but no applied migration

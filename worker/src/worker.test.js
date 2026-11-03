@@ -4,6 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { readFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { Buffer } from 'node:buffer';
 import { decode } from 'bysquare/pay';
 import worker from './worker.js';
 import workshopData from '../../src/data/locales/sk/workshops.json' with { type: 'json' };
@@ -33,6 +34,7 @@ function setup() {
   sqlite.exec(readFileSync(new URL('../migrations/0001_initial.sql', import.meta.url), 'utf8'));
   sqlite.exec(readFileSync(new URL('../migrations/0002_workshop_sessions_and_payments.sql', import.meta.url), 'utf8'));
   sqlite.exec(readFileSync(new URL('../migrations/0003_tea_tasting_sessions.sql', import.meta.url), 'utf8'));
+  sqlite.exec(readFileSync(new URL('../migrations/0005_admin_authorization.sql', import.meta.url), 'utf8'));
   sqlite.exec(`INSERT INTO workshops (id,slug,title,lecturer,short_description,description,start_at,end_at,location,capacity,price_cents,registration_open)
     VALUES ('test-workshop','test','Test','Test','Test','Test','2027-01-01','2027-01-01','Test',99,1250,1);
     INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('s1','test-workshop','2027-01-01',1), ('s2','test-workshop','2027-01-01',2);`);
@@ -60,6 +62,7 @@ test('paid snapshot, authoritative price, decoded payload, protected SVG and imm
   const { sqlite, env, call, register } = setup();
   const response = await register(' TEST@example.com ', 's1', { price_cents: 1, payment_reference: '123' });
   assert.equal(response.status, 201);
+  assert.doesNotMatch(JSON.stringify(await response.clone().json()), /registration_access_token_hash/);
   assert.equal(response.headers.get('Access-Control-Allow-Credentials'), 'true');
   const cookie = response.headers.get('Set-Cookie');
   assert.match(cookie, /HttpOnly; Secure; SameSite=Lax/);
@@ -161,6 +164,54 @@ test('invalid input is rejected without writes', async () => {
     assert.equal((await register('test@example.com', 's1', extra)).status, 400);
   }
   assert.equal(sqlite.prepare('SELECT COUNT(*) n FROM registrations').get().n, 0);
+});
+
+test('admin API verifies Access JWT, enforces lecturer scope, omits token hashes and protects CSV', async () => {
+  const { sqlite, env, call, register } = setup();
+  const keyPair = await crypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1,0,1]), hash: 'SHA-256' }, true, ['sign','verify']);
+  const jwk = await crypto.subtle.exportKey('jwk', keyPair.publicKey);
+  jwk.kid = 'test-key'; jwk.alg = 'RS256'; jwk.use = 'sig';
+  env.ACCESS_TEAM_DOMAIN = 'example.cloudflareaccess.com'; env.ACCESS_AUD = 'test-aud';
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => new Response(JSON.stringify({ keys: [jwk] }), { status: 200 });
+  const token = async (email) => {
+    const b64 = (value) => Buffer.from(typeof value === 'string' ? value : JSON.stringify(value)).toString('base64url');
+    const head = b64({ alg: 'RS256', kid: 'test-key', typ: 'JWT' });
+    const body = b64({ iss: 'https://example.cloudflareaccess.com', aud: ['test-aud'], sub: email, email, exp: Math.floor(Date.now()/1000)+300, nbf: Math.floor(Date.now()/1000)-1 });
+    const signing = `${head}.${body}`;
+    const sig = await crypto.subtle.sign('RSASSA-PKCS1-v1_5', keyPair.privateKey, new TextEncoder().encode(signing));
+    return `${signing}.${Buffer.from(sig).toString('base64url')}`;
+  };
+  try {
+    assert.equal((await call('/api/admin/summary')).status, 401);
+    sqlite.exec("INSERT INTO workshops (id,slug,title,start_at,capacity) VALUES ('other','other','Other','2027',1)");
+    sqlite.exec("INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('other-session','other','2027',1)");
+    sqlite.exec("INSERT INTO admin_users(email,role,active) VALUES ('lecturer@example.com','lecturer',1),('admin@example.com','admin',1),('inactive@example.com','admin',0)");
+    sqlite.exec("INSERT INTO lecturer_workshops(email,workshop_id) VALUES ('lecturer@example.com','test-workshop')");
+    const bearer = async (email, path) => call(path, { headers: { 'Cf-Access-Jwt-Assertion': await token(email) } });
+    assert.equal((await bearer('inactive@example.com','/api/admin/summary')).status,403);
+    assert.equal((await bearer('lecturer@example.com','/api/admin/workshops/test-workshop')).status,200);
+    assert.equal((await bearer('lecturer@example.com','/api/admin/sessions/other-session/registrations')).status,403);
+    assert.equal((await bearer('admin@example.com','/api/admin/workshops')).status,200);
+    const empty = await bearer('lecturer@example.com','/api/admin/sessions/s1/registrations');
+    const emptyData = (await empty.json()).data;
+    assert.equal(emptyData.registrations.length,0);
+    assert.equal(emptyData.session.available,1);
+    await register('attendee@example.com','s1');
+    await register('waitlisted@example.com','s1');
+    const populated = await bearer('lecturer@example.com','/api/admin/sessions/s1/registrations');
+    const populatedData = (await populated.json()).data;
+    assert.equal(populatedData.session.registered_count,1);
+    assert.equal(populatedData.session.waitlist_count,1);
+    assert.equal(populatedData.session.available,0);
+    const body = JSON.stringify(populatedData);
+    assert.match(body,/attendee@example.com/);
+    assert.doesNotMatch(body,/registration_access_token_hash/);
+    const csv = await bearer('lecturer@example.com','/api/admin/sessions/s1/export.csv');
+    assert.equal(csv.status,200);
+    assert.match(await csv.text(),/first_name,last_name,email,phone,status,payment_status,created_at/);
+    assert.equal((await call('/api/admin/sessions/s1/export.csv')).status,401);
+  } finally { globalThis.fetch = originalFetch; }
 });
 
 test('missing beneficiary fails safely and full paid sessions need no payment config', async () => {

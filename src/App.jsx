@@ -32,6 +32,7 @@ import Breadcrumbs from "./components/Breadcrumbs.jsx";
 import SmartsuppChat from "./components/SmartsuppChat.jsx";
 import CookieConsent from "./components/CookieConsent.jsx";
 import SEO from "./seo/SEO.jsx";
+import AdminDashboard from "./components/AdminDashboard.jsx";
 import { buildPerformerRoute } from "./seo/performerRoute.js";
 import { buildExhibitorRoute } from "./seo/exhibitorRoute.js";
 import { buildWorkshopRoute } from "./seo/workshopRoute.js";
@@ -110,7 +111,7 @@ function PerformerPage({ performer, route }) {
   );
 }
 
-export default function App() {
+function PublicApp() {
   const { content } = useI18n();
   const { seo, performers, exhibitors, workshops } = content;
   const path = normalizePath(stripLocalePrefix(window.location.pathname));
@@ -160,6 +161,13 @@ export default function App() {
       <CookieConsent isOpen={cookieSettingsOpen} onClose={() => setCookieSettingsOpen(false)} />
     </>
   );
+}
+
+export default function App() {
+  const adminPath = normalizePath(window.location.pathname);
+  return adminPath === '/admin' || adminPath.startsWith('/admin/')
+    ? <AdminDashboard path={adminPath} />
+    : <PublicApp />;
 }
 /**
  * Copyright © 2026 Martin Labudík

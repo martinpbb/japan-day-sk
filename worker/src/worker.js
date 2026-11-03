@@ -20,6 +20,42 @@ const fail = (code, status, origin) => reply({ code, message: code }, status, or
 async function hash(token) {
   return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token))), b => b.toString(16).padStart(2, '0')).join('');
 }
+async function accessIdentity(request, env) {
+  const jwt = request.headers.get('Cf-Access-Jwt-Assertion');
+  const team = String(env.ACCESS_TEAM_DOMAIN || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+  const audience = env.ACCESS_AUD;
+  if (!jwt || !team || !audience) return null;
+  try {
+    const parts = jwt.split('.');
+    if (parts.length !== 3) return null;
+    const decode = (part) => JSON.parse(atob(part.replace(/-/g, '+').replace(/_/g, '/')));
+    const header = decode(parts[0]);
+    const claims = decode(parts[1]);
+    const now = Math.floor(Date.now() / 1000);
+    if (header.alg !== 'RS256' || claims.iss !== `https://${team}` || !claims.sub || typeof claims.email !== 'string' ||
+      !Number.isFinite(claims.exp) || !Array.isArray(claims.aud) || !claims.aud.includes(audience) ||
+      claims.exp <= now || (claims.nbf !== undefined && (!Number.isFinite(claims.nbf) || claims.nbf > now))) return null;
+    const jwks = await fetch(`https://${team}/cdn-cgi/access/certs`, { cf: { cacheTtl: 300, cacheEverything: true } });
+    if (!jwks.ok) return null;
+    const key = (await jwks.json()).keys.find((item) => item.kid === header.kid && item.kty === 'RSA');
+    if (!key) return null;
+    const publicKey = await crypto.subtle.importKey('jwk', key, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
+    const signature = Uint8Array.from(atob(parts[2].replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0));
+    const valid = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', publicKey, signature, new TextEncoder().encode(`${parts[0]}.${parts[1]}`));
+    return valid ? { email: claims.email.trim().toLowerCase() } : null;
+  } catch { return null; }
+}
+async function adminUser(request, env, origin) {
+  const identity = await accessIdentity(request, env);
+  if (!identity) return { response: fail('UNAUTHENTICATED', 401, origin) };
+  const user = await env.DB.prepare('SELECT email, role FROM admin_users WHERE email = ? AND active = 1').bind(identity.email).first();
+  return user ? { user } : { response: fail('FORBIDDEN', 403, origin) };
+}
+async function canAccessWorkshop(db, user, id) {
+  if (user.role === 'admin') return true;
+  return Boolean(await db.prepare('SELECT 1 FROM lecturer_workshops WHERE email = ? AND workshop_id = ?').bind(user.email, id).first());
+}
+const adminData = (data, status, origin) => reply(data, status, origin);
 const sessionSelect = `SELECT s.*, COUNT(r.id) AS registered_count,
   MAX(0, s.capacity - COUNT(r.id)) AS remaining_capacity
   FROM workshop_sessions s LEFT JOIN registrations r ON r.session_id = s.id AND r.status = 'registered'`;
@@ -106,6 +142,58 @@ export default {
     const url = new URL(request.url);
     try {
       if (request.method === 'GET' && url.pathname === '/api/health') return reply({ status: 'ok' }, 200, origin);
+      if (url.pathname.startsWith('/api/admin/')) {
+        if (request.method !== 'GET') return fail('METHOD_NOT_ALLOWED', 405, origin);
+        const auth = await adminUser(request, env, origin);
+        if (auth.response) return auth.response;
+        const user = auth.user;
+        const sessionsSql = `SELECT s.id, s.workshop_id, s.start_at, s.end_at, s.capacity, s.location,
+          SUM(CASE WHEN r.status = 'registered' THEN 1 ELSE 0 END) AS registered_count,
+          SUM(CASE WHEN r.status = 'waitlist' THEN 1 ELSE 0 END) AS waitlist_count,
+          MAX(0, s.capacity - SUM(CASE WHEN r.status = 'registered' THEN 1 ELSE 0 END)) AS available
+          FROM workshop_sessions s LEFT JOIN registrations r ON r.session_id = s.id AND r.status != 'cancelled'`;
+        const workshopRows = await env.DB.prepare(`SELECT w.id,w.title,w.lecturer,w.short_description,w.description,w.location,w.active,
+          COUNT(DISTINCT s.id) AS session_count,
+          SUM(CASE WHEN r.status = 'registered' THEN 1 ELSE 0 END) AS registered_count,
+          SUM(CASE WHEN r.status = 'waitlist' THEN 1 ELSE 0 END) AS waitlist_count,
+          COALESCE((SELECT SUM(s2.capacity) FROM workshop_sessions s2 WHERE s2.workshop_id=w.id AND s2.active=1),0) AS capacity
+          FROM workshops w LEFT JOIN workshop_sessions s ON s.workshop_id=w.id AND s.active=1
+          LEFT JOIN registrations r ON r.session_id=s.id AND r.status != 'cancelled'
+          WHERE w.active=1 AND w.registration_open=1
+          ${user.role === 'lecturer' ? 'AND EXISTS (SELECT 1 FROM lecturer_workshops lw WHERE lw.email = ? AND lw.workshop_id = w.id)' : ''}
+          GROUP BY w.id ORDER BY w.title`).bind(...(user.role === 'lecturer' ? [user.email] : [])).all();
+        const workshops = workshopRows.results.map((w) => ({ ...w, capacity: Number(w.capacity || 0), registered_count: Number(w.registered_count || 0), waitlist_count: Number(w.waitlist_count || 0) }));
+        if (url.pathname === '/api/admin/summary' || url.pathname === '/api/admin/workshops') {
+          const total = workshops.reduce((a,w) => ({ registrations:a.registrations+w.registered_count, waitlist:a.waitlist+w.waitlist_count, capacity:a.capacity+w.capacity }), {registrations:0,waitlist:0,capacity:0});
+          return adminData(url.pathname.endsWith('summary') ? { ...total, workshop_count:workshops.length, workshops } : workshops, 200, origin);
+        }
+        const detail = url.pathname.match(/^\/api\/admin\/workshops\/([^/]+)$/);
+        if (detail) {
+          const id = decodeURIComponent(detail[1]);
+          if (!await canAccessWorkshop(env.DB,user,id)) return fail('FORBIDDEN',403,origin);
+          const workshop = await env.DB.prepare('SELECT id,title,lecturer,short_description,description,location FROM workshops WHERE id=?').bind(id).first();
+          if (!workshop) return fail('WORKSHOP_NOT_FOUND',404,origin);
+          const {results:sessions} = await env.DB.prepare(`${sessionsSql} WHERE s.workshop_id=? AND s.active=1 GROUP BY s.id ORDER BY s.start_at`).bind(id).all();
+          return adminData({workshop,sessions},200,origin);
+        }
+        const sessionRoute = url.pathname.match(/^\/api\/admin\/sessions\/([^/]+)\/(registrations|export\.csv)$/);
+        if (sessionRoute) {
+          const id = decodeURIComponent(sessionRoute[1]);
+          const session = await env.DB.prepare(`SELECT s.id,s.workshop_id,s.start_at,s.end_at,s.capacity,${sessionsSql.slice(sessionsSql.indexOf('SUM('))} WHERE s.id=? GROUP BY s.id`).bind(id).first();
+          if (!session) return fail('SESSION_NOT_FOUND',404,origin);
+          if (!await canAccessWorkshop(env.DB,user,session.workshop_id)) return fail('FORBIDDEN',403,origin);
+          const {results:registrations} = await env.DB.prepare(`SELECT first_name,last_name,email,phone,status,payment_status,created_at FROM registrations WHERE session_id=? AND status != 'cancelled' ORDER BY created_at,id`).bind(id).all();
+          if (sessionRoute[2] === 'export.csv') {
+            const fields=['first_name','last_name','email','phone','status','payment_status','created_at'];
+            const quote=(value)=>`"${String(value ?? '').replace(/"/g,'""')}"`;
+            const csv=[fields.join(','),...registrations.map((row)=>fields.map((field)=>quote(row[field])).join(','))].join('\r\n');
+            const h=headers(origin); h.set('Content-Type','text/csv; charset=utf-8'); h.set('Content-Disposition','attachment; filename="session-registrations.csv"');
+            return new Response(`\uFEFF${csv}`,{headers:h});
+          }
+          return adminData({session,registrations},200,origin);
+        }
+        return fail('NOT_FOUND',404,origin);
+      }
       if (request.method === 'GET' && url.pathname === '/api/workshops') {
         const { results } = await env.DB.prepare('SELECT * FROM workshops WHERE active = 1 ORDER BY start_at').all();
         return reply(await Promise.all(results.map(row => workshopView(env.DB, row))), 200, origin);

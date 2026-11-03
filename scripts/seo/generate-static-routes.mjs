@@ -123,6 +123,9 @@ function renderRoute({ seo, site, logicalPath, publicPath, route }) {
   html = upsertMeta(html, "name", "twitter:card", "summary_large_image");
   if (image) {
     html = upsertMeta(html, "property", "og:image", image);
+    html = upsertMeta(html, "property", "og:image:width", "1200");
+    html = upsertMeta(html, "property", "og:image:height", "1200");
+    html = upsertMeta(html, "property", "og:image:type", "image/png");
     html = upsertMeta(html, "name", "twitter:image", image);
   }
   html = upsertCanonical(html, canonical);
@@ -131,6 +134,7 @@ function renderRoute({ seo, site, logicalPath, publicPath, route }) {
 }
 
 const sitemapPaths = new Set();
+const adminRoutePaths = new Set(["/admin/", "/admin/workshops/"]);
 for (const { locale, contentLocale = locale, prefix } of locales) {
   const seo = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/seo.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const site = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/site.json`), "utf8")).replace(/^\\uFEFF/, ""));
@@ -138,6 +142,11 @@ for (const { locale, contentLocale = locale, prefix } of locales) {
   const exhibitors = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/exhibitors.json`), "utf8")).replace(/^\\uFEFF/, ""));
   const workshopsPath = path.join(root, `src/data/locales/${contentLocale}/workshops.json`);
   const workshops = JSON.parse((await fs.readFile(workshopsPath, "utf8")).replace(/^\\uFEFF/, ""));
+  for (const workshop of workshops.items || []) {
+    const id = workshop.slug || workshop.id;
+    adminRoutePaths.add(`/admin/workshops/${id}/`);
+    for (const session of workshop.sessions || []) if (session.id) adminRoutePaths.add(`/admin/sessions/${session.id}/`);
+  }
   const performerRoutes = Object.fromEntries(performers.items.map((performer) => [
     `/ucinkujuci/${performer.id}`, buildPerformerRoute(performer, seo)
   ]));
@@ -164,6 +173,22 @@ for (const { locale, contentLocale = locale, prefix } of locales) {
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...sitemapPaths].map((routePath) => `  <url><loc>${publicUrl("https://japanday.sk", routePath)}</loc></url>`).join("\n")}\n</urlset>\n`;
 await fs.writeFile(path.join(dist, "sitemap.xml"), sitemap);
 await fs.writeFile(path.join(dist, "robots.txt"), "User-agent: *\nAllow: /\n\nSitemap: https://japanday.sk/sitemap.xml\n");
+
+const adminHtml = baseHtml
+  .replace(/<title>.*?<\/title>/s, "<title>Workshop dashboard</title>")
+  .replace(/<meta\s+name="description"[^>]*>/i, "")
+  .replace(/<meta\s+name="robots"[^>]*>/i, '<meta name="robots" content="noindex, nofollow" />')
+  .replace(/<meta\s+(?:property="og:[^"]+"|name="twitter:[^"]+")[^>]*>/gi, "")
+  .replace(/<link\s+rel="canonical"[^>]*>/i, "")
+  .replace(/<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js[^>]*><\/script>/g, "")
+  .replace(/<script[^>]*>[\s\S]*?gtag\('config',[\s\S]*?<\/script>/g, "")
+  .replace(/<script[^>]*>[\s\S]*?gtm\.js[\s\S]*?<\/script>/g, "")
+  .replace(/<noscript>[\s\S]*?googletagmanager\.com\/ns\.html[\s\S]*?<\/noscript>/g, "");
+for (const route of adminRoutePaths) {
+  const target = path.join(dist, route.slice(1));
+  await fs.mkdir(target, { recursive: true });
+  await fs.writeFile(path.join(target, "index.html"), adminHtml);
+}
 
 console.log(`Generated ${sitemapPaths.size} localized SEO route documents, sitemap.xml and robots.txt.`);
 /**

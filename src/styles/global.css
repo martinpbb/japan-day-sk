@@ -1859,3 +1859,10 @@ button {
 @media (max-width: 760px) {
   .exhibitorDetailBody, .exhibitorDetailGallery { grid-template-columns: minmax(0, 1fr); }
 }
+.adminDashboard { max-width: 1180px; margin: 0 auto; padding: 48px 24px; min-height: 70vh; }
+.adminDashboard nav { margin: 16px 0 32px; }
+.adminDashboard li { margin: 12px 0; }
+.adminDashboard a { color: var(--red); }
+.adminTableWrap { overflow-x: auto; }
+.adminDashboard table { width: 100%; border-collapse: collapse; text-align: left; }
+.adminDashboard th, .adminDashboard td { padding: 10px; border-bottom: 1px solid #ddd; }
