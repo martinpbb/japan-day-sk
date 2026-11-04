@@ -25,10 +25,20 @@ export default function Children({ compact = false }) {
   const data = content.children;
   const route = content.seo.routes["/pre-deti"];
   const detailPath = addLocalePrefix("/pre-deti", locale);
+  const showCompetitionImage = compact || locale === "sk";
 
   return (
     <Section id="pre-deti" kicker={route.sectionKicker || route.breadcrumb} title={route.sectionTitle || route.h1} className="childrenSection">
-      <p className="childrenIntro">{data.intro}</p>
+      <div className="childrenIntroGrid">
+        <p className="childrenIntro">{data.intro}</p>
+        {showCompetitionImage && <img
+          className="childrenCompetitionImage"
+          src="/images/gallery/sutaz-pre-deti.png"
+          alt="Súťaž pre deti – Japonský deň čaju a kultúry v Považskej Bystrici"
+          loading="lazy"
+          decoding="async"
+        />}
+      </div>
       {data.activities.length ? (
         <div className="featureGrid childrenGrid">
           {data.activities.map((activity, index) => {

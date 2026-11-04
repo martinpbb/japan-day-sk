@@ -13,3 +13,13 @@ test("@ui children page renders configured content", async ({ page }) => {
   }
   await expect(page.locator(".childrenSafety")).toBeVisible();
 });
+
+test("@ui homepage shows the children's competition poster", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const poster = page.locator(".childrenCompetitionImage");
+  await expect(poster).toHaveAttribute("src", "/images/gallery/sutaz-pre-deti.png");
+  await expect(poster).toHaveAttribute("alt", "Súťaž pre deti – Japonský deň čaju a kultúry v Považskej Bystrici");
+  await expect(poster).toHaveAttribute("loading", "lazy");
+  await poster.scrollIntoViewIfNeeded();
+  await expect(poster).toBeVisible();
+});

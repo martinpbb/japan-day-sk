@@ -24,13 +24,21 @@ test("@data confirmed Slovak programme contains the complete venue schedule", ()
   for (let index = 1; index < talks.length; index += 1) {
     expect(talks[index].time >= talks[index - 1].endTime).toBeTruthy();
   }
-  expect(talks.map((item: any) => [item.time, item.performerId])).toEqual([["11:00", "japonske-kvety"], ["11:50", "martin-labudik"], ["12:40", "akiko-komura"], ["14:10", "silvestr-prajer"], ["15:00", "martin-labudik"], ["15:40", "hisayo-yasuda"]]);
+  expect(talks.map((item: any) => [item.time, item.endTime, item.performerId])).toEqual([["11:30", "12:10", "japonske-kvety"], ["12:20", "13:00", "martin-labudik"], ["13:10", "13:50", "akiko-komura"], ["14:40", "15:20", "silvestr-prajer"], ["15:30", "16:10", "martin-labudik"], ["16:10", "16:50", "hisayo-yasuda"]]);
   expect(talks[2].presenter).toBe("Mgr. Akiko Komura, PhD.");
   expect(data.items.filter((item: any) => item.performerId === "nao-higano").every((item: any) => item.title === "Japonské piesne – vystúpenie sopranistky Nao Higano")).toBeTruthy();
   expect(data.items.some((item: any) => item.title === "Bez pódiového programu")).toBeFalsy();
   expect(data.items.some((item: any) => item.title === "Ako japonský čaj pomáha zdraviu")).toBeFalsy();
   const tameshigiri = data.items.find((item: any) => item.title.startsWith("Tameshigiri"));
   expect(tameshigiri.time).toBe("16:20");
+});
+
+test("@data every locale publishes the approved theatre schedule", () => {
+  const expected = [["11:30", "12:10", "japonske-kvety"], ["12:20", "13:00", "martin-labudik"], ["13:10", "13:50", "akiko-komura"], ["14:40", "15:20", "silvestr-prajer"], ["15:30", "16:10", "martin-labudik"], ["16:10", "16:50", "hisayo-yasuda"]];
+  for (const locale of ["sk", "en", "de", "es", "ja"]) {
+    const talks = read(locale).items.filter((item: any) => item.venue === "theatre");
+    expect(talks.map((item: any) => [item.time, item.endTime, item.performerId]), locale).toEqual(expected);
+  }
 });
 
 test("@data workshop schedules match current approved requirements in every locale", () => {

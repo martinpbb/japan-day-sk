@@ -592,10 +592,25 @@ button {
   color: #efb9b3;
   font-size: 0.88rem;
 }
+.childrenIntroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
 .childrenIntro {
   max-width: 760px;
   color: var(--muted);
   line-height: 1.65;
+}
+.childrenCompetitionImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: var(--radius);
 }
 .childrenSection {
   background: #f5e6d3;
@@ -1087,6 +1102,8 @@ button {
   .cookieConsentActions button { width: 100%; }
 }
 @media (max-width: 900px) {
+  .childrenIntroGrid { grid-template-columns: 1fr; gap: 20px; }
+  .childrenCompetitionImage { width: 100%; max-height: none; }
   .childrenGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .childrenSection .childrenCard,
   .childrenSection .childrenCard:nth-child(4),

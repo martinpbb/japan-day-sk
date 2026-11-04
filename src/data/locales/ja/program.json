@@ -95,24 +95,24 @@
     },
     {
       "venue": "theatre",
-      "time": "11:00",
-      "endTime": "11:40",
+      "time": "11:30",
+      "endTime": "12:10",
       "performerId": "japonske-kvety",
       "title": "ヘメロカリス – 庭と食卓に感じる日本",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "11:50",
-      "endTime": "12:30",
+      "time": "12:20",
+      "endTime": "13:00",
       "performerId": "martin-labudik",
       "title": "日本茶が人の身体にもたらす良い働き",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "12:40",
-      "endTime": "13:20",
+      "time": "13:10",
+      "endTime": "13:50",
       "performerId": "akiko-komura",
       "presenter": "Mgr. Akiko Komura, PhD.",
       "title": "書道：日本のカリグラフィー",
@@ -120,24 +120,24 @@
     },
     {
       "venue": "theatre",
-      "time": "14:10",
-      "endTime": "14:50",
+      "time": "14:40",
+      "endTime": "15:20",
       "performerId": "silvestr-prajer",
       "title": "戦国時代：争う国々の時代",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "15:00",
-      "endTime": "15:40",
+      "time": "15:30",
+      "endTime": "16:10",
       "performerId": "martin-labudik",
       "title": "日本茶とその分類",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "15:40",
-      "endTime": "16:20",
+      "time": "16:10",
+      "endTime": "16:50",
       "performerId": "hisayo-yasuda",
       "title": "日本の魅力",
       "durationMinutes": 40

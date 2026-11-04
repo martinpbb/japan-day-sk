@@ -95,24 +95,24 @@
     },
     {
       "venue": "theatre",
-      "time": "11:00",
-      "endTime": "11:40",
+      "time": "11:30",
+      "endTime": "12:10",
       "performerId": "japonske-kvety",
       "title": "Taglilien – ein Stück Japan im Garten und auf dem Teller",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "11:50",
-      "endTime": "12:30",
+      "time": "12:20",
+      "endTime": "13:00",
       "performerId": "martin-labudik",
       "title": "Wie japanischer Tee dem menschlichen Körper zugutekommt",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "12:40",
-      "endTime": "13:20",
+      "time": "13:10",
+      "endTime": "13:50",
       "performerId": "akiko-komura",
       "presenter": "Mgr. Akiko Komura, PhD.",
       "title": "Shodō: japanische Kalligrafie",
@@ -120,24 +120,24 @@
     },
     {
       "venue": "theatre",
-      "time": "14:10",
-      "endTime": "14:50",
+      "time": "14:40",
+      "endTime": "15:20",
       "performerId": "silvestr-prajer",
       "title": "Sengoku jidai: Zeitalter der streitenden Reiche",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "15:00",
-      "endTime": "15:40",
+      "time": "15:30",
+      "endTime": "16:10",
       "performerId": "martin-labudik",
       "title": "Japanischer Tee und seine Einteilung",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "15:40",
-      "endTime": "16:20",
+      "time": "16:10",
+      "endTime": "16:50",
       "performerId": "hisayo-yasuda",
       "title": "Die Faszination Japans",
       "durationMinutes": 40

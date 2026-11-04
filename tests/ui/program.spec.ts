@@ -5,7 +5,7 @@ test("@ui programme shows the approved theatre order and current Nao Higano titl
   await expect(page.locator(".programVenue")).toHaveCount(2);
   const theatre = page.locator(".programVenue").nth(1).locator(".programVenueItem");
   await expect(theatre).toHaveCount(6);
-  for (const [index, times] of ["11:00.*11:40", "11:50.*12:30", "12:40.*13:20", "14:10.*14:50", "15:00.*15:40", "15:40.*16:20"].entries()) await expect(theatre.nth(index)).toContainText(new RegExp(times));
+  for (const [index, times] of ["11:30.*12:10", "12:20.*13:00", "13:10.*13:50", "14:40.*15:20", "15:30.*16:10", "16:10.*16:50"].entries()) await expect(theatre.nth(index)).toContainText(new RegExp(times));
   for (const [index, name] of [/Jana Michalkov/, /Martin Labud/, /Akiko Komura/, /Silvestr Prajer/, /Martin Labud/, /Hisayo Yasuda/].entries()) await expect(theatre.nth(index)).toContainText(name);
   await expect(page.locator(".programVenue").first().getByText(/Nao Higano/)).toHaveCount(4);
   await expect(page.locator(".programPending")).toHaveCount(0);

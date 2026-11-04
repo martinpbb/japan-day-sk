@@ -95,24 +95,24 @@
     },
     {
       "venue": "theatre",
-      "time": "11:00",
-      "endTime": "11:40",
+      "time": "11:30",
+      "endTime": "12:10",
       "performerId": "japonske-kvety",
       "title": "Ľaliovky – kúsok Japonska v záhrade i na tanieri",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "11:50",
-      "endTime": "12:30",
+      "time": "12:20",
+      "endTime": "13:00",
       "performerId": "martin-labudik",
       "title": "Ako japonský čaj prospieva ľudskému telu",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "12:40",
-      "endTime": "13:20",
+      "time": "13:10",
+      "endTime": "13:50",
       "performerId": "akiko-komura",
       "presenter": "Mgr. Akiko Komura, PhD.",
       "title": "Shodō: japonská kaligrafia",
@@ -120,24 +120,24 @@
     },
     {
       "venue": "theatre",
-      "time": "14:10",
-      "endTime": "14:50",
+      "time": "14:40",
+      "endTime": "15:20",
       "performerId": "silvestr-prajer",
       "title": "Sengoku jidai: obdobie bojujúcich štátov",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "15:00",
-      "endTime": "15:40",
+      "time": "15:30",
+      "endTime": "16:10",
       "performerId": "martin-labudik",
       "title": "Japonský čaj a jeho rozdelenie",
       "durationMinutes": 40
     },
     {
       "venue": "theatre",
-      "time": "15:40",
-      "endTime": "16:20",
+      "time": "16:10",
+      "endTime": "16:50",
       "performerId": "hisayo-yasuda",
       "title": "Príťažlivosť Japonska",
       "durationMinutes": 40
