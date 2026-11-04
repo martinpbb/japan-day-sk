@@ -286,6 +286,28 @@ button {
 .sectionTint {
   background: var(--paper-2);
 }
+.astronomySection { background: var(--white); }
+.astronomyFeature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, .62fr);
+  gap: clamp(24px, 5vw, 58px);
+  align-items: center;
+  max-width: 990px;
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+.astronomyCopy { min-width: 0; }
+.astronomyIcon { margin-bottom: 10px; color: var(--red); }
+.astronomyCopy p { margin: 0 0 15px; color: var(--muted); font-size: 16px; line-height: 1.75; }
+.astronomyCopy .astronomySpeaker { display: grid; gap: 3px; margin: 22px 0 0; color: var(--ink); }
+.astronomySpeaker strong { font-size: 17px; }
+.astronomySpeaker span { color: var(--muted); font-size: 14px; }
+.astronomyImage { width: 100%; max-height: 280px; object-fit: cover; border-radius: calc(var(--radius) - 6px); }
+@media (max-width: 760px) { .astronomyFeature { grid-template-columns: minmax(0, 1fr); } .astronomyImage { max-height: 240px; } }
 .sectionDark {
   background: var(--indigo);
   color: var(--white);

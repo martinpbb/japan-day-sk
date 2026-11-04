@@ -12,6 +12,7 @@ import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Program from "./components/Program.jsx";
+import Astronomy from "./components/Astronomy.jsx";
 import Performers from "./components/Performers.jsx";
 import PerformerDetail from "./components/PerformerDetail.jsx";
 import Gastronomy from "./components/Gastronomy.jsx";
@@ -77,6 +78,7 @@ function HomePage() {
       <Hero />
       <About />
       <Program />
+      <Astronomy />
       <Children compact />
       <WorkshopsTeaser />
       <Performers />

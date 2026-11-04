@@ -4,6 +4,7 @@ import skProgram from "./locales/sk/program.json";
 import skPerformers from "./locales/sk/performers.json";
 import skGastronomy from "./locales/sk/gastronomy.json";
 import skChildren from "./locales/sk/children.json";
+import skAstronomy from "./locales/sk/astronomy.json";
 import skExhibitors from "./locales/sk/exhibitors.json";
 import skWorkshops from "./locales/sk/workshops.json";
 import skGallery from "./locales/sk/gallery.json";
@@ -14,6 +15,7 @@ import enProgram from "./locales/en/program.json";
 import enPerformers from "./locales/en/performers.json";
 import enGastronomy from "./locales/en/gastronomy.json";
 import enChildren from "./locales/en/children.json";
+import enAstronomy from "./locales/en/astronomy.json";
 import enExhibitors from "./locales/en/exhibitors.json";
 import enWorkshops from "./locales/en/workshops.json";
 import enGallery from "./locales/en/gallery.json";
@@ -24,6 +26,7 @@ import deProgram from "./locales/de/program.json";
 import dePerformers from "./locales/de/performers.json";
 import deGastronomy from "./locales/de/gastronomy.json";
 import deChildren from "./locales/de/children.json";
+import deAstronomy from "./locales/de/astronomy.json";
 import deExhibitors from "./locales/de/exhibitors.json";
 import deWorkshops from "./locales/de/workshops.json";
 import deGallery from "./locales/de/gallery.json";
@@ -34,6 +37,7 @@ import esProgram from "./locales/es/program.json";
 import esPerformers from "./locales/es/performers.json";
 import esGastronomy from "./locales/es/gastronomy.json";
 import esChildren from "./locales/es/children.json";
+import esAstronomy from "./locales/es/astronomy.json";
 import esExhibitors from "./locales/es/exhibitors.json";
 import esWorkshops from "./locales/es/workshops.json";
 import esGallery from "./locales/es/gallery.json";
@@ -44,6 +48,7 @@ import jaProgram from "./locales/ja/program.json";
 import jaPerformers from "./locales/ja/performers.json";
 import jaGastronomy from "./locales/ja/gastronomy.json";
 import jaChildren from "./locales/ja/children.json";
+import jaAstronomy from "./locales/ja/astronomy.json";
 import jaExhibitors from "./locales/ja/exhibitors.json";
 import jaWorkshops from "./locales/ja/workshops.json";
 import jaGallery from "./locales/ja/gallery.json";
@@ -60,11 +65,11 @@ export const localeDocumentLanguages = {
 };
 
 const localeContent = {
-  sk: { site: skSite, seo: skSeo, program: skProgram, performers: skPerformers, performerPromotion: skPerformers.performerPromotion, gastronomy: skGastronomy, children: skChildren, exhibitors: skExhibitors, workshops: skWorkshops, gallery: skGallery, partners: skPartners },
-  en: { site: enSite, seo: enSeo, program: enProgram, performers: enPerformers, performerPromotion: enPerformers.performerPromotion, gastronomy: enGastronomy, children: enChildren, exhibitors: enExhibitors, workshops: enWorkshops, gallery: enGallery, partners: enPartners },
-  de: { site: deSite, seo: deSeo, program: deProgram, performers: dePerformers, performerPromotion: dePerformers.performerPromotion, gastronomy: deGastronomy, children: deChildren, exhibitors: deExhibitors, workshops: deWorkshops, gallery: deGallery, partners: dePartners },
-  es: { site: esSite, seo: esSeo, program: esProgram, performers: esPerformers, performerPromotion: esPerformers.performerPromotion, gastronomy: esGastronomy, children: esChildren, exhibitors: esExhibitors, workshops: esWorkshops, gallery: esGallery, partners: esPartners },
-  ja: { site: jaSite, seo: jaSeo, program: jaProgram, performers: jaPerformers, performerPromotion: jaPerformers.performerPromotion, gastronomy: jaGastronomy, children: jaChildren, exhibitors: jaExhibitors, workshops: jaWorkshops, gallery: jaGallery, partners: jaPartners },
+  sk: { site: skSite, seo: skSeo, program: skProgram, performers: skPerformers, performerPromotion: skPerformers.performerPromotion, gastronomy: skGastronomy, children: skChildren, astronomy: skAstronomy, exhibitors: skExhibitors, workshops: skWorkshops, gallery: skGallery, partners: skPartners },
+  en: { site: enSite, seo: enSeo, program: enProgram, performers: enPerformers, performerPromotion: enPerformers.performerPromotion, gastronomy: enGastronomy, children: enChildren, astronomy: enAstronomy, exhibitors: enExhibitors, workshops: enWorkshops, gallery: enGallery, partners: enPartners },
+  de: { site: deSite, seo: deSeo, program: deProgram, performers: dePerformers, performerPromotion: dePerformers.performerPromotion, gastronomy: deGastronomy, children: deChildren, astronomy: deAstronomy, exhibitors: deExhibitors, workshops: deWorkshops, gallery: deGallery, partners: dePartners },
+  es: { site: esSite, seo: esSeo, program: esProgram, performers: esPerformers, performerPromotion: esPerformers.performerPromotion, gastronomy: esGastronomy, children: esChildren, astronomy: esAstronomy, exhibitors: esExhibitors, workshops: esWorkshops, gallery: esGallery, partners: esPartners },
+  ja: { site: jaSite, seo: jaSeo, program: jaProgram, performers: jaPerformers, performerPromotion: jaPerformers.performerPromotion, gastronomy: jaGastronomy, children: jaChildren, astronomy: jaAstronomy, exhibitors: jaExhibitors, workshops: jaWorkshops, gallery: jaGallery, partners: jaPartners },
 };
 
 export function getLocaleContent(locale) {
