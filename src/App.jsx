@@ -25,6 +25,7 @@ import WorkshopDetail from "./components/WorkshopDetail.jsx";
 import VideoSection from "./components/VideoSection.jsx";
 import Gallery from "./components/Gallery.jsx";
 import PracticalInfo from "./components/PracticalInfo.jsx";
+import SpeechContestPromotion from "./components/SpeechContestPromotion.jsx";
 import Contact from "./components/Contact.jsx";
 import Partners from "./components/Partners.jsx";
 import Footer from "./components/Footer.jsx";
@@ -86,6 +87,7 @@ function HomePage() {
       <Exhibitors />
       <VideoSection />
       <PracticalInfo />
+      <SpeechContestPromotion />
       <Partners />
     </main>
   );

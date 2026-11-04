@@ -279,5 +279,15 @@
   "footer": {
     "note": "プログラムは変更になる場合があります。",
     "legalLinks": []
+  },
+  "speechContest": {
+    "kicker": "ブラチスラバで開催",
+    "title": "Japanese Speech Contest & Prize Draw",
+    "intro": "日本語が好きな方、学び始めた方へ。ブラチスラバで、初級・初中級・上級者向けの Japanese Speech Contest & Prize Draw が開催されます。",
+    "date": "2026年11月14日 13:30～14:45",
+    "venue": "ネドバルカ・ギャラリー、Nedbalova 17、ブラチスラバ",
+    "admission": "コンテストへの参加は無料です。来場者にはささやかなプレゼントや賞品抽選もあります。",
+    "organizer": "本イベントは、J-Pad.eu s. r. o. が Hisayo Yasuda のもとで主催します。Hisayo Yasuda はポヴァジュスカー・ビストリツァの日本デーのプログラムにも参加しています。",
+    "posterAlt": "ネドバルカ・ギャラリーで開催される Japanese Speech Contest & Prize Draw のポスター"
   }
 }

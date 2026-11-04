@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Section from "./Section.jsx";
 import WorkshopRegistrationForm from "./WorkshopRegistrationForm.jsx";
+import WorkshopGallery from "./WorkshopGallery.jsx";
 import { formatDuration, formatSession, lecturerRoleLabel, workshopPrice, workshopLecturers } from "../lib/workshops.js";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
@@ -22,6 +23,7 @@ export default function WorkshopDetail({ workshop }) {
     <a className="backLink" href={addLocalePrefix("/workshopy", locale)}>← {copy.all}</a>
     {workshop.category ? <div className="programMeta">{workshop.category}</div> : null}
     {workshop.image ? <img className="workshopDetailImage" src={workshop.image} alt={workshop.title} /> : null}
+    <WorkshopGallery slug={workshop.slug} />
     <div className="workshopDetailGrid">
       <div className="workshopDescription">{workshop.description.split(/\n\n+/).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         <dl className="workshopFacts workshopDetailFacts">

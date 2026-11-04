@@ -20,6 +20,15 @@ test("@data locale sites contain Hero openingFrom and required arrays", () => {
   }
 });
 
+test("@data speech contest promotion is localized in every supported locale", () => {
+  for (const locale of locales) {
+    const promotion = read(locale, "site").speechContest;
+    for (const field of ["title", "intro", "date", "venue", "admission", "organizer", "posterAlt"]) {
+      expect(promotion[field], `${locale}/speechContest.${field}`).toBeTruthy();
+    }
+  }
+});
+
 test("@data workshop content exists and is translated in every supported locale", () => {
   const workshopTitles = new Set<string>();
   for (const locale of locales) {

@@ -278,5 +278,15 @@
   "footer": {
     "note": "Zmena programu vyhradená.",
     "legalLinks": []
+  },
+  "speechContest": {
+    "kicker": "Podujatie v Bratislave",
+    "title": "Japanese Speech Contest & Prize Draw",
+    "intro": "Máte radi japončinu alebo sa ju práve učíte? V Bratislave sa uskutoční Japanese Speech Contest & Prize Draw pre začiatočníkov, mierne pokročilých aj pokročilých.",
+    "date": "14. november 2026, 13:30–14:45",
+    "venue": "Galéria Nedbalka, Nedbalova 17, Bratislava",
+    "admission": "Účasť v súťaži je bezplatná a návštevníci sa môžu tešiť aj na malé darčeky a losovanie cien.",
+    "organizer": "Podujatie organizuje J-Pad.eu s. r. o. pod vedením Hisayo Yasuda, ktorá je zároveň súčasťou programu Japonského dňa v Považskej Bystrici.",
+    "posterAlt": "Plagát podujatia Japanese Speech Contest & Prize Draw v Galérii Nedbalka"
   }
 }
