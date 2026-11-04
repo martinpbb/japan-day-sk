@@ -261,17 +261,17 @@ test('canonical tea tasting sessions register and appear in public availability'
   const { sqlite, call, register } = setup();
   const tea = workshopData.items.find(workshop => workshop.id === 'cajova-degustacia');
   assert.deepEqual(tea.sessions.map(session => [session.id, session.start, session.capacity, session.location]), [
-    ['cajova-degustacia-1245','2026-11-07T12:45:00+01:00',15,null],
-    ['cajova-degustacia-1400','2026-11-07T14:00:00+01:00',15,null],
+    ['cajova-degustacia-1245','2026-11-07T13:15:00+01:00',15,null],
+    ['cajova-degustacia-1400','2026-11-07T14:30:00+01:00',15,null],
   ]);
   sqlite.exec(`INSERT INTO workshops (id,slug,title,lecturer,short_description,description,start_at,end_at,location,capacity,price_cents,registration_open)
-    VALUES ('cajova-degustacia','cajova-degustacia','Tea tasting','Martin Labudik','Tea','Tea tasting','2026-11-07T12:45:00+01:00','2026-11-07T14:45:00+01:00','Tea room',15,0,1)`);
+    VALUES ('cajova-degustacia','cajova-degustacia','Tea tasting','Martin Labudik','Tea','Tea tasting','2026-11-07T13:15:00+01:00','2026-11-07T15:15:00+01:00','Tea room',15,0,1)`);
   sqlite.prepare("UPDATE workshops SET price_cents = 0 WHERE slug = 'cajova-degustacia'").run();
   const teaWorkshopId = String(sqlite.prepare("SELECT id FROM workshops WHERE slug = 'cajova-degustacia'").get().id);
   sqlite.prepare('INSERT INTO workshop_sessions (id,workshop_id,start_at,end_at,location,capacity,active,registration_open) VALUES (?,?,?,?,NULL,?,1,1)')
-    .run('cajova-degustacia-1245',teaWorkshopId,'2026-11-07T12:45:00+01:00','2026-11-07T13:30:00+01:00',15);
+    .run('cajova-degustacia-1245',teaWorkshopId,'2026-11-07T13:15:00+01:00','2026-11-07T14:00:00+01:00',15);
   sqlite.prepare('INSERT INTO workshop_sessions (id,workshop_id,start_at,end_at,location,capacity,active,registration_open) VALUES (?,?,?,?,NULL,?,1,1)')
-    .run('cajova-degustacia-1400',teaWorkshopId,'2026-11-07T14:00:00+01:00','2026-11-07T14:45:00+01:00',15);
+    .run('cajova-degustacia-1400',teaWorkshopId,'2026-11-07T14:30:00+01:00','2026-11-07T15:15:00+01:00',15);
   for (const [index, id] of ['cajova-degustacia-1245','cajova-degustacia-1400'].entries()) {
     const response = await register(`tea${index}@example.com`, id);
     assert.equal(response.status, 201);
@@ -285,8 +285,8 @@ test('canonical tea tasting sessions register and appear in public availability'
   const availability = await (await call('/api/workshops/cajova-degustacia')).json();
   assert.deepEqual(availability.data.sessions.map(({id,start_at,capacity,registered_count,remaining_capacity}) =>
     ({id,start_at,capacity,registered_count,remaining_capacity})), [
-    {id:'cajova-degustacia-1245',start_at:'2026-11-07T12:45:00+01:00',capacity:15,registered_count:1,remaining_capacity:14},
-    {id:'cajova-degustacia-1400',start_at:'2026-11-07T14:00:00+01:00',capacity:15,registered_count:1,remaining_capacity:14},
+    {id:'cajova-degustacia-1245',start_at:'2026-11-07T13:15:00+01:00',capacity:15,registered_count:1,remaining_capacity:14},
+    {id:'cajova-degustacia-1400',start_at:'2026-11-07T14:30:00+01:00',capacity:15,registered_count:1,remaining_capacity:14},
   ]);
 });
 
@@ -300,6 +300,7 @@ test('all locale registration structures match and the production repair seeds e
   sqlite.exec(readFileSync(new URL('../migrations/0002_workshop_sessions_and_payments.sql', import.meta.url), 'utf8'));
   sqlite.exec(readFileSync(new URL('../migrations/0003_tea_tasting_sessions.sql', import.meta.url), 'utf8'));
   const repair = readFileSync(new URL('../migrations/0004_seed_registerable_workshops.sql', import.meta.url), 'utf8');
+  const scheduleShift = readFileSync(new URL('../migrations/0006_shift_workshop_sessions.sql', import.meta.url), 'utf8');
   const apply = () => {
     sqlite.exec('BEGIN');
     try { sqlite.exec(repair); sqlite.exec('COMMIT'); }
@@ -308,6 +309,7 @@ test('all locale registration structures match and the production repair seeds e
   try {
     apply();
     apply();
+    sqlite.exec(scheduleShift);
     const expected = workshopData.items.filter(workshop => workshop.registrationRequired !== false);
     const parents = sqlite.prepare('SELECT id, slug, registration_open FROM workshops ORDER BY slug').all();
     const sessions = sqlite.prepare(`SELECT s.id, s.start_at, s.capacity, s.registration_open, w.slug
@@ -367,6 +369,7 @@ test('all locale registration structures match and the production repair seeds e
 test('production tea seed creates the missing parent and sessions, preserves legacy registrations and is repeatable', async () => {
   const { sqlite, call, register } = setup();
   const seed = readFileSync(new URL('../migrations/0004_seed_registerable_workshops.sql', import.meta.url), 'utf8');
+  const scheduleShift = readFileSync(new URL('../migrations/0006_shift_workshop_sessions.sql', import.meta.url), 'utf8');
   const apply = () => {
     sqlite.exec('BEGIN');
     try { sqlite.exec(seed); sqlite.exec('COMMIT'); }
@@ -380,6 +383,7 @@ test('production tea seed creates the missing parent and sessions, preserves leg
   const legacy = await (await register('legacy@example.com', 'cajova-degustacia-1330')).json();
   apply();
   apply();
+  sqlite.exec(scheduleShift);
   assert.equal(sqlite.prepare('SELECT session_id FROM registrations WHERE id = ?').get(legacy.data.registration_id).session_id, 'cajova-degustacia-1400');
   assert.deepEqual(sqlite.prepare('PRAGMA foreign_key_check').all(), []);
   for (const id of ['cajova-degustacia-1245', 'cajova-degustacia-1400']) {
@@ -390,8 +394,8 @@ test('production tea seed creates the missing parent and sessions, preserves leg
   assert.equal((await invalid.json()).error.code, 'SESSION_NOT_FOUND');
   const { data } = await (await call('/api/workshops/cajova-degustacia')).json();
   assert.deepEqual(data.sessions.map(s => [s.id, s.start_at, s.capacity]), [
-    ['cajova-degustacia-1245', '2026-11-07T12:45:00+01:00', 15],
-    ['cajova-degustacia-1400', '2026-11-07T14:00:00+01:00', 15],
+    ['cajova-degustacia-1245', '2026-11-07T13:15:00+01:00', 15],
+    ['cajova-degustacia-1400', '2026-11-07T14:30:00+01:00', 15],
   ]);
 });
 

@@ -64,8 +64,8 @@ test('@ui admin workshop and session details render protected data', async ({ pa
   await page.route('https://api.japanday.sk/api/admin/**', async route => {
     const url = new URL(route.request().url());
     const data = url.pathname.endsWith('/registrations')
-      ? { session: { id: 'japoncina-1100', workshop_id: 'japoncina', start_at: '2026-11-07 11:00', end_at: '2026-11-07 12:30', capacity: 15, registered_count: 4, waitlist_count: 0, available: 11 }, registrations: [{ first_name: 'Test', last_name: 'Person', email: 'person@example.com', phone: '+421 900 000 000', status: 'registered', payment_status: 'free', created_at: '2026-11-03 08:56:38' }] }
-      : { workshop: { id: 'japoncina', title: 'Shodō – japonská kaligrafia', lecturer: 'Lecturer', location: 'Hall', short_description: 'Description' }, sessions: [{ id: 'japoncina-1100', start_at: '2026-11-07 11:00', end_at: '2026-11-07 12:30', capacity: 15, registered_count: 4, waitlist_count: 0, available: 11 }] };
+      ? { session: { id: 'japoncina-1100', workshop_id: 'japoncina', start_at: '2026-11-07 11:30', end_at: '2026-11-07 12:00', capacity: 15, registered_count: 4, waitlist_count: 0, available: 11 }, registrations: [{ first_name: 'Test', last_name: 'Person', email: 'person@example.com', phone: '+421 900 000 000', status: 'registered', payment_status: 'free', created_at: '2026-11-03 08:56:38' }] }
+      : { workshop: { id: 'japoncina', title: 'Shodō – japonská kaligrafia', lecturer: 'Lecturer', location: 'Hall', short_description: 'Description' }, sessions: [{ id: 'japoncina-1100', start_at: '2026-11-07 11:30', end_at: '2026-11-07 12:00', capacity: 15, registered_count: 4, waitlist_count: 0, available: 11 }] };
     await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ok: true, data }) });
   });
   await page.goto('/admin/workshops/japoncina/');
@@ -76,7 +76,7 @@ test('@ui admin workshop and session details render protected data', async ({ pa
   await page.goto('/admin/sessions/japoncina-1100/');
   await expect(page.getByRole('heading', { name: /Shodō – japonská kaligrafia.*7\. 11\. 2026/ })).toBeVisible();
   await expect(page.getByRole('link', { name: '← Späť na Shodō – japonská kaligrafia' })).toHaveAttribute('href', '/admin/workshops/japoncina/');
-  await expect(page.getByText('11:00–12:30')).toBeVisible();
+  await expect(page.getByText('11:30–12:00')).toBeVisible();
   await expect(page.locator('main')).not.toContainText(/2026-11-07T/);
   await expect(page.getByText('4 / 15 registrovaných')).toBeVisible();
   await expect(page.getByRole('columnheader', { name: 'Meno' })).toBeVisible();

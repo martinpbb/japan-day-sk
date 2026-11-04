@@ -35,7 +35,7 @@ for (const locale of localeCodes) {
       await expect(card).toContainText(copy.duration); await expect(card).toContainText(copy.price);
     }
     await page.locator(`.workshopCard[href$='/workshopy/tvorba-kombiku']`).click();
-    await expect(page.locator('.workshopSessions')).toContainText('11:00–14:30');
+    await expect(page.locator('.workshopSessions')).toContainText('11:30–15:00');
     await expect(page.locator('.workshopSession')).toHaveCount(0);
     await expect(page.locator('.workshopSessions')).toContainText(read(locale, 'workshops').items.find((w: any) => w.id === 'tvorba-kombiku').availabilityNote);
     await expect(page.locator('.workshopDetailFacts')).toContainText('2');

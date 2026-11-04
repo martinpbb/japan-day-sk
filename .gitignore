@@ -35,3 +35,4 @@ test-results/*
 .dev.vars
 worker/.wrangler/
 worker/.wrangler-logs/
+backups/*

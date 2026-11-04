@@ -20,19 +20,19 @@
         {
           "location": null,
           "id": "japoncina-1100",
-          "start": "2026-11-07T11:00:00+01:00",
+          "start": "2026-11-07T11:30:00+01:00",
           "capacity": 15
         },
         {
           "location": null,
           "id": "japoncina-1300",
-          "start": "2026-11-07T13:00:00+01:00",
+          "start": "2026-11-07T13:30:00+01:00",
           "capacity": 15
         },
         {
           "location": null,
           "id": "japoncina-1500",
-          "start": "2026-11-07T15:00:00+01:00",
+          "start": "2026-11-07T15:30:00+01:00",
           "capacity": 15
         }
       ]
@@ -56,35 +56,35 @@
       "sessions": [
         {
           "id": "origami-1100",
-          "start": "2026-11-07T11:00:00+01:00",
+          "start": "2026-11-07T11:30:00+01:00",
           "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         },
         {
           "id": "origami-1145",
-          "start": "2026-11-07T11:45:00+01:00",
+          "start": "2026-11-07T12:15:00+01:00",
           "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         },
         {
           "id": "origami-1230",
-          "start": "2026-11-07T12:30:00+01:00",
+          "start": "2026-11-07T13:00:00+01:00",
           "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         },
         {
           "id": "origami-1315",
-          "start": "2026-11-07T13:15:00+01:00",
+          "start": "2026-11-07T13:45:00+01:00",
           "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
         },
         {
           "id": "origami-1400",
-          "start": "2026-11-07T14:00:00+01:00",
+          "start": "2026-11-07T14:30:00+01:00",
           "capacity": 15,
           "location": null,
           "areaId": "shared-workshop-area"
@@ -120,19 +120,19 @@
       "sessions": [
         {
           "id": "shodo-1100",
-          "start": "2026-11-07T11:00:00+01:00",
+          "start": "2026-11-07T11:30:00+01:00",
           "capacity": 20,
           "location": null
         },
         {
           "id": "shodo-1330",
-          "start": "2026-11-07T13:30:00+01:00",
+          "start": "2026-11-07T14:00:00+01:00",
           "capacity": 20,
           "location": null
         },
         {
           "id": "shodo-1530",
-          "start": "2026-11-07T15:30:00+01:00",
+          "start": "2026-11-07T16:00:00+01:00",
           "capacity": 20,
           "location": null
         }
@@ -164,15 +164,15 @@
       "sessions": [
         {
           "id": "tvorba-kombiku-drop-in",
-          "start": "2026-11-07T11:00:00+01:00",
-          "end_at": "2026-11-07T14:30:00+01:00",
+          "start": "2026-11-07T11:30:00+01:00",
+          "end_at": "2026-11-07T15:00:00+01:00",
           "capacity": null,
           "location": null,
           "areaId": "shared-workshop-area"
         }
       ],
-      "availabilityWindow": "11:00–14:30",
-      "availabilityNote": "Taller abierto: puedes participar en cualquier momento entre las 11:00 y las 14:30."
+      "availabilityWindow": "11:30–15:00",
+      "availabilityNote": "El taller es continuo: puedes incorporarte en cualquier momento entre las 11:30 y las 15:00."
     },
     {
       "id": "tsumami-zaiku",
@@ -195,14 +195,14 @@
           "location": null,
           "areaId": "shared-workshop-area",
           "id": "tsumami-zaiku-1140",
-          "start": "2026-11-07T11:40:00+01:00",
+          "start": "2026-11-07T12:10:00+01:00",
           "capacity": 2
         },
         {
           "location": null,
           "areaId": "shared-workshop-area",
           "id": "tsumami-zaiku-1340",
-          "start": "2026-11-07T13:40:00+01:00",
+          "start": "2026-11-07T14:10:00+01:00",
           "capacity": 2
         }
       ]
@@ -228,14 +228,14 @@
           "location": null,
           "areaId": "shared-workshop-area",
           "id": "ayatori-1220",
-          "start": "2026-11-07T12:20:00+01:00",
+          "start": "2026-11-07T12:50:00+01:00",
           "capacity": 10
         },
         {
           "location": null,
           "areaId": "shared-workshop-area",
           "id": "ayatori-1420",
-          "start": "2026-11-07T14:20:00+01:00",
+          "start": "2026-11-07T14:50:00+01:00",
           "capacity": 10
         }
       ]
@@ -259,25 +259,25 @@
       "sessions": [
         {
           "id": "kumihimo-1100",
-          "start": "2026-11-07T11:00:00+01:00",
+          "start": "2026-11-07T11:30:00+01:00",
           "capacity": 10,
           "location": null
         },
         {
           "id": "kumihimo-1215",
-          "start": "2026-11-07T12:15:00+01:00",
+          "start": "2026-11-07T12:45:00+01:00",
           "capacity": 10,
           "location": null
         },
         {
           "id": "kumihimo-1330",
-          "start": "2026-11-07T13:30:00+01:00",
+          "start": "2026-11-07T14:00:00+01:00",
           "capacity": 10,
           "location": null
         },
         {
           "id": "kumihimo-1445",
-          "start": "2026-11-07T14:45:00+01:00",
+          "start": "2026-11-07T15:15:00+01:00",
           "capacity": 10,
           "location": null
         }
@@ -307,13 +307,13 @@
       "sessions": [
         {
           "id": "cajova-degustacia-1245",
-          "start": "2026-11-07T12:45:00+01:00",
+          "start": "2026-11-07T13:15:00+01:00",
           "capacity": 15,
           "location": null
         },
         {
           "id": "cajova-degustacia-1400",
-          "start": "2026-11-07T14:00:00+01:00",
+          "start": "2026-11-07T14:30:00+01:00",
           "capacity": 15,
           "location": null
         }

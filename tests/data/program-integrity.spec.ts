@@ -46,7 +46,7 @@ test("@data workshop schedules match current approved requirements in every loca
     const data = JSON.parse(fs.readFileSync(path.join(root, locale, "workshops.json"), "utf8"));
     const workshops = Object.fromEntries(data.items.map((item: any) => [item.id, item]));
     const starts = (id: string) => workshops[id].sessions.map((session: any) => session.start.slice(11, 16));
-    expect(starts("japoncina")).toEqual(["11:00", "13:00", "15:00"]);
+    expect(starts("japoncina")).toEqual(["11:30", "13:30", "15:30"]);
     expect(workshops.japoncina).toMatchObject({ lecturerId: "hisayo-yasuda", durationMinutes: 30 });
     expect(workshops.japoncina.sessions.map((session: any) => session.capacity)).toEqual([15, 15, 15]);
     expect(workshops["tsumami-zaiku"]).toMatchObject({ lecturerId: "hisayo-yasuda", durationMinutes: 30 });
@@ -57,7 +57,7 @@ test("@data workshop schedules match current approved requirements in every loca
     expect(workshops.kumihimo.sessions).toHaveLength(4);
     expect(workshops.kumihimo.sessions.map((session: any) => session.capacity)).toEqual([10, 10, 10, 10]);
     expect(workshops["tvorba-kombiku"]).toMatchObject({ durationMinutes: 15, registrationRequired: false });
-    expect(workshops["tvorba-kombiku"].availabilityWindow).toMatch(/^11:00.*14:30$/);
+    expect(workshops["tvorba-kombiku"].availabilityWindow).toMatch(/^11:30.*15:00$/);
     expect(workshops["tvorba-kombiku"].priceDisplay).toMatch(/2/);
     expect(workshops["tvorba-kombiku"].sessions).toHaveLength(1);
     expect(workshops["cajova-degustacia"]).toMatchObject({ durationMinutes: 45 });
