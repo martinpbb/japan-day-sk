@@ -1,6 +1,9 @@
 import { test, expect } from '../helpers/fixtures';
+import { readFileSync } from 'node:fs';
 
-const adminRoutes = ['/admin/', '/admin/workshops/', '/admin/workshops/w1/', '/admin/sessions/s1/'];
+const workshopData = JSON.parse(readFileSync(new URL('../../src/data/locales/sk/workshops.json', import.meta.url), 'utf8'));
+const adminWorkshop = workshopData.items.find((workshop: any) => workshop.sessions?.length);
+const adminRoutes = ['/admin/', '/admin/workshops/', `/admin/workshops/${adminWorkshop.slug || adminWorkshop.id}/`, `/admin/sessions/${adminWorkshop.sessions[0].id}/`];
 
 test('@ui admin routes are public shells and offer Access sign-in when unauthenticated', async ({ page }) => {
   await page.addInitScript(() => {
@@ -35,8 +38,8 @@ test('@ui admin routes are public shells and offer Access sign-in when unauthent
   expect(requests.map(request => new URL(request.url).pathname)).toEqual([
     '/api/admin/summary',
     '/api/admin/workshops',
-    '/api/admin/workshops/w1',
-    '/api/admin/sessions/s1/registrations',
+    `/api/admin/workshops/${adminWorkshop.slug || adminWorkshop.id}`,
+    `/api/admin/sessions/${adminWorkshop.sessions[0].id}/registrations`,
   ]);
 });
 

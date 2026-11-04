@@ -34,6 +34,8 @@ export async function assertImages(page: Page) {
         const done = () => resolve(report());
         img.addEventListener("load", done, { once: true });
         img.addEventListener("error", done, { once: true });
+        // The request can finish between the initial check and listener registration.
+        if (img.complete) done();
       });
     });
     expect(details.naturalWidth, JSON.stringify(details)).toBeGreaterThan(0);

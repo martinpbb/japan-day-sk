@@ -13,7 +13,7 @@ test("@ui performer cards link to working detail pages", async ({ page }) => {
     await gotoApp(page, "/ucinkujuci");
     const link = page.locator(`#host-${id.id}`);
     await expect(link).toBeVisible();
-    await link.click();
+    await link.click({ timeout: 10_000 });
     await expect(page).toHaveURL(new RegExp(`/ucinkujuci/${id.id}/?$`));
     await expect(page.locator("main h1")).toBeVisible();
   }
@@ -33,7 +33,7 @@ for (const locale of localeCodes) {
     await gotoApp(page, prefixFor(locale, "/ucinkujuci"));
     const link = page.locator(`#host-${performers[0].id}`);
     await expect(link).toBeVisible();
-    await link.click();
+    await link.click({ timeout: 10_000 });
     await expect(page).toHaveURL(new RegExp(prefixFor(locale, `/ucinkujuci/${performers[0].id}`).replaceAll("/", "\\/") + "/?$"));
     await expect(page.locator("main h1")).toBeVisible();
   });

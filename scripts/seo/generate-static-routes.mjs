@@ -188,6 +188,8 @@ const adminHtml = baseHtml
   .replace(/<script[^>]*>[\s\S]*?gtag\('config',[\s\S]*?<\/script>/g, "")
   .replace(/<script[^>]*>[\s\S]*?gtm\.js[\s\S]*?<\/script>/g, "")
   .replace(/<noscript>[\s\S]*?googletagmanager\.com\/ns\.html[\s\S]*?<\/noscript>/g, "");
+// GitHub Pages serves a route's index.html only when the exact path exists.
+// Keep every data-backed admin path materialized as a public, non-indexable shell.
 for (const route of adminRoutePaths) {
   const target = path.join(dist, route.slice(1));
   await fs.mkdir(target, { recursive: true });

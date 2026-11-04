@@ -51,7 +51,7 @@ export default function PerformerDetail({ performer }) {
               {posterAvailable ? (
                 <div className="performerPromotionPoster">
                   <img
-                    src="/images/events/hisayo-japanese-speech-contest-2026.png"
+                    src="/images/performers/hisayo_yasuda.jpg"
                     alt={content.performerPromotion.posterAlt}
                     onError={() => setPosterAvailable(false)}
                   />
