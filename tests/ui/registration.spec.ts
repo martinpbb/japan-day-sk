@@ -89,26 +89,50 @@ browserTest('localized detail registration displays fields, validates, posts, an
   browserExpect(payloads[0]).toMatchObject({ first_name: 'Mika', last_name: 'Tanaka', email: 'mika@example.com', phone: '+81 90 1234 5678' });
 });
 
-browserTest('localized list, open state, full state and drop-in exception use live availability', async ({ page }) => {
+browserTest('localized workshop overview shows compact aggregate availability and keeps drop-in workshops registration-free', async ({ page }) => {
   await page.route('https://api.japanday.sk/api/workshops/**', route => {
     const slug = new URL(route.request().url()).pathname.split('/').at(-1)!;
     if (slug === 'availability') return route.fulfill({ json: { ok: true, data: { workshops: [{
-      id: 'ayatori', title: 'Ayatori', session_count: 1, registered_count: 15, waitlist_count: 0, capacity: 15,
-      sessions: [{ id: 'ayatori-1220', start_at: '2026-11-07T12:20:00+01:00', end_at: '2026-11-07T12:35:00+01:00', capacity: 15, registered_count: 15, waitlist_count: 0, available_count: 0 }],
+      id: 'ayatori', title: 'Ayatori', session_count: 1, registered_count: 11, waitlist_count: 0, capacity: 15, available_count: 4,
+      sessions: [{ id: 'ayatori-1220', start_at: '2026-11-07T12:20:00+01:00', end_at: '2026-11-07T12:35:00+01:00', capacity: 15, registered_count: 11, waitlist_count: 0, available_count: 4 }],
     }] } } });
     const data = mockWorkshop(slug, { open: slug !== 'ayatori', remaining: slug === 'ayatori' ? 0 : 15 });
     if (slug === 'ayatori') data.data.sessions[0].id = 'ayatori-1220';
     return route.fulfill({ json: data });
   });
-  for (const [locale, openText] of [['sk', 'Registrácia otvorená'], ['en', 'Registration is open'], ['de', 'Anmeldung geöffnet'], ['es', 'Inscripción abierta'], ['ja', '予約受付中']] as const) {
-    await page.goto(prefixFor(locale, '/workshopy'), { waitUntil: "domcontentloaded" });
-    const list = page.locator('.workshopCard');
-    await browserExpect(list.filter({ has: page.getByText(openText) }).first()).toBeVisible();
-    await browserExpect(page.locator('a.workshopCard[href$="/workshopy/tvorba-kombiku"]')).not.toContainText(/Registro|Register|Anmelden|Inscribirse|予約する/);
+  for (const locale of localeCodes) {
+    const copy = read(locale, 'site').ui.workshops;
+    await page.goto(prefixFor(locale, '/workshopy'), { waitUntil: 'domcontentloaded' });
+    const ayatori = page.locator('a.workshopCard[href$="/workshopy/ayatori"]');
+    await browserExpect(ayatori).toContainText(copy.aggregateSummary.replace('{count}', '1').replace('{registered}', '11').replace('{capacity}', '15'));
+    await browserExpect(ayatori).toContainText(copy.lastPlaces.replace('{count}', '4'));
+    await browserExpect(ayatori).not.toContainText('12:20');
+    const dropIn = page.locator('a.workshopCard[href$="/workshopy/tvorba-kombiku"]');
+    await browserExpect(dropIn).not.toContainText(/Registro|Register|Anmelden|Inscribirse/);
+    await browserExpect(dropIn.locator('.workshopOccupancy')).toHaveCount(0);
+    await page.goto(prefixFor(locale, '/workshopy/tvorba-kombiku'), { waitUntil: 'domcontentloaded' });
+    await browserExpect(page.locator('.registrationForm')).toHaveCount(0);
+    await browserExpect(page.locator('.workshopRegistrationState')).toHaveCount(0);
   }
-  await page.goto('/workshopy/ayatori/', { waitUntil: "domcontentloaded" });
-  await browserExpect(page.locator('.registrationForm button[type="submit"]')).toBeDisabled();
-  await browserExpect(page.locator('.workshopSession')).toContainText('15 / 15');
+});
+
+browserTest('full workshop sessions show localized full labels and disable registration', async ({ page }) => {
+  await page.route('https://api.japanday.sk/api/workshops/**', route => {
+    const slug = new URL(route.request().url()).pathname.split('/').at(-1)!;
+    if (slug === 'availability') return route.fulfill({ json: { ok: true, data: { workshops: [{
+      id: 'ayatori', title: 'Ayatori', session_count: 1, registered_count: 15, waitlist_count: 0, capacity: 15, available_count: 0,
+      sessions: [{ id: 'ayatori-1100', start_at: '2026-11-07T11:00:00+01:00', end_at: '2026-11-07T11:30:00+01:00', capacity: 15, registered_count: 15, waitlist_count: 0, available_count: 0 }],
+    }] } } });
+    return route.fulfill({ json: mockWorkshop(slug, { open: false, remaining: 0 }) });
+  });
+  for (const locale of localeCodes) {
+    const fullLabel = read(locale, 'site').ui.workshops.full;
+    await page.goto(prefixFor(locale, '/workshopy'), { waitUntil: 'domcontentloaded' });
+    await browserExpect(page.locator('a.workshopCard[href$="/workshopy/ayatori"] .workshopOccupancy')).toContainText(fullLabel);
+    await page.goto(prefixFor(locale, '/workshopy/ayatori'), { waitUntil: 'domcontentloaded' });
+    await browserExpect(page.locator('.workshopSession')).toContainText(fullLabel);
+    await browserExpect(page.locator('.registrationForm button[type="submit"]')).toBeDisabled();
+  }
 });
 
 browserTest('workshop occupancy uses one shared D1 request across overview and detail navigation', async ({ page }) => {
@@ -118,10 +142,10 @@ browserTest('workshop occupancy uses one shared D1 request across overview and d
     if (slug === 'availability') {
       requests++;
       return route.fulfill({ json: { ok: true, data: { workshops: [
-        { id: 'japoncina', title: 'Japončina', session_count: 3, registered_count: 5, waitlist_count: 1, capacity: 45, sessions: [
+        { id: 'japoncina', title: 'Japončina', session_count: 3, registered_count: 5, waitlist_count: 1, capacity: 45, available_count: 40, sessions: [
           { id: 'japoncina-1100', start_at: '2026-11-07T11:30:00+01:00', end_at: '2026-11-07T12:00:00+01:00', capacity: 15, registered_count: 15, waitlist_count: 1, available_count: 0 },
         ] },
-        { id: 'origami', title: 'Origami', session_count: 5, registered_count: 16, waitlist_count: 0, capacity: 75, sessions: [
+        { id: 'origami', title: 'Origami', session_count: 5, registered_count: 16, waitlist_count: 0, capacity: 75, available_count: 59, sessions: [
           { id: 'origami-1100', start_at: '2026-11-07T11:30:00+01:00', end_at: '2026-11-07T12:00:00+01:00', capacity: 15, registered_count: 5, waitlist_count: 0, available_count: 10 },
           { id: 'origami-1145', start_at: '2026-11-07T12:15:00+01:00', end_at: '2026-11-07T12:45:00+01:00', capacity: 15, registered_count: 15, waitlist_count: 2, available_count: 0 },
         ] },
@@ -134,7 +158,7 @@ browserTest('workshop occupancy uses one shared D1 request across overview and d
     return route.fulfill({ json: data });
   });
   await page.goto('/workshopy/', { waitUntil: 'domcontentloaded' });
-  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('16/75 registrovaných');
+  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('16 / 75 registrovaných');
   await browserExpect.poll(() => requests).toBe(1);
   await page.locator('.workshopCard[href$="/workshopy/origami"]').click();
   const availableSession = page.locator('.workshopSession').filter({ hasText: '11:30' });
@@ -147,7 +171,7 @@ browserTest('workshop occupancy uses one shared D1 request across overview and d
   await browserExpect(fullSession).toContainText('2 čakateľov');
   await browserExpect.poll(() => requests).toBe(1);
   await page.locator('.backLink').click();
-  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('16/75 registrovaných');
+  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('16 / 75 registrovaných');
   await browserExpect.poll(() => requests).toBe(1);
   await page.reload({ waitUntil: 'domcontentloaded' });
   await browserExpect.poll(() => requests).toBe(2);

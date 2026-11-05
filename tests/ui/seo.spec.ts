@@ -33,8 +33,9 @@ test.describe("@seo social preview image", () => {
       await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute("content", height);
       await expect(page.locator('meta[property="og:image:type"]')).toHaveAttribute("content", "image/png");
 
-      const response = await request.get(new URL(imageUrl.replace("https://japanday.sk", ""), baseURL).toString());
-      expect(response.ok()).toBeTruthy();
+      const response = await request.get(new URL(imageUrl.replace("https://japanday.sk", ""), baseURL).toString(), { timeout: 20_000 });
+      expect(response.status()).toBe(200);
+      expect(response.headers()["content-type"]).toMatch(/^image\/png(?:;|$)/i);
     });
   }
 });

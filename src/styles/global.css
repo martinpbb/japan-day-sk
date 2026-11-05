@@ -1654,11 +1654,15 @@ button {
 .workshopsTeaserCta:hover span { transform: translateX(3px); }
 .workshopsTeaserCta span { transition: transform .2s ease; }
 .workshopCard { min-width: 0; }
+.workshopCard .performerContent { height: 100%; }
+.workshopCard .performerContent > .shortText { margin-bottom: 12px; }
 .workshopImage { display: block; width: 100%; max-height: 240px; object-fit: cover; }
 .workshopFacts { display: grid; gap: 8px; margin: 16px 0 0; }
 .workshopFacts > div { display: flex; flex-wrap: wrap; gap: 4px 8px; }
 .workshopFacts dt { font-weight: 700; }
 .workshopFacts dd { margin: 0; }
+.workshopOccupancy { display: grid; gap: 2px; }
+.workshopOccupancy > span:first-child { font-weight: 700; }
 .workshopRegistrationState { color: var(--muted); font-weight: 700; }
 .workshopDetailImage { display: block; width: 100%; max-height: 480px; object-fit: cover; border-radius: var(--radius); margin: 24px 0; }
 .workshopGallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 24px 0 32px; }

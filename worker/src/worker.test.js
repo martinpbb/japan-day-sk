@@ -285,8 +285,8 @@ test('public availability shares admin count semantics and returns only D1 aggre
   assert.equal(response.status, 200);
   const { data } = await response.json();
   const workshop = data.workshops.find(item => item.id === 'test-workshop');
-  assert.deepEqual({ session_count: workshop.session_count, registered_count: workshop.registered_count, waitlist_count: workshop.waitlist_count, capacity: workshop.capacity },
-    { session_count: 2, registered_count: 1, waitlist_count: 1, capacity: 3 });
+  assert.deepEqual({ session_count: workshop.session_count, registered_count: workshop.registered_count, waitlist_count: workshop.waitlist_count, capacity: workshop.capacity, available_count: workshop.available_count },
+    { session_count: 2, registered_count: 1, waitlist_count: 1, capacity: 3, available_count: 2 });
   assert.deepEqual(workshop.sessions.find(session => session.id === 's1'), {
     id: 's1', start_at: '2027-01-01', end_at: null, capacity: 1, registered_count: 1, waitlist_count: 1, available_count: 0,
   });

@@ -85,6 +85,7 @@ function workshopAggregate(workshop, sessions) {
     registered_count: workshopSessions.reduce((total, session) => total + session.registered_count, 0),
     waitlist_count: workshopSessions.reduce((total, session) => total + session.waitlist_count, 0),
     capacity: workshopSessions.reduce((total, session) => total + session.capacity, 0),
+    available_count: workshopSessions.reduce((total, session) => total + session.available, 0),
     sessions: workshopSessions,
   };
 }
@@ -229,6 +230,7 @@ export default {
             registered_count: aggregate.registered_count,
             waitlist_count: aggregate.waitlist_count,
             capacity: aggregate.capacity,
+            available_count: aggregate.available_count,
             sessions: aggregate.sessions.map(({ id, start_at, end_at, capacity, registered_count, waitlist_count, available }) => ({
               id, start_at, end_at, capacity, registered_count, waitlist_count, available_count: available,
             })),
