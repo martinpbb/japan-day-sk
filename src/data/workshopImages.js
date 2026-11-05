@@ -19,6 +19,8 @@ export const workshopImages = {
   ],
   kumihimo: [],
   "cajova-degustacia": [
-    { src: "/images/gallery/japan-day-2025-caj.webp", alt: "Japonský čaj na Japan Day 2025" },
+    { src: "/images/gallery/cajova-degustacia.jpg", alt: "Japonský čaj na Japan Day 2025" },
+    { src: "/images/gallery/cajova-degustacia2.jpg", alt: "Japonský čaj na Japan Day 2025" },
+    { src: "/images/gallery/cajova-degustacia3.jpg", alt: "Japonský čaj na Japan Day 2025" },
   ],
 };
