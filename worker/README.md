@@ -86,6 +86,10 @@ fresh on-disk schema/constraint check. Workshop prices remain authoritative; onl
 
 - `GET /api/workshops` and `GET /api/workshops/:slug` include active sessions,
   registration flags, capacity, registered count and remaining capacity.
+- `GET /api/workshops/availability` returns active workshop/session timing,
+  capacity, registered and waitlist counts, plus available places. It reuses the
+  same D1 session aggregation as the admin workshop and session views and never
+  returns participant records.
 - `POST /api/sessions/:sessionId/register` requires first_name, last_name, email,
   phone. The old workshop registration endpoint is retired.
 - `GET /api/registrations/:id/payment/qr.svg` requires the registration cookie.

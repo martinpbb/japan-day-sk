@@ -219,6 +219,25 @@ test('admin API verifies Access JWT, enforces lecturer scope, omits token hashes
     assert.equal(populatedData.session.registered_count,1);
     assert.equal(populatedData.session.waitlist_count,1);
     assert.equal(populatedData.session.available,0);
+    const publicAvailability = await call('/api/workshops/availability', { headers: { Origin: 'https://japanday.sk' } });
+    assert.equal(publicAvailability.status, 200);
+    assert.equal(publicAvailability.headers.get('Access-Control-Allow-Origin'), 'https://japanday.sk');
+    const publicWorkshop = (await publicAvailability.json()).data.workshops.find((workshop) => workshop.id === 'test-workshop');
+    const adminWorkshops = (await (await bearer('lecturer@example.com','/api/admin/workshops')).json()).data;
+    const adminWorkshop = adminWorkshops.find((workshop) => workshop.id === 'test-workshop');
+    assert.deepEqual(
+      [publicWorkshop.session_count, publicWorkshop.registered_count, publicWorkshop.waitlist_count, publicWorkshop.capacity],
+      [adminWorkshop.session_count, adminWorkshop.registered_count, adminWorkshop.waitlist_count, adminWorkshop.capacity],
+    );
+    assert.deepEqual(
+      publicWorkshop.sessions.find((session) => session.id === 's1'),
+      {
+        id: 's1', start_at: '2027-01-01', end_at: null, capacity: 1,
+        registered_count: populatedData.session.registered_count,
+        waitlist_count: populatedData.session.waitlist_count,
+        available_count: populatedData.session.available,
+      },
+    );
     const body = JSON.stringify(populatedData);
     assert.match(body,/attendee@example.com/);
     assert.doesNotMatch(body,/registration_access_token_hash/);
@@ -257,20 +276,25 @@ test('public capacity excludes waitlist and cancelled registrations, including e
   assert.deepEqual(result.data.sessions, []);
 });
 
-test('public availability returns aggregate counts only and excludes waitlist, cancelled and inactive sessions', async () => {
+test('public availability shares admin count semantics and returns only D1 aggregates', async () => {
   const { sqlite, call, register } = setup();
   await register('registered@example.com');
   await register('waitlist@example.com');
-  sqlite.exec("UPDATE registrations SET status = 'cancelled' WHERE email = 'waitlist@example.com'");
+  sqlite.exec("INSERT INTO registrations (id,workshop_id,session_id,first_name,last_name,email,phone,status,payment_status) VALUES ('cancelled','test-workshop','s2','Cancelled','User','cancelled@example.com','123','cancelled','cancelled')");
   const response = await call('/api/workshops/availability');
   assert.equal(response.status, 200);
   const { data } = await response.json();
-  assert.deepEqual(data.find(session => session.sessionId === 's1'), { sessionId: 's1', registered: 1, capacity: 1, available: 0 });
-  assert.deepEqual(Object.keys(data[0]).sort(), ['available', 'capacity', 'registered', 'sessionId']);
-  assert.doesNotMatch(JSON.stringify(data), /registered@example|waitlist@example|Test|User|phone|email|registration_id/i);
+  const workshop = data.workshops.find(item => item.id === 'test-workshop');
+  assert.deepEqual({ session_count: workshop.session_count, registered_count: workshop.registered_count, waitlist_count: workshop.waitlist_count, capacity: workshop.capacity },
+    { session_count: 2, registered_count: 1, waitlist_count: 1, capacity: 3 });
+  assert.deepEqual(workshop.sessions.find(session => session.id === 's1'), {
+    id: 's1', start_at: '2027-01-01', end_at: null, capacity: 1, registered_count: 1, waitlist_count: 1, available_count: 0,
+  });
+  assert.deepEqual(Object.keys(workshop.sessions[0]).sort(), ['available_count', 'capacity', 'end_at', 'id', 'registered_count', 'start_at', 'waitlist_count']);
+  assert.doesNotMatch(JSON.stringify(data), /registered@example|waitlist@example|phone|email|first_name|last_name|registration_id|token/i);
   sqlite.exec('UPDATE workshop_sessions SET active = 0 WHERE id = \'s1\'');
   const inactive = await (await call('/api/workshops/availability')).json();
-  assert.ok(!inactive.data.some(session => session.sessionId === 's1'));
+  assert.ok(!inactive.data.workshops.find(item => item.id === 'test-workshop').sessions.some(session => session.id === 's1'));
 });
 
 test('canonical tea tasting sessions register and appear in public availability', async () => {

@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { getWorkshopAvailability } from './workshopAvailability.js';
 export const workshopApi = 'https://api.japanday.sk';
 export function useWorkshopSessionAvailability() {
-  const [availability, setAvailability] = useState(null);
+  const [state, setState] = useState({ workshops: null, failed: false });
   useEffect(() => {
     let active = true;
-    getWorkshopAvailability().then(value => { if (active) setAvailability(value); }).catch(() => {});
+    getWorkshopAvailability().then(workshops => { if (active) setState({ workshops, failed: false }); })
+      .catch(() => { if (active) setState({ workshops: null, failed: true }); });
     return () => { active = false; };
   }, []);
-  return availability;
+  return state;
 }
 export function useWorkshopAvailability(slug) {
   const [state, setState] = useState(null);

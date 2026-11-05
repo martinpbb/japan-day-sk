@@ -32,7 +32,7 @@ export default function Children({ compact = false }) {
       <div className="childrenIntroGrid">
         <div className="childrenIntroContent">
           <p className="childrenIntro">{data.intro}</p>
-          {compact && data.competition && <aside className="childrenCompetitionCallout" aria-labelledby="children-competition-callout-title">
+          {showCompetitionImage && data.competition && <aside className="childrenCompetitionCallout" aria-labelledby="children-competition-callout-title">
             <p className="childrenCompetitionEyebrow">{data.competition.eyebrow}</p>
             <h3 id="children-competition-callout-title">Súťaž pre deti</h3>
             <p>Vyfarbite japonské motívy a zapojte sa do súťaže o balíček japonských sladkostí.</p>

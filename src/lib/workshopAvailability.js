@@ -10,8 +10,8 @@ export function getWorkshopAvailability() {
         return response.json();
       })
       .then(result => {
-        if (!result?.ok || !Array.isArray(result.data)) throw new Error('Invalid workshop availability response');
-        return result.data;
+        if (!result?.ok || !Array.isArray(result.data?.workshops)) throw new Error('Invalid workshop availability response');
+        return result.data.workshops;
       });
     const requestWithCatch = request.catch(error => {
       if (availabilityPromise === requestWithCatch) availabilityPromise = undefined;

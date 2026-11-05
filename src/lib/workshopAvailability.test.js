@@ -9,7 +9,7 @@ test('availability retries failures and shares successful data across consumers'
     requests++;
     return requests === 1
       ? new Response('{}', { status: 503 })
-      : new Response(JSON.stringify({ ok: true, data: [{ sessionId: 's1', registered: 2, capacity: 5, available: 3 }] }));
+      : new Response(JSON.stringify({ ok: true, data: { workshops: [{ id: 'test', session_count: 1, registered_count: 2, waitlist_count: 0, capacity: 5, sessions: [{ id: 's1', registered_count: 2, capacity: 5, waitlist_count: 0, available_count: 3 }] }] } }));
   };
   try {
     await assert.rejects(getWorkshopAvailability(), /availability request failed/);

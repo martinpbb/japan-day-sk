@@ -56,12 +56,41 @@ async function canAccessWorkshop(db, user, id) {
   return Boolean(await db.prepare('SELECT 1 FROM lecturer_workshops WHERE email = ? AND workshop_id = ?').bind(user.email, id).first());
 }
 const adminData = (data, status, origin) => reply(data, status, origin);
-const sessionSelect = `SELECT s.*, COUNT(r.id) AS registered_count,
-  MAX(0, s.capacity - COUNT(r.id)) AS remaining_capacity
-  FROM workshop_sessions s LEFT JOIN registrations r ON r.session_id = s.id AND r.status = 'registered'`;
+const sessionAggregateSelect = `SELECT s.id, s.workshop_id, s.start_at, s.end_at, s.capacity, s.location, s.registration_open,
+  SUM(CASE WHEN r.status = 'registered' THEN 1 ELSE 0 END) AS registered_count,
+  SUM(CASE WHEN r.status = 'waitlist' THEN 1 ELSE 0 END) AS waitlist_count,
+  MAX(0, s.capacity - SUM(CASE WHEN r.status = 'registered' THEN 1 ELSE 0 END)) AS available
+  FROM workshop_sessions s LEFT JOIN registrations r ON r.session_id = s.id AND r.status != 'cancelled'`;
+async function sessionAggregates(db, { workshopId, sessionId, activeOnly = true } = {}) {
+  const conditions = [];
+  const values = [];
+  if (activeOnly) conditions.push('s.active = 1');
+  if (workshopId !== undefined) { conditions.push('s.workshop_id = ?'); values.push(workshopId); }
+  if (sessionId !== undefined) { conditions.push('s.id = ?'); values.push(sessionId); }
+  const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
+  const { results } = await db.prepare(`${sessionAggregateSelect} ${where} GROUP BY s.id ORDER BY s.start_at, s.id`).bind(...values).all();
+  return results.map((session) => ({
+    ...session,
+    capacity: Number(session.capacity || 0),
+    registered_count: Number(session.registered_count || 0),
+    waitlist_count: Number(session.waitlist_count || 0),
+    available: Number(session.available || 0),
+  }));
+}
+function workshopAggregate(workshop, sessions) {
+  const workshopSessions = sessions.filter((session) => String(session.workshop_id) === String(workshop.id));
+  return {
+    ...workshop,
+    session_count: workshopSessions.length,
+    registered_count: workshopSessions.reduce((total, session) => total + session.registered_count, 0),
+    waitlist_count: workshopSessions.reduce((total, session) => total + session.waitlist_count, 0),
+    capacity: workshopSessions.reduce((total, session) => total + session.capacity, 0),
+    sessions: workshopSessions,
+  };
+}
 async function workshopView(db, row) {
-  const { results } = await db.prepare(`${sessionSelect} WHERE s.workshop_id = ? AND s.active = 1 GROUP BY s.id ORDER BY s.start_at`).bind(String(row.id)).all();
-  return { ...row, sessions: results };
+  const sessions = await sessionAggregates(db, { workshopId: String(row.id) });
+  return { ...row, sessions: sessions.map((session) => ({ ...session, remaining_capacity: session.available })) };
 }
 async function register(request, env, sessionId, origin) {
   let input;
@@ -147,22 +176,12 @@ export default {
         const auth = await adminUser(request, env, origin);
         if (auth.response) return auth.response;
         const user = auth.user;
-        const sessionsSql = `SELECT s.id, s.workshop_id, s.start_at, s.end_at, s.capacity, s.location,
-          SUM(CASE WHEN r.status = 'registered' THEN 1 ELSE 0 END) AS registered_count,
-          SUM(CASE WHEN r.status = 'waitlist' THEN 1 ELSE 0 END) AS waitlist_count,
-          MAX(0, s.capacity - SUM(CASE WHEN r.status = 'registered' THEN 1 ELSE 0 END)) AS available
-          FROM workshop_sessions s LEFT JOIN registrations r ON r.session_id = s.id AND r.status != 'cancelled'`;
-        const workshopRows = await env.DB.prepare(`SELECT w.id,w.title,w.lecturer,w.short_description,w.description,w.location,w.active,
-          COUNT(DISTINCT s.id) AS session_count,
-          SUM(CASE WHEN r.status = 'registered' THEN 1 ELSE 0 END) AS registered_count,
-          SUM(CASE WHEN r.status = 'waitlist' THEN 1 ELSE 0 END) AS waitlist_count,
-          COALESCE((SELECT SUM(s2.capacity) FROM workshop_sessions s2 WHERE s2.workshop_id=w.id AND s2.active=1),0) AS capacity
-          FROM workshops w LEFT JOIN workshop_sessions s ON s.workshop_id=w.id AND s.active=1
-          LEFT JOIN registrations r ON r.session_id=s.id AND r.status != 'cancelled'
-          WHERE w.active=1 AND w.registration_open=1
-          ${user.role === 'lecturer' ? 'AND EXISTS (SELECT 1 FROM lecturer_workshops lw WHERE lw.email = ? AND lw.workshop_id = w.id)' : ''}
-          GROUP BY w.id ORDER BY w.title`).bind(...(user.role === 'lecturer' ? [user.email] : [])).all();
-        const workshops = workshopRows.results.map((w) => ({ ...w, capacity: Number(w.capacity || 0), registered_count: Number(w.registered_count || 0), waitlist_count: Number(w.waitlist_count || 0) }));
+        const scope = user.role === 'lecturer' ? ' AND EXISTS (SELECT 1 FROM lecturer_workshops lw WHERE lw.email = ? AND lw.workshop_id = w.id)' : '';
+        const workshopRows = await env.DB.prepare(`SELECT w.id,w.title,w.lecturer,w.short_description,w.description,w.location,w.active
+          FROM workshops w WHERE w.active=1 AND w.registration_open=1${scope} ORDER BY w.title`)
+          .bind(...(user.role === 'lecturer' ? [user.email] : [])).all();
+        const allSessions = await sessionAggregates(env.DB);
+        const workshops = workshopRows.results.map((workshop) => workshopAggregate(workshop, allSessions));
         if (url.pathname === '/api/admin/summary' || url.pathname === '/api/admin/workshops') {
           const total = workshops.reduce((a,w) => ({ registrations:a.registrations+w.registered_count, waitlist:a.waitlist+w.waitlist_count, capacity:a.capacity+w.capacity }), {registrations:0,waitlist:0,capacity:0});
           return adminData(url.pathname.endsWith('summary') ? { ...total, workshop_count:workshops.length, workshops } : workshops, 200, origin);
@@ -173,13 +192,13 @@ export default {
           if (!await canAccessWorkshop(env.DB,user,id)) return fail('FORBIDDEN',403,origin);
           const workshop = await env.DB.prepare('SELECT id,title,lecturer,short_description,description,location FROM workshops WHERE id=?').bind(id).first();
           if (!workshop) return fail('WORKSHOP_NOT_FOUND',404,origin);
-          const {results:sessions} = await env.DB.prepare(`${sessionsSql} WHERE s.workshop_id=? AND s.active=1 GROUP BY s.id ORDER BY s.start_at`).bind(id).all();
+          const sessions = await sessionAggregates(env.DB, { workshopId: id });
           return adminData({workshop,sessions},200,origin);
         }
         const sessionRoute = url.pathname.match(/^\/api\/admin\/sessions\/([^/]+)\/(registrations|export\.csv)$/);
         if (sessionRoute) {
           const id = decodeURIComponent(sessionRoute[1]);
-          const session = await env.DB.prepare(`SELECT s.id,s.workshop_id,s.start_at,s.end_at,s.capacity,${sessionsSql.slice(sessionsSql.indexOf('SUM('))} WHERE s.id=? GROUP BY s.id`).bind(id).first();
+          const [session] = await sessionAggregates(env.DB, { sessionId: id, activeOnly: false });
           if (!session) return fail('SESSION_NOT_FOUND',404,origin);
           if (!await canAccessWorkshop(env.DB,user,session.workshop_id)) return fail('FORBIDDEN',403,origin);
           const {results:registrations} = await env.DB.prepare(`SELECT first_name,last_name,email,phone,status,payment_status,created_at FROM registrations WHERE session_id=? AND status != 'cancelled' ORDER BY created_at,id`).bind(id).all();
@@ -199,17 +218,23 @@ export default {
         return reply(await Promise.all(results.map(row => workshopView(env.DB, row))), 200, origin);
       }
       if (request.method === 'GET' && url.pathname === '/api/workshops/availability') {
-        const { results } = await env.DB.prepare(`SELECT s.id AS sessionId,
-          COUNT(r.id) AS registered, s.capacity AS capacity,
-          MAX(0, s.capacity - COUNT(r.id)) AS available
-          FROM workshop_sessions s
-          JOIN workshops w ON w.id = s.workshop_id
-          LEFT JOIN registrations r ON r.session_id = s.id AND r.status = 'registered'
-          WHERE s.active = 1 AND w.active = 1
-          GROUP BY s.id ORDER BY s.start_at, s.id`).all();
-        return reply(results.map(({ sessionId, registered, capacity, available }) => ({
-          sessionId, registered: Number(registered), capacity: Number(capacity), available: Number(available),
-        })), 200, origin);
+        const { results: workshops } = await env.DB.prepare('SELECT id,title FROM workshops WHERE active = 1 ORDER BY title').all();
+        const sessions = await sessionAggregates(env.DB);
+        const data = workshops.map((workshop) => {
+          const aggregate = workshopAggregate(workshop, sessions);
+          return {
+            id: String(workshop.id),
+            title: workshop.title,
+            session_count: aggregate.session_count,
+            registered_count: aggregate.registered_count,
+            waitlist_count: aggregate.waitlist_count,
+            capacity: aggregate.capacity,
+            sessions: aggregate.sessions.map(({ id, start_at, end_at, capacity, registered_count, waitlist_count, available }) => ({
+              id, start_at, end_at, capacity, registered_count, waitlist_count, available_count: available,
+            })),
+          };
+        });
+        return reply({ workshops: data }, 200, origin);
       }
       const detail = url.pathname.match(/^\/api\/workshops\/([^/]+)$/);
       if (request.method === 'GET' && detail) {

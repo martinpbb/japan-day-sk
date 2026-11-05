@@ -118,7 +118,8 @@ function PerformerPage({ performer, route }) {
 function PublicApp() {
   const { content } = useI18n();
   const { seo, performers, exhibitors, workshops } = content;
-  const path = normalizePath(stripLocalePrefix(window.location.pathname));
+  const [pathname, setPathname] = useState(window.location.pathname);
+  const path = normalizePath(stripLocalePrefix(pathname));
   const exhibitor = exhibitors.items.find((item) => item.detail && path === `/vystavovatelia/${item.id}`);
   const performer = getPerformerFromPath(path, performers);
   const workshopCatalog = path === "/workshopy";
@@ -129,6 +130,12 @@ function PublicApp() {
   const route = workshopRoute || performerRoute || exhibitorRoute || seo.routes[path] || seo.routes["/"];
   const isKnown = Boolean(workshopRoute || performerRoute || exhibitorRoute || seo.routes[path]);
   const [cookieSettingsOpen, setCookieSettingsOpen] = useState(false);
+
+  useEffect(() => {
+    const updatePath = () => setPathname(window.location.pathname);
+    window.addEventListener("popstate", updatePath);
+    return () => window.removeEventListener("popstate", updatePath);
+  }, []);
 
   useEffect(() => {
     if (window.location.hash) {

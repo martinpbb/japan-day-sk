@@ -92,7 +92,12 @@ browserTest('localized detail registration displays fields, validates, posts, an
 browserTest('localized list, open state, full state and drop-in exception use live availability', async ({ page }) => {
   await page.route('https://api.japanday.sk/api/workshops/**', route => {
     const slug = new URL(route.request().url()).pathname.split('/').at(-1)!;
+    if (slug === 'availability') return route.fulfill({ json: { ok: true, data: { workshops: [{
+      id: 'ayatori', title: 'Ayatori', session_count: 1, registered_count: 15, waitlist_count: 0, capacity: 15,
+      sessions: [{ id: 'ayatori-1220', start_at: '2026-11-07T12:20:00+01:00', end_at: '2026-11-07T12:35:00+01:00', capacity: 15, registered_count: 15, waitlist_count: 0, available_count: 0 }],
+    }] } } });
     const data = mockWorkshop(slug, { open: slug !== 'ayatori', remaining: slug === 'ayatori' ? 0 : 15 });
+    if (slug === 'ayatori') data.data.sessions[0].id = 'ayatori-1220';
     return route.fulfill({ json: data });
   });
   for (const [locale, openText] of [['sk', 'Registrácia otvorená'], ['en', 'Registration is open'], ['de', 'Anmeldung geöffnet'], ['es', 'Inscripción abierta'], ['ja', '予約受付中']] as const) {
@@ -106,30 +111,56 @@ browserTest('localized list, open state, full state and drop-in exception use li
   await browserExpect(page.locator('.workshopSession')).toContainText('15 / 15');
 });
 
-browserTest('workshop occupancy uses one public request, shows full sessions, and degrades gracefully', async ({ page }) => {
+browserTest('workshop occupancy uses one shared D1 request across overview and detail navigation', async ({ page }) => {
   let requests = 0;
   await page.route('https://api.japanday.sk/api/workshops/**', route => {
     const slug = new URL(route.request().url()).pathname.split('/').at(-1)!;
     if (slug === 'availability') {
       requests++;
-      return route.fulfill({ json: { ok: true, data: [
-        { sessionId: 'japoncina-1100', registered: 15, capacity: 15, available: 0 },
-        { sessionId: 'origami-1100', registered: 5, capacity: 15, available: 10 },
-        { sessionId: 'ayatori-1220', registered: 15, capacity: 15, available: 0 },
-      ] } });
+      return route.fulfill({ json: { ok: true, data: { workshops: [
+        { id: 'japoncina', title: 'Japončina', session_count: 3, registered_count: 5, waitlist_count: 1, capacity: 45, sessions: [
+          { id: 'japoncina-1100', start_at: '2026-11-07T11:30:00+01:00', end_at: '2026-11-07T12:00:00+01:00', capacity: 15, registered_count: 15, waitlist_count: 1, available_count: 0 },
+        ] },
+        { id: 'origami', title: 'Origami', session_count: 5, registered_count: 16, waitlist_count: 0, capacity: 75, sessions: [
+          { id: 'origami-1100', start_at: '2026-11-07T11:30:00+01:00', end_at: '2026-11-07T12:00:00+01:00', capacity: 15, registered_count: 5, waitlist_count: 0, available_count: 10 },
+          { id: 'origami-1145', start_at: '2026-11-07T12:15:00+01:00', end_at: '2026-11-07T12:45:00+01:00', capacity: 15, registered_count: 15, waitlist_count: 2, available_count: 0 },
+        ] },
+      ] } } });
     }
     const data = mockWorkshop(slug, { remaining: 0 });
-    if (slug === 'ayatori') data.data.sessions[0].id = 'ayatori-1220';
+    if (slug === 'origami') {
+      data.data.sessions.push({ id: 'origami-1145', start_at: '2026-11-07T12:15:00+01:00', end_at: '2026-11-07T12:45:00+01:00', capacity: 15, remaining_capacity: 0, registration_open: true, location: null });
+    }
     return route.fulfill({ json: data });
   });
   await page.goto('/workshopy/', { waitUntil: 'domcontentloaded' });
-  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('5 / 15');
-  await browserExpect(page.locator('.workshopCard[href$="/workshopy/japoncina"]')).toContainText('15 / 15');
+  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('16/75 registrovaných');
   await browserExpect.poll(() => requests).toBe(1);
-  await page.goto('/workshopy/ayatori/', { waitUntil: 'domcontentloaded' });
-  await browserExpect(page.locator('.workshopSession')).toContainText('15 / 15');
-  await browserExpect.poll(() => requests).toBe(2);
-
+  await page.locator('.workshopCard[href$="/workshopy/origami"]').click();
+  const availableSession = page.locator('.workshopSession').filter({ hasText: '11:30' });
+  await browserExpect(availableSession).toContainText('11:30 – 12:00');
+  await browserExpect(availableSession).toContainText('5 / 15 registrovaných');
+  await browserExpect(availableSession).toContainText('10 voľných miest');
+  const fullSession = page.locator('.workshopSession').filter({ hasText: '12:15' });
+  await browserExpect(fullSession).toContainText('15 / 15 registrovaných');
+  await browserExpect(fullSession).toContainText('Obsadené');
+  await browserExpect(fullSession).toContainText('2 čakateľov');
+  await browserExpect.poll(() => requests).toBe(1);
+  await page.locator('.backLink').click();
+  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('16/75 registrovaných');
+  await browserExpect.poll(() => requests).toBe(1);
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await browserExpect.poll(() => requests).toBe(3);
+  await browserExpect.poll(() => requests).toBe(2);
+});
+
+browserTest('availability failure leaves descriptive workshop details without static occupancy claims', async ({ page }) => {
+  await page.route('https://api.japanday.sk/api/workshops/availability', route => route.fulfill({ status: 503, json: { ok: false } }));
+  await page.route('https://api.japanday.sk/api/workshops/**', route => route.fulfill({ status: 503, json: { ok: false } }));
+  await page.goto('/workshopy/', { waitUntil: 'domcontentloaded' });
+  const origamiCard = page.locator('.workshopCard[href$="/workshopy/origami"]');
+  await browserExpect(origamiCard).toContainText('Aktuálna obsadenosť nie je dostupná.');
+  await origamiCard.click();
+  await browserExpect(page.locator('.workshopDescription')).toContainText('Origami');
+  await browserExpect(page.locator('.workshopSession').first()).toContainText('Aktuálna obsadenosť nie je dostupná.');
+  await browserExpect(page.locator('.workshopFacts')).not.toContainText('Kapacita: 15');
 });
