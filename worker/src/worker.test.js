@@ -257,6 +257,22 @@ test('public capacity excludes waitlist and cancelled registrations, including e
   assert.deepEqual(result.data.sessions, []);
 });
 
+test('public availability returns aggregate counts only and excludes waitlist, cancelled and inactive sessions', async () => {
+  const { sqlite, call, register } = setup();
+  await register('registered@example.com');
+  await register('waitlist@example.com');
+  sqlite.exec("UPDATE registrations SET status = 'cancelled' WHERE email = 'waitlist@example.com'");
+  const response = await call('/api/workshops/availability');
+  assert.equal(response.status, 200);
+  const { data } = await response.json();
+  assert.deepEqual(data.find(session => session.sessionId === 's1'), { sessionId: 's1', registered: 1, capacity: 1, available: 0 });
+  assert.deepEqual(Object.keys(data[0]).sort(), ['available', 'capacity', 'registered', 'sessionId']);
+  assert.doesNotMatch(JSON.stringify(data), /registered@example|waitlist@example|Test|User|phone|email|registration_id/i);
+  sqlite.exec('UPDATE workshop_sessions SET active = 0 WHERE id = \'s1\'');
+  const inactive = await (await call('/api/workshops/availability')).json();
+  assert.ok(!inactive.data.some(session => session.sessionId === 's1'));
+});
+
 test('canonical tea tasting sessions register and appear in public availability', async () => {
   const { sqlite, call, register } = setup();
   const tea = workshopData.items.find(workshop => workshop.id === 'cajova-degustacia');

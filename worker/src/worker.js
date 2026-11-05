@@ -198,6 +198,19 @@ export default {
         const { results } = await env.DB.prepare('SELECT * FROM workshops WHERE active = 1 ORDER BY start_at').all();
         return reply(await Promise.all(results.map(row => workshopView(env.DB, row))), 200, origin);
       }
+      if (request.method === 'GET' && url.pathname === '/api/workshops/availability') {
+        const { results } = await env.DB.prepare(`SELECT s.id AS sessionId,
+          COUNT(r.id) AS registered, s.capacity AS capacity,
+          MAX(0, s.capacity - COUNT(r.id)) AS available
+          FROM workshop_sessions s
+          JOIN workshops w ON w.id = s.workshop_id
+          LEFT JOIN registrations r ON r.session_id = s.id AND r.status = 'registered'
+          WHERE s.active = 1 AND w.active = 1
+          GROUP BY s.id ORDER BY s.start_at, s.id`).all();
+        return reply(results.map(({ sessionId, registered, capacity, available }) => ({
+          sessionId, registered: Number(registered), capacity: Number(capacity), available: Number(available),
+        })), 200, origin);
+      }
       const detail = url.pathname.match(/^\/api\/workshops\/([^/]+)$/);
       if (request.method === 'GET' && detail) {
         const row = await env.DB.prepare('SELECT * FROM workshops WHERE slug = ? AND active = 1').bind(decodeURIComponent(detail[1])).first();

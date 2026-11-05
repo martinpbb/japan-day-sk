@@ -6,13 +6,14 @@ import { formatDuration, formatSession, lecturerRoleLabel, workshopPrice, worksh
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
 
-import { useWorkshopAvailability } from "../lib/workshopApi.js";
+import { useWorkshopAvailability, useWorkshopSessionAvailability } from "../lib/workshopApi.js";
 
 export default function WorkshopDetail({ workshop }) {
   const { content, locale, site } = useI18n();
   const copy = site.ui.workshops;
   const dropIn = workshop.registrationRequired === false;
   const live = useWorkshopAvailability(dropIn ? null : workshop.slug);
+  const availability = useWorkshopSessionAvailability();
   const sessions = !dropIn && live?.sessions?.length ? live.sessions.map(session => ({ ...session, start: session.start_at, registrationOpen: !!session.registration_open })) : (workshop.sessions || []).map(session => ({ ...session, registrationOpen: !!workshop.registrationOpen }));
   const registrationWorkshop = { ...workshop, ...(live ? { paid: live.price_cents > 0, priceCents: live.price_cents, currency: live.currency } : {}), registrationOpen: workshop.registrationOpen };
   const registrationOpen = !dropIn && registrationWorkshop.registrationOpen;
@@ -38,7 +39,10 @@ export default function WorkshopDetail({ workshop }) {
         <h2 id="workshop-sessions-title">{dropIn ? copy.time : copy.sessions}</h2>
         {dropIn ? <><p>{workshop.availabilityWindow}</p><p>{workshop.availabilityNote}</p></> : sessions.length ? sessions.map((session) => <label className="workshopSession" key={session.id}>
           <input type="radio" name="workshop-session" value={session.id} checked={session.id === (selectedSession?.id || "")} onChange={() => setSelectedId(session.id)} />
-          <span><strong>{formatSession(session, workshop.durationMinutes, locale)}</strong>{session.location ? <span>{session.location}</span> : null}{session.capacity != null ? <span>{session.remaining_capacity == null ? `${copy.capacity}: ${session.capacity}` : session.remaining_capacity === 0 ? copy.full : `${session.remaining_capacity} ${copy.peopleShort}`}</span> : null}</span>
+          <span><strong>{formatSession(session, workshop.durationMinutes, locale)}</strong>{session.location ? <span>{session.location}</span> : null}{(() => {
+            const current = availability?.find(item => item.sessionId === session.id);
+            return current ? <span>{current.registered} / {current.capacity} obsadených · {current.available === 0 ? "Obsadené" : `${current.available} voľných miest`}</span> : session.capacity != null ? <span>{session.remaining_capacity === 0 ? copy.full : `${copy.capacity}: ${session.capacity}`}</span> : null;
+          })()}</span>
         </label>) : <p>{copy.sessionPending}</p>}
         {!dropIn ? <p className="workshopRegistrationState">{registrationOpen ? copy.registrationOpen : copy.registrationClosed}</p> : null}
       </section>
