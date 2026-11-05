@@ -38,11 +38,11 @@ export default function WorkshopDetail({ workshop }) {
     <div className="workshopDetailGrid">
       <div className="workshopDescription">{workshop.description.split(/\n\n+/).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         <dl className="workshopFacts workshopDetailFacts">
-          {people.length ? <div><dt>{people.length > 1 ? copy.lecturers : copy.lecturer}</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.role ? ` (${lecturerRoleLabel(person.role, locale)})` : ""}{person.affiliation ? <div>{person.affiliation}</div> : null}</div>)}</dd></div> : null}
-          {workshop.durationMinutes ? <div><dt>{copy.duration}</dt><dd>{formatDuration(workshop.durationMinutes, locale)}</dd></div> : null}
-          <div><dt>{copy.price}</dt><dd>{workshopPrice(registrationWorkshop, copy, locale)}</dd></div>
-          {selectedSessionIsLive && selectedSession?.capacity != null ? <div><dt>{copy.capacity}</dt><dd>{copy.capacityForSession.replace("{capacity}", selectedSession.capacity)}</dd></div> : null}
-          {selectedSession?.location ? <div><dt>{copy.location}</dt><dd>{selectedSession.location}</dd></div> : null}
+          {people.length ? <div><dt>{people.length > 1 ? copy.lecturers : copy.lecturer}:</dt><dd>{people.map((person) => <div key={person.name}>{person.name}{person.role ? ` (${lecturerRoleLabel(person.role, locale)})` : ""}{person.affiliation ? <div>{person.affiliation}</div> : null}</div>)}</dd></div> : null}
+          {workshop.durationMinutes ? <div><dt>{copy.duration}:</dt><dd>{formatDuration(workshop.durationMinutes, locale)}</dd></div> : null}
+          <div><dt>{copy.price}:</dt><dd>{workshopPrice(registrationWorkshop, copy, locale)}</dd></div>
+          {selectedSessionIsLive && selectedSession?.capacity != null ? <div><dt>{copy.capacity}:</dt><dd>{copy.capacityForSession.replace("{capacity}", selectedSession.capacity)}</dd></div> : null}
+          {selectedSession?.location ? <div><dt>{copy.location}:</dt><dd>{selectedSession.location}</dd></div> : null}
         </dl>
       </div>
       <section className="workshopSessions" aria-labelledby="workshop-sessions-title">

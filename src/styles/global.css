@@ -1661,6 +1661,10 @@ button {
 .workshopFacts > div { display: flex; flex-wrap: wrap; gap: 4px 8px; }
 .workshopFacts dt { font-weight: 700; }
 .workshopFacts dd { margin: 0; }
+.workshopOverviewFacts { gap: 5px; padding-bottom: 4px; }
+.workshopOverviewFacts > div { gap: 4px 8px; }
+.workshopOverviewFacts .workshopOverviewSessions { display: grid; gap: 5px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); }
+.workshopOverviewSessions dd { line-height: 1.5; }
 .workshopOccupancy { display: grid; gap: 2px; }
 .workshopOccupancy > span:first-child { font-weight: 700; }
 .workshopRegistrationState { color: var(--muted); font-weight: 700; }
