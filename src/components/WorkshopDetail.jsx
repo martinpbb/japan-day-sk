@@ -51,11 +51,16 @@ export default function WorkshopDetail({ workshop }) {
           <input type="radio" name="workshop-session" value={session.id} checked={session.id === (selectedSession?.id || "")} onChange={() => setSelectedId(session.id)} />
           <span><strong>{formatSession(session, workshop.durationMinutes, locale)}</strong>{session.location ? <span>{session.location}</span> : null}{(() => {
             const current = availabilitySessions.find(item => item.id === session.id);
-            if (current) return <>
-              <span>{copy.registeredCount.replace("{registered}", current.registered_count).replace("{capacity}", current.capacity)}</span>
-              <span>{current.available_count === 0 ? copy.full : copy.availableCount.replace("{count}", current.available_count)}</span>
-              {current.waitlist_count > 0 ? <span>{copy.waitlistCount.replace("{count}", current.waitlist_count)}</span> : null}
-            </>;
+            if (current) {
+              const hasRegistrationCounts = Number.isFinite(current.registered_count) && current.registered_count >= 0 && Number.isFinite(current.capacity) && current.capacity >= 0;
+              const hasAvailableCount = Number.isFinite(current.available_count) && current.available_count >= 0;
+              const hasWaitlistCount = Number.isFinite(current.waitlist_count) && current.waitlist_count > 0;
+              return <>
+                {hasRegistrationCounts ? <span>{copy.registeredCount.replace("{registered}", String(current.registered_count)).replace("{capacity}", String(current.capacity))}</span> : null}
+                {hasAvailableCount ? <span>{current.available_count === 0 ? copy.full : copy.availableCount.replace("{count}", String(current.available_count))}</span> : null}
+                {hasWaitlistCount ? <span>{copy.waitlistCount.replace("{count}", String(current.waitlist_count))}</span> : null}
+              </>;
+            }
             return availability.failed ? <span>{copy.availabilityUnavailable}</span> : null;
           })()}</span>
         </label>) : <p>{copy.sessionPending}</p>}

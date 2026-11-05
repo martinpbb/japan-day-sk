@@ -11,6 +11,12 @@ test("@data static output contains generated route documents", () => {
     const relative = route === "/" ? `${prefix}index.html` : `${prefix}${route.slice(1)}/index.html`;
     expect(fs.existsSync(path.join(dist, relative)), relative).toBeTruthy();
   }
+  for (const locale of localeCodes) {
+    const prefix = locale === "sk" ? "" : `${locale}/`;
+    const relative = `${prefix}ucinkujuci/nao-higano/index.html`;
+    const html = readFileSync(path.join(dist, relative), "utf8");
+    expect(html, relative).toMatch(new RegExp(`<html[^>]*\\blang=["']${locale}["']`, "i"));
+  }
 });
 
 test("@data public admin shells are noindex and contain no private registration data", () => {

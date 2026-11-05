@@ -107,7 +107,7 @@ function addHreflang(html, logicalPath, baseUrl) {
   return html.replace("</head>", `${links.join("\n")}\n  </head>`);
 }
 
-function renderRoute({ seo, site, logicalPath, publicPath, route }) {
+function renderRoute({ locale, seo, site, logicalPath, publicPath, route }) {
   const canonical = publicUrl(seo.baseUrl, publicPath);
   const templateImage = logicalPath === "/" && publicPath === "/"
     ? baseHtml.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i)?.[1]
@@ -115,6 +115,7 @@ function renderRoute({ seo, site, logicalPath, publicPath, route }) {
   const imagePath = route.ogImage || (logicalPath === "/" ? "" : seo.defaultImage);
   const image = templateImage || (imagePath ? absoluteUrl(seo.baseUrl, imagePath) : "");
   let html = ensureGa4(ensureGtm(baseHtml));
+  html = html.replace(/<html\b([^>]*)>/i, (_match, attributes) => `<html${attributes.replace(/\s+lang=["'][^"']*["']/i, "")} lang="${locale}">`);
   html = replaceTitle(html, route.title);
   html = upsertMeta(html, "name", "description", route.description);
   html = upsertMeta(html, "name", "robots", "index, follow");
@@ -166,7 +167,7 @@ for (const { locale, contentLocale = locale, prefix } of locales) {
   const routes = { ...seo.routes, ...performerRoutes, ...exhibitorRoutes, ...workshopRoutes };
   for (const [logicalPath, route] of Object.entries(routes)) {
     const publicPath = logicalPath === "/" ? `${prefix}/` || "/" : `${prefix}${logicalPath}`;
-    const html = renderRoute({ seo, site, logicalPath, publicPath, route });
+    const html = renderRoute({ locale, seo, site, logicalPath, publicPath, route });
     const targetDir = publicPath === "/" ? dist : path.join(dist, publicPath.slice(1));
     await fs.mkdir(targetDir, { recursive: true });
     await fs.writeFile(path.join(targetDir, "index.html"), html);

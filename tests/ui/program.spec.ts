@@ -13,28 +13,28 @@ test("@ui programme shows the approved theatre order and current Nao Higano titl
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
 });
 
-test("@ui workshops show current lecturers, durations and session counts", async ({ page }) => {
+test("@ui workshop overview shows lecturers, durations and aggregate registration", async ({ page }) => {
+  await page.route("https://api.japanday.sk/api/workshops/availability", route => route.fulfill({ json: { ok: true, data: { workshops: [
+    { id: "japoncina", session_count: 3, registered_count: 6, capacity: 45 },
+  ] } } }));
   await page.goto("/workshopy", { waitUntil: "domcontentloaded" });
   const card = (slug: string) => page.locator(`a.workshopCard[href$="/workshopy/${slug}"]`);
   const japanese = card("japoncina");
   await expect(japanese.locator(".workshopFacts")).toContainText("30 min");
-  await expect(japanese.locator(".workshopFacts")).toContainText(/11:30.*12:00.*13:30.*14:00.*15:30.*16:00/);
   await expect(japanese.locator(".workshopFacts")).toContainText("Hisayo Yasuda");
+  await expect(japanese.locator(".workshopOverviewSessions")).toContainText("3 termínov");
+  await expect(japanese.locator(".workshopOccupancy")).toContainText("6 / 45 registrovaných");
   const tsumami = card("tsumami-zaiku");
   await expect(tsumami.locator(".workshopFacts")).toContainText("Hisayo Yasuda");
   await expect(tsumami.locator(".workshopFacts")).toContainText("30 min");
-  await expect(tsumami.locator(".workshopFacts")).toContainText("10");
   const ayatori = card("ayatori");
   await expect(ayatori.locator(".workshopFacts")).toContainText("Hisayo Yasuda");
   await expect(ayatori.locator(".workshopFacts")).toContainText("30 min");
   const kumihimo = card("kumihimo");
   await expect(kumihimo.locator(".workshopFacts")).toContainText("45 min");
-  await expect(kumihimo.locator(".workshopFacts")).toContainText("11:30");
-  await expect(kumihimo.locator(".workshopFacts")).toContainText("15:15");
   const buttons = card("tvorba-kombiku");
-  await expect(buttons.locator(".workshopFacts")).toContainText(/11:30.*15:00/);
-  await expect(buttons.locator(".workshopFacts")).toContainText("2");
   await expect(buttons.locator(".workshopRegistrationState")).toHaveCount(0);
+  await expect(buttons.locator(".workshopOccupancy")).toHaveCount(0);
   const tea = card("cajova-degustacia");
   await expect(tea.locator(".workshopFacts")).toContainText("45 min");
   await page.goto("/workshopy/japoncina", { waitUntil: "domcontentloaded" });

@@ -143,7 +143,7 @@ browserTest('full workshop sessions show localized full labels and disable regis
       read(locale, 'site').ui.workshops.aggregateSummary.replace('{count}', '1').replace('{registered}', '15').replace('{capacity}', '15'),
     );
     await page.goto(prefixFor(locale, '/workshopy/ayatori'), { waitUntil: 'domcontentloaded' });
-    await browserExpect(page.locator('.workshopSession')).toContainText(fullLabel);
+    await browserExpect(page.locator('.workshopSession').filter({ hasText: fullLabel }).first()).toBeVisible();
     await browserExpect(page.locator('.registrationForm button[type="submit"]')).toBeDisabled();
   }
 });
