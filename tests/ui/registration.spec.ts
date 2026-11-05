@@ -108,17 +108,19 @@ browserTest('localized list, open state, full state and drop-in exception use li
 
 browserTest('workshop occupancy uses one public request, shows full sessions, and degrades gracefully', async ({ page }) => {
   let requests = 0;
-  await page.route('https://api.japanday.sk/api/workshops/availability', async route => {
-    requests++;
-    await route.fulfill({ json: { ok: true, data: [
-      { sessionId: 'japoncina-1100', registered: 15, capacity: 15, available: 0 },
-      { sessionId: 'origami-1100', registered: 5, capacity: 15, available: 10 },
-      { sessionId: 'ayatori-1220', registered: 15, capacity: 15, available: 0 },
-    ] } });
-  });
   await page.route('https://api.japanday.sk/api/workshops/**', route => {
     const slug = new URL(route.request().url()).pathname.split('/').at(-1)!;
-    return route.fulfill({ json: mockWorkshop(slug, { remaining: 0 }) });
+    if (slug === 'availability') {
+      requests++;
+      return route.fulfill({ json: { ok: true, data: [
+        { sessionId: 'japoncina-1100', registered: 15, capacity: 15, available: 0 },
+        { sessionId: 'origami-1100', registered: 5, capacity: 15, available: 10 },
+        { sessionId: 'ayatori-1220', registered: 15, capacity: 15, available: 0 },
+      ] } });
+    }
+    const data = mockWorkshop(slug, { remaining: 0 });
+    if (slug === 'ayatori') data.data.sessions[0].id = 'ayatori-1220';
+    return route.fulfill({ json: data });
   });
   await page.goto('/workshopy/', { waitUntil: 'domcontentloaded' });
   await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('5 / 15');
@@ -126,8 +128,8 @@ browserTest('workshop occupancy uses one public request, shows full sessions, an
   await browserExpect.poll(() => requests).toBe(1);
   await page.goto('/workshopy/ayatori/', { waitUntil: 'domcontentloaded' });
   await browserExpect(page.locator('.workshopSession')).toContainText('15 / 15');
-  await browserExpect.poll(() => requests).toBe(1);
+  await browserExpect.poll(() => requests).toBe(2);
 
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await browserExpect.poll(() => requests).toBe(2);
+  await browserExpect.poll(() => requests).toBe(3);
 });

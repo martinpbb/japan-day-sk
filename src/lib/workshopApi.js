@@ -9,7 +9,8 @@ export function useWorkshopSessionAvailability() {
     return () => { active = false; };
   }, []);
   return availability;
-}export function useWorkshopAvailability(slug) {
+}
+export function useWorkshopAvailability(slug) {
   const [state, setState] = useState(null);
   useEffect(() => {
     if (!slug) return undefined;
