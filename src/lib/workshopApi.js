@@ -1,33 +1,15 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getWorkshopAvailability } from './workshopAvailability.js';
 export const workshopApi = 'https://api.japanday.sk';
-let availabilityRequest;
-let availabilityCache;
-function loadAvailability() {
-  if (availabilityCache) return Promise.resolve(availabilityCache);
-  if (!availabilityRequest) {
-    availabilityRequest = fetch(`${workshopApi}/api/workshops/availability`)
-      .then(response => response.ok ? response.json() : null)
-      .then(result => {
-        availabilityCache = result?.ok && Array.isArray(result.data) ? result.data : null;
-        return availabilityCache;
-      })
-      .catch(() => {
-        availabilityRequest = undefined;
-        return null;
-      });
-  }
-  return availabilityRequest;
-}
 export function useWorkshopSessionAvailability() {
-  const [availability, setAvailability] = useState(availabilityCache);
+  const [availability, setAvailability] = useState(null);
   useEffect(() => {
     let active = true;
-    loadAvailability().then(value => { if (active) setAvailability(value); });
+    getWorkshopAvailability().then(value => { if (active) setAvailability(value); }).catch(() => {});
     return () => { active = false; };
   }, []);
   return availability;
-}
-export function useWorkshopAvailability(slug) {
+}export function useWorkshopAvailability(slug) {
   const [state, setState] = useState(null);
   useEffect(() => {
     if (!slug) return undefined;

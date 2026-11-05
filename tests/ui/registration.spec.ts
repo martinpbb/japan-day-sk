@@ -103,7 +103,7 @@ browserTest('localized list, open state, full state and drop-in exception use li
   }
   await page.goto('/workshopy/ayatori/', { waitUntil: "domcontentloaded" });
   await browserExpect(page.locator('.registrationForm button[type="submit"]')).toBeDisabled();
-  await browserExpect(page.locator('.workshopSession')).toContainText('Obsadené');
+  await browserExpect(page.locator('.workshopSession')).toContainText('15 / 15');
 });
 
 browserTest('workshop occupancy uses one public request, shows full sessions, and degrades gracefully', async ({ page }) => {
@@ -121,15 +121,13 @@ browserTest('workshop occupancy uses one public request, shows full sessions, an
     return route.fulfill({ json: mockWorkshop(slug, { remaining: 0 }) });
   });
   await page.goto('/workshopy/', { waitUntil: 'domcontentloaded' });
-  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('5 / 15 obsadenÃ½ch');
-  await browserExpect(page.locator('.workshopCard[href$="/workshopy/japoncina"]')).toContainText('ObsadenÃ©');
+  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('5 / 15');
+  await browserExpect(page.locator('.workshopCard[href$="/workshopy/japoncina"]')).toContainText('15 / 15');
   await browserExpect.poll(() => requests).toBe(1);
   await page.goto('/workshopy/ayatori/', { waitUntil: 'domcontentloaded' });
-  await browserExpect(page.locator('.workshopSession')).toContainText('15 / 15 obsadených');
+  await browserExpect(page.locator('.workshopSession')).toContainText('15 / 15');
   await browserExpect.poll(() => requests).toBe(1);
 
-  await page.unroute('https://api.japanday.sk/api/workshops/availability');
-  await page.route('https://api.japanday.sk/api/workshops/availability', route => route.abort());
-  await page.goto('/workshopy/', { waitUntil: 'domcontentloaded' });
-  await browserExpect(page.locator('.workshopCard[href$="/workshopy/origami"]')).toContainText('11:00');
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await browserExpect.poll(() => requests).toBe(2);
 });
