@@ -4,7 +4,6 @@ export function absoluteUrl(baseUrl, path = "/") {
 }
 
 const schemaPerformers = [
-  ["Person", "Marek Hora"],
   ["Person", "Noriko Komiyama"],
   ["PerformingGroup", "Gorin"],
   ["Person", "Martin Labudík"]

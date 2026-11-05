@@ -340,28 +340,6 @@
         }
       ],
       "image": "/images/performers/satoko_kino.jpg"
-    },
-    {
-      "id": "marek-hora",
-      "name": "Marek Hora",
-      "category": "日本料理",
-      "short": "チェコ共和国における日本料理のアンバサダーで、ヨーロッパと日本の両方で経験を積んだ著名なシェフ。",
-      "description": "会場で新鮮な魚をさばき、刺身、握り、巻き寿司などの作り方を実演します。",
-      "content": [
-        {
-          "type": "p",
-          "text": "マレク・ホラは30年以上にわたり日本料理に携わり、日本でも直接経験を積んできました。"
-        },
-        {
-          "type": "h2",
-          "text": "刺身と寿司を目の前で"
-        },
-        {
-          "type": "p",
-          "text": "ポヴァジュスカー・ビストリツァでは、新鮮な魚の扱い方や刺身、握り、巻き寿司などの実演を行います。"
-        }
-      ],
-      "image": "/images/performers/marek_hora.png"
     }
   ],
   "performerPromotion": {

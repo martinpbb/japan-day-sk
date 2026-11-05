@@ -341,28 +341,6 @@
         }
       ],
       "image": "/images/performers/satoko_kino.jpg"
-    },
-    {
-      "id": "marek-hora",
-      "name": "Marek Hora",
-      "category": "Gastronomy",
-      "short": "Ambassador of Japanese cuisine in the Czech Republic and an acclaimed chef with experience from Europe and Japan.",
-      "description": "He will demonstrate cutting fresh fish and preparing sashimi, nigiri, maki and other types of sushi.",
-      "content": [
-        {
-          "type": "p",
-          "text": "Marek Hora has devoted more than thirty years to Japanese gastronomy and gained part of his experience directly in Japan."
-        },
-        {
-          "type": "h2",
-          "text": "Sashimi and sushi prepared in front of visitors"
-        },
-        {
-          "type": "p",
-          "text": "In Považská Bystrica, he will give practical demonstrations of processing fresh fish and preparing sashimi, nigiri, maki and other types of sushi."
-        }
-      ],
-      "image": "/images/performers/marek_hora.png"
     }
   ],
   "performerPromotion": {

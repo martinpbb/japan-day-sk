@@ -340,28 +340,6 @@
         }
       ],
       "image": "/images/performers/satoko_kino.jpg"
-    },
-    {
-      "id": "marek-hora",
-      "name": "Marek Hora",
-      "category": "Gastronómia",
-      "short": "Ambasádor japonskej kuchyne v Českej republike a uznávaný šéfkuchár so skúsenosťami z Európy aj Japonska.",
-      "description": "Na mieste predvedie krájanie čerstvej ryby a prípravu sashimi, nigiri, maki a ďalších druhov sushi.",
-      "content": [
-        {
-          "type": "p",
-          "text": "Marek Hora sa japonskej gastronómii venuje viac ako tridsať rokov a svoje skúsenosti získaval aj priamo v Japonsku."
-        },
-        {
-          "type": "h2",
-          "text": "Sashimi a sushi priamo pred návštevníkmi"
-        },
-        {
-          "type": "p",
-          "text": "V Považskej Bystrici predvedie praktické ukážky spracovania čerstvej ryby a prípravy sashimi, nigiri, maki a ďalších druhov sushi."
-        }
-      ],
-      "image": "/images/performers/marek_hora.png"
     }
   ],
   "performerPromotion": {

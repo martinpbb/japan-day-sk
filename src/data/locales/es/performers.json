@@ -341,28 +341,6 @@
         }
       ],
       "image": "/images/performers/satoko_kino.jpg"
-    },
-    {
-      "id": "marek-hora",
-      "name": "Marek Hora",
-      "category": "Gastronomía",
-      "short": "Embajador de la cocina japonesa en la República Checa y reconocido chef con experiencia en Europa y Japón.",
-      "description": "Mostrará cómo cortar pescado fresco y preparar sashimi, nigiri, maki y otros tipos de sushi.",
-      "content": [
-        {
-          "type": "p",
-          "text": "Marek Hora lleva más de treinta años dedicado a la gastronomía japonesa y adquirió parte de su experiencia directamente en Japón."
-        },
-        {
-          "type": "h2",
-          "text": "Sashimi y sushi preparados ante los visitantes"
-        },
-        {
-          "type": "p",
-          "text": "En Považská Bystrica realizará demostraciones prácticas del procesamiento de pescado fresco y de la preparación de sashimi, nigiri, maki y otros tipos de sushi."
-        }
-      ],
-      "image": "/images/performers/marek_hora.png"
     }
   ],
   "performerPromotion": {
