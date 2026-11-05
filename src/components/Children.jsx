@@ -30,18 +30,25 @@ export default function Children({ compact = false }) {
   return (
     <Section id="pre-deti" kicker={route.sectionKicker || route.breadcrumb} title={route.sectionTitle || route.h1} className="childrenSection">
       <div className="childrenIntroGrid">
-        <p className="childrenIntro">{data.intro}</p>
-        {showCompetitionImage && <img
+        <div className="childrenIntroContent">
+          <p className="childrenIntro">{data.intro}</p>
+          {compact && data.competition && <aside className="childrenCompetitionCallout" aria-labelledby="children-competition-callout-title">
+            <p className="childrenCompetitionEyebrow">{data.competition.eyebrow}</p>
+            <h3 id="children-competition-callout-title">Súťaž pre deti</h3>
+            <p>Vyfarbite japonské motívy a zapojte sa do súťaže o balíček japonských sladkostí.</p>
+          </aside>}
+        </div>
+        {showCompetitionImage && <div className="childrenPosterWrap"><img
           className="childrenCompetitionImage"
           src="/images/gallery/sutaz-pre-deti.png"
           alt="Súťaž pre deti – Japonský deň čaju a kultúry v Považskej Bystrici"
           loading="lazy"
           decoding="async"
-        />}
+        /></div>}
       </div>
       {data.activities.length ? (
         <div className="featureGrid childrenGrid">
-          {data.activities.map((activity, index) => {
+          {(compact ? data.activities.filter(({ id }) => ["japanese-colouring", "origami", "ayatori"].includes(id)) : data.activities).map((activity, index) => {
             const Icon = icons[index % icons.length];
             return (
               <article className="featureCard childrenCard" key={activity.id}>

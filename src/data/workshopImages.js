@@ -4,7 +4,7 @@ export const workshopImages = {
   japoncina: [],
   origami: [
     { src: "/images/gallery/origami1.jpeg", alt: "Farebné origami modely vrátane žeriavov, kvetov a vejárikov" },
-    { src: "/images/gallery/japan-day-2025-origami-pro-deti.webp", alt: "Detský origami workshop na Japan Day 2025" },
+    { src: "/images/gallery/japan-day-2025-origami-pro-deti.webp", alt: "Detský origami workshop na Japan Day 2026" },
   ],
   shodo: [],
   "tvorba-kombiku": [
@@ -17,10 +17,14 @@ export const workshopImages = {
     { src: "/images/gallery/ayatori1.jpg", alt: "Účastník vytvára obrazec tradičnej hry ayatori" },
     { src: "/images/gallery/ayatori2.jpg", alt: "Ayatori slučka napnutá medzi prstami" },
   ],
-  kumihimo: [],
+  kumihimo: [
+    { src: "/images/gallery/kumihimo2.jpg", alt: "Kumihimo workshop na Japan Day 2026" },
+    { src: "/images/gallery/kumihimo3.jpg", alt: "Kumihimo workshop na Japan Day 2026" },
+    { src: "/images/gallery/kumihimo4.jpg", alt: "Kumihimo workshop na Japan Day 2026" },
+  ],
   "cajova-degustacia": [
-    { src: "/images/gallery/cajova-degustacia.jpg", alt: "Japonský čaj na Japan Day 2025" },
-    { src: "/images/gallery/cajova-degustacia2.jpg", alt: "Japonský čaj na Japan Day 2025" },
-    { src: "/images/gallery/cajova-degustacia3.jpg", alt: "Japonský čaj na Japan Day 2025" },
+    { src: "/images/gallery/cajova-degustacia.jpg", alt: "Japonský čaj na Japan Day 2026" },
+    { src: "/images/gallery/cajova-degustacia2.jpg", alt: "Japonský čaj na Japan Day 2026" },
+    { src: "/images/gallery/cajova-degustacia3.jpg", alt: "Japonský čaj na Japan Day 2026" },
   ],
 };

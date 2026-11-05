@@ -594,43 +594,58 @@ button {
 }
 .childrenIntroGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
-  align-items: center;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  align-items: start;
   gap: clamp(24px, 4vw, 56px);
 }
+.childrenIntroContent { min-width: 0; }
 .childrenIntro {
-  max-width: 760px;
+  max-width: 660px;
+  margin: 0;
   color: var(--muted);
+  font-size: clamp(1.12rem, 1.55vw, 1.35rem);
   line-height: 1.65;
 }
+.childrenPosterWrap { display: flex; justify-content: center; min-width: 0; }
 .childrenCompetitionImage {
   display: block;
-  width: 100%;
+  width: min(100%, 420px);
   height: auto;
-  max-height: 620px;
+  max-height: 500px;
   object-fit: contain;
   object-position: center;
   border-radius: var(--radius);
 }
+.childrenCompetitionCallout {
+  max-width: 620px;
+  margin-top: 28px;
+  padding: 22px 24px;
+  border: 1px solid #d9bba5;
+  border-left: 4px solid var(--red);
+  border-radius: var(--radius);
+  background: #fff8f1;
+}
+.childrenCompetitionCallout .childrenCompetitionEyebrow { margin-bottom: 8px; }
+.childrenCompetitionCallout h3 { margin: 0 0 8px; font-size: 1.25rem; }
+.childrenCompetitionCallout p:last-child { margin: 0; color: var(--muted); line-height: 1.6; }
 .childrenSection {
   background: #f5e6d3;
   color: var(--ink);
 }
 .childrenGrid {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  margin-top: 30px;
+  margin-top: 38px;
 }
 .childrenSection .childrenCard {
-  grid-column: span 2;
+  grid-column: auto;
   min-height: 236px;
   padding: 26px;
   border-color: #e4cdb8;
   background: #fff8f1;
   color: var(--ink);
 }
-.childrenSection .childrenCard:nth-child(4) { grid-column: 2 / span 2; }
-.childrenSection .childrenCard:nth-child(5) { grid-column: 4 / span 2; }
+.childrenSection .childrenGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .childrenSection .childrenCard p {
   color: var(--muted);
 }
@@ -1103,8 +1118,11 @@ button {
 }
 @media (max-width: 900px) {
   .childrenIntroGrid { grid-template-columns: 1fr; gap: 20px; }
+  .childrenIntroContent { order: 0; }
+  .childrenPosterWrap { order: 1; }
   .childrenCompetitionImage { width: 100%; max-height: none; }
   .childrenGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .childrenSection .childrenGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .childrenSection .childrenCard,
   .childrenSection .childrenCard:nth-child(4),
   .childrenSection .childrenCard:nth-child(5) { grid-column: auto; }
@@ -1200,6 +1218,7 @@ button {
   }
   .childrenCompetitionGrid { grid-template-columns: 1fr; }
   .childrenGrid { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+  .childrenSection .childrenGrid { grid-template-columns: 1fr; }
   .childrenSection .childrenCard { min-height: 0; padding: 23px; }
   .childrenCompetition { margin-top: 44px; }
   .childrenCompetitionCard { padding: 23px; }
@@ -1690,14 +1709,15 @@ button {
 }
 .performerPromotion {
   display: grid;
-  grid-template-columns: minmax(280px, .8fr) minmax(0, 1fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, .85fr) minmax(320px, 1fr);
+  gap: clamp(24px, 4vw, 40px);
   align-items: center;
-  margin-top: 56px;
-  padding: 36px;
+  width: min(100%, 960px);
+  margin: 64px auto 0;
+  padding: clamp(22px, 3.5vw, 36px);
   border: 1px solid var(--line);
-  border-radius: 24px;
-  background: var(--white);
+  border-radius: var(--radius);
+  background: var(--paper-2);
 }
 .performerPromotionPoster {
   display: flex;
@@ -1706,7 +1726,7 @@ button {
 }
 .performerPromotionPoster img {
   width: 100%;
-  max-height: 680px;
+  max-height: 560px;
   object-fit: contain;
 }
 .performerPromotionContent { min-width: 0; }
@@ -1717,7 +1737,7 @@ button {
 }
 .performerPromotionContent > p { line-height: 1.6; }
 .performerPromotionFacts { display: grid; gap: 12px; margin: 24px 0; }
-.performerPromotionFacts > div { display: grid; grid-template-columns: minmax(100px, .65fr) minmax(0, 1fr); gap: 12px; }
+.performerPromotionFacts > div { display: grid; grid-template-columns: minmax(110px, .55fr) minmax(0, 1fr); gap: 12px; }
 .performerPromotionFacts dt { font-weight: 750; }
 .performerPromotionFacts dd { margin: 0; }
 .performerPromotionCta {
@@ -1818,14 +1838,25 @@ button {
   .performerDetailSection {
     padding-top: 40px;
   }
+}
+
+@media (max-width: 900px) {
   .performerPromotion {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
     gap: 24px;
-    margin-top: 40px;
-    padding: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .performerPromotion {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    margin-top: 44px;
+    padding: 20px;
   }
   .performerPromotionPoster img { max-height: 560px; }
   .performerPromotionContent h2 { font-size: 29px; }
+  .performerPromotionFacts > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

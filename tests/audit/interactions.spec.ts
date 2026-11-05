@@ -61,8 +61,8 @@ for (const locale of localeCodes) {
     await expect(link).toHaveAttribute('href', 'https://www.j-pad.eu/');
     await expect(link).toHaveAttribute('target', '_blank');
     await expect(link).toHaveAttribute('rel', /noopener/);
-    expect(await promo.evaluate(el => !!el.nextElementSibling?.classList.contains('performerSchedule'))).toBeTruthy();
-    await page.route('**/hisayo-japanese-speech-contest-2026.png', route => route.fulfill({ status: 404, body: '' }));
+    expect(await promo.evaluate(el => !!el.previousElementSibling?.querySelector('.performerSchedule'))).toBeTruthy();
+    await page.route('**/images/performers/hisayo_yasuda.jpg', route => route.fulfill({ status: 404, body: '' }));
     await page.reload();
     await expect(page.locator('.performerPromotion')).toHaveClass(/performerPromotionNoPoster/);
     await expect(page.locator('.performerPromotion h2')).toBeVisible();
