@@ -1,0 +1,32 @@
+name: Cloudflare web migration checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install packages
+        run: npm ci
+      - name: Validate staging config safety
+        run: node scripts/cloudflare/check-worker-config.mjs
+      - name: Build existing Vite site and SEO route files
+        run: npm run build
+      - name: Verify generated static assets and SEO
+        run: node scripts/cloudflare/check-static-assets.mjs
+      - name: Build Wrangler package without deploying
+        run: npx wrangler deploy --dry-run --config wrangler.web-staging.jsonc --outdir /tmp/japanday-worker-dry-run
+      - name: Install Chromium test browser
+        run: npx playwright install --with-deps chromium
+      - name: Smoke-test existing site in Chromium
+        run: npx playwright test tests/ui/smoke.spec.ts tests/data/static-routes.spec.ts --project=chromium

@@ -1,7 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const baseURL = process.env.BASE_URL || "http://127.0.0.1:4173";
-const production = /^https:\/\/japanday\.sk/.test(baseURL);
+const production = /^https:\/\/(?:www\.)?japanday\.sk(?:[/:]|$)/.test(baseURL);
+const remoteURL = /^https?:\/\//.test(baseURL) && !/^https?:\/\/(?:127\.0\.0\.1|localhost)(?::|\/|$)/.test(baseURL);
 
 export default defineConfig({
   testDir: "./tests",
@@ -21,8 +22,8 @@ export default defineConfig({
     trace: "retain-on-failure",
     colorScheme: "light",
   },
-  webServer: production ? undefined : {
-    command: "npm.cmd run preview -- --host 127.0.0.1",
+  webServer: remoteURL ? undefined : {
+    command: "npm run preview -- --host 127.0.0.1",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

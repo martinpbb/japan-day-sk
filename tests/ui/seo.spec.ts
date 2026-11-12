@@ -67,12 +67,13 @@ test.describe("@seo Event JSON-LD", () => {
         expect.objectContaining({ name: "Mladí pre Považskú" })
       ]));
       expect(event.performer).toEqual(expect.arrayContaining([
-        expect.objectContaining({ name: "Marek Hora" }),
         expect.objectContaining({ name: "Gorin" }),
         expect.objectContaining({ name: "Noriko Komiyama" }),
         expect.objectContaining({ name: "Martin Labudík" })
       ]));
-      expect(event.performer.length).toBe(4);
+      // Marek Hora is credited in gastronomy content, not the current
+      // performer profiles or programme; keep him out of Event.performer.
+      expect(event.performer.length).toBe(3);
       expect(event.isAccessibleForFree).toBe(true);
       expect(event.offers).toMatchObject({ price: 0, priceCurrency: "EUR" });
       expect(event.inLanguage).toBe(expectedLanguage[locale]);
