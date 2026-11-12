@@ -1,0 +1,41 @@
+name: Deploy japanday.sk staging to Cloudflare Workers
+
+# Explicitly manual until owner approval; NEVER runs on a push or a PR.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: japanday-sk-web-staging
+  cancel-in-progress: false
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    environment: cloudflare-staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install packages
+        run: npm ci
+      - name: Validate staging config safety
+        run: node scripts/cloudflare/check-worker-config.mjs
+      - name: Build
+        run: npm run build
+      - name: Validate generated pages
+        run: node scripts/cloudflare/check-static-assets.mjs
+      - name: Make staging non-indexable and add 404 page
+        run: node scripts/cloudflare/prepare-staging-output.mjs
+      - name: Verify staging noindex and 404 assets
+        run: node scripts/cloudflare/check-staging-output.mjs
+      - name: Deploy ONLY new staging Worker
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.web-staging.jsonc
