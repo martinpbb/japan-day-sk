@@ -351,5 +351,157 @@
         "description": "Fotografie, ktoré zachytávajú atmosféru podujatia."
       }
     }
+  },
+  "postEvent": {
+    "hero": {
+      "lines": [
+        "Jeden deň.",
+        "Tisíc zážitkov.",
+        "Ďakujeme."
+      ],
+      "intro": "Za stretnutia pri čaji, nové objavy aj spoločné chvíle. Japonský deň ste vytvorili spolu s nami.",
+      "cta": "Vyplniť spätnú väzbu",
+      "date": "7. novembra 2026"
+    },
+    "pending": "Na doplnenie",
+    "forms": {
+      "unavailable": "Odosielanie zatiaľ nie je dostupné. Údaje sa nikam neodosielajú ani neukladajú; pri opustení stránky sa vyplnený obsah stratí.",
+      "validate": "Skontrolovať údaje"
+    },
+    "feedback": {
+      "kicker": "Váš názor je pre nás dôležitý",
+      "title": "Ako sa vám páčil Japonský deň?",
+      "intro": "Čo vás potešilo alebo čo by sme mohli nabudúce urobiť lepšie? Všetky odpovede sú dobrovoľné. Spätná väzba je anonymná; meno ani e-mail nevyžadujeme.",
+      "rating": "Celkový dojem z podujatia (voliteľné)",
+      "scale": "1 = veľmi slabé · 2 = skôr slabé · 3 = priemerné · 4 = veľmi dobré · 5 = výborné. Vyberte najviac jednu možnosť.",
+      "questions": [
+        "Čo sa vám páčilo najviac?",
+        "Čo by sme mali zlepšiť?",
+        "Čo by ste chceli zažiť nabudúce?",
+        "Ktoré jedlo alebo nápoj vám chutili najviac?",
+        "Čo vám v gastronomickej ponuke chýbalo?",
+        "Ďalší odkaz pre organizátorov"
+      ],
+      "submit": "Odoslať spätnú väzbu"
+    },
+    "newsletter": {
+      "kicker": "Dobrovoľný odber noviniek",
+      "title": "Nech vám neujde ďalší Japonský deň",
+      "intro": "E-mailom môžete dostávať správy o pripravovaných aktivitách a budúcich ročníkoch. Odber je oddelený od anonymnej spätnej väzby.",
+      "name": "Meno (voliteľné)",
+      "email": "E-mailová adresa (povinné)",
+      "consent": "Súhlasím so zasielaním e-mailových informácií o aktivitách a budúcich ročníkoch Japonského dňa čaju a kultúry. Odber môžem kedykoľvek zrušiť.",
+      "submit": "Prihlásiť sa na odber"
+    },
+    "competition": {
+      "kicker": "Pre našich najmenších",
+      "title": "Vyhodnotenie detskej súťaže",
+      "intro": "Malí umelci. Veľká fantázia. Ďakujeme deťom za tvorivosť a spoločné chvíle. Výsledky zverejníme až po potvrdení organizátormi.",
+      "cards": [
+        {
+          "title": "Oznámenie a zhrnutie súťaže",
+          "text": "Potvrdené zhrnutie súťaže zatiaľ nebolo dodané."
+        },
+        {
+          "title": "Víťazi a ocenenia",
+          "text": "Mená a výsledky zatiaľ neboli dodané."
+        },
+        {
+          "title": "Víťazné výtvarné práce",
+          "text": "Skutočné práce doplníme po dodaní podkladov a súhlasov na zverejnenie."
+        }
+      ],
+      "thanks": "Ďakujeme všetkým deťom, ktoré sa zapojili."
+    },
+    "memories": {
+      "kicker": "Spomienky na 7. november",
+      "title": "Takto sme si užili Japonský deň 2026",
+      "intro": "Spoločné momenty, na ktoré nechceme zabudnúť. Miesta nižšie čakajú na skutočné fotografie a videá z podujatia.",
+      "photos": [
+        "Spoločné chvíle",
+        "Objavovanie Japonska",
+        "Stretnutia pri čaji"
+      ],
+      "photoPending": "Miesto pre fotografiu z podujatia — fotografia zatiaľ nebola dodaná.",
+      "video": "Japonský deň v pohybe",
+      "videoPending": "Miesto pre video z podujatia — video zatiaľ nebolo dodané.",
+      "gallery": "Celá galéria",
+      "galleryPending": "Kompletnú galériu sprístupníme po dodaní skutočných fotografií.",
+      "archive": "Pozrieť zachovanú archívnu galériu"
+    },
+    "plans": {
+      "kicker": "Čo bude nasledovať",
+      "title": "Čo pripravujeme ďalej",
+      "intro": "Máme chuť prinášať ďalšie príležitosti spoznávať japonskú kultúru. Konkrétne aktivity predstavíme až po potvrdení; termín ďalšieho ročníka nie je potvrdený.",
+      "status": "Zámer · nepotvrdené",
+      "cards": [
+        {
+          "title": "Pripravovaná aktivita",
+          "text": "Obsah, miesto a termín doplníme po potvrdení."
+        },
+        {
+          "title": "Stretnutie alebo workshop",
+          "text": "Zatiaľ bez potvrdeného programu a termínu."
+        },
+        {
+          "title": "Ďalšie spoločné zážitky",
+          "text": "Dobrovoľníci, partneri aj účinkujúci nám môžu napísať cez kontakt."
+        }
+      ],
+      "cta": "Chcem sa zapojiť do ďalšieho ročníka"
+    },
+    "acknowledgements": {
+      "kicker": "Spolu to má zmysel",
+      "title": "Ďakujeme tým, ktorí pomohli",
+      "organizers": "Organizátori",
+      "partners": "Partneri",
+      "groups": [
+        {
+          "title": "Dobrovoľníci",
+          "text": "Ďakujeme za čas, energiu a pomoc pri podujatí."
+        },
+        {
+          "title": "Hostia a účinkujúci",
+          "text": "Ďakujeme za priblíženie japonskej kultúry návštevníkom."
+        },
+        {
+          "title": "Podporovatelia",
+          "text": "Ďakujeme všetkým, ktorí podujatie podporili."
+        }
+      ],
+      "guestsLink": "Hostia a účinkujúci ročníka 2026"
+    },
+    "archive": {
+      "kicker": "Archív podujatí · ukončený ročník",
+      "title": "Pripomeňte si ročník 2026",
+      "intro": "Program, hostia, workshopy a ďalší zachovaný obsah ročníka, ktorý sa konal 7. novembra 2026 v Považskej Bystrici.",
+      "cta": "Otvoriť archív 2026"
+    },
+    "navigation": [
+      {
+        "label": "Úvod",
+        "path": "/"
+      },
+      {
+        "label": "Fotky a videá",
+        "path": "/#fotky-videa"
+      },
+      {
+        "label": "Detská súťaž",
+        "path": "/#detska-sutaz"
+      },
+      {
+        "label": "Naše plány",
+        "path": "/#nase-plany"
+      },
+      {
+        "label": "Archív",
+        "path": "/archiv/2026/"
+      },
+      {
+        "label": "Kontakt",
+        "path": "/kontakt/"
+      }
+    ]
   }
 }

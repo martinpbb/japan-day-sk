@@ -40,44 +40,12 @@ test.describe("@seo social preview image", () => {
   }
 });
 
-test.describe("@seo Event JSON-LD", () => {
-  const expectedLanguage: Record<string, string> = {
-    sk: "sk",
-    en: "en",
-    de: "de",
-    es: "es",
-    ja: "ja"
-  };
-
-  for (const locale of localeCodes) {
-    test(`${locale} homepage has complete Event schema`, async ({ page }) => {
-      await page.goto(prefixFor(locale, "/"), { waitUntil: "domcontentloaded" });
-      const events = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) => scripts
-        .map((script) => JSON.parse(script.textContent || "{}"))
-        .filter((schema) => schema["@type"] === "Event"));
-
-      expect(events).toHaveLength(1);
-      const event = events[0];
-      expect(event.startDate).toBe("2026-11-07");
-      expect(event).not.toHaveProperty("endDate");
-      expect(event.eventStatus).toBe("https://schema.org/EventScheduled");
-      expect(event.organizer).toEqual(expect.arrayContaining([
-        expect.objectContaining({ name: "Rada mládeže Trenčianskeho kraja" }),
-        expect.objectContaining({ name: "Mesto Považská Bystrica" }),
-        expect.objectContaining({ name: "Mladí pre Považskú" })
-      ]));
-      expect(event.performer).toEqual(expect.arrayContaining([
-        expect.objectContaining({ name: "Gorin" }),
-        expect.objectContaining({ name: "Noriko Komiyama" }),
-        expect.objectContaining({ name: "Martin Labudík" })
-      ]));
-      // Marek Hora is credited in gastronomy content, not the current
-      // performer profiles or programme; keep him out of Event.performer.
-      expect(event.performer.length).toBe(3);
-      expect(event.isAccessibleForFree).toBe(true);
-      expect(event.offers).toMatchObject({ price: 0, priceCurrency: "EUR" });
-      expect(event.inLanguage).toBe(expectedLanguage[locale]);
-      expect(event.url).toContain("https://japanday.sk");
-    });
-  }
+test.describe("@seo post-event homepage schema", () => {
+  for (const locale of localeCodes) test(`${locale} homepage omits scheduled Event and live offers`, async ({ page }) => {
+    await page.goto(prefixFor(locale, "/"), { waitUntil: "domcontentloaded" });
+    const schemas = await page.locator('script[type="application/ld+json"]').evaluateAll(scripts => scripts.map(script => JSON.parse(script.textContent || "{}")));
+    expect(schemas.some(schema => schema["@type"] === "Organization")).toBe(true);
+    expect(schemas.some(schema => schema["@type"] === "Event")).toBe(false);
+    expect(JSON.stringify(schemas)).not.toMatch(/EventScheduled|InStock|"offers"/);
+  });
 });

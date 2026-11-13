@@ -45,6 +45,7 @@ import { archiveBase, archiveContentPath, buildArchiveRoutes, legacyArchiveTarge
 import { EventArchiveContext } from "./lib/eventArchiveContext.js";
 import ArchiveNavigation from "./components/ArchiveNavigation.jsx";
 import ArchiveNotice from "./components/ArchiveNotice.jsx";
+import PostEventHome from "./components/PostEventHome.jsx";
 
 const pageComponents = {
   "/program": Program,
@@ -194,7 +195,7 @@ function PublicApp() {
       ) : performer ? (
         <PerformerPage performer={performer} route={route} />
       ) : path === "/" ? (
-        <HomePage archived={archived} />
+        archived ? <HomePage archived /> : <PostEventHome />
       ) : (
         <SubPage path={path} route={route} />
       )}

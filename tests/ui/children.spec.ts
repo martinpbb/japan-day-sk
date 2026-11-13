@@ -14,22 +14,22 @@ test("@ui children page renders configured content", async ({ page }) => {
   await expect(page.locator(".childrenSafety")).toBeVisible();
 });
 
-test("@ui homepage shows the children's competition poster", async ({ page }) => {
-  await page.goto("/", { waitUntil: "domcontentloaded" });
-  await expect(page.locator(".childrenIntro")).toContainText("Príďte si s deťmi užiť Japonský deň trochu inak. Čaká ich tvorenie, tradičné japonské hry, origami, ayatori aj súťaž vo vyfarbovaní.");
-  await expect(page.locator(".childrenCompetitionCallout")).toContainText("Súťaž pre deti");
-  await expect(page.locator(".childrenCompetitionCallout")).toContainText("balíček japonských sladkostí");
+test("@ui archive overview preserves the children's competition poster", async ({ page }) => {
+  await page.goto("/archiv/2026/", { waitUntil: "domcontentloaded" });
+  await expect(page.locator(".childrenIntro")).toHaveText(children.archiveIntro);
+  await expect(page.locator(".childrenCompetitionCallout")).toContainText(children.competition.archive.title);
+  await expect(page.locator(".childrenCompetitionCallout")).toContainText(children.competition.archive.intro);
   await expect(page.locator(".childrenCard")).toHaveCount(3);
   const poster = page.locator(".childrenCompetitionImage");
   await expect(poster).toHaveAttribute("src", "/images/gallery/sutaz-pre-deti.png");
-  await expect(poster).toHaveAttribute("alt", "Súťaž pre deti – Japonský deň čaju a kultúry v Považskej Bystrici");
+  await expect(poster).toHaveAttribute("alt", children.competition.archive.posterAlt);
   await expect(poster).toHaveAttribute("loading", "lazy");
   await poster.scrollIntoViewIfNeeded();
   await expect(poster).toBeVisible();
 });
 
-test("@responsive homepage children's section fits desktop and stacks on mobile", async ({ page }) => {
-  await page.goto("/", { waitUntil: "domcontentloaded" });
+test("@responsive archive overview children's section fits desktop and stacks on mobile", async ({ page }) => {
+  await page.goto("/archiv/2026/", { waitUntil: "domcontentloaded" });
   const section = page.locator(".childrenSection");
   const intro = section.locator(".childrenIntro");
   const callout = section.locator(".childrenCompetitionCallout");

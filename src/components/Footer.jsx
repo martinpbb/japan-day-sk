@@ -16,13 +16,8 @@ export default function Footer({ onCookieSettings }) {
   const { eventHref } = useEventArchive();
   const { locale, site } = useI18n();
   const { ui } = site;
-  const footerNavigation = site.navigation.filter((item) => [
-    "/program",
-    "/ucinkujuci",
-    "/vystavovatelia",
-    "/prakticke-informacie",
-    "/kontakt"
-  ].includes(item.path));
+  const { archived } = useEventArchive();
+  const footerNavigation = archived ? site.navigation.filter((item) => ["/program", "/ucinkujuci", "/vystavovatelia", "/prakticke-informacie", "/kontakt"].includes(item.path)) : site.postEvent.navigation.filter(item => item.path !== "/archiv/2026/");
 
   return (
     <footer className="footer">

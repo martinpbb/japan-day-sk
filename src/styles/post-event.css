@@ -1,0 +1,111 @@
+/* V5 composition, using the existing site's tokens and original hero artwork. */
+.postEventHome { --post-cream: #f4efe5; }
+.postEventHome .section { padding: clamp(60px, 8vw, 112px) 0; }
+.postEventHero h1 { font-size: clamp(46px, 6.3vw, 80px); line-height: 1.06; }
+.postEventHero h1 span { display: block; }
+.postEventHero h1 span:last-child { color: #efb9b3; }
+.postEventHome h3 { font-family: Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; margin: 0 0 12px; }
+.postEventHome p { line-height: 1.7; }
+.postLead { max-width: 700px; color: var(--muted); font-size: 17px; margin: 22px 0 30px; }
+.postFeedback { background: var(--paper-2); }
+.postFeedbackGrid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(30px, 7vw, 90px); align-items: start; }
+.postFeedbackIntro { max-width: 400px; }
+.postFeedbackIntro > svg { color: var(--red); margin-top: 20px; }
+.postFeedbackForms { display: grid; gap: 28px; min-width: 0; }
+.postCard { padding: clamp(22px, 3vw, 34px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); min-width: 0; }
+.feedbackForm { box-shadow: var(--shadow); }
+.feedbackForm fieldset { border: 0; padding: 0; margin: 0 0 24px; min-width: 0; }
+.feedbackForm legend, .postEventHome form label { font-size: 14px; font-weight: 650; }
+.feedbackForm legend { padding: 0; }
+.feedbackForm fieldset p { font-size: 13px; color: var(--muted); }
+.postRating { display: flex; flex-wrap: wrap; gap: 10px; }
+.postRating label { position: relative; display: grid; place-items: center; cursor: pointer; }
+.postRating input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.postRating span { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); }
+.postRating input:checked + span { color: var(--white); background: var(--indigo); border-color: var(--indigo); }
+.postRating input:focus-visible + span { outline: 3px solid var(--red); outline-offset: 3px; }
+.postQuestions { display: grid; gap: 22px; }
+.postEventHome form label:not(.postRating label) { display: block; margin-bottom: 8px; }
+.postEventHome textarea, .newsletterCard input:not([type="checkbox"]) { width: 100%; border: 1px solid #9cafa6; border-radius: 10px; padding: 12px; background: var(--white); color: var(--ink); }
+.postEventHome textarea { resize: vertical; min-height: 86px; }
+.postEventHome :is(input, textarea, a, button):focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
+.newsletterCard { background: var(--post-cream); }
+.newsletterCard input:not([type="checkbox"]) { margin-bottom: 18px; }
+.newsletterCard .postConsent { display: flex !important; gap: 12px; align-items: start; margin-top: 6px; }
+.postConsent input { flex: 0 0 20px; width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--indigo); }
+.postNotice { border-left: 3px solid var(--red); padding-left: 14px; font-size: 13px; color: var(--muted); margin: 24px 0 18px; }
+.postFormActions, .postGalleryActions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+.postEventHome .button { border: 1px solid transparent; font-size: 14px; line-height: 1.5; text-align: center; justify-content: center; }
+.postEventHome button:disabled { cursor: not-allowed; opacity: 1; background: #e4e6df; color: #53615b; border-color: #acb7af; }
+.postSecondary { background: transparent; border-color: var(--muted) !important; }
+.postTextLink { text-decoration: underline; text-underline-offset: 4px; font-size: 14px; }
+.postCompetitionGrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(30px, 6vw, 80px); align-items: center; }
+.postArtworkGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 12px; }
+.postArtworkGrid .postCard { border: 7px solid var(--white); border-radius: 2px; background: var(--paper-2); padding: 22px; text-align: center; box-shadow: var(--shadow); }
+.postArtworkGrid .postCard:first-child { grid-row: span 2; align-self: center; transform: rotate(-4deg); }
+.postArtworkGrid .postCard:nth-child(2) { transform: rotate(4deg); }
+.postArtworkGrid .postCard h3 { font-size: 20px; margin-top: 12px; }
+.postArtworkGrid .postCard p { font-size: 13px; }
+.postPlaceholder { min-height: 70px; display: grid; place-items: center; color: var(--muted); }
+.postStatus { font-size: 11px; font-weight: 750; color: var(--red-dark); letter-spacing: .06em; text-transform: uppercase; }
+.postThanks { display: flex; align-items: center; gap: 12px; color: var(--muted); }
+.postThanks svg { flex-shrink: 0; color: var(--red); }
+.postMemories .postLead, .postArchiveBanner .postLead { color: #d2dfd8; }
+.postMemoryGrid { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 16px; margin-bottom: 26px; }
+.postMemory { background: #36544e; border: 1px solid #678179; border-radius: 12px; overflow: hidden; margin: 0; }
+.postMemoryArt { min-height: 155px; display: grid; place-items: center; background: linear-gradient(135deg, #5a766a, #304e48); color: #e4e9de; }
+.postMemory1 { grid-row: span 2; }
+.postMemory1 .postMemoryArt { min-height: 315px; }
+.postMemory figcaption { padding: 22px; }
+.postMemory figcaption h3 { font-size: 24px; margin-top: 10px; }
+.postMemory figcaption p { color: #d2dfd8; font-size: 13px; margin-bottom: 0; }
+.postMemories .postStatus { color: #f0c3b8; }
+.postMemoryVideo { grid-column: 2 / -1; display: grid; grid-template-columns: 90px 1fr; align-items: center; }
+.postMemoryVideo .postMemoryArt { min-height: 100%; }
+.postThreeColumns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 30px 0; }
+.postPlans > .container > .button { margin-top: 6px; }
+.postPlans .postCard > svg { color: var(--red); }
+.postAcknowledgements { background: var(--post-cream); }
+.postAcknowledgementsGrid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(30px, 6vw, 70px); }
+.postThanksGroups { display: grid; gap: 24px; margin-top: 36px; }
+.postThanksGroups h3 { font-size: 20px; margin-bottom: 6px; }
+.postThanksGroups p { margin: 0 0 10px; color: var(--muted); }
+.postAcknowledgements .partnerGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.postAcknowledgements .partnerCard { padding: 16px; overflow-wrap: anywhere; }
+.postAcknowledgements .partnerLogo { height: 64px; }
+.postAcknowledgements .subheading { margin: 26px 0 18px; }
+.postAcknowledgements .subheading:first-child { margin-top: 0; }
+.postArchiveBanner { border-radius: var(--radius); padding: clamp(24px, 4vw, 46px); display: flex; align-items: center; gap: 24px; }
+.postArchiveBanner > span { font-family: Georgia, serif; font-size: 120px; color: #a4b7a9; margin-left: auto; }
+.postArchiveGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.postArchiveGrid h3 { font-size: 21px; margin-top: 12px; }
+.postArchiveGrid a > span:last-child { display: block; text-align: right; color: var(--red); }
+.postArchiveGrid a:hover { border-color: var(--red); }
+@media (max-width: 1000px) {
+  .postAcknowledgementsGrid { grid-template-columns: 1fr; }
+  .postArchiveGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .postCompetitionGrid { gap: 26px; }
+  .postArtworkGrid { gap: 10px; padding: 6px; }
+}
+@media (max-width: 760px) {
+  .postFeedbackGrid, .postCompetitionGrid, .postThreeColumns { grid-template-columns: minmax(0, 1fr); }
+  .postFeedbackIntro { max-width: none; }
+  .postFeedbackIntro > svg { display: none; }
+  .postEventHero .heroGrid { gap: 40px; }
+  .postEventHero h1 { font-size: clamp(42px, 9vw, 58px); }
+  .postMemoryGrid { grid-template-columns: 1fr 1fr; }
+  .postMemory1 { grid-column: 1 / -1; grid-row: auto; }
+  .postMemory1 .postMemoryArt { min-height: 190px; }
+  .postMemoryVideo { grid-column: 1 / -1; }
+  .postAcknowledgements .partnerGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .postArchiveBanner > span { display: none; }
+}
+@media (max-width: 430px) {
+  .postArtworkGrid, .postMemoryGrid, .postArchiveGrid { grid-template-columns: minmax(0, 1fr); }
+  .postArtworkGrid .postCard:first-child { grid-row: auto; transform: none; }
+  .postArtworkGrid .postCard:nth-child(2) { transform: none; }
+  .postMemoryVideo { grid-template-columns: 64px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:root { scroll-behavior: auto; }
+}

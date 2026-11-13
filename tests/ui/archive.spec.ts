@@ -170,13 +170,13 @@ for (const route of [archiveRoot, `${archiveRoot}/program`, `${archiveRoot}/work
   });
 }
 
-test("@archive @ui production homepage composition, hero and navigation are preserved", async ({ page }) => {
+test("@archive @ui historical overview is preserved and main navigation reaches the post-event homepage", async ({ page }) => {
   const content = readArchiveContent("sk");
-  await page.goto("/");
-  await expect(page.locator(".archiveNotice, .archiveGrid")).toHaveCount(0);
+  await page.goto(`${archiveRoot}/`);
+  await expect(page.locator(".archiveNotice")).toBeVisible();
   await expect(page.locator("main h1")).toHaveText(content.site.hero.title);
   await expect(page.locator(".heroCardPb")).toContainText("POVAŽSKÁ");
-  await expect(page.locator(".header .nav > a")).toHaveCount(content.site.navigation.length);
-  for (const item of content.site.navigation) await expect(page.locator(`.header .nav > a[href="${item.path}"]`)).toHaveText(item.label);
+  await expect(page.locator(".header .nav > a")).toHaveCount(content.site.postEvent.navigation.length);
+  for (const item of content.site.postEvent.navigation) await expect(page.locator(`.header .nav > a[href="${item.path}"]`)).toHaveText(item.label);
   await expect(page.locator(`footer a[href="${archiveRoot}/"]`)).toBeVisible();
 });

@@ -38,17 +38,14 @@ for (const locale of archiveLocales) {
     for (const [route, metadata] of Object.entries(content.seo.routes)) {
       if (route.startsWith(archiveRoot)) expect(JSON.stringify(metadata)).not.toMatch(/\?/);
     }
-    // Archive implementation is additive: no historical JSON content is changed.
+    // Phase 2 owns only postEvent copy and root metadata. All historical data,
+    // including the Phase 1 archive, must remain identical to the snapshot.
     for (const name of ["site", "seo", "performers", "workshops", "exhibitors", "program", "gastronomy", "children", "astronomy", "gallery", "partners"]) {
       const original = JSON.parse(execFileSync("git", ["show", `HEAD:src/data/locales/${locale}/${name}.json`], { encoding: "utf8" }));
       const current = JSON.parse(fs.readFileSync(`src/data/locales/${locale}/${name}.json`, "utf8"));
       for (const snapshot of [original, current]) {
-        if (name === "site") delete snapshot.archive;
-        if (name === "seo") for (const key of Object.keys(snapshot.routes)) if (key.startsWith(archiveRoot)) delete snapshot.routes[key];
-        if (name === "children") {
-          delete snapshot.archiveIntro;
-          delete snapshot.competition.archive;
-        }
+        if (name === "site") delete snapshot.postEvent;
+        if (name === "seo") delete snapshot.routes["/"];
       }
       expect(current, `${locale}/${name} preserved`).toEqual(original);
     }

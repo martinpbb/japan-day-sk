@@ -21,12 +21,11 @@
   ],
   "routes": {
     "/": {
-      "title": "Japonský deň čaju a kultúry 2026 | Považská Bystrica",
-      "description": "Japonský deň čaju a kultúry v Považskej Bystrici. Japonská gastronómia, čaj, ikebana, samuraji, bojové umenia, výstavy a vstup zdarma.",
-      "h1": "Japonský deň čaju a kultúry",
-      "intro": "Japonsko na jeden deň v Považskej Bystrici.",
+      "title": "Ďakujeme | Japonský deň čaju a kultúry 2026",
+      "description": "Ďakujeme za Japonský deň čaju a kultúry 7. novembra 2026 v Považskej Bystrici. Spätná väzba, pripravované spomienky a archív ročníka 2026.",
+      "h1": "Jeden deň. Tisíc zážitkov. Ďakujeme.",
+      "intro": "Za stretnutia pri čaji, nové objavy aj spoločné chvíle. Japonský deň ste vytvorili spolu s nami.",
       "schema": [
-        "festival",
         "organization"
       ]
     },

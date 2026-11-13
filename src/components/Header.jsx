@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
-import { useEventArchive } from "../lib/useEventArchive.js";
 
 const localeLabels = {
   sk: { code: "SK", label: "Slovenčina" },
@@ -63,23 +62,22 @@ function LanguageSwitcher({ onSelect }) {
 }
 
 export default function Header() {
-  const { eventHref } = useEventArchive();
   const { locale, site } = useI18n();
   const [open, setOpen] = useState(false);
   return (
-    <header className="header">
+    <header className="header" onKeyDown={(event) => { if (event.key === "Escape") setOpen(false); }}>
       <div className="container headerRow">
         <a className="brand" href={addLocalePrefix("/", locale)} onClick={() => setOpen(false)} aria-label={site.ui.homeLabel}>
           <span className="brandSun" aria-hidden="true" />
           <span><strong>{site.brand.name}</strong><small>{site.brand.shortName}</small></span>
         </a>
-        <nav className={`nav ${open ? "open" : ""}`} aria-label={site.ui.mainNavigation}>
-          {site.navigation.map((item) => (
-            <a key={item.path} href={eventHref(item.path)} onClick={() => setOpen(false)}>{item.label}</a>
+        <nav id="main-navigation" className={`nav ${open ? "open" : ""}`} aria-label={site.ui.mainNavigation}>
+          {site.postEvent.navigation.map((item) => (
+            <a key={item.path} href={addLocalePrefix(item.path, locale)} onClick={() => setOpen(false)}>{item.label}</a>
           ))}
           <LanguageSwitcher onSelect={() => setOpen(false)} />
         </nav>
-        <button className="menuButton" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={site.ui.openMenu}>☰</button>
+        <button className="menuButton" type="button" onClick={() => setOpen(!open)} aria-controls="main-navigation" aria-expanded={open} aria-label={site.ui.openMenu}>☰</button>
       </div>
     </header>
   );

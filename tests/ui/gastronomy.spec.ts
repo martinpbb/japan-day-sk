@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 const gastronomy = JSON.parse(readFileSync(new URL("../../src/data/locales/sk/gastronomy.json", import.meta.url), "utf8"));
 
 test("@ui gastronomy renders categories and detail content", async ({ page }) => {
-  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.goto("/archiv/2026/", { waitUntil: "domcontentloaded" });
   await expect(page.locator("#gastronomie")).toBeVisible();
   await page.goto("/gastronomia", { waitUntil: "domcontentloaded" });
   if (gastronomy.items.length) {

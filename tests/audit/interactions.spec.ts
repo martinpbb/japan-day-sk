@@ -7,11 +7,11 @@ for (const locale of localeCodes) {
   test(`@audit @localization ${locale} published homepage and programme`, async ({ page }) => {
     await page.goto(`${prefix}/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     const site = read(locale, 'site');
-    await expect(page.locator('.heroActions a').first()).toHaveText(site.hero.ctaPrimary);
+    await expect(page.locator('.heroActions a').first()).toHaveText(site.postEvent.hero.cta);
     await expect.soft(page.locator('.heroActions a').first()).not.toHaveText(/pripravujeme|coming soon|demnächst|Vorbereitung|próximamente|preparación|近日|準備中/i);
     await expect.soft(page.locator('main')).not.toContainText(/3\. ročník|3rd edition|3[.] Ausgabe|3[.]ª edición|po tretí raz|third (?:edition|time)|dritte|tercera|第3|第３/i);
-    await expect(page.locator('.performerCard').first()).toBeVisible();
-    await expect(page.locator('.workshopsTeaserCard').first()).toBeVisible();
+    await expect(page.locator('.feedbackForm')).toBeVisible();
+    await expect(page.locator('.postArchiveGrid a')).toHaveCount(10);
     await page.goto(`${prefix}/program/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     await expect(page.locator('.programInfoNote')).toHaveText(read(locale, 'program').note);
     if (locale !== 'sk') await expect(page.locator('.programVenues')).not.toContainText(/Hlavný program|Prednášky|Kapacita|osôb/);
@@ -85,8 +85,8 @@ test('@audit @interaction keyboard language and mobile navigation', async ({ pag
   await page.setViewportSize({ width:390, height:844 });
   await page.locator('.menuButton').click();
   await expect(page.locator('nav.nav')).toHaveClass(/open/);
-  await page.locator('nav.nav a[href="/en/program"]').click();
-  await expect(page).toHaveURL(/\/en\/archiv\/2026\/program/);
+  await page.locator('nav.nav a[href="/en/archiv/2026/"]').click();
+  await expect(page).toHaveURL(/\/en\/archiv\/2026\/?$/);
   await expect(page.locator('main h1')).toBeVisible();
 });
 

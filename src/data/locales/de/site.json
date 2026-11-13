@@ -357,5 +357,157 @@
         "description": "Bilder, die die Atmosphäre der Veranstaltung festhalten."
       }
     }
+  },
+  "postEvent": {
+    "hero": {
+      "lines": [
+        "Ein Tag.",
+        "Tausend Erinnerungen.",
+        "Danke."
+      ],
+      "intro": "Für Begegnungen beim Tee, neue Entdeckungen und gemeinsame Momente. Sie haben den Japanischen Tag mit uns gestaltet.",
+      "cta": "Feedback geben",
+      "date": "7. November 2026"
+    },
+    "pending": "Inhalte folgen",
+    "forms": {
+      "unavailable": "Das Absenden ist noch nicht verfügbar. Es werden keine Daten gesendet oder gespeichert. Ihre Eingaben gehen beim Verlassen der Seite verloren.",
+      "validate": "Angaben prüfen"
+    },
+    "feedback": {
+      "kicker": "Ihre Meinung ist uns wichtig",
+      "title": "Wie hat Ihnen der Japanische Tag gefallen?",
+      "intro": "Was hat Sie begeistert, und was könnten wir beim nächsten Mal besser machen? Alle Antworten sind freiwillig. Das Feedback ist anonym; Name und E-Mail sind nicht erforderlich.",
+      "rating": "Gesamteindruck der Veranstaltung (freiwillig)",
+      "scale": "1 = sehr schlecht · 2 = eher schlecht · 3 = durchschnittlich · 4 = sehr gut · 5 = ausgezeichnet. Wählen Sie höchstens eine Antwort.",
+      "questions": [
+        "Was hat Ihnen am besten gefallen?",
+        "Was sollten wir verbessern?",
+        "Was wünschen Sie sich für das nächste Mal?",
+        "Welches Essen oder Getränk hat Ihnen am besten geschmeckt?",
+        "Was hat Ihnen im gastronomischen Angebot gefehlt?",
+        "Weitere Nachricht an das Organisationsteam"
+      ],
+      "submit": "Feedback senden"
+    },
+    "newsletter": {
+      "kicker": "Freiwilliger Newsletter",
+      "title": "Verpassen Sie den nächsten Japanischen Tag nicht",
+      "intro": "Erhalten Sie E-Mails über geplante Aktivitäten und künftige Ausgaben. Die Anmeldung ist vom anonymen Feedback getrennt.",
+      "name": "Name (freiwillig)",
+      "email": "E-Mail-Adresse (Pflichtfeld)",
+      "consent": "Ich stimme zu, E-Mails über Aktivitäten und künftige Ausgaben des Japanischen Tee- und Kulturtags zu erhalten. Ich kann mich jederzeit abmelden.",
+      "submit": "Newsletter abonnieren"
+    },
+    "competition": {
+      "kicker": "Für unsere jüngsten Gäste",
+      "title": "Ergebnisse des Kinderwettbewerbs",
+      "intro": "Kleine Künstler. Große Fantasie. Wir danken allen Kindern für ihre Kreativität. Die Ergebnisse werden nach Bestätigung durch das Organisationsteam veröffentlicht.",
+      "cards": [
+        {
+          "title": "Bekanntgabe und Rückblick",
+          "text": "Eine bestätigte Zusammenfassung des Wettbewerbs liegt noch nicht vor."
+        },
+        {
+          "title": "Gewinner und Auszeichnungen",
+          "text": "Namen und Ergebnisse wurden noch nicht übermittelt."
+        },
+        {
+          "title": "Prämierte Kunstwerke",
+          "text": "Die tatsächlichen Arbeiten werden nach Erhalt und Freigabe zur Veröffentlichung ergänzt."
+        }
+      ],
+      "thanks": "Vielen Dank an alle Kinder, die mitgemacht haben."
+    },
+    "memories": {
+      "kicker": "Erinnerungen an den 7. November",
+      "title": "So haben wir den Japanischen Tag 2026 erlebt",
+      "intro": "Gemeinsame Momente, die wir nicht vergessen möchten. Diese Plätze warten auf echte Fotos und Videos der Veranstaltung.",
+      "photos": [
+        "Gemeinsame Momente",
+        "Japan entdecken",
+        "Begegnungen beim Tee"
+      ],
+      "photoPending": "Platz für ein Veranstaltungsfoto – noch kein Foto vorhanden.",
+      "video": "Der Japanische Tag in Bewegung",
+      "videoPending": "Platz für ein Veranstaltungsvideo – noch kein Video vorhanden.",
+      "gallery": "Zur gesamten Galerie",
+      "galleryPending": "Die vollständige Galerie wird nach Erhalt der tatsächlichen Fotos freigeschaltet.",
+      "archive": "Erhaltene Archivgalerie ansehen"
+    },
+    "plans": {
+      "kicker": "Wie es weitergeht",
+      "title": "Was wir als Nächstes vorbereiten",
+      "intro": "Wir möchten weitere Gelegenheiten schaffen, japanische Kultur kennenzulernen. Aktivitäten stellen wir nach ihrer Bestätigung vor. Für die nächste Ausgabe steht noch kein Termin fest.",
+      "status": "Geplant · unbestätigt",
+      "cards": [
+        {
+          "title": "Eine Aktivität in Vorbereitung",
+          "text": "Inhalt, Ort und Termin ergänzen wir nach der Bestätigung."
+        },
+        {
+          "title": "Ein Treffen oder Workshop",
+          "text": "Programm und Termin stehen noch nicht fest."
+        },
+        {
+          "title": "Weitere gemeinsame Erlebnisse",
+          "text": "Freiwillige, Partner und Mitwirkende können sich über die Kontaktseite melden."
+        }
+      ],
+      "cta": "Ich möchte bei der nächsten Ausgabe mitwirken"
+    },
+    "acknowledgements": {
+      "kicker": "Gemeinsam möglich gemacht",
+      "title": "Danke an alle, die geholfen haben",
+      "organizers": "Veranstalter",
+      "partners": "Partner",
+      "groups": [
+        {
+          "title": "Freiwillige",
+          "text": "Danke für Ihre Zeit, Energie und Unterstützung vor Ort."
+        },
+        {
+          "title": "Gäste und Mitwirkende",
+          "text": "Danke, dass Sie unseren Besuchern die japanische Kultur nähergebracht haben."
+        },
+        {
+          "title": "Unterstützer",
+          "text": "Danke an alle, die die Veranstaltung unterstützt haben."
+        }
+      ],
+      "guestsLink": "Gäste und Mitwirkende 2026"
+    },
+    "archive": {
+      "kicker": "Veranstaltungsarchiv · vergangene Ausgabe",
+      "title": "Die Ausgabe 2026 noch einmal erleben",
+      "intro": "Programm, Gäste, Workshops und erhaltene Inhalte vom 7. November 2026 in Považská Bystrica.",
+      "cta": "Archiv 2026 öffnen"
+    },
+    "navigation": [
+      {
+        "label": "Startseite",
+        "path": "/"
+      },
+      {
+        "label": "Fotos und Videos",
+        "path": "/#fotky-videa"
+      },
+      {
+        "label": "Kinderwettbewerb",
+        "path": "/#detska-sutaz"
+      },
+      {
+        "label": "Unsere Pläne",
+        "path": "/#nase-plany"
+      },
+      {
+        "label": "Archiv",
+        "path": "/archiv/2026/"
+      },
+      {
+        "label": "Kontakt",
+        "path": "/kontakt/"
+      }
+    ]
   }
 }

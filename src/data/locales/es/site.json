@@ -357,5 +357,157 @@
         "description": "Imágenes que capturan el ambiente del evento."
       }
     }
+  },
+  "postEvent": {
+    "hero": {
+      "lines": [
+        "Un día.",
+        "Mil recuerdos.",
+        "Gracias."
+      ],
+      "intro": "Por los encuentros en torno al té, los nuevos descubrimientos y los momentos compartidos. Habéis creado el Día Japonés junto a nosotros.",
+      "cta": "Compartir tu opinión",
+      "date": "7 de noviembre de 2026"
+    },
+    "pending": "Contenido pendiente",
+    "forms": {
+      "unavailable": "El envío aún no está disponible. No se envían ni se guardan datos; lo que escribas se perderá al salir de la página.",
+      "validate": "Comprobar los datos"
+    },
+    "feedback": {
+      "kicker": "Tu opinión nos importa",
+      "title": "¿Qué te ha parecido el Día Japonés?",
+      "intro": "¿Qué te ha gustado y qué podríamos mejorar? Todas las respuestas son opcionales. La opinión es anónima; no pedimos nombre ni correo electrónico.",
+      "rating": "Valoración general del evento (opcional)",
+      "scale": "1 = muy mala · 2 = mala · 3 = regular · 4 = muy buena · 5 = excelente. Elige como máximo una opción.",
+      "questions": [
+        "¿Qué te ha gustado más?",
+        "¿Qué deberíamos mejorar?",
+        "¿Qué te gustaría vivir la próxima vez?",
+        "¿Qué comida o bebida te ha gustado más?",
+        "¿Qué has echado en falta en la oferta gastronómica?",
+        "Otro mensaje para la organización"
+      ],
+      "submit": "Enviar opinión"
+    },
+    "newsletter": {
+      "kicker": "Boletín voluntario",
+      "title": "No te pierdas el próximo Día Japonés",
+      "intro": "Recibe correos sobre actividades previstas y futuras ediciones. La suscripción es independiente de la opinión anónima.",
+      "name": "Nombre (opcional)",
+      "email": "Correo electrónico (obligatorio)",
+      "consent": "Acepto recibir correos sobre actividades y futuras ediciones del Día del Té y la Cultura Japonesa. Puedo darme de baja en cualquier momento.",
+      "submit": "Suscribirme"
+    },
+    "competition": {
+      "kicker": "Para los más pequeños",
+      "title": "Resultados del concurso infantil",
+      "intro": "Pequeños artistas. Gran imaginación. Gracias a todos los niños por su creatividad. Publicaremos los resultados cuando los confirme la organización.",
+      "cards": [
+        {
+          "title": "Anuncio y resumen",
+          "text": "Aún no se ha facilitado un resumen confirmado del concurso."
+        },
+        {
+          "title": "Ganadores y premios",
+          "text": "Todavía no se han facilitado los nombres ni los resultados."
+        },
+        {
+          "title": "Obras premiadas",
+          "text": "Añadiremos las obras reales cuando se reciban con permiso para publicarlas."
+        }
+      ],
+      "thanks": "Gracias a todos los niños que participaron."
+    },
+    "memories": {
+      "kicker": "Recuerdos del 7 de noviembre",
+      "title": "Así disfrutamos del Día Japonés 2026",
+      "intro": "Momentos compartidos que queremos recordar. Estos espacios esperan fotos y vídeos reales del evento.",
+      "photos": [
+        "Momentos compartidos",
+        "Descubriendo Japón",
+        "Encuentros en torno al té"
+      ],
+      "photoPending": "Espacio para una foto del evento; aún no se ha recibido ninguna.",
+      "video": "El Día Japonés en movimiento",
+      "videoPending": "Espacio para un vídeo del evento; aún no se ha recibido ninguno.",
+      "gallery": "Galería completa",
+      "galleryPending": "La galería completa estará disponible cuando recibamos las fotografías reales.",
+      "archive": "Ver la galería conservada en el archivo"
+    },
+    "plans": {
+      "kicker": "Lo que viene después",
+      "title": "Qué estamos preparando",
+      "intro": "Queremos ofrecer más oportunidades para conocer la cultura japonesa. Anunciaremos las actividades cuando estén confirmadas; la próxima edición aún no tiene fecha confirmada.",
+      "status": "Previsto · sin confirmar",
+      "cards": [
+        {
+          "title": "Una actividad en preparación",
+          "text": "Añadiremos el contenido, el lugar y la fecha tras su confirmación."
+        },
+        {
+          "title": "Un encuentro o taller",
+          "text": "Todavía no hay programa ni fecha confirmados."
+        },
+        {
+          "title": "Más experiencias compartidas",
+          "text": "Voluntarios, colaboradores y artistas pueden escribirnos a través de la página de contacto."
+        }
+      ],
+      "cta": "Quiero participar en la próxima edición"
+    },
+    "acknowledgements": {
+      "kicker": "Juntos lo hicimos posible",
+      "title": "Gracias a quienes ayudaron",
+      "organizers": "Organizadores",
+      "partners": "Colaboradores",
+      "groups": [
+        {
+          "title": "Voluntarios",
+          "text": "Gracias por vuestro tiempo, energía y ayuda durante el evento."
+        },
+        {
+          "title": "Invitados y artistas",
+          "text": "Gracias por acercar la cultura japonesa a nuestros visitantes."
+        },
+        {
+          "title": "Personas y entidades de apoyo",
+          "text": "Gracias a todos los que apoyaron el evento."
+        }
+      ],
+      "guestsLink": "Invitados y artistas de 2026"
+    },
+    "archive": {
+      "kicker": "Archivo del evento · edición finalizada",
+      "title": "Recuerda la edición de 2026",
+      "intro": "Programa, invitados, talleres y contenido conservado del 7 de noviembre de 2026 en Považská Bystrica.",
+      "cta": "Abrir el archivo de 2026"
+    },
+    "navigation": [
+      {
+        "label": "Inicio",
+        "path": "/"
+      },
+      {
+        "label": "Fotos y vídeos",
+        "path": "/#fotky-videa"
+      },
+      {
+        "label": "Concurso infantil",
+        "path": "/#detska-sutaz"
+      },
+      {
+        "label": "Nuestros planes",
+        "path": "/#nase-plany"
+      },
+      {
+        "label": "Archivo",
+        "path": "/archiv/2026/"
+      },
+      {
+        "label": "Contacto",
+        "path": "/kontakt/"
+      }
+    ]
   }
 }

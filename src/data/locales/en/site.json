@@ -357,5 +357,157 @@
         "description": "Photos that capture the atmosphere of the event."
       }
     }
+  },
+  "postEvent": {
+    "hero": {
+      "lines": [
+        "One day.",
+        "A thousand memories.",
+        "Thank you."
+      ],
+      "intro": "For conversations over tea, new discoveries and moments together. You helped make Japanese Day what it was.",
+      "cta": "Share your feedback",
+      "date": "7 November 2026"
+    },
+    "pending": "Content pending",
+    "forms": {
+      "unavailable": "Submission is not available yet. Nothing is sent or saved; anything you enter will be lost when you leave the page.",
+      "validate": "Check details"
+    },
+    "feedback": {
+      "kicker": "Your opinion matters",
+      "title": "How did you enjoy Japanese Day?",
+      "intro": "What delighted you, and what could we do better next time? Every answer is optional. Feedback is anonymous; no name or email is required.",
+      "rating": "Overall event rating (optional)",
+      "scale": "1 = very poor · 2 = poor · 3 = average · 4 = very good · 5 = excellent. Choose at most one option.",
+      "questions": [
+        "What did you enjoy most?",
+        "What should we improve?",
+        "What would you like to experience next time?",
+        "Which food or drink did you enjoy most?",
+        "What was missing from the food and drink selection?",
+        "Any other message for the organisers"
+      ],
+      "submit": "Send feedback"
+    },
+    "newsletter": {
+      "kicker": "Optional newsletter",
+      "title": "Don’t miss the next Japanese Day",
+      "intro": "Receive emails about planned activities and future editions. Signing up is separate from anonymous feedback.",
+      "name": "Name (optional)",
+      "email": "Email address (required)",
+      "consent": "I agree to receive emails about activities and future editions of Japanese Tea and Culture Day. I can unsubscribe at any time.",
+      "submit": "Subscribe"
+    },
+    "competition": {
+      "kicker": "For our youngest visitors",
+      "title": "Children’s competition results",
+      "intro": "Little artists. Big imaginations. Thank you to every child for their creativity. Results will be published after confirmation by the organisers.",
+      "cards": [
+        {
+          "title": "Announcement and summary",
+          "text": "A confirmed competition summary has not yet been supplied."
+        },
+        {
+          "title": "Winners and awards",
+          "text": "Names and results have not yet been supplied."
+        },
+        {
+          "title": "Winning artwork",
+          "text": "Actual artwork will be added once supplied with permission to publish."
+        }
+      ],
+      "thanks": "Thank you to all the children who took part."
+    },
+    "memories": {
+      "kicker": "Memories of 7 November",
+      "title": "Looking back at Japanese Day 2026",
+      "intro": "Shared moments we want to remember. The spaces below await actual photos and videos from the event.",
+      "photos": [
+        "Moments together",
+        "Discovering Japan",
+        "Conversations over tea"
+      ],
+      "photoPending": "Space for an event photo — no photo has been supplied yet.",
+      "video": "Japanese Day in motion",
+      "videoPending": "Space for an event video — no video has been supplied yet.",
+      "gallery": "Full gallery",
+      "galleryPending": "The full gallery will be available once actual photographs are supplied.",
+      "archive": "View the preserved archive gallery"
+    },
+    "plans": {
+      "kicker": "What comes next",
+      "title": "What we’re preparing next",
+      "intro": "We would love to offer more opportunities to explore Japanese culture. Activities will be announced once confirmed; no date is confirmed for the next edition.",
+      "status": "Proposed · unconfirmed",
+      "cards": [
+        {
+          "title": "An activity in preparation",
+          "text": "Details, venue and date will be added after confirmation."
+        },
+        {
+          "title": "A gathering or workshop",
+          "text": "No programme or date has been confirmed yet."
+        },
+        {
+          "title": "More shared experiences",
+          "text": "Volunteers, partners and performers can reach us through the contact page."
+        }
+      ],
+      "cta": "I’d like to get involved in the next edition"
+    },
+    "acknowledgements": {
+      "kicker": "Made possible together",
+      "title": "Thank you to everyone who helped",
+      "organizers": "Organisers",
+      "partners": "Partners",
+      "groups": [
+        {
+          "title": "Volunteers",
+          "text": "Thank you for your time, energy and help at the event."
+        },
+        {
+          "title": "Guests and performers",
+          "text": "Thank you for sharing Japanese culture with our visitors."
+        },
+        {
+          "title": "Supporters",
+          "text": "Thank you to everyone who supported the event."
+        }
+      ],
+      "guestsLink": "Guests and performers of 2026"
+    },
+    "archive": {
+      "kicker": "Event archive · past edition",
+      "title": "Revisit the 2026 edition",
+      "intro": "Explore the programme, guests, workshops and preserved content from 7 November 2026 in Považská Bystrica.",
+      "cta": "Open the 2026 archive"
+    },
+    "navigation": [
+      {
+        "label": "Home",
+        "path": "/"
+      },
+      {
+        "label": "Photos and videos",
+        "path": "/#fotky-videa"
+      },
+      {
+        "label": "Children’s competition",
+        "path": "/#detska-sutaz"
+      },
+      {
+        "label": "Our plans",
+        "path": "/#nase-plany"
+      },
+      {
+        "label": "Archive",
+        "path": "/archiv/2026/"
+      },
+      {
+        "label": "Contact",
+        "path": "/kontakt/"
+      }
+    ]
   }
 }
