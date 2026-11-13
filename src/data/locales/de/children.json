@@ -53,10 +53,37 @@
     "prize": {
       "title": "Auf den Gewinner wartet ein Preis.",
       "text": "Am wichtigsten ist es, die Fantasie einzusetzen, Spaß zu haben und den Japan-Tag gemeinsam mit uns zu genießen."
+    },
+    "archive": {
+      "eyebrow": "KINDER-MALWETTBEWERB 2026",
+      "title": "Kinder-Malwettbewerb 2026",
+      "intro": "Zum Japanischen Tee- und Kulturtag gehörte auch ein Malwettbewerb für Kinder. Wir danken allen Kindern, die mitgemacht und uns mit ihren Bildern gezeigt haben, wie sie Japan sehen.",
+      "categories": [
+        {
+          "id": "colouring",
+          "title": "Japanische Motive ausmalen",
+          "intro": "Der Wettbewerb richtete sich besonders an die jüngsten Besucher.",
+          "body": "Bei der Veranstaltung standen Bilder mit japanischen und Anime-Motiven zum Ausmalen nach eigener Fantasie bereit.",
+          "detail": "Die Kinder konnten mit Buntstiften und ihrer Fantasie eigene Bilder gestalten.",
+          "evaluationLabel": "Vorgesehene Kriterien:",
+          "evaluation": "Idee, Farbgestaltung, Sorgfalt und Gesamteindruck."
+        }
+      ],
+      "prize": {
+        "title": "Angekündigter Preis",
+        "text": "Der Wettbewerb sollte die Fantasie und den kreativen Ausdruck der Kinder fördern. Ergebnisse und Namen von Gewinnern werden hier nicht genannt."
+      },
+      "posterAlt": "Plakat des Kinder-Malwettbewerbs beim Japanischen Tee- und Kulturtag",
+      "activity": {
+        "title": "Kinder-Malwettbewerb",
+        "short": "Die Kinder zeigten mit ihren Bildern, wie sie Japan sehen.",
+        "description": "Beim Japanischen Tee- und Kulturtag gestalteten Kinder Bilder mit japanischen und Anime-Motiven."
+      }
     }
   },
   "safety": {
     "title": "Aufsicht über Kinder",
     "text": "Die Kinderaktivitäten sind keine Kinderbetreuung. Kinder bleiben jederzeit unter der Aufsicht und Verantwortung eines Elternteils oder einer anderen begleitenden erwachsenen Person."
-  }
+  },
+  "archiveIntro": "Das Programm für Kinder und Familien umfasste kreative Angebote, traditionelle japanische Spiele, Origami, Ayatori und einen Malwettbewerb."
 }

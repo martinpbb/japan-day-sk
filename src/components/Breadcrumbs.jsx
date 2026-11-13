@@ -10,13 +10,17 @@
 import React from "react";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
+import { archiveBase } from "../lib/archiveRoutes.js";
+import { useEventArchive } from "../lib/useEventArchive.js";
 
 export default function Breadcrumbs({ current, parent = null }) {
   const { locale, site } = useI18n();
   const { ui } = site;
+  const { archived } = useEventArchive();
   return (
     <nav className="breadcrumbs container" aria-label={ui.breadcrumbLabel}>
       <a href={addLocalePrefix("/", locale)}>{site.brand.name}</a>
+      {archived ? <><span aria-hidden="true">›</span><a href={addLocalePrefix(`${archiveBase}/`, locale)}>{site.archive.label}</a></> : null}
       {parent ? (
         <>
           <span aria-hidden="true">›</span>

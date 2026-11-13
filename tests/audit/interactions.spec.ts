@@ -40,11 +40,9 @@ for (const locale of localeCodes) {
     await expect(page.locator('.workshopSessions')).toContainText(read(locale, 'workshops').items.find((w: any) => w.id === 'tvorba-kombiku').availabilityNote);
     await expect(page.locator('.workshopDetailFacts')).toContainText('2');
     await page.goto(`${prefix}/workshopy/ayatori/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
-    await expect(page.locator('.workshopSession')).toHaveCount(2);
-    await page.locator('.workshopSession input').nth(1).check();
-    await expect(page.locator('.workshopSession input').nth(1)).toBeChecked();
-    await expect(page.locator('.registrationForm .workshopRegistrationState')).toHaveText(copy.registrationOpen);
-    await expect(page.locator('.registrationForm button[type="submit"]')).toHaveText(copy.register);
+    await expect(page.locator('.workshopSession')).toHaveCount(read(locale, 'workshops').items.find((w: any) => w.id === 'ayatori').sessions.length);
+    await expect(page.locator('.workshopSession input, .registrationForm')).toHaveCount(0);
+    await expect(page.locator('.workshopSessions')).toContainText(read(locale, 'site').archive.registrationsClosed);
     if (locale === 'ja') {
       await expect(page.locator('.workshopDetail')).not.toContainText(/Lektor|Trvanie|Cena|Termín|Zadarmo|Registrácia|Kapacita|miest/);
       await expect(page.locator('.workshopDetailFacts')).toContainText('30分');
@@ -88,7 +86,7 @@ test('@audit @interaction keyboard language and mobile navigation', async ({ pag
   await page.locator('.menuButton').click();
   await expect(page.locator('nav.nav')).toHaveClass(/open/);
   await page.locator('nav.nav a[href="/en/program"]').click();
-  await expect(page).toHaveURL(/\/en\/program/);
+  await expect(page).toHaveURL(/\/en\/archiv\/2026\/program/);
   await expect(page.locator('main h1')).toBeVisible();
 });
 

@@ -137,6 +137,124 @@
       "schema": [
         "breadcrumb"
       ]
+    },
+    "/archiv/2026": {
+      "title": "Archív 2026 | Japonský deň čaju a kultúry 2026 | Považská Bystrica",
+      "description": "Archív Japonského dňa čaju a kultúry 2026 v Považskej Bystrici: program, hostia, workshopy a historické informácie.",
+      "h1": "Japonský deň čaju a kultúry",
+      "intro": "Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Archív 2026",
+      "schema": [
+        "organization",
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/o-podujati": {
+      "title": "Prehľad podujatia | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Prehľad podujatia. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "O Japonskom dni čaju a kultúry",
+      "intro": "Prehľad podujatia. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Prehľad podujatia",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/program": {
+      "title": "Program | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Program. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Program Japonského dňa čaju a kultúry 2026",
+      "intro": "Program. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Program",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/ucinkujuci": {
+      "title": "Účinkujúci a hostia | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Účinkujúci a hostia. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Hostia a účinkujúci",
+      "intro": "Účinkujúci a hostia. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Účinkujúci a hostia",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "HOSTIA A ÚČINKUJÚCI",
+      "sectionTitle": "Spoznajte ľudí, ktorí vám priblížia Japonsko"
+    },
+    "/archiv/2026/workshopy": {
+      "title": "Workshopy | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Workshopy. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Workshopy",
+      "intro": "Workshopy. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Workshopy",
+      "ogImage": "/images/social/japan-day-povazska-bystrica-2026.png",
+      "ogImageWidth": 1200,
+      "ogImageHeight": 630,
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/gastronomia": {
+      "title": "Gastronómia | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Gastronómia. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Japonská gastronómia a čaj",
+      "intro": "Gastronómia. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Gastronómia",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/vystavovatelia": {
+      "title": "Vystavovatelia | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Vystavovatelia. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Vystavovatelia a predajcovia",
+      "intro": "Vystavovatelia. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Vystavovatelia",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/astronomia": {
+      "title": "Astronómia – Od Amaterasu k Slnku | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Astronómia – Od Amaterasu k Slnku. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "intro": "Astronómia – Od Amaterasu k Slnku. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Astronómia – Od Amaterasu k Slnku",
+      "breadcrumb": "Astronómia – Od Amaterasu k Slnku",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/pre-deti": {
+      "title": "Pre deti | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Pre deti. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Pre deti a rodiny",
+      "intro": "Pre deti. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Pre deti",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "PRE DETI A RODINY",
+      "sectionTitle": "Japonsko, ktoré si deti môžu samy vyskúšať"
+    },
+    "/archiv/2026/prakticke-informacie": {
+      "title": "Praktické informácie | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Praktické informácie. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Praktické informácie",
+      "intro": "Praktické informácie. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Praktické informácie",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/galeria": {
+      "title": "Galéria | Archív 2026 | Japonský deň čaju a kultúry",
+      "description": "Galéria. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "h1": "Galéria",
+      "intro": "Galéria. Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+      "breadcrumb": "Galéria",
+      "schema": [
+        "breadcrumb"
+      ]
     }
   }
 }

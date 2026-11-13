@@ -25,7 +25,8 @@
     "test:e2e:responsive": "playwright test --grep @responsive --project=chromium",
     "test:e2e:visual": "playwright test --grep @visual --project=chromium",
     "test:e2e:production": "set BASE_URL=https://japanday.sk&& playwright test --grep \"@production\" --project=chromium",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "test:registration:reopening": "playwright test --config=playwright.registration-reopening.config.ts --project=chromium"
   },
   "dependencies": {
     "@paybysquare/core": "^0.1.0",

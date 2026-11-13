@@ -137,6 +137,124 @@
       "schema": [
         "breadcrumb"
       ]
+    },
+    "/archiv/2026": {
+      "title": "Archiv 2026 | Japanischer Tag des Tees und der Kultur 2026 | Považská Bystrica",
+      "description": "Archiv des Japanischen Tee- und Kulturtags 2026 in Považská Bystrica: Programm, Gäste, Workshops und historische Informationen.",
+      "h1": "Japanischer Tag des Tees und der Kultur 2026 | Považská Bystrica",
+      "intro": "Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Archiv 2026",
+      "schema": [
+        "organization",
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/o-podujati": {
+      "title": "Veranstaltungsüberblick | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Veranstaltungsüberblick. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Über die Veranstaltung",
+      "intro": "Veranstaltungsüberblick. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Veranstaltungsüberblick",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/program": {
+      "title": "Programm | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Programm. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Programm",
+      "intro": "Programm. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Programm",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/ucinkujuci": {
+      "title": "Mitwirkende und Gäste | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Mitwirkende und Gäste. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Gäste und Mitwirkende",
+      "intro": "Mitwirkende und Gäste. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Mitwirkende und Gäste",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "GÄSTE & MITWIRKENDE",
+      "sectionTitle": "Lernen Sie die Menschen kennen, die Japan näherbringen"
+    },
+    "/archiv/2026/workshopy": {
+      "title": "Workshops | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Workshops. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Workshops",
+      "intro": "Workshops. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Workshops",
+      "ogImage": "/images/social/japan-day-povazska-bystrica-2026.png",
+      "ogImageWidth": 1200,
+      "ogImageHeight": 630,
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/gastronomia": {
+      "title": "Gastronomie | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Gastronomie. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Japanische Gastronomie und Tee",
+      "intro": "Gastronomie. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Gastronomie",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/vystavovatelia": {
+      "title": "Aussteller | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Aussteller. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Aussteller",
+      "intro": "Aussteller. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Aussteller",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/astronomia": {
+      "title": "Astronomie – Von Amaterasu zur Sonne | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Astronomie – Von Amaterasu zur Sonne. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "intro": "Astronomie – Von Amaterasu zur Sonne. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Astronomie – Von Amaterasu zur Sonne",
+      "breadcrumb": "Astronomie – Von Amaterasu zur Sonne",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/pre-deti": {
+      "title": "Für Kinder | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Für Kinder. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Für Kinder und Familien",
+      "intro": "Für Kinder. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Für Kinder",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "FÜR KINDER & FAMILIEN",
+      "sectionTitle": "Familienprogramm folgt"
+    },
+    "/archiv/2026/prakticke-informacie": {
+      "title": "Praktische Informationen | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Praktische Informationen. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Praktische Informationen",
+      "intro": "Praktische Informationen. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Praktische Informationen",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/galeria": {
+      "title": "Galerie | Archiv 2026 | Japanischer Tag des Tees und der Kultur",
+      "description": "Galerie. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "h1": "Galerie",
+      "intro": "Galerie. Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+      "breadcrumb": "Galerie",
+      "schema": [
+        "breadcrumb"
+      ]
     }
   }
 }

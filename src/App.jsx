@@ -40,6 +40,11 @@ import { buildExhibitorRoute } from "./seo/exhibitorRoute.js";
 import { buildWorkshopRoute } from "./seo/workshopRoute.js";
 import { useI18n } from "./lib/useI18n.js";
 import { stripLocalePrefix } from "./lib/i18nPaths.js";
+import { addLocalePrefix } from "./lib/i18nPaths.js";
+import { archiveBase, archiveContentPath, buildArchiveRoutes, legacyArchiveTarget } from "./lib/archiveRoutes.js";
+import { EventArchiveContext } from "./lib/eventArchiveContext.js";
+import ArchiveNavigation from "./components/ArchiveNavigation.jsx";
+import ArchiveNotice from "./components/ArchiveNotice.jsx";
 
 const pageComponents = {
   "/program": Program,
@@ -51,7 +56,8 @@ const pageComponents = {
   "/prakticke-informacie": PracticalInfo,
   "/galeria": Gallery,
   "/o-podujati": About,
-  "/kontakt": Contact
+  "/kontakt": Contact,
+  "/astronomia": Astronomy
 };
 
 function normalizePath(pathname) {
@@ -62,7 +68,9 @@ function normalizePath(pathname) {
 function getPerformerFromPath(path, performers) {
   const match = path.match(/^\/ucinkujuci\/([^/]+)$/);
   if (!match) return null;
-  return performers.items.find((item) => item.id === decodeURIComponent(match[1])) || null;
+  let slug;
+  try { slug = decodeURIComponent(match[1]); } catch { return null; }
+  return performers.items.find((item) => item.id === slug) || null;
 }
 
 function getWorkshopFromPath(path, workshops) {
@@ -73,10 +81,11 @@ function getWorkshopFromPath(path, workshops) {
   return workshops?.items.find((item) => (item.slug || item.id) === slug || (slug === "japonstina" && (item.slug || item.id) === "japoncina")) || null;
 }
 
-function HomePage() {
+function HomePage({ archived = false }) {
   return (
     <main>
       <Hero />
+      {archived ? <ArchiveNavigation /> : null}
       <About />
       <Program />
       <Astronomy />
@@ -116,10 +125,15 @@ function PerformerPage({ performer, route }) {
 }
 
 function PublicApp() {
-  const { content } = useI18n();
+  const { content, locale, site } = useI18n();
   const { seo, performers, exhibitors, workshops } = content;
   const [pathname, setPathname] = useState(window.location.pathname);
-  const path = normalizePath(stripLocalePrefix(pathname));
+  const requestedPath = normalizePath(stripLocalePrefix(pathname));
+  const archiveRoutes = buildArchiveRoutes(content);
+  const redirect = legacyArchiveTarget(requestedPath, archiveRoutes);
+  const publicPath = redirect || requestedPath;
+  const archived = publicPath === archiveBase || publicPath.startsWith(`${archiveBase}/`);
+  const path = archived ? archiveContentPath(publicPath) : publicPath;
   const exhibitor = exhibitors.items.find((item) => item.detail && path === `/vystavovatelia/${item.id}`);
   const performer = getPerformerFromPath(path, performers);
   const workshopCatalog = path === "/workshopy";
@@ -127,8 +141,10 @@ function PublicApp() {
   const workshopRoute = workshop ? buildWorkshopRoute(workshop, seo) : workshopCatalog ? seo.routes["/workshopy"] : null;
   const performerRoute = performer ? buildPerformerRoute(performer, seo) : null;
   const exhibitorRoute = exhibitor ? (seo.routes[path] || buildExhibitorRoute(exhibitor, seo)) : null;
-  const route = workshopRoute || performerRoute || exhibitorRoute || seo.routes[path] || seo.routes["/"];
-  const isKnown = Boolean(workshopRoute || performerRoute || exhibitorRoute || seo.routes[path]);
+  const isKnown = archived ? Boolean(archiveRoutes[publicPath]) : Boolean(workshopRoute || performerRoute || exhibitorRoute || seo.routes[path]);
+  const route = (archived ? archiveRoutes[publicPath] : workshopRoute || performerRoute || exhibitorRoute || seo.routes[path]) || {
+    title: site.archive.notFoundTitle, description: site.archive.notFoundDescription, schema: [], noindex: true
+  };
   const [cookieSettingsOpen, setCookieSettingsOpen] = useState(false);
 
   useEffect(() => {
@@ -138,19 +154,33 @@ function PublicApp() {
   }, []);
 
   useEffect(() => {
+    if (redirect) {
+      window.history.replaceState({}, "", `${addLocalePrefix(`${redirect}/`, locale)}${window.location.search}${window.location.hash}`);
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    }
+  }, [redirect, locale]);
+
+  useEffect(() => {
     if (window.location.hash) {
-      window.requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView());
+      let anchor;
+      try { anchor = decodeURIComponent(window.location.hash.slice(1)); } catch { anchor = ""; }
+      window.requestAnimationFrame(() => document.getElementById(anchor)?.scrollIntoView());
     } else {
       window.scrollTo(0, 0);
     }
   }, [path]);
 
   return (
-    <>
+    <EventArchiveContext.Provider value={archived}>
       <SmartsuppChat />
-      <SEO path={isKnown ? path : "/"} route={route} />
+      <SEO path={publicPath} route={route} />
       <Header />
-      {workshop ? (
+      {archived && isKnown ? <ArchiveNotice /> : null}
+      {!isKnown ? (
+        <main><PageIntro title={site.archive.notFoundTitle} intro={site.archive.notFoundDescription} />
+          <div className="container"><a href={addLocalePrefix(`${archiveBase}/`, locale)}>{site.archive.browse}</a></div>
+        </main>
+      ) : workshop ? (
         <main>
           <Breadcrumbs current={route.breadcrumb} parent={route.breadcrumbParent} />
           <PageIntro title={route.h1} intro={route.intro} />
@@ -163,14 +193,14 @@ function PublicApp() {
         </main>
       ) : performer ? (
         <PerformerPage performer={performer} route={route} />
-      ) : path === "/" || !isKnown ? (
-        <HomePage />
+      ) : path === "/" ? (
+        <HomePage archived={archived} />
       ) : (
         <SubPage path={path} route={route} />
       )}
       <Footer onCookieSettings={() => setCookieSettingsOpen(true)} />
       <CookieConsent isOpen={cookieSettingsOpen} onClose={() => setCookieSettingsOpen(false)} />
-    </>
+    </EventArchiveContext.Provider>
   );
 }
 

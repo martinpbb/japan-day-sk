@@ -13,7 +13,7 @@ test("@ui programme shows the approved theatre order and current Nao Higano titl
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
 });
 
-test("@ui workshop overview shows lecturers, durations and aggregate registration", async ({ page }) => {
+test("@ui workshop archive shows lecturers and durations without live registration", async ({ page }) => {
   await page.route("https://api.japanday.sk/api/workshops/availability", route => route.fulfill({ json: { ok: true, data: { workshops: [
     { id: "japoncina", session_count: 3, registered_count: 6, capacity: 45 },
   ] } } }));
@@ -22,8 +22,8 @@ test("@ui workshop overview shows lecturers, durations and aggregate registratio
   const japanese = card("japoncina");
   await expect(japanese.locator(".workshopFacts")).toContainText("30 min");
   await expect(japanese.locator(".workshopFacts")).toContainText("Hisayo Yasuda");
-  await expect(japanese.locator(".workshopOverviewSessions")).toContainText("3 termínov");
-  await expect(japanese.locator(".workshopOccupancy")).toContainText("6 / 45 registrovaných");
+  await expect(japanese.locator(".workshopOverviewSessions, .workshopOccupancy")).toHaveCount(0);
+  await expect(page.locator(".workshopInfoNote")).toContainText("Registrácie na workshopy aj zoznamy náhradníkov sú uzavreté.");
   const tsumami = card("tsumami-zaiku");
   await expect(tsumami.locator(".workshopFacts")).toContainText("Hisayo Yasuda");
   await expect(tsumami.locator(".workshopFacts")).toContainText("30 min");

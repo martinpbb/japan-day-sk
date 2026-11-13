@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useI18n } from "../lib/useI18n.js";
 import { absoluteUrl, buildSchemas } from "./schema.js";
 import { defaultLocale, supportedLocales } from "../data/content.js";
+import { addLocalePrefix } from "../lib/i18nPaths.js";
 
 function ensureMeta(selector, attributeName, attributeValue) {
   let element = document.head.querySelector(selector);
@@ -30,14 +31,19 @@ function localePath(locale, path) {
 }
 
 export default function SEO({ path, route }) {
-  const { site, content } = useI18n();
+  const { site, content, locale: currentLocale } = useI18n();
   const { seo } = content;
   useEffect(() => {
+    const publicUrl = logicalPath => {
+      const localized = addLocalePrefix(logicalPath, currentLocale);
+      return absoluteUrl(seo.baseUrl, localized.endsWith("/") ? localized : `${localized}/`);
+    };
+    const canonical = publicUrl(path);
     document.title = route.title;
     ensureMeta('meta[name="description"]', "name", "description").content = route.description;
     ensureMeta('meta[property="og:title"]', "property", "og:title").content = route.title;
     ensureMeta('meta[property="og:description"]', "property", "og:description").content = route.description;
-    ensureMeta('meta[property="og:url"]', "property", "og:url").content = absoluteUrl(seo.baseUrl, path);
+    ensureMeta('meta[property="og:url"]', "property", "og:url").content = canonical;
     ensureMeta('meta[property="og:type"]', "property", "og:type").content = "website";
     ensureMeta('meta[property="og:site_name"]', "property", "og:site_name").content = seo.siteName;
     ensureMeta('meta[property="og:locale"]', "property", "og:locale").content = seo.locale;
@@ -52,23 +58,29 @@ export default function SEO({ path, route }) {
       if (route.ogImageHeight) ensureMeta('meta[property="og:image:height"]', "property", "og:image:height").content = String(route.ogImageHeight);
     }
 
-    ensureLink("canonical").href = absoluteUrl(seo.baseUrl, path);
+    ensureMeta('meta[name="robots"]', "name", "robots").content = route.noindex ? "noindex, nofollow" : "index, follow";
+    ensureLink("canonical").href = canonical;
 
     document.head.querySelectorAll('link[rel="alternate"]').forEach((node) => node.remove());
     for (const locale of supportedLocales) {
       const link = document.createElement("link");
       link.rel = "alternate";
       link.hreflang = locale;
-      link.href = absoluteUrl(seo.baseUrl, localePath(locale, path));
+      const alternate = localePath(locale, path);
+      link.href = absoluteUrl(seo.baseUrl, alternate.endsWith("/") ? alternate : `${alternate}/`);
       document.head.appendChild(link);
     }
     const defaultLink = document.createElement("link");
     defaultLink.rel = "alternate";
     defaultLink.hreflang = "x-default";
-    defaultLink.href = absoluteUrl(seo.baseUrl, path);
+    defaultLink.href = absoluteUrl(seo.baseUrl, path.endsWith("/") ? path : `${path}/`);
     document.head.appendChild(defaultLink);
 
     document.head.querySelectorAll('script[data-japanday-schema="true"]').forEach((node) => node.remove());
+    if (route.noindex) {
+      document.head.querySelectorAll('link[rel="canonical"], link[rel="alternate"]').forEach(node => node.remove());
+      return;
+    }
     // Schema URLs must include the locale prefix used by the current document.
     const localePrefix = { "en-GB": "/en", "de-DE": "/de", "es-ES": "/es", "ja-JP": "/ja" }[seo.language] || "";
     const schemaPath = `${localePrefix}${path}`;
@@ -79,7 +91,7 @@ export default function SEO({ path, route }) {
       script.textContent = JSON.stringify(schema);
       document.head.appendChild(script);
     });
-  }, [path, route, seo, site]);
+  }, [path, route, seo, site, currentLocale]);
 
   return null;
 }

@@ -3,9 +3,10 @@ import { MapPin } from "lucide-react";
 import Section from "./Section.jsx";
 import WorkshopsTeaser from "./WorkshopsTeaser.jsx";
 import { useI18n } from "../lib/useI18n.js";
-import { addLocalePrefix } from "../lib/i18nPaths.js";
+import { useEventArchive } from "../lib/useEventArchive.js";
 
-function VenueSchedule({ venue, title, subtitle, capacity, capacityLabel, items, performers, locale }) {
+function VenueSchedule({ venue, title, subtitle, capacity, capacityLabel, items, performers }) {
+  const { eventHref } = useEventArchive();
   return (
     <section className="programVenue" aria-labelledby={`venue-${venue}`}>
       <header className="programVenueHeader">
@@ -26,7 +27,7 @@ function VenueSchedule({ venue, title, subtitle, capacity, capacityLabel, items,
               <div className="programVenueDetails">
                 <h3>{item.title}</h3>
                 {item.presenter ? <span className="programVenuePerformer">{item.presenter}</span> : null}
-                {!item.presenter && performer ? <a className="programVenuePerformer" href={addLocalePrefix(`/ucinkujuci/${performer.id}`, locale)}>{performer.name}</a> : null}
+                {!item.presenter && performer ? <a className="programVenuePerformer" href={eventHref(`/ucinkujuci/${performer.id}`)}>{performer.name}</a> : null}
                 {item.durationMinutes ? <span className="programVenueDuration">{item.durationMinutes} min</span> : null}
               </div>
             </article>
@@ -38,7 +39,7 @@ function VenueSchedule({ venue, title, subtitle, capacity, capacityLabel, items,
 }
 
 export default function Program({ includeWorkshopsTeaser = false }) {
-  const { locale, site, content } = useI18n();
+  const { site, content } = useI18n();
   const copy = site.ui.program;
   const route = content.seo.routes["/program"];
   const performers = new Map(content.performers.items.map((item) => [item.id, item]));
@@ -53,8 +54,8 @@ export default function Program({ includeWorkshopsTeaser = false }) {
     <>
       <Section id="program" kicker={route.breadcrumb} title={route.h1} className="sectionTint">
         <div className="programVenues">
-          <VenueSchedule venue="hall" title={copy.hallTitle} subtitle={copy.hallSubtitle} items={hall} performers={performers} locale={locale} />
-          <VenueSchedule venue="theatre" title={copy.theatreTitle} subtitle={copy.theatreSubtitle} capacity={100} capacityLabel={copy.capacity} items={theatre} performers={performers} locale={locale} />
+          <VenueSchedule venue="hall" title={copy.hallTitle} subtitle={copy.hallSubtitle} items={hall} performers={performers} />
+          <VenueSchedule venue="theatre" title={copy.theatreTitle} subtitle={copy.theatreSubtitle} capacity={100} capacityLabel={copy.capacity} items={theatre} performers={performers} />
         </div>
         {content.program.note ? <p className="infoNote programInfoNote">{content.program.note}</p> : null}
         {content.program.plan ? <section className="programPlanSection" aria-label={content.program.plan.title || content.program.plan.alt}>{content.program.plan.title ? <h2>{content.program.plan.title}</h2> : null}{content.program.plan.description ? <p>{content.program.plan.description}</p> : null}<img className="programPlan" src={content.program.plan.image} alt={content.program.plan.alt} /></section> : null}

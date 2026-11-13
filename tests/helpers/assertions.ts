@@ -1,8 +1,9 @@
 import { expect, type Page } from "@playwright/test";
 import { localeCodes, prefixFor, type Locale } from "./locales";
+import { archivePath } from "../../src/lib/archiveRoutes.js";
 
 export async function assertCommonPage(page: Page, locale: Locale, route = "/") {
-  await expect(page).toHaveURL(new RegExp(`${prefixFor(locale, route).replaceAll("/", "\\/")}\\/?$`));
+  await expect(page).toHaveURL(new RegExp(`${prefixFor(locale, archivePath(route)).replaceAll("/", "\\/")}\\/?$`));
   await expect(page.locator("html")).toHaveAttribute("lang", locale === "zh" ? "zh-CN" : locale);
   await expect(page).toHaveTitle(/\S+/);
   await expect(page.locator("main")).toBeVisible();

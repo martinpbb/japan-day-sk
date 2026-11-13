@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 import { localeCodes, prefixFor } from "../helpers/locales";
+import { expectedArchiveRoutes, sections } from "../helpers/archive";
 
 test("@data sitemap is valid when build output exists", () => {
   const file = path.resolve(process.cwd(), "dist/sitemap.xml");
@@ -18,16 +19,10 @@ test("@data sitemap is valid when build output exists", () => {
     const dir = path.resolve(process.cwd(), "src/data/locales", locale);
     const read = (name: string) => JSON.parse(fs.readFileSync(path.join(dir, `${name}.json`), "utf8").replace(/^\uFEFF/, ""));
     const seo = read("seo");
-    const performers = read("performers");
-    const exhibitors = read("exhibitors");
-    const workshops = read("workshops");
     const routes = new Set<string>([
-      ...Object.keys(seo.routes),
-      ...performers.items.map((item: { id: string }) => `/ucinkujuci/${item.id}`),
-      ...workshops.items.flatMap((item: { slug: string; id: string }) => [...new Set([`/workshopy/${item.slug}`, `/workshopy/${item.id}`])]),
-      ...exhibitors.items.filter((item: { detail?: unknown }) => item.detail).map((item: { id: string }) => `/vystavovatelia/${item.id}`),
+      ...Object.keys(seo.routes).filter(route => !sections.some(section => route === `/${section}` || route.startsWith(`/${section}/`))),
+      ...expectedArchiveRoutes(locale),
     ]);
-    if (workshops.items.some((item: { id: string }) => item.id === "japoncina")) routes.add("/workshopy/japonstina");
     for (const route of routes) {
       const localized = prefixFor(locale, route).replace(/\/$/, "");
       expected.add(`https://japanday.sk${localized || ""}/`);

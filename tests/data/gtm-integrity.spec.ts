@@ -23,7 +23,8 @@ test("@data generated HTML contains exactly one GA4 and GTM integration", () => 
   for (const file of htmlFiles) {
     const html = fs.readFileSync(file, "utf8");
     const isAdminShell = path.relative(path.resolve(process.cwd(), "dist"), file).split(path.sep)[0] === "admin";
-    if (isAdminShell) {
+    const isRedirectDocument = html.includes('http-equiv="refresh"');
+    if (isAdminShell || isRedirectDocument) {
       expect(html).not.toContain("googletagmanager.com/gtag/js");
       expect(html).not.toContain("googletagmanager.com/gtm.js");
       continue;

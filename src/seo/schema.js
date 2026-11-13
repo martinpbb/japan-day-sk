@@ -96,21 +96,32 @@ export function buildOrganizationSchema({ seo }) {
 }
 
 export function buildBreadcrumbSchema({ seo, path, route }) {
+  const prefix = { "en-GB": "/en", "de-DE": "/de", "es-ES": "/es", "ja-JP": "/ja" }[seo.language] || "";
+  const breadcrumbUrl = value => {
+    const localized = prefix && value !== prefix && !value.startsWith(`${prefix}/`) ? `${prefix}${value}` : value;
+    return absoluteUrl(seo.baseUrl, localized.endsWith("/") ? localized : `${localized}/`);
+  };
   const itemListElement = [
     {
       "@type": "ListItem",
       position: 1,
       name: seo.siteName,
-      item: absoluteUrl(seo.baseUrl, "/")
+      item: breadcrumbUrl("/")
     }
   ];
+
+  if (path.includes("/archiv/2026/")) itemListElement.push({
+    "@type": "ListItem", position: 2,
+    name: seo.routes["/archiv/2026"].breadcrumb,
+    item: breadcrumbUrl("/archiv/2026")
+  });
 
   if (route.breadcrumbParent) {
     itemListElement.push({
       "@type": "ListItem",
-      position: 2,
+      position: itemListElement.length + 1,
       name: route.breadcrumbParent.name,
-      item: absoluteUrl(seo.baseUrl, route.breadcrumbParent.path)
+      item: breadcrumbUrl(route.breadcrumbParent.path)
     });
   }
 
@@ -118,7 +129,7 @@ export function buildBreadcrumbSchema({ seo, path, route }) {
     "@type": "ListItem",
     position: itemListElement.length + 1,
     name: route.breadcrumb || route.h1,
-    item: absoluteUrl(seo.baseUrl, path)
+    item: breadcrumbUrl(path)
   });
 
   return {

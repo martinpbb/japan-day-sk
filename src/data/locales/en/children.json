@@ -53,10 +53,37 @@
     "prize": {
       "title": "A prize awaits the winner.",
       "text": "The most important thing is to use your imagination, have fun and enjoy Japan Day with us."
+    },
+    "archive": {
+      "eyebrow": "CHILDREN'S ART COMPETITION 2026",
+      "title": "Children's Art Competition 2026",
+      "intro": "The Japanese Tea and Culture Day also included a children's art competition. Thank you to all the children who took part and showed us how they see Japan through their pictures.",
+      "categories": [
+        {
+          "id": "colouring",
+          "title": "Japanese motif colouring",
+          "intro": "The competition was intended especially for the youngest visitors.",
+          "body": "Pictures with Japanese and anime themes were available at the event for children to colour using their imagination.",
+          "detail": "Children could use coloured pencils and their imagination to create their pictures.",
+          "evaluationLabel": "Planned judging criteria:",
+          "evaluation": "originality, use of colour, precision and overall impression."
+        }
+      ],
+      "prize": {
+        "title": "Announced prize",
+        "text": "The competition encouraged children's imagination and creativity. Results and winners' names are not listed here."
+      },
+      "posterAlt": "Poster for the children's art competition at Japanese Tea and Culture Day",
+      "activity": {
+        "title": "Children's art competition",
+        "short": "Children shared how they see Japan through their pictures.",
+        "description": "Children created pictures with Japanese and anime motifs at Japanese Tea and Culture Day."
+      }
     }
   },
   "safety": {
     "title": "Supervision of children",
     "text": "Children’s activities are not a childcare service. Children remain under the supervision and responsibility of a parent or another accompanying adult at all times."
-  }
+  },
+  "archiveIntro": "The programme for children and families featured creative activities, traditional Japanese games, origami, ayatori and an art competition."
 }

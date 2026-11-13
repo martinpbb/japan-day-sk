@@ -6,6 +6,7 @@ const remoteURL = /^https?:\/\//.test(baseURL) && !/^https?:\/\/(?:127\.0\.0\.1|
 
 export default defineConfig({
   testDir: "./tests",
+  testIgnore: ["**/registration-reopening/**", "**/archive*.spec.ts"],
   timeout: 30_000,
   expect: { timeout: 5_000 },
   fullyParallel: true,

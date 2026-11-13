@@ -1,6 +1,7 @@
 ﻿import { test, expect } from '../helpers/fixtures';
 import { assertImages } from '../helpers/assertions';
 import { localeCodes, read, publicRoutes, routePath } from './content';
+import { archivePath, buildArchiveRoutes, legacyArchiveTarget } from '../../src/lib/archiveRoutes.js';
 
 for (const locale of localeCodes) {
   for (const route of publicRoutes(locale)) test(`@audit @routing ${locale} ${route} direct and refresh`, async ({ page, runtime }, info) => {
@@ -27,6 +28,8 @@ for (const locale of localeCodes) {
 
   test(`@audit @links ${locale} crawl rendered links on every public route`, async ({ page, request }, info) => {
     test.setTimeout(180_000);
+    const content = Object.fromEntries(['seo', 'performers', 'workshops', 'exhibitors'].map(name => [name, read(locale, name)]));
+    const archive = buildArchiveRoutes(content);
     const internal = new Set<string>(); const external = new Set<string>(); const anchors: string[] = [];
     for (const route of publicRoutes(locale)) {
       await page.goto(routePath(locale, route), { waitUntil: 'domcontentloaded' });
@@ -47,7 +50,7 @@ for (const locale of localeCodes) {
       const response = await request.get(canonicalPath, { timeout: 30_000 });
       if (response.status() !== 200) bad.push(`${response.status()} ${pathname}`);
       const normalized = canonicalPath.replace(new RegExp(`^/${locale}(?=/|$)`), '').replace(/\/$/, '') || '/';
-      if (!publicRoutes(locale).includes(normalized)) bad.push(`No generated public route: ${pathname}`);
+      if (!publicRoutes(locale).includes(normalized) && !legacyArchiveTarget(normalized, archive)) bad.push(`No generated public route or archive redirect: ${pathname}`);
     }
     await info.attach('links', { body: JSON.stringify({ internal: [...internal], external: [...external], anchors, bad }, null, 2), contentType: 'application/json' });
     expect(bad).toEqual([]); expect(anchors).toEqual([]);
@@ -59,7 +62,7 @@ for (const route of ['/', '/program', '/ucinkujuci/hisayo-yasuda', '/workshopy',
   for (const locale of ['en', 'de', 'es', 'ja', 'sk'] as const) {
     await page.locator('.languageSwitcherTrigger').click();
     await page.getByRole('option').filter({ hasText: { en: 'English', de: 'Deutsch', es: 'Español', ja: '日本語', sk: 'Slovenčina' }[locale] }).click();
-    expect(new URL(page.url()).pathname.replace(/\/$/, '')).toBe(routePath(locale, route).replace(/\/$/, ''));
+    expect(new URL(page.url()).pathname.replace(/\/$/, '')).toBe(routePath(locale, archivePath(route)).replace(/\/$/, ''));
     await expect(page.locator('html')).toHaveAttribute('lang', locale);
     await expect(page.locator('.languageSwitcherTrigger strong')).toHaveText(locale.toUpperCase());
     await expect(page.locator('main h1')).toBeVisible();

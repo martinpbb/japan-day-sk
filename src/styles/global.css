@@ -418,6 +418,11 @@ button {
 }
 .programVenues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
 .infoNote { max-width: 880px; padding: 14px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255, 255, 255, .55); color: var(--muted); font-size: 15px; line-height: 1.6; }
+.archiveNotice { padding-top: 24px; }
+.archiveNotice p { margin: 8px 0; }
+.archiveGrid .featureCard { min-width: 0; background: var(--white); border-color: var(--line); }
+.archiveGrid .featureCard p { color: var(--muted); }
+.archiveSession { cursor: default; }
 .programInfoNote { margin: 24px 0 0; }
 .workshopInfoNote { margin: 0 0 24px; }
 .programVenue { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }

@@ -13,16 +13,17 @@ import ImageWithFallback from "./ImageWithFallback.jsx";
 import Section from "./Section.jsx";
 import ContentRenderer from "./ContentRenderer.jsx";
 import { useI18n } from "../lib/useI18n.js";
-import { addLocalePrefix } from "../lib/i18nPaths.js";
+import { useEventArchive } from "../lib/useEventArchive.js";
 
 export default function PerformerDetail({ performer }) {
-  const { locale, site, content } = useI18n();
+  const { eventHref } = useEventArchive();
+  const { site, content } = useI18n();
   const [posterAvailable, setPosterAvailable] = useState(true);
   const appearances = content.program.items.filter((item) => item.performerId === performer.id);
 
   return (
     <Section className="performerDetailSection">
-      <a className="backLink" href={addLocalePrefix("/ucinkujuci", locale)}>
+      <a className="backLink" href={eventHref("/ucinkujuci")}>
         <ArrowLeft size={18} aria-hidden="true" />
         {site.ui.allPerformers}
       </a>
@@ -51,7 +52,7 @@ export default function PerformerDetail({ performer }) {
               <h2>{site.ui.inProgrammeHeading}</h2>
               {appearances.map((item, index) => (
                 <div className="performerScheduleItem" key={`${item.time}-${index}`}>
-                  <a className="performerScheduleLink" href={addLocalePrefix("/program", locale)}>
+                  <a className="performerScheduleLink" href={eventHref("/program")}>
                     <Clock3 size={18} aria-hidden="true" />
                     <span>
                       <strong>{item.endTime ? `${item.time}–${item.endTime}` : item.time}</strong>

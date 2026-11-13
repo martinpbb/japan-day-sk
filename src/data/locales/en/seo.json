@@ -137,6 +137,124 @@
       "schema": [
         "breadcrumb"
       ]
+    },
+    "/archiv/2026": {
+      "title": "2026 archive | Japanese Tea and Culture Day 2026 | Považská Bystrica",
+      "description": "Archive of the 2026 Japanese Tea and Culture Day in Považská Bystrica: programme, guests, workshops and historical information.",
+      "h1": "Japanese Tea and Culture Day",
+      "intro": "The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "2026 archive",
+      "schema": [
+        "organization",
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/o-podujati": {
+      "title": "Event overview | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Event overview. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "About Japanese Tea and Culture Day",
+      "intro": "Event overview. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "Event overview",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/program": {
+      "title": "Programme | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Programme. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "Programme 2026",
+      "intro": "Programme. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "Programme",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/ucinkujuci": {
+      "title": "Performers and guests | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Performers and guests. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "Guests and performers",
+      "intro": "Performers and guests. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "Performers and guests",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "GUESTS & PERFORMERS",
+      "sectionTitle": "Meet the people bringing Japan closer"
+    },
+    "/archiv/2026/workshopy": {
+      "title": "Workshops | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Workshops. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "Workshops",
+      "intro": "Workshops. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "Workshops",
+      "ogImage": "/images/social/japan-day-povazska-bystrica-2026.png",
+      "ogImageWidth": 1200,
+      "ogImageHeight": 630,
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/gastronomia": {
+      "title": "Gastronomy | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Gastronomy. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "Japanese gastronomy and tea",
+      "intro": "Gastronomy. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "Gastronomy",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/vystavovatelia": {
+      "title": "Exhibitors | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Exhibitors. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "Exhibitors and vendors",
+      "intro": "Exhibitors. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "Exhibitors",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/astronomia": {
+      "title": "Astronomy – From Amaterasu to the Sun | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Astronomy – From Amaterasu to the Sun. The event has ended. This is historical content from the 2026 edition.",
+      "intro": "Astronomy – From Amaterasu to the Sun. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "Astronomy – From Amaterasu to the Sun",
+      "breadcrumb": "Astronomy – From Amaterasu to the Sun",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/pre-deti": {
+      "title": "For children | 2026 archive | Japanese Tea and Culture Day",
+      "description": "For children. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "For children and families",
+      "intro": "For children. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "For children",
+      "schema": [
+        "breadcrumb"
+      ],
+      "sectionKicker": "FOR CHILDREN & FAMILIES",
+      "sectionTitle": "Family programme coming soon"
+    },
+    "/archiv/2026/prakticke-informacie": {
+      "title": "Practical information | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Practical information. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "Practical information",
+      "intro": "Practical information. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "Practical information",
+      "schema": [
+        "breadcrumb"
+      ]
+    },
+    "/archiv/2026/galeria": {
+      "title": "Gallery | 2026 archive | Japanese Tea and Culture Day",
+      "description": "Gallery. The event has ended. This is historical content from the 2026 edition.",
+      "h1": "Gallery",
+      "intro": "Gallery. The event has ended. This is historical content from the 2026 edition.",
+      "breadcrumb": "Gallery",
+      "schema": [
+        "breadcrumb"
+      ]
     }
   }
 }

@@ -2,15 +2,16 @@ import React from "react";
 import { Fish, Flame, Leaf, Wine } from "lucide-react";
 import Section from "./Section.jsx";
 import { useI18n } from "../lib/useI18n.js";
-import { addLocalePrefix } from "../lib/i18nPaths.js";
+import { useEventArchive } from "../lib/useEventArchive.js";
 
 const icons = [Fish, Flame, Leaf, Wine];
 
 export default function Gastronomy({ compact = false }) {
-  const { content, locale } = useI18n();
+  const { eventHref } = useEventArchive();
+  const { content } = useI18n();
   const route = content.seo.routes["/gastronomia"];
   const items = content.gastronomy.items;
-  const detailPath = (id) => `${addLocalePrefix(`/gastronomia#${id}`, locale)}`;
+  const detailPath = (id) => `${eventHref(`/gastronomia#${id}`)}`;
 
   return (
     <Section id="gastronomie" kicker={route.breadcrumb} title={route.h1} className="sectionDark">

@@ -53,10 +53,37 @@
     "prize": {
       "title": "Na víťaza čaká odmena.",
       "text": "Najdôležitejšie je zapojiť fantáziu, zabaviť sa a užiť si Japonský deň spolu s nami."
+    },
+    "archive": {
+      "eyebrow": "DETSKÁ VÝTVARNÁ SÚŤAŽ 2026",
+      "title": "Detská výtvarná súťaž 2026",
+      "intro": "Súčasťou Japonského dňa čaju a kultúry bola aj detská výtvarná súťaž. Ďakujeme všetkým deťom, ktoré sa zapojili a svojimi obrázkami nám ukázali, ako vnímajú Japonsko.",
+      "categories": [
+        {
+          "id": "colouring",
+          "title": "Vyfarbovanie japonských motívov",
+          "intro": "Súťaž bola určená najmä najmladším návštevníkom.",
+          "body": "Na podujatí boli k dispozícii pripravené obrázky s japonskou a anime tematikou, ktoré deti mohli vyfarbiť podľa vlastnej fantázie.",
+          "detail": "Deti mohli pri tvorení použiť pastelky a vlastnú fantáziu.",
+          "evaluationLabel": "Plánované kritériá:",
+          "evaluation": "nápad, práca s farbami, precíznosť a celkový dojem."
+        }
+      ],
+      "prize": {
+        "title": "Avizovaná odmena",
+        "text": "Súťaž podporovala fantáziu a tvorivé vyjadrenie detí. Výsledky ani mená víťazov tu neuvádzame."
+      },
+      "posterAlt": "Plagát detskej výtvarnej súťaže na Japonskom dni čaju a kultúry",
+      "activity": {
+        "title": "Detská výtvarná súťaž",
+        "short": "Súťaž, v ktorej deti svojimi obrázkami ukázali, ako vnímajú Japonsko.",
+        "description": "Deti na Japonskom dni čaju a kultúry tvorili obrázky s japonskými a anime motívmi."
+      }
     }
   },
   "safety": {
     "title": "Dohľad nad deťmi",
     "text": "Detské aktivity nie sú službou stráženia detí. Deti zostávajú po celý čas pod dohľadom a zodpovednosťou rodiča alebo inej sprevádzajúcej dospelej osoby."
-  }
+  },
+  "archiveIntro": "Program pre deti a rodiny priniesol tvorivé aktivity, tradičné japonské hry, origami, ayatori aj výtvarnú súťaž."
 }

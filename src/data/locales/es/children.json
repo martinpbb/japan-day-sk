@@ -53,10 +53,37 @@
     "prize": {
       "title": "El ganador recibirá un premio.",
       "text": "Lo más importante es usar la imaginación, divertirse y disfrutar del Día de Japón con nosotros."
+    },
+    "archive": {
+      "eyebrow": "CONCURSO INFANTIL DE DIBUJO 2026",
+      "title": "Concurso infantil de dibujo 2026",
+      "intro": "El Día Japonés del Té y la Cultura también incluyó un concurso infantil de dibujo. Gracias a todos los niños que participaron y nos mostraron con sus dibujos cómo ven Japón.",
+      "categories": [
+        {
+          "id": "colouring",
+          "title": "Dibujos de motivos japoneses",
+          "intro": "El concurso estaba dirigido especialmente a los visitantes más pequeños.",
+          "body": "Durante el evento hubo dibujos con motivos japoneses y de anime para que los niños los colorearan con imaginación.",
+          "detail": "Los niños pudieron crear sus dibujos con lápices de colores y mucha imaginación.",
+          "evaluationLabel": "Criterios previstos:",
+          "evaluation": "la idea, el uso del color, la precisión y la impresión general."
+        }
+      ],
+      "prize": {
+        "title": "Premio anunciado",
+        "text": "El concurso fomentó la imaginación y la expresión creativa de los niños. Aquí no se publican resultados ni nombres de ganadores."
+      },
+      "posterAlt": "Cartel del concurso infantil de dibujo del Día Japonés del Té y la Cultura",
+      "activity": {
+        "title": "Concurso infantil de dibujo",
+        "short": "Los niños mostraron con sus dibujos cómo ven Japón.",
+        "description": "Durante el Día Japonés del Té y la Cultura, los niños crearon dibujos con motivos japoneses y de anime."
+      }
     }
   },
   "safety": {
     "title": "Supervisión de los niños",
     "text": "Las actividades infantiles no son un servicio de guardería. Los niños permanecen en todo momento bajo la supervisión y responsabilidad de un padre, madre u otro adulto acompañante."
-  }
+  },
+  "archiveIntro": "El programa para niños y familias incluyó actividades creativas, juegos tradicionales japoneses, origami, ayatori y un concurso de dibujo."
 }

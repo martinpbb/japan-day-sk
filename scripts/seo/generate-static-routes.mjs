@@ -5,6 +5,7 @@ import { absoluteUrl, buildSchemas } from "../../src/seo/schema.js";
 import { buildPerformerRoute } from "../../src/seo/performerRoute.js";
 import { buildExhibitorRoute } from "../../src/seo/exhibitorRoute.js";
 import { buildWorkshopRoute } from "../../src/seo/workshopRoute.js";
+import { archiveBase, buildArchiveRoutes, legacyArchiveTarget } from "../../src/lib/archiveRoutes.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const dist = path.join(root, "dist");
@@ -138,7 +139,19 @@ function renderRoute({ locale, seo, site, logicalPath, publicPath, route }) {
   return addHreflang(html, logicalPath, seo.baseUrl);
 }
 
+function renderRedirect(target, locale) {
+  // Static redirect documents also work on GitHub Pages, which ignores _redirects.
+  // JavaScript keeps queries and fragment deep links when changing location.
+  return `<!doctype html><html lang="${locale}"><head><meta charset="utf-8" />
+<title>2026 archive</title><meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://japanday.sk${escapeHtml(target)}" />
+<script>window.location.replace(${JSON.stringify(target)} + window.location.search + window.location.hash);</script>
+<meta http-equiv="refresh" content="0;url=${escapeHtml(target)}" /></head>
+<body><a href="${escapeHtml(target)}">2026 archive</a></body></html>`;
+}
+
 const sitemapPaths = new Set();
+const redirects = new Map();
 const adminRoutePaths = new Set(["/admin/", "/admin/workshops/"]);
 for (const { locale, contentLocale = locale, prefix } of locales) {
   const seo = JSON.parse((await fs.readFile(path.join(root, `src/data/locales/${contentLocale}/seo.json`), "utf8")).replace(/^\\uFEFF/, ""));
@@ -164,20 +177,35 @@ for (const { locale, contentLocale = locale, prefix } of locales) {
   if (workshops.items.some((workshop) => (workshop.slug || workshop.id) === "japoncina")) {
     workshopRoutes["/workshopy/japonstina"] = buildWorkshopRoute(workshops.items.find((workshop) => (workshop.slug || workshop.id) === "japoncina"), seo);
   }
-  const routes = { ...seo.routes, ...performerRoutes, ...exhibitorRoutes, ...workshopRoutes };
+  const archiveRoutes = buildArchiveRoutes({ seo, performers, exhibitors, workshops });
+  const routes = { ...seo.routes, ...performerRoutes, ...exhibitorRoutes, ...workshopRoutes, ...archiveRoutes };
+  // Preserve the historical spelling as an alias, including inside the archive.
+  if (archiveRoutes[`${archiveBase}/workshopy/japoncina`]) routes[`${archiveBase}/workshopy/japonstina`] = archiveRoutes[`${archiveBase}/workshopy/japoncina`];
   for (const [logicalPath, route] of Object.entries(routes)) {
     const publicPath = logicalPath === "/" ? `${prefix}/` || "/" : `${prefix}${logicalPath}`;
-    const html = renderRoute({ locale, seo, site, logicalPath, publicPath, route });
+    const target = legacyArchiveTarget(logicalPath, archiveRoutes);
+    const html = target ? renderRedirect(`${prefix}${target}/`, locale) : renderRoute({ locale, seo, site, logicalPath, publicPath, route });
     const targetDir = publicPath === "/" ? dist : path.join(dist, publicPath.slice(1));
     await fs.mkdir(targetDir, { recursive: true });
     await fs.writeFile(path.join(targetDir, "index.html"), html);
-    sitemapPaths.add(publicPath);
+    if (target) {
+      redirects.set(publicPath, `${prefix}${target}/`);
+      redirects.set(`${publicPath}/`, `${prefix}${target}/`);
+    } else sitemapPaths.add(publicPath);
   }
 }
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...sitemapPaths].map((routePath) => `  <url><loc>${publicUrl("https://japanday.sk", routePath)}</loc></url>`).join("\n")}\n</urlset>\n`;
 await fs.writeFile(path.join(dist, "sitemap.xml"), sitemap);
 await fs.writeFile(path.join(dist, "robots.txt"), "User-agent: *\nAllow: /\n\nSitemap: https://japanday.sk/sitemap.xml\n");
+await fs.writeFile(path.join(dist, "_redirects"), [...redirects].map(([from, to]) => `${from} ${to} 301`).join("\n") + "\n");
+// A real 404 document prevents static hosts from falling back to the homepage.
+const notFoundHtml = baseHtml
+  .replace(/<title>.*?<\/title>/s, "<title>Page not found | japanday.sk</title>")
+  .replace(/<meta\s+name="robots"[^>]*>/i, '<meta name="robots" content="noindex, nofollow" />')
+  .replace(/<link\s+[^>]*rel=["'](?:canonical|alternate)["'][^>]*>/gi, "")
+  .replace(/<meta\s+(?:property="og:[^"]+"|name="twitter:[^"]+"|name="description")[^>]*>/gi, "");
+await fs.writeFile(path.join(dist, "404.html"), notFoundHtml);
 
 const adminHtml = baseHtml
   .replace(/<title>.*?<\/title>/s, "<title>Workshop dashboard</title>")

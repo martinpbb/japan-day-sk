@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
+import { useEventArchive } from "../lib/useEventArchive.js";
 
 const localeLabels = {
   sk: { code: "SK", label: "Slovenčina" },
@@ -62,6 +63,7 @@ function LanguageSwitcher({ onSelect }) {
 }
 
 export default function Header() {
+  const { eventHref } = useEventArchive();
   const { locale, site } = useI18n();
   const [open, setOpen] = useState(false);
   return (
@@ -73,7 +75,7 @@ export default function Header() {
         </a>
         <nav className={`nav ${open ? "open" : ""}`} aria-label={site.ui.mainNavigation}>
           {site.navigation.map((item) => (
-            <a key={item.path} href={addLocalePrefix(item.path, locale)} onClick={() => setOpen(false)}>{item.label}</a>
+            <a key={item.path} href={eventHref(item.path)} onClick={() => setOpen(false)}>{item.label}</a>
           ))}
           <LanguageSwitcher onSelect={() => setOpen(false)} />
         </nav>

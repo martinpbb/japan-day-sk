@@ -213,10 +213,21 @@
       "registered": "Su plaza está reservada.",
       "waitlist": "Está en la lista de espera. No realice el pago todavía.",
       "failed": "No se pudo completar la inscripción. Inténtelo de nuevo.",
-      "duplicate": "Ya existe una inscripción con este correo para esta sesión."
-      ,"paymentInstructions": "Realice el pago en la cuenta indicada e incluya la referencia de pago. La inscripción quedará pendiente hasta recibir el pago.", "amount": "Importe", "paymentMessage": "Mensaje para el beneficiario", "reference": "Referencia de pago", "beneficiary": "Beneficiario", "qrAlt": "Código QR de pago PAY by square"
+      "duplicate": "Ya existe una inscripción con este correo para esta sesión.",
+      "paymentInstructions": "Realice el pago en la cuenta indicada e incluya la referencia de pago. La inscripción quedará pendiente hasta recibir el pago.",
+      "amount": "Importe",
+      "paymentMessage": "Mensaje para el beneficiario",
+      "reference": "Referencia de pago",
+      "beneficiary": "Beneficiario",
+      "qrAlt": "Código QR de pago PAY by square"
     },
-    "program": { "hallTitle": "Sala principal", "hallSubtitle": "Programa principal", "theatreTitle": "Teatro de títeres", "theatreSubtitle": "Charlas", "capacity": "Capacidad: {capacity} personas" },
+    "program": {
+      "hallTitle": "Sala principal",
+      "hallSubtitle": "Programa principal",
+      "theatreTitle": "Teatro de títeres",
+      "theatreSubtitle": "Charlas",
+      "capacity": "Capacidad: {capacity} personas"
+    },
     "organizersKicker": "ORGANIZADORES Y SOCIOS",
     "organizersTitle": "Quién está detrás del Día Japonés",
     "openingFrom": "Abierto desde las {time}",
@@ -295,5 +306,56 @@
     "admission": "La participación en el concurso es gratuita. Los visitantes también podrán disfrutar de pequeños regalos y un sorteo de premios.",
     "organizer": "El evento está organizado por J-Pad.eu s. r. o. bajo la dirección de Hisayo Yasuda, quien también forma parte del programa del Día Japonés en Považská Bystrica.",
     "posterAlt": "Cartel del Japanese Speech Contest & Prize Draw en la Galería Nedbalka"
+  },
+  "archive": {
+    "label": "Archivo 2026",
+    "ended": "El evento ha terminado. Este es el contenido histórico de la edición de 2026.",
+    "registrationsClosed": "Las inscripciones a los talleres y las listas de espera están cerradas.",
+    "navigation": "Explora la edición de 2026",
+    "browse": "Ver el archivo de 2026",
+    "notFoundTitle": "Página no encontrada",
+    "notFoundDescription": "Esta dirección no corresponde a ninguna página. Explora el archivo del evento.",
+    "cards": {
+      "/o-podujati": {
+        "title": "La edición de 2026",
+        "description": "Recuerda el ambiente y todo lo que ofreció el Día de Japón."
+      },
+      "/program": {
+        "title": "Programa del evento",
+        "description": "Actuaciones, charlas y demostraciones de la cultura japonesa."
+      },
+      "/ucinkujuci": {
+        "title": "Invitados y participantes",
+        "description": "Conoce a las personas que formaron parte del programa."
+      },
+      "/workshopy": {
+        "title": "Talleres",
+        "description": "Actividades creativas, japonés y artes tradicionales."
+      },
+      "/gastronomia": {
+        "title": "Gastronomía",
+        "description": "Platos japoneses, tés y otras experiencias gastronómicas."
+      },
+      "/vystavovatelia": {
+        "title": "Expositores",
+        "description": "Vendedores, creadores y muestras de la cultura japonesa."
+      },
+      "/astronomia": {
+        "title": "De Amaterasu al Sol",
+        "description": "Un encuentro entre la mitología japonesa y la astronomía moderna."
+      },
+      "/pre-deti": {
+        "title": "Para niños y familias",
+        "description": "Actividades creativas, juegos japoneses y propuestas para niños."
+      },
+      "/prakticke-informacie": {
+        "title": "Información práctica",
+        "description": "Lugar, fecha y otros datos de la edición de 2026."
+      },
+      "/galeria": {
+        "title": "Galería de fotos",
+        "description": "Imágenes que capturan el ambiente del evento."
+      }
+    }
   }
 }

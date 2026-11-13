@@ -213,10 +213,21 @@
       "registered": "席を確保しました。",
       "waitlist": "キャンセル待ちに登録されました。まだお支払いにならないでください。",
       "failed": "申し込みを完了できませんでした。もう一度お試しください。",
-      "duplicate": "このメールアドレスでは、この回にすでに申し込み済みです。"
-      ,"paymentInstructions": "表示された口座にお振り込みください。支払いの際は決済参照番号を入力してください。入金確認まで申し込みは保留となります。", "amount": "金額", "paymentMessage": "受取人へのメッセージ", "reference": "決済参照番号", "beneficiary": "受取人", "qrAlt": "PAY by square 決済用QRコード"
+      "duplicate": "このメールアドレスでは、この回にすでに申し込み済みです。",
+      "paymentInstructions": "表示された口座にお振り込みください。支払いの際は決済参照番号を入力してください。入金確認まで申し込みは保留となります。",
+      "amount": "金額",
+      "paymentMessage": "受取人へのメッセージ",
+      "reference": "決済参照番号",
+      "beneficiary": "受取人",
+      "qrAlt": "PAY by square 決済用QRコード"
     },
-    "program": { "hallTitle": "大ホール", "hallSubtitle": "メインプログラム", "theatreTitle": "人形劇場", "theatreSubtitle": "講演", "capacity": "定員：{capacity}名" },
+    "program": {
+      "hallTitle": "大ホール",
+      "hallSubtitle": "メインプログラム",
+      "theatreTitle": "人形劇場",
+      "theatreSubtitle": "講演",
+      "capacity": "定員：{capacity}名"
+    },
     "organizersKicker": "主催者・パートナー",
     "organizersTitle": "日本デーを支える人々",
     "openingFrom": "{time} 開場",
@@ -295,5 +306,56 @@
     "admission": "コンテストへの参加は無料です。来場者にはささやかなプレゼントや賞品抽選もあります。",
     "organizer": "本イベントは、J-Pad.eu s. r. o. が Hisayo Yasuda のもとで主催します。Hisayo Yasuda はポヴァジュスカー・ビストリツァの日本デーのプログラムにも参加しています。",
     "posterAlt": "ネドバルカ・ギャラリーで開催される Japanese Speech Contest & Prize Draw のポスター"
+  },
+  "archive": {
+    "label": "2026年アーカイブ",
+    "ended": "イベントは終了しました。これは2026年開催時の記録です。",
+    "registrationsClosed": "ワークショップのお申し込みとキャンセル待ちの受付は終了しました。",
+    "navigation": "2026年の内容を見る",
+    "browse": "2026年アーカイブへ",
+    "notFoundTitle": "ページが見つかりません",
+    "notFoundDescription": "このアドレスに対応するページはありません。イベントのアーカイブをご覧ください。",
+    "cards": {
+      "/o-podujati": {
+        "title": "2026年の振り返り",
+        "description": "日本デーの雰囲気と、その一日がもたらした体験を振り返ります。"
+      },
+      "/program": {
+        "title": "イベントプログラム",
+        "description": "公演、講演、日本文化の実演をご紹介します。"
+      },
+      "/ucinkujuci": {
+        "title": "ゲスト・出演者",
+        "description": "プログラムを彩った人々をご紹介します。"
+      },
+      "/workshopy": {
+        "title": "ワークショップ",
+        "description": "創作体験、日本語、伝統芸術をお楽しみいただきました。"
+      },
+      "/gastronomia": {
+        "title": "食と飲み物",
+        "description": "日本料理、お茶、さまざまな食の体験をご紹介します。"
+      },
+      "/vystavovatelia": {
+        "title": "出展者",
+        "description": "販売者、作り手、日本文化の紹介をご覧ください。"
+      },
+      "/astronomia": {
+        "title": "アマテラスから太陽へ",
+        "description": "日本神話と現代天文学のつながりをご紹介します。"
+      },
+      "/pre-deti": {
+        "title": "子どもと家族",
+        "description": "創作活動、日本の遊び、子ども向けの体験をご紹介します。"
+      },
+      "/prakticke-informacie": {
+        "title": "開催情報",
+        "description": "2026年開催時の会場、日程などをご案内します。"
+      },
+      "/galeria": {
+        "title": "フォトギャラリー",
+        "description": "イベント当日の雰囲気を伝える写真をご覧ください。"
+      }
+    }
   }
 }

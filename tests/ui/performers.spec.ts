@@ -2,6 +2,7 @@ import { test, expect } from "../helpers/fixtures";
 import { localeCodes, prefixFor } from "../helpers/locales";
 import { readFileSync } from "node:fs";
 import { gotoApp } from "../helpers/navigation";
+import { archivePath } from "../../src/lib/archiveRoutes.js";
 
 const performersData = JSON.parse(readFileSync(new URL("../../src/data/locales/sk/performers.json", import.meta.url), "utf8"));
 
@@ -34,7 +35,7 @@ for (const locale of localeCodes) {
     const link = page.locator(`#host-${performers[0].id}`);
     await expect(link).toBeVisible();
     await link.click({ timeout: 10_000 });
-    await expect(page).toHaveURL(new RegExp(prefixFor(locale, `/ucinkujuci/${performers[0].id}`).replaceAll("/", "\\/") + "/?$"));
+    await expect(page).toHaveURL(new RegExp(prefixFor(locale, archivePath(`/ucinkujuci/${performers[0].id}`)).replaceAll("/", "\\/") + "/?$"));
     await expect(page.locator("main h1")).toBeVisible();
   });
 }

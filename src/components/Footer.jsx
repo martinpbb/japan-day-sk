@@ -10,7 +10,10 @@
 import React from "react";
 import { useI18n } from "../lib/useI18n.js";
 import { addLocalePrefix } from "../lib/i18nPaths.js";
+import { archiveBase } from "../lib/archiveRoutes.js";
+import { useEventArchive } from "../lib/useEventArchive.js";
 export default function Footer({ onCookieSettings }) {
+  const { eventHref } = useEventArchive();
   const { locale, site } = useI18n();
   const { ui } = site;
   const footerNavigation = site.navigation.filter((item) => [
@@ -34,7 +37,8 @@ export default function Footer({ onCookieSettings }) {
           </div>
           <nav className="footerColumn" aria-label={ui.importantLinks}>
             <h2>{ui.importantLinks}</h2>
-            {footerNavigation.map((item) => <a key={item.path} href={addLocalePrefix(item.path, locale)}>{item.label}</a>)}
+            {footerNavigation.map((item) => <a key={item.path} href={eventHref(item.path)}>{item.label}</a>)}
+            <a href={addLocalePrefix(`${archiveBase}/`, locale)}>{site.archive.label}</a>
           </nav>
           <nav className="footerColumn" aria-label={ui.legalInformation}>
             <h2>{ui.legalInformation}</h2>

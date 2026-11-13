@@ -213,10 +213,21 @@
       "registered": "Your place is reserved.",
       "waitlist": "You are on the waiting list. Please do not pay yet.",
       "failed": "We could not complete your registration. Please try again.",
-      "duplicate": "A registration with this email already exists for this session."
-      ,"paymentInstructions": "Send payment to the account shown and use the payment reference as the payment symbol. Registration remains pending until payment is received.", "amount": "Amount", "paymentMessage": "Message to recipient", "reference": "Payment reference", "beneficiary": "Beneficiary", "qrAlt": "PAY by square payment QR code"
+      "duplicate": "A registration with this email already exists for this session.",
+      "paymentInstructions": "Send payment to the account shown and use the payment reference as the payment symbol. Registration remains pending until payment is received.",
+      "amount": "Amount",
+      "paymentMessage": "Message to recipient",
+      "reference": "Payment reference",
+      "beneficiary": "Beneficiary",
+      "qrAlt": "PAY by square payment QR code"
     },
-    "program": { "hallTitle": "Great Hall", "hallSubtitle": "Main programme", "theatreTitle": "Puppet Theatre", "theatreSubtitle": "Talks", "capacity": "Capacity: {capacity} people" },
+    "program": {
+      "hallTitle": "Great Hall",
+      "hallSubtitle": "Main programme",
+      "theatreTitle": "Puppet Theatre",
+      "theatreSubtitle": "Talks",
+      "capacity": "Capacity: {capacity} people"
+    },
     "organizersKicker": "ORGANISERS AND PARTNERS",
     "organizersTitle": "Who is behind Japan Day",
     "openingFrom": "Open from {time}",
@@ -295,5 +306,56 @@
     "admission": "Taking part in the contest is free. Visitors can also look forward to small gifts and a prize draw.",
     "organizer": "The event is organised by J-Pad.eu s. r. o. under the leadership of Hisayo Yasuda, who is also part of the programme of Japan Day in Považská Bystrica.",
     "posterAlt": "Poster for the Japanese Speech Contest & Prize Draw at Nedbalka Gallery"
+  },
+  "archive": {
+    "label": "2026 archive",
+    "ended": "The event has ended. This is historical content from the 2026 edition.",
+    "registrationsClosed": "Workshop registration and waiting lists are closed.",
+    "navigation": "Explore the 2026 edition",
+    "browse": "Browse the 2026 archive",
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "This address does not match a page. Explore the event archive.",
+    "cards": {
+      "/o-podujati": {
+        "title": "The 2026 edition",
+        "description": "Look back at the atmosphere and everything Japan Day brought."
+      },
+      "/program": {
+        "title": "Event programme",
+        "description": "Performances, talks and demonstrations of Japanese culture."
+      },
+      "/ucinkujuci": {
+        "title": "Guests and performers",
+        "description": "Meet the people who helped shape the programme."
+      },
+      "/workshopy": {
+        "title": "Workshops",
+        "description": "Creative workshops, Japanese language and traditional arts."
+      },
+      "/gastronomia": {
+        "title": "Food and drink",
+        "description": "Japanese dishes, teas and other culinary experiences."
+      },
+      "/vystavovatelia": {
+        "title": "Exhibitors",
+        "description": "Vendors, makers and presentations of Japanese culture."
+      },
+      "/astronomia": {
+        "title": "From Amaterasu to the Sun",
+        "description": "A connection between Japanese mythology and modern astronomy."
+      },
+      "/pre-deti": {
+        "title": "For children and families",
+        "description": "Creative activities, Japanese games and fun for children."
+      },
+      "/prakticke-informacie": {
+        "title": "Practical information",
+        "description": "Venue, date and other details of the 2026 edition."
+      },
+      "/galeria": {
+        "title": "Photo gallery",
+        "description": "Photos that capture the atmosphere of the event."
+      }
+    }
   }
 }

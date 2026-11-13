@@ -215,7 +215,13 @@
       "failed": "Registráciu sa nepodarilo dokončiť. Skúste to znova.",
       "duplicate": "Na tento termín už existuje registrácia s týmto e-mailom."
     },
-    "program": { "hallTitle": "Veľká sála", "hallSubtitle": "Hlavný program", "theatreTitle": "Bábkové divadlo", "theatreSubtitle": "Prednášky", "capacity": "Kapacita: {capacity} osôb" },
+    "program": {
+      "hallTitle": "Veľká sála",
+      "hallSubtitle": "Hlavný program",
+      "theatreTitle": "Bábkové divadlo",
+      "theatreSubtitle": "Prednášky",
+      "capacity": "Kapacita: {capacity} osôb"
+    },
     "organizersKicker": "ORGANIZÁTORI A PARTNERI",
     "organizersTitle": "Kto stojí za Japonským dňom",
     "openingFrom": "Otvorené od {time}",
@@ -294,5 +300,56 @@
     "admission": "Účasť v súťaži je bezplatná a návštevníci sa môžu tešiť aj na malé darčeky a losovanie cien.",
     "organizer": "Podujatie organizuje J-Pad.eu s. r. o. pod vedením Hisayo Yasuda, ktorá je zároveň súčasťou programu Japonského dňa v Považskej Bystrici.",
     "posterAlt": "Plagát podujatia Japanese Speech Contest & Prize Draw v Galérii Nedbalka"
+  },
+  "archive": {
+    "label": "Archív 2026",
+    "ended": "Podujatie sa skončilo. Toto je historický obsah ročníka 2026.",
+    "registrationsClosed": "Registrácie na workshopy aj zoznamy náhradníkov sú uzavreté.",
+    "navigation": "Preskúmajte ročník 2026",
+    "browse": "Prejsť na archív 2026",
+    "notFoundTitle": "Stránka sa nenašla",
+    "notFoundDescription": "Táto adresa nezodpovedá žiadnej stránke. Preskúmajte archív podujatia.",
+    "cards": {
+      "/o-podujati": {
+        "title": "Prehľad ročníka 2026",
+        "description": "Pripomeňte si atmosféru a všetko, čo priniesol Japonský deň."
+      },
+      "/program": {
+        "title": "Program podujatia",
+        "description": "Vystúpenia, prednášky a ukážky japonskej kultúry."
+      },
+      "/ucinkujuci": {
+        "title": "Hostia a účinkujúci",
+        "description": "Spoznajte osobnosti, ktoré sa podieľali na programe."
+      },
+      "/workshopy": {
+        "title": "Workshopy",
+        "description": "Tvorivé dielne, japonský jazyk a tradičné umenia."
+      },
+      "/gastronomia": {
+        "title": "Gastronómia",
+        "description": "Japonské jedlá, čaje a ďalšie gastronomické zážitky."
+      },
+      "/vystavovatelia": {
+        "title": "Vystavovatelia",
+        "description": "Predajcovia, tvorcovia a prezentácie japonskej kultúry."
+      },
+      "/astronomia": {
+        "title": "Od Amaterasu k Slnku",
+        "description": "Spojenie japonskej mytológie a modernej astronómie."
+      },
+      "/pre-deti": {
+        "title": "Pre deti a rodiny",
+        "description": "Tvorenie, japonské hry a aktivity pre deti."
+      },
+      "/prakticke-informacie": {
+        "title": "Praktické informácie",
+        "description": "Miesto, dátum a ďalšie informácie o ročníku 2026."
+      },
+      "/galeria": {
+        "title": "Fotogaléria",
+        "description": "Fotografie, ktoré zachytávajú atmosféru podujatia."
+      }
+    }
   }
 }

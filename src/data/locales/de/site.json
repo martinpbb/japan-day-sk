@@ -213,10 +213,21 @@
       "registered": "Ihr Platz ist reserviert.",
       "waitlist": "Sie stehen auf der Warteliste. Bitte noch nicht bezahlen.",
       "failed": "Die Anmeldung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
-      "duplicate": "Für diesen Termin besteht bereits eine Anmeldung mit dieser E-Mail-Adresse."
-      ,"paymentInstructions": "Überweisen Sie den Betrag auf das angegebene Konto und verwenden Sie den Zahlungsreferenzcode als Verwendungszweck. Die Anmeldung bleibt bis zum Zahlungseingang ausstehend.", "amount": "Betrag", "paymentMessage": "Nachricht an den Empfänger", "reference": "Zahlungsreferenz", "beneficiary": "Empfänger", "qrAlt": "PAY by square Zahlungs-QR-Code"
+      "duplicate": "Für diesen Termin besteht bereits eine Anmeldung mit dieser E-Mail-Adresse.",
+      "paymentInstructions": "Überweisen Sie den Betrag auf das angegebene Konto und verwenden Sie den Zahlungsreferenzcode als Verwendungszweck. Die Anmeldung bleibt bis zum Zahlungseingang ausstehend.",
+      "amount": "Betrag",
+      "paymentMessage": "Nachricht an den Empfänger",
+      "reference": "Zahlungsreferenz",
+      "beneficiary": "Empfänger",
+      "qrAlt": "PAY by square Zahlungs-QR-Code"
     },
-    "program": { "hallTitle": "Großer Saal", "hallSubtitle": "Hauptprogramm", "theatreTitle": "Puppentheater", "theatreSubtitle": "Vorträge", "capacity": "Kapazität: {capacity} Personen" },
+    "program": {
+      "hallTitle": "Großer Saal",
+      "hallSubtitle": "Hauptprogramm",
+      "theatreTitle": "Puppentheater",
+      "theatreSubtitle": "Vorträge",
+      "capacity": "Kapazität: {capacity} Personen"
+    },
     "organizersKicker": "VERANSTALTER UND PARTNER",
     "organizersTitle": "Wer hinter dem Japan-Tag steht",
     "openingFrom": "Geöffnet ab {time}",
@@ -295,5 +306,56 @@
     "admission": "Die Teilnahme am Wettbewerb ist kostenlos. Besucher können sich auch auf kleine Geschenke und eine Preisverlosung freuen.",
     "organizer": "Die Veranstaltung wird von J-Pad.eu s. r. o. unter der Leitung von Hisayo Yasuda organisiert, die auch zum Programm des Japanischen Tages in Považská Bystrica gehört.",
     "posterAlt": "Plakat für den Japanese Speech Contest & Prize Draw in der Galerie Nedbalka"
+  },
+  "archive": {
+    "label": "Archiv 2026",
+    "ended": "Die Veranstaltung ist beendet. Dies sind historische Inhalte der Ausgabe 2026.",
+    "registrationsClosed": "Workshop-Anmeldungen und Wartelisten sind geschlossen.",
+    "navigation": "Die Ausgabe 2026 entdecken",
+    "browse": "Zum Archiv 2026",
+    "notFoundTitle": "Seite nicht gefunden",
+    "notFoundDescription": "Diese Adresse gehört zu keiner Seite. Entdecken Sie das Veranstaltungsarchiv.",
+    "cards": {
+      "/o-podujati": {
+        "title": "Rückblick auf 2026",
+        "description": "Erinnern Sie sich an die Atmosphäre und die Erlebnisse des Japan-Tags."
+      },
+      "/program": {
+        "title": "Veranstaltungsprogramm",
+        "description": "Auftritte, Vorträge und Vorführungen japanischer Kultur."
+      },
+      "/ucinkujuci": {
+        "title": "Gäste und Mitwirkende",
+        "description": "Lernen Sie die Persönlichkeiten des Programms kennen."
+      },
+      "/workshopy": {
+        "title": "Workshops",
+        "description": "Kreativangebote, Japanisch und traditionelle Künste."
+      },
+      "/gastronomia": {
+        "title": "Kulinarik",
+        "description": "Japanische Speisen, Tees und weitere kulinarische Erlebnisse."
+      },
+      "/vystavovatelia": {
+        "title": "Aussteller",
+        "description": "Verkäufer, Kunstschaffende und Präsentationen japanischer Kultur."
+      },
+      "/astronomia": {
+        "title": "Von Amaterasu zur Sonne",
+        "description": "Japanische Mythologie trifft auf moderne Astronomie."
+      },
+      "/pre-deti": {
+        "title": "Für Kinder und Familien",
+        "description": "Kreativangebote, japanische Spiele und Aktivitäten für Kinder."
+      },
+      "/prakticke-informacie": {
+        "title": "Praktische Informationen",
+        "description": "Veranstaltungsort, Datum und weitere Angaben zur Ausgabe 2026."
+      },
+      "/galeria": {
+        "title": "Fotogalerie",
+        "description": "Bilder, die die Atmosphäre der Veranstaltung festhalten."
+      }
+    }
   }
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import { ArrowLeft } from "lucide-react";
 import { useI18n } from "../lib/useI18n.js";
-import { addLocalePrefix } from "../lib/i18nPaths.js";
+import { useEventArchive } from "../lib/useEventArchive.js";
 
 export default function ExhibitorDetail({ exhibitor }) {
-  const { locale, content } = useI18n();
+  const { eventHref } = useEventArchive();
+  const { content } = useI18n();
   const { detail, gallery = [] } = exhibitor;
   const order = detail.customOrder;
   return (
@@ -30,7 +31,7 @@ export default function ExhibitorDetail({ exhibitor }) {
         {gallery.length > 0 && <div className="exhibitorDetailGallery">
           {gallery.map((image) => <img className="exhibitorDetailImage" key={image.src} src={image.src} alt={image.alt} loading="lazy" />)}
         </div>}
-        <a className="backLink" href={addLocalePrefix("/vystavovatelia", locale)}>
+        <a className="backLink" href={eventHref("/vystavovatelia")}>
           <ArrowLeft size={18} aria-hidden="true" />
           {content.seo.routes["/vystavovatelia"].breadcrumb}
         </a>
