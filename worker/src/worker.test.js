@@ -201,8 +201,9 @@ test('admin API verifies Access JWT, enforces lecturer scope, omits token hashes
     const emptyData = (await empty.json()).data;
     assert.equal(emptyData.registrations.length,0);
     assert.equal(emptyData.session.available,1);
-    await register('attendee@example.com','s1');
-    await register('waitlisted@example.com','s1');
+    await register('attendee@example.com','s1',{ first_name: '=HYPERLINK("https://evil.example")' });
+    await register('waitlisted@example.com','s1',{ first_name: '@SUM(1,1)', phone: '-1+2' });
+    sqlite.prepare("UPDATE registrations SET last_name = char(9) || '=1+1' WHERE email='attendee@example.com'").run();
     const populated = await bearer('lecturer@example.com','/api/admin/sessions/s1/registrations');
     const populatedData = (await populated.json()).data;
     assert.equal(populatedData.session.registered_count,1);
@@ -232,7 +233,12 @@ test('admin API verifies Access JWT, enforces lecturer scope, omits token hashes
     assert.doesNotMatch(body,/registration_access_token_hash/);
     const csv = await bearer('lecturer@example.com','/api/admin/sessions/s1/export.csv');
     assert.equal(csv.status,200);
-    assert.match(await csv.text(),/first_name,last_name,email,phone,status,payment_status,created_at/);
+    const csvText = await csv.text();
+    assert.match(csvText,/first_name,last_name,email,phone,status,payment_status,created_at/);
+    assert.match(csvText,/"'=HYPERLINK\(""https:\/\/evil\.example""\)"/);
+    assert.match(csvText,/"'@SUM\(1,1\)"/);
+    assert.match(csvText,/"'-1\+2"/);
+    assert.match(csvText,/"'\t=1\+1"/);
     assert.equal((await call('/api/admin/sessions/s1/export.csv')).status,401);
   } finally { globalThis.fetch = originalFetch; }
 });

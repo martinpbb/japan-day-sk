@@ -30,7 +30,7 @@ and all existing tables/indexes/triggers are unchanged.
 
 | New table | Purpose / indexes |
 | --- | --- |
-| `event_feedback` | Anonymous answers, edition, locale, Unix submission time; edition/time index |
+| `event_feedback` | Feedback without required identifying fields, edition, locale, Unix submission time; edition/time index |
 | `newsletter_subscribers` | Normalized unique case-insensitive email, optional name, status, consent version/time, confirmation/withdrawal timestamps, locale, creation/update times |
 | `newsletter_tokens` | SHA-256 token hash PK, subscriber FK, purpose, creation/expiry, consumption/operation ID; subscriber/purpose index and unique operation ID |
 | `newsletter_consent_events` | Requested/confirmed/withdrawn audit records, subscriber FK, notice version/time; subscriber/time index |
@@ -68,7 +68,9 @@ Question order is shared by the React form and backend in
 | Any other message for the organisers | `organiser_message` |
 
 No identity fields are accepted or stored with feedback. Blank text becomes NULL.
-Every question is optional; a rating or at least one nonblank text answer is required.
+Free-text answers may still contain personal information entered by a visitor, so
+feedback is not guaranteed anonymous. Every question is optional; a rating or at
+least one nonblank text answer is required.
 
 ## API contracts
 
@@ -107,8 +109,9 @@ in a server query string. The document immediately removes the fragment and send
 the token as JSON only after an explicit button click. GET never accesses the DB
 or changes subscription state. Pages have no analytics/remote assets, nonce CSP,
 frame denial, no-referrer and no-store. They require no static frontend routes.
-`NEWSLETTER_LINK_ORIGIN` must be the HTTPS origin routing these paths to this Worker
-(normally `https://api.japanday.sk`), without trailing slash/path. Future messages
+`NEWSLETTER_LINK_ORIGIN` must be exactly `https://api.japanday.sk`, the approved
+HTTPS origin routing these paths to this Worker
+without trailing slash/path. Future messages
 must also use fragment links, never put tokens/emails in logging query strings.
 
 ## Validation and limits
@@ -205,7 +208,11 @@ credentials; the public API intentionally does not disclose delivery outcome.
 ## Retention and deletion considerations
 
 Owner approval is required for retention periods, lawful notice/version wording,
-delivery provider, suppression policy, deletion process and administrators.
+delivery provider, suppression policy and administrators. Personal-data deletion
+requests will initially be handled manually by the administrator using a reviewed
+data procedure; there is no newsletter administration UI or public deletion API.
+Do not interpret this as automatic feedback anonymity: visitors can include
+identifying details in free-text responses.
 Suggested review points, not implemented automatic policy: delete expired pending
 subscriptions after a short approved period; anonymize or remove free-text feedback
 after analysis; retain only the agreed consent/suppression evidence. Withdrawal
@@ -216,12 +223,16 @@ and backups. No automatic deletion of workshop history occurs.
 
 ## Feature flags and required configuration
 
-Both committed switches are the exact string `"false"`:
-`FEEDBACK_ENABLED`, `NEWSLETTER_ENABLED`. Opt-in requires exact `"true"`.
+The committed switches are `FEEDBACK_ENABLED = "false"`,
+`NEWSLETTER_SIGNUP_ENABLED = "false"` and
+`NEWSLETTER_TOKEN_ACTIONS_ENABLED = "true"`. Signup opt-in requires exact
+`"true"`. Keep token actions enabled when pausing signup; setting their flag to
+`"false"` is a full lifecycle shutdown that also disables outstanding links.
 Mandatory shared dependencies: DB, SUBMISSION_LIMITER, ABUSE_HMAC_SECRET (at least
 32 characters). Submission routes require TURNSTILE_SECRET_KEY and
 TURNSTILE_HOSTNAME. Newsletter also requires NEWSLETTER_CONSENT_VERSION,
-NEWSLETTER_LINK_ORIGIN and NEWSLETTER_MAILER. Secrets belong only in Worker secret
+NEWSLETTER_LINK_ORIGIN (exactly `https://api.japanday.sk`) and NEWSLETTER_MAILER.
+Confirmation and unsubscribe do not depend on the mailer or signup flag. Secrets belong only in Worker secret
 configuration, never in VITE variables/source. No real secrets were generated.
 
 The existing homepage never supplies `config`, so setting Worker flags alone does
@@ -262,8 +273,8 @@ preserves the process result. Do not confuse that warning with a successful gate
 | Feedback | Complete/minimal/anonymous, all locales, optional questions, 1/3/5 and invalid ratings, every text field type/length, edition/locale, unknown fields, empty/invalid JSON, content type/byte limits, HTML/SQL text, stored values, insertion failure |
 | Newsletter | Strict true consent/version, optional name, length/email normalization, duplicate/pending/confirmed/unsubscribed requests, concurrency, uniqueness, generic enumeration-safe responses, no duplicate emails, audit events, delivery failure |
 | Tokens | Purpose/hash/expiration, invalid and replayed tokens, concurrent confirmation, stale confirmation invalidation, durable old unsubscribe links, no email-only withdrawal, repeat withdrawal, atomic failure rollback |
-| Security | Origin/preflight/methods, fail-closed config/flags, Siteverify action/hostname/age/outage/reuse, binding and D1 rate limits, no public personal-data/admin access, sanitized errors, CSP and mutation-free landing GET |
-| Real local D1 | New schema installation and anonymous Japanese text submission through Worker handler and actual D1/workerd binding |
+| Security | Origin/preflight/methods, fail-closed config/flags, Siteverify action/hostname/age/outage/reuse, separate signup/token edge limits, scheduled bounded cleanup, no public personal-data/admin access, sanitized errors, CSP and mutation-free landing GET |
+| Real local D1 | Browser signup, email-link confirmation and unsubscribe through actual Worker routes and isolated D1/workerd binding |
 | Frontend | Five locales: question labels, rating keyboard controls, anonymous fields, consent default/native validation, loading/error/retry/success after mocked response only, mobile width, Axe; explicit landing-page click and fragment removal |
 | Regression | Existing worker registration/capacity/waitlist/payment/token/Access/lecturer/availability suite; full default Chromium and archive suites, including disabled forms and accessibility |
 
@@ -275,7 +286,8 @@ Before any separately authorized production change: review this diff, approve th
 consent notice and retention policy, select/implement/test the mail service, verify
 its idempotency/monitoring, configure sender authentication, Turnstile widget and
 exact hostname/actions, approve the rate-limit namespace, secrets, staging origin
-and Worker routing for informational pages. Test real provider delivery and complete
+and Worker routing for informational pages. Configure account-level WAF and D1
+budget alerts for abuse/cost monitoring. Test real provider delivery and complete
 confirmation/withdrawal in an approved nonproduction environment. Validate that
 unsubscribe still works after the email is old and when campaigns are paused.
 
@@ -300,9 +312,8 @@ Actual outbound newsletter campaigns/exports are outside this phase; their sende
 must generate fresh hashed purpose-scoped unsubscribe tokens per delivered message
 and include durable links using this contract. It cannot recover plaintext tokens
 from D1. No campaign sending service was implemented or called.
-The pre-existing workshop CSV exporter quotes CSV fields but does not neutralize
-spreadsheet formula prefixes. That unrelated behavior was not changed; the new
-data has no exporter. Any future export needs the safeguards described above.
+The workshop CSV exporter prefixes spreadsheet formula-triggering cells with an
+apostrophe before CSV quoting. Newsletter data has no exporter or administration UI.
 No Firefox/WebKit or production/CDN/provider tests are claimed. Distributed abuse
 can still consume D1 work; account-level WAF/billing protections require separate
 owner review. CORS, Turnstile and rate limits do not identify a human attendee.
@@ -361,3 +372,24 @@ Playwright report. No mock challenge/test fixture strings were found in `dist`.
 
 Next safe action: owner review of this local diff and unresolved production
 dependencies. Deployment and activation require separate explicit approval.
+
+## Independent security audit remediation (2026-11-13)
+
+Applied the reproduced API-origin and signup/mail coupling fixes. Confirmation
+and unsubscribe accept the exact API origin only on their own POST routes; signup
+has its own switch, and token actions remain available without signup or mailer
+configuration unless the explicit full-shutdown switch is false. Link generation
+is pinned to the Worker-owned API origin. Token requests have an independent edge
+rate-limit key and cheap validation before D1; cleanup is scheduled and deletes at
+most 500 expired rows per table per run. The workshop CSV exporter now neutralizes
+spreadsheet formula prefixes. No newsletter administration UI or campaign system
+was added; personal-data deletion requests remain manual administrator work.
+
+Verification after these changes: `npm run test:community` passed (65 tests),
+`npm run test:worker` passed (90 tests), `npm run test:community:d1` passed (2
+isolated workerd/D1 and Chromium tests), `npm run lint` passed, and `git diff
+--check` passed. The browser test exercised subscribe, API-hosted confirmation
+and unsubscribe, stale/reused tokens, concurrent transitions, signup pause and
+missing mailer. No production resources, credentials, deployment, or live email
+were used. Staging routing, provider delivery, owner/legal notice and retention
+approval, plus account-level WAF/budget alerts remain prerequisites before launch.

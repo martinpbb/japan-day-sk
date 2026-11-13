@@ -41,6 +41,7 @@ function text(value, max, optional = false) {
   if (typeof value !== 'string' || value.length > max) reject();
   return value.trim() || null;
 }
+const validEmail = value => /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/.test(value);
 async function limited(env, key, maximum, seconds) {
   const keyHash = await digest(`${key}:${Math.floor(now() / seconds)}`);
   const result = await query(env, `INSERT INTO submission_limits(key_hash,count,expires_at) VALUES (?,1,?)
@@ -53,13 +54,18 @@ async function abuse(request, env, action) {
   const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(env.ABUSE_HMAC_SECRET), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
   const signed = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${ip}:${Math.floor(now() / 86400)}`));
   const identity = Array.from(new Uint8Array(signed), b => b.toString(16).padStart(2, '0')).join('');
-  // Broad shared-IP allowance; Turnstile and per-address cooldown are stronger gates.
+  // Signup and feedback are stricter than token actions; the edge binding is
+  // separate so a shared-IP signup burst cannot block a valid withdrawal.
   if (!(await env.SUBMISSION_LIMITER.limit({ key: `${action}:${identity}` })).success ||
     !await limited(env, `${action}:${identity}`, 60, 600)) reject('RATE_LIMITED', 429);
-  await env.DB.batch([
-    query(env, 'DELETE FROM submission_limits WHERE expires_at < ?', now()),
-    query(env, 'DELETE FROM submission_challenges WHERE expires_at < ?', now()),
-  ]);
+}
+async function tokenAbuse(request, env) {
+  const ip = request.headers.get('CF-Connecting-IP');
+  if (!ip) reject('SECURITY_UNAVAILABLE', 503);
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(env.ABUSE_HMAC_SECRET), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const signed = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${ip}:${Math.floor(now() / 86400)}`));
+  const identity = Array.from(new Uint8Array(signed), b => b.toString(16).padStart(2, '0')).join('');
+  if (!(await env.SUBMISSION_LIMITER.limit({ key: `newsletter-token:${identity}` })).success) reject('RATE_LIMITED', 429);
 }
 async function challenge(env, token, action) {
   if (!text(token, 2048)) reject();
@@ -84,7 +90,7 @@ export function emailDelivery(env) {
   if (!env.NEWSLETTER_MAILER?.fetch || !env.NEWSLETTER_LINK_ORIGIN || !env.NEWSLETTER_CONSENT_VERSION) return null;
   let origin;
   try { origin = new URL(env.NEWSLETTER_LINK_ORIGIN); } catch { return null; }
-  if (origin.protocol !== 'https:' || origin.origin !== env.NEWSLETTER_LINK_ORIGIN) return null;
+  if (origin.protocol !== 'https:' || origin.origin !== 'https://api.japanday.sk' || origin.origin !== env.NEWSLETTER_LINK_ORIGIN) return null;
   return async (message) => {
     // A future trusted service must implement idempotency and send text or escaped HTML.
     const response = await env.NEWSLETTER_MAILER.fetch(new Request('https://newsletter-mailer.internal/confirmation', {
@@ -171,17 +177,42 @@ export async function community(request, env, path, reply, fail, origin) {
   try {
     if (request.method !== 'POST') reject('METHOD_NOT_ALLOWED', 405);
     const isFeedback = path === '/api/feedback';
-    if (env[isFeedback ? 'FEEDBACK_ENABLED' : 'NEWSLETTER_ENABLED'] !== 'true') reject('FEATURE_DISABLED', 503);
+    const isSubscribe = path.endsWith('/subscribe');
+    const isTokenAction = !isFeedback && !isSubscribe;
+    if (isFeedback && env.FEEDBACK_ENABLED !== 'true') reject('FEATURE_DISABLED', 503);
+    if (isSubscribe && (env.NEWSLETTER_SIGNUP_ENABLED ?? env.NEWSLETTER_ENABLED) !== 'true') reject('FEATURE_DISABLED', 503);
+    if (isTokenAction && env.NEWSLETTER_TOKEN_ACTIONS_ENABLED === 'false') reject('FEATURE_DISABLED', 503);
     if (!env.DB || !env.SUBMISSION_LIMITER?.limit || typeof env.ABUSE_HMAC_SECRET !== 'string' || env.ABUSE_HMAC_SECRET.length < 32) reject('SECURITY_UNAVAILABLE', 503);
-    const needsChallenge = isFeedback || path.endsWith('/subscribe');
+    const needsChallenge = isFeedback || isSubscribe;
     if (needsChallenge && (!env.TURNSTILE_SECRET_KEY || !env.TURNSTILE_HOSTNAME)) reject('SECURITY_UNAVAILABLE', 503);
-    const deliver = isFeedback ? null : emailDelivery(env);
-    if (!isFeedback && !deliver) reject('NEWSLETTER_UNAVAILABLE', 503);
-    await abuse(request, env, isFeedback ? 'feedback' : 'newsletter');
+    const deliver = isSubscribe ? emailDelivery(env) : null;
+    if (isSubscribe && !deliver) reject('NEWSLETTER_UNAVAILABLE', 503);
     const data = await jsonBody(request);
+    if (isTokenAction) {
+      fields(data, ['token']);
+      if (typeof data.token !== 'string' || !/^[a-f0-9]{64}$/.test(data.token)) reject('INVALID_TOKEN');
+      await tokenAbuse(request, env);
+    } else {
+      // Reject malformed input before D1 counters, HMAC work, or Siteverify.
+      if (isFeedback) {
+        fields(data, ['edition', 'locale', 'rating', 'turnstileToken', ...feedbackFields]);
+        if (data.edition !== 2026 || !locales.has(data.locale)) reject();
+        const rating = data.rating ?? null;
+        if (rating !== null && (!Number.isInteger(rating) || rating < 1 || rating > 5)) reject();
+        const answers = feedbackFields.map(field => text(data[field], 2000, true));
+        if (rating === null && !answers.some(Boolean)) reject();
+        if (!text(data.turnstileToken, 2048)) reject();
+      } else {
+        fields(data, ['email', 'name', 'consent', 'consentVersion', 'locale', 'turnstileToken']);
+        const email = text(data.email, 254)?.toLowerCase();
+        text(data.name, 100, true);
+        if (!email || !validEmail(email) || data.consent !== true || data.consentVersion !== env.NEWSLETTER_CONSENT_VERSION || !locales.has(data.locale) || !text(data.turnstileToken, 2048)) reject();
+      }
+      await abuse(request, env, isFeedback ? 'feedback' : 'newsletter-signup');
+    }
     let result;
     if (isFeedback) result = await feedback(env, data);
-    else if (path.endsWith('/subscribe')) result = await subscribe(env, data, deliver);
+    else if (isSubscribe) result = await subscribe(env, data, deliver);
     else result = await transition(env, data, path.endsWith('/confirm') ? 'confirm' : 'unsubscribe');
     return reply(result.data, result.status, origin);
   } catch (error) {

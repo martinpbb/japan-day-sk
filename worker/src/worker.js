@@ -3,6 +3,7 @@ import { community } from './community.js';
 import { newsletterPage } from './newsletter-page.js';
 
 const allowedOrigins = new Set(['https://japanday.sk', 'https://www.japanday.sk', 'http://localhost:5173']);
+const apiOrigin = 'https://api.japanday.sk';
 function headers(origin) {
   const h = new Headers({ 'Vary': 'Origin', 'Cache-Control': 'no-store' });
   if (allowedOrigins.has(origin)) {
@@ -169,12 +170,14 @@ async function register(request, env, sessionId, origin) {
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin');
-    if (origin && !allowedOrigins.has(origin)) return fail('CORS_ORIGIN_DENIED', 403, null);
-    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: headers(origin) });
     const url = new URL(request.url);
+    const apiTokenPost = request.method === 'POST' && origin === apiOrigin &&
+      ['/api/newsletter/confirm', '/api/newsletter/unsubscribe'].includes(url.pathname);
+    if (origin && !allowedOrigins.has(origin) && !apiTokenPost) return fail('CORS_ORIGIN_DENIED', 403, null);
+    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: headers(origin) });
     try {
       if (request.method === 'GET' && ['/newsletter/confirm', '/newsletter/unsubscribe'].includes(url.pathname)) {
-        return newsletterPage(url, env.NEWSLETTER_ENABLED === 'true');
+        return newsletterPage(url, env.NEWSLETTER_TOKEN_ACTIONS_ENABLED !== 'false');
       }
       const communityResponse = await community(request, env, url.pathname, reply, fail, origin);
       if (communityResponse) return communityResponse;
@@ -212,7 +215,7 @@ export default {
           const {results:registrations} = await env.DB.prepare(`SELECT first_name,last_name,email,phone,status,payment_status,created_at FROM registrations WHERE session_id=? AND status != 'cancelled' ORDER BY created_at,id`).bind(id).all();
           if (sessionRoute[2] === 'export.csv') {
             const fields=['first_name','last_name','email','phone','status','payment_status','created_at'];
-            const quote=(value)=>`"${String(value ?? '').replace(/"/g,'""')}"`;
+            const quote=(value)=>`"${(/^\s*[=+@-]|^[\t\r\n]/.test(String(value ?? '')) ? `'${String(value ?? '')}` : String(value ?? '')).replace(/"/g,'""')}"`;
             const csv=[fields.join(','),...registrations.map((row)=>fields.map((field)=>quote(row[field])).join(','))].join('\r\n');
             const h=headers(origin); h.set('Content-Type','text/csv; charset=utf-8'); h.set('Content-Disposition','attachment; filename="session-registrations.csv"');
             return new Response(`\uFEFF${csv}`,{headers:h});
@@ -267,5 +270,13 @@ export default {
       }
       return fail('NOT_FOUND', 404, origin);
     } catch { return fail('INTERNAL_ERROR', 500, origin); }
+  },
+  async scheduled(_controller, env) {
+    const stamp = Math.floor(Date.now() / 1000);
+    // Bound cleanup work; repeated daily runs drain accumulated expired rows.
+    await env.DB.batch([
+      env.DB.prepare('DELETE FROM submission_limits WHERE rowid IN (SELECT rowid FROM submission_limits WHERE expires_at < ? LIMIT 500)').bind(stamp),
+      env.DB.prepare('DELETE FROM submission_challenges WHERE rowid IN (SELECT rowid FROM submission_challenges WHERE expires_at < ? LIMIT 500)').bind(stamp),
+    ]);
   },
 };

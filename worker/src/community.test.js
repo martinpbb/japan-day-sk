@@ -24,7 +24,7 @@ function setup(t) {
   const messages = [];
   const env = { DB: testD1(sqlite), FEEDBACK_ENABLED: 'true', NEWSLETTER_ENABLED: 'true',
     ABUSE_HMAC_SECRET: 'local-test-only-'.repeat(4), TURNSTILE_SECRET_KEY: 'mock-secret', TURNSTILE_HOSTNAME: 'japanday.sk',
-    NEWSLETTER_CONSENT_VERSION: '2026-01', NEWSLETTER_LINK_ORIGIN: 'https://japanday.sk',
+    NEWSLETTER_CONSENT_VERSION: '2026-01', NEWSLETTER_LINK_ORIGIN: 'https://api.japanday.sk',
     SUBMISSION_LIMITER: { async limit() { return { success: true }; } },
     NEWSLETTER_MAILER: { async fetch(request) { messages.push(await request.json()); return new Response(null, { status: 202 }); } },
   };
@@ -129,6 +129,22 @@ test('double opt in, hash-only storage, events, unsubscribe ownership and replay
   assert.ok(!storage.includes(token())); assert.ok(!storage.includes(token(0,'unsubscribeUrl')));
   assert.ok(messages[0].confirmationUrl.includes('#token='));
 });
+test('signup pause and missing mailer never disable confirmation or token-based unsubscribe', async t => {
+  const { subscribe, call, token, env, sqlite } = setup(t);
+  await subscribe();
+  env.NEWSLETTER_SIGNUP_ENABLED = 'false';
+  delete env.NEWSLETTER_MAILER;
+  assert.equal((await subscribe()).status, 503);
+  assert.equal((await call('newsletter/confirm', { token: token() })).status, 200);
+  assert.equal((await call('newsletter/unsubscribe', { token: token(0, 'unsubscribeUrl') })).status, 200);
+  assert.equal(sqlite.prepare('SELECT status FROM newsletter_subscribers').get().status, 'unsubscribed');
+});
+test('email links require the exact Worker origin that owns both landing routes', async t => {
+  const { subscribe, env, messages } = setup(t);
+  env.NEWSLETTER_LINK_ORIGIN = 'https://japanday.sk';
+  assert.equal((await subscribe()).status, 503);
+  assert.equal(messages.length, 0);
+});
 for (const [index, extra] of [
   { consent: undefined }, { consent: false }, { consent: 'true' }, { consentVersion: 'old' },
   { email: undefined }, { email: 'bad' }, { email: 'x\r\n@example.com' }, { email: 'x'.repeat(255) },
@@ -177,7 +193,7 @@ test('pending renewal invalidates old confirmation; old unused unsubscribe works
 });
 
 test('feature switches, mandatory dependencies, delivery failures and safe errors', async t => {
-  const { feedback, subscribe, env, sqlite, call, token } = setup(t);
+  const { feedback, subscribe, env, sqlite, call } = setup(t);
   for (const key of ['FEEDBACK_ENABLED','DB','SUBMISSION_LIMITER','ABUSE_HMAC_SECRET','TURNSTILE_SECRET_KEY','TURNSTILE_HOSTNAME']) {
     const old = env[key]; delete env[key]; assert.equal((await feedback()).status, 503, key); env[key] = old;
   }
@@ -192,7 +208,7 @@ test('feature switches, mandatory dependencies, delivery failures and safe error
   env.DB = { prepare() { throw new Error('SQL secret@example.com password'); } };
   const response = await feedback(); assert.equal(response.status, 500);
   assert.doesNotMatch(await response.text(), /SQL|secret|password/);
-  assert.equal((await call('newsletter/unsubscribe', { token: token?.unused })).status, 500);
+  assert.equal((await call('newsletter/unsubscribe', { token: 'a'.repeat(64) })).status, 500);
 });
 test('Turnstile failures, hostname, action, age, replay and outage', async t => {
   const { feedback } = setup(t);
@@ -215,8 +231,32 @@ test('rate limiting binding and durable global IP allowance', async t => {
   assert.equal((await feedback()).status, 429);
   assert.doesNotMatch(JSON.stringify(sqlite.prepare('SELECT * FROM submission_limits').all()), /192\.0\.2\.1/);
 });
+test('token bursts use their own edge limit and avoid D1 work after rejection', async t => {
+  const { call, env } = setup(t);
+  let tokenAttempts = 0, dbPrepares = 0;
+  const prepare = env.DB.prepare.bind(env.DB);
+  env.DB.prepare = (...args) => { dbPrepares++; return prepare(...args); };
+  env.SUBMISSION_LIMITER.limit = async ({ key }) => {
+    if (key.startsWith('newsletter-token:')) return { success: ++tokenAttempts <= 4 };
+    return { success: true };
+  };
+  const responses = await Promise.all(Array.from({ length: 20 }, () => call('newsletter/unsubscribe', { token: 'a'.repeat(64) })));
+  assert.equal(responses.filter(response => response.status === 400).length, 4);
+  assert.equal(responses.filter(response => response.status === 429).length, 16);
+  assert.equal(dbPrepares, 16); // Four admitted attempts each execute the atomic token batch.
+});
+test('scheduled abuse cleanup deletes at most 500 expired rows per table', async t => {
+  const { env, sqlite } = setup(t);
+  sqlite.exec(`WITH RECURSIVE rows(n) AS (SELECT 1 UNION ALL SELECT n+1 FROM rows WHERE n<501)
+    INSERT INTO submission_limits(key_hash,count,expires_at) SELECT printf('%064d',n),1,1 FROM rows;
+    WITH RECURSIVE rows(n) AS (SELECT 1 UNION ALL SELECT n+1 FROM rows WHERE n<501)
+    INSERT INTO submission_challenges(token_hash,expires_at) SELECT printf('%064d',n),1 FROM rows;`);
+  await worker.scheduled({}, env);
+  assert.equal(sqlite.prepare('SELECT count(*) n FROM submission_limits').get().n, 1);
+  assert.equal(sqlite.prepare('SELECT count(*) n FROM submission_challenges').get().n, 1);
+});
 test('CORS, preflight, no GET mutations, no personal-data endpoints or unsafe admin access', async t => {
-  const { call, subscribe, sqlite, token } = setup(t); await subscribe();
+  const { call, subscribe, sqlite, token, env } = setup(t); await subscribe();
   for (const path of ['feedback','newsletter/subscribe','newsletter/confirm','newsletter/unsubscribe']) {
     for (const method of ['GET','PUT','DELETE','HEAD']) assert.equal((await call(path, null, { method, body: undefined })).status, 405);
     assert.equal((await call(path, {}, { headers: { Origin: 'https://evil.example' } })).status, 403);
@@ -227,6 +267,14 @@ test('CORS, preflight, no GET mutations, no personal-data endpoints or unsafe ad
   }
   assert.equal((await call(`newsletter/confirm?token=${token()}`, null, { method: 'GET', body: undefined })).status, 405);
   assert.equal(sqlite.prepare('SELECT status FROM newsletter_subscribers').get().status, 'pending');
+  const apiOrigin = await worker.fetch(new Request('https://api.japanday.sk/api/newsletter/confirm', {
+    method: 'POST', headers: { Origin: 'https://api.japanday.sk', 'Content-Type': 'application/json', 'CF-Connecting-IP': '192.0.2.1' },
+    body: JSON.stringify({ token: token() }),
+  }), env);
+  assert.equal(apiOrigin.status, 200);
+  for (const path of ['/api/health', '/api/newsletter/subscribe']) {
+    assert.equal((await worker.fetch(new Request(`https://api.japanday.sk${path}`, { method: 'POST', headers: { Origin: 'https://api.japanday.sk' }, body: '{}' }), {})).status, 403);
+  }
   for (const path of ['newsletter/subscribers', 'feedback/export', 'admin/newsletter', 'admin/feedback']) {
     const response = await call(path, null, { method: 'GET', body: undefined });
     assert.ok([401,404].includes(response.status)); assert.doesNotMatch(await response.text(), /person@example.com/);
