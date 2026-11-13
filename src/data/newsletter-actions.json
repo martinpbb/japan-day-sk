@@ -1,0 +1,7 @@
+{
+  "sk": { "confirm": "Potvrdiť odber newslettera", "unsubscribe": "Odhlásiť odber newslettera", "intro": "Zmenu vykonáte až stlačením tlačidla.", "success": "Požiadavka bola úspešne vykonaná.", "error": "Odkaz je neplatný, už použitý alebo služba nie je dostupná.", "disabled": "Služba zatiaľ nie je dostupná." },
+  "en": { "confirm": "Confirm newsletter subscription", "unsubscribe": "Unsubscribe from the newsletter", "intro": "The change happens only after you press the button.", "success": "Your request was completed.", "error": "The link is invalid, already used, or the service is unavailable.", "disabled": "The service is not available yet." },
+  "de": { "confirm": "Newsletter-Abonnement bestätigen", "unsubscribe": "Newsletter abbestellen", "intro": "Die Änderung erfolgt erst, wenn Sie die Schaltfläche drücken.", "success": "Ihre Anfrage wurde ausgeführt.", "error": "Der Link ist ungültig, bereits verwendet oder der Dienst ist nicht verfügbar.", "disabled": "Der Dienst ist noch nicht verfügbar." },
+  "es": { "confirm": "Confirmar la suscripción al boletín", "unsubscribe": "Cancelar la suscripción al boletín", "intro": "El cambio solo se realiza al pulsar el botón.", "success": "Su solicitud se ha completado.", "error": "El enlace no es válido, ya se utilizó o el servicio no está disponible.", "disabled": "El servicio aún no está disponible." },
+  "ja": { "confirm": "ニュースレターの購読を確認", "unsubscribe": "ニュースレターの購読を解除", "intro": "ボタンを押すまで変更は行われません。", "success": "リクエストが完了しました。", "error": "リンクが無効、使用済み、またはサービスが利用できません。", "disabled": "サービスはまだ利用できません。" }
+}

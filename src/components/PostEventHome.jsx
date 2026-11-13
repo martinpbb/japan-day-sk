@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { feedbackFields } from "../lib/communityContract.js";
 import { Image, Play, Heart, MessageCircle, Sparkles } from "lucide-react";
 import Hero from "./Hero.jsx";
 import Section from "./Section.jsx";
@@ -8,18 +9,42 @@ import { addLocalePrefix } from "../lib/i18nPaths.js";
 import { archiveBase, archiveSections } from "../lib/archiveRoutes.js";
 import "../styles/post-event.css";
 
-// Deliberately has no persistence or transport. Keep the guard even while the
-// submit buttons are disabled, so Enter cannot navigate or send form values.
-function preventSubmission(event) {
-  event.preventDefault();
+// Production passes no config. Only the isolated local test fixture supplies it.
+function useSubmission(config, common, kind) {
+  const [state, setState] = useState("");
+  async function submit(event) {
+    event.preventDefault();
+    if (!config || state === "loading" || state === "success") return;
+    const values = new FormData(event.currentTarget);
+    if (kind === "newsletter" && !values.has("consent")) return;
+    const body = kind === "feedback"
+      ? { edition: 2026, locale: config.locale, rating: values.has("rating") ? Number(values.get("rating")) : null,
+        ...Object.fromEntries(feedbackFields.map(field => [field, values.get(field)])) }
+      : { email: values.get("email"), name: values.get("name"), consent: true, consentVersion: config.consentVersion, locale: config.locale };
+    if (kind === "feedback" && body.rating === null && !feedbackFields.some(field => body[field]?.trim())) return;
+    setState("loading");
+    try {
+      body.turnstileToken = await config.getToken(kind);
+      if (!body.turnstileToken) throw new Error();
+      const response = await fetch(`${config.apiBase}/api/${kind === "feedback" ? "feedback" : "newsletter/subscribe"}`, {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), credentials: "omit",
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) throw new Error();
+      setState("success");
+    } catch { setState("error"); }
+  }
+  return { submit, disabled: !config || state === "loading" || state === "success", state,
+    message: state ? common[state] : "" };
 }
 
-function Newsletter({ copy, common }) {
+export function Newsletter({ copy, common, config = null }) {
+  const submission = useSubmission(config, common, "newsletter");
   return <aside className="postCard newsletterCard" aria-labelledby="newsletter-title">
     <div className="eyebrow">{copy.kicker}</div>
     <h3 id="newsletter-title">{copy.title}</h3>
     <p>{copy.intro}</p>
-    <form onSubmit={preventSubmission} aria-labelledby="newsletter-title" aria-describedby="newsletter-unavailable">
+    <form onSubmit={submission.submit} aria-labelledby="newsletter-title" aria-describedby="newsletter-unavailable" aria-busy={submission.state === "loading"}>
       <label htmlFor="newsletter-name">{copy.name}</label>
       <input id="newsletter-name" name="name" autoComplete="given-name" maxLength={100} />
       <label htmlFor="newsletter-email">{copy.email}</label>
@@ -28,16 +53,18 @@ function Newsletter({ copy, common }) {
         <input id="newsletter-consent" name="consent" type="checkbox" required />
         <span>{copy.consent}</span>
       </label>
-      <p className="postNotice" id="newsletter-unavailable">{common.unavailable}</p>
+      <p className="postNotice" id="newsletter-unavailable">{config ? common.doubleOptIn : common.unavailable}</p>
+      {submission.message && <p role="status">{submission.message}</p>}
       <div className="postFormActions">
         <button className="button postSecondary" type="button" onClick={(event) => event.currentTarget.form.reportValidity()}>{common.validate}</button>
-        <button className="button primary" type="submit" disabled>{copy.submit}</button>
+        <button className="button primary" type="submit" disabled={submission.disabled}>{copy.submit}</button>
       </div>
     </form>
   </aside>;
 }
 
-function Feedback({ copy, newsletter, common }) {
+export function Feedback({ copy, newsletter, common, config = null }) {
+  const submission = useSubmission(config, common, "feedback");
   return <section id="spatna-vazba" className="section postFeedback">
     <div className="container postFeedbackGrid">
       <div className="postFeedbackIntro"><div className="eyebrow">{copy.kicker}</div><h2>{copy.title}</h2><p className="postLead" id="feedback-anonymous">{copy.intro}</p><svg className="postFeedbackIllustration" viewBox="0 0 180 180" aria-hidden="true" focusable="false">
@@ -48,7 +75,7 @@ function Feedback({ copy, newsletter, common }) {
         <path className="postFeedbackLeaf" d="M132 57c-13 1-21 9-21 20 12 1 21-6 21-20Zm-20 19 9-9" />
       </svg></div>
       <div className="postFeedbackForms">
-      <form className="postCard feedbackForm" onSubmit={preventSubmission} aria-label={copy.title} aria-describedby="feedback-anonymous feedback-unavailable">
+      <form className="postCard feedbackForm" onSubmit={submission.submit} aria-label={copy.title} aria-describedby="feedback-anonymous feedback-unavailable" aria-busy={submission.state === "loading"}>
         <fieldset aria-describedby="rating-scale">
           <legend>{copy.rating}</legend>
           <p id="rating-scale">{copy.scale}</p>
@@ -59,16 +86,17 @@ function Feedback({ copy, newsletter, common }) {
         <div className="postQuestions">
           {copy.questions.map((question, index) => <div key={index} className={index === copy.questions.length - 1 ? "postQuestionWide" : ""}>
             <label htmlFor={`feedback-${index}`}>{question}</label>
-            <textarea id={`feedback-${index}`} name={`answer-${index}`} rows={3} maxLength={2000} />
+            <textarea id={`feedback-${index}`} name={feedbackFields[index]} rows={3} maxLength={2000} />
           </div>)}
         </div>
-        <p className="postNotice" id="feedback-unavailable">{common.unavailable}</p>
-        <button className="button primary" type="submit" disabled>{copy.submit}</button>
+        <p className="postNotice" id="feedback-unavailable">{config ? copy.intro : common.unavailable}</p>
+        {submission.message && <p role="status">{submission.message}</p>}
+        <button className="button primary" type="submit" disabled={submission.disabled}>{copy.submit}</button>
       </form>
       </div>
     </div>
     <div className="container postNewsletterContainer">
-      <Newsletter copy={newsletter} common={common} />
+      <Newsletter copy={newsletter} common={common} config={config} />
     </div>
   </section>;
 }

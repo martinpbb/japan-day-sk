@@ -372,7 +372,11 @@
     "pending": "Content pending",
     "forms": {
       "unavailable": "Submission is not available yet. Nothing is sent or saved; anything you enter will be lost when you leave the page.",
-      "validate": "Check details"
+      "validate": "Check details",
+      "loading": "Sending…",
+      "success": "Request received. For the newsletter, check your email for confirmation.",
+      "error": "Submission failed. Please try again.",
+      "doubleOptIn": "Your subscription starts only after email confirmation."
     },
     "feedback": {
       "kicker": "Your opinion matters",

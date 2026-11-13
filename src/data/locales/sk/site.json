@@ -366,7 +366,11 @@
     "pending": "Na doplnenie",
     "forms": {
       "unavailable": "Odosielanie zatiaľ nie je dostupné. Údaje sa nikam neodosielajú ani neukladajú; pri opustení stránky sa vyplnený obsah stratí.",
-      "validate": "Skontrolovať údaje"
+      "validate": "Skontrolovať údaje",
+      "loading": "Odosielam…",
+      "success": "Požiadavka bola prijatá. Pri newsletteri skontrolujte potvrdenie v e-maile.",
+      "error": "Odoslanie sa nepodarilo. Skúste to znova.",
+      "doubleOptIn": "Odber sa aktivuje až po potvrdení e-mailu."
     },
     "feedback": {
       "kicker": "Váš názor je pre nás dôležitý",

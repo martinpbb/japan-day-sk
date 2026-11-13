@@ -372,7 +372,11 @@
     "pending": "Inhalte folgen",
     "forms": {
       "unavailable": "Das Absenden ist noch nicht verfügbar. Es werden keine Daten gesendet oder gespeichert. Ihre Eingaben gehen beim Verlassen der Seite verloren.",
-      "validate": "Angaben prüfen"
+      "validate": "Angaben prüfen",
+      "loading": "Wird gesendet…",
+      "success": "Anfrage erhalten. Prüfen Sie für den Newsletter die Bestätigung per E-Mail.",
+      "error": "Senden fehlgeschlagen. Bitte erneut versuchen.",
+      "doubleOptIn": "Das Abonnement beginnt erst nach der E-Mail-Bestätigung."
     },
     "feedback": {
       "kicker": "Ihre Meinung ist uns wichtig",

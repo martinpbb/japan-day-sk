@@ -372,7 +372,11 @@
     "pending": "Contenido pendiente",
     "forms": {
       "unavailable": "El envío aún no está disponible. No se envían ni se guardan datos; lo que escribas se perderá al salir de la página.",
-      "validate": "Comprobar los datos"
+      "validate": "Comprobar los datos",
+      "loading": "Enviando…",
+      "success": "Solicitud recibida. Para el boletín, revise el correo de confirmación.",
+      "error": "No se pudo enviar. Inténtelo de nuevo.",
+      "doubleOptIn": "La suscripción solo se activa tras confirmar el correo."
     },
     "feedback": {
       "kicker": "Tu opinión nos importa",

@@ -7,6 +7,7 @@ import { join } from 'node:path';
 import { Buffer } from 'node:buffer';
 import { decode } from 'bysquare/pay';
 import worker from './worker.js';
+import { testD1 } from './test-d1.js';
 import workshopData from '../../src/data/locales/sk/workshops.json' with { type: 'json' };
 import workshopDataEn from '../../src/data/locales/en/workshops.json' with { type: 'json' };
 import workshopDataEs from '../../src/data/locales/es/workshops.json' with { type: 'json' };
@@ -38,19 +39,7 @@ function setup() {
   sqlite.exec(`INSERT INTO workshops (id,slug,title,lecturer,short_description,description,start_at,end_at,location,capacity,price_cents,registration_open)
     VALUES ('test-workshop','test','Test','Test','Test','Test','2027-01-01','2027-01-01','Test',99,1250,1);
     INSERT INTO workshop_sessions (id,workshop_id,start_at,capacity) VALUES ('s1','test-workshop','2027-01-01',1), ('s2','test-workshop','2027-01-01',2);`);
-  function prepare(sql) {
-    let args = [];
-    return {
-      bind(...values) { args = values; return this; },
-      async first() { return sqlite.prepare(sql).get(...args) || null; },
-      async all() { return { results: sqlite.prepare(sql).all(...args) }; },
-    };
-  }
-  const env = { DB: { prepare, async batch(statements) {
-    sqlite.exec('BEGIN');
-    try { const results = []; for (const statement of statements) results.push(await statement.all()); sqlite.exec('COMMIT'); return results; }
-    catch (error) { sqlite.exec('ROLLBACK'); throw error; }
-  } }, PAYMENT_IBAN: 'SK7700000000000000000000', PAYMENT_BENEFICIARY_NAME: 'Japan Day' };
+  const env = { DB: testD1(sqlite), PAYMENT_IBAN: 'SK7700000000000000000000', PAYMENT_BENEFICIARY_NAME: 'Japan Day' };
   const call = (path, options = {}) => worker.fetch(new Request(`https://api.japanday.sk${path}`, options), env);
   const register = (email = 'test@example.com', session = 's1', extra = {}) => call(`/api/sessions/${session}/register`, {
     method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://japanday.sk' },

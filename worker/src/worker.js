@@ -1,4 +1,6 @@
 import { createPayBySquarePayload, normalizeIban, renderPayBySquareQrSvg } from './pay-by-square.js';
+import { community } from './community.js';
+import { newsletterPage } from './newsletter-page.js';
 
 const allowedOrigins = new Set(['https://japanday.sk', 'https://www.japanday.sk', 'http://localhost:5173']);
 function headers(origin) {
@@ -171,6 +173,11 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: headers(origin) });
     const url = new URL(request.url);
     try {
+      if (request.method === 'GET' && ['/newsletter/confirm', '/newsletter/unsubscribe'].includes(url.pathname)) {
+        return newsletterPage(url, env.NEWSLETTER_ENABLED === 'true');
+      }
+      const communityResponse = await community(request, env, url.pathname, reply, fail, origin);
+      if (communityResponse) return communityResponse;
       if (request.method === 'GET' && url.pathname === '/api/health') return reply({ status: 'ok' }, 200, origin);
       if (url.pathname.startsWith('/api/admin/')) {
         if (request.method !== 'GET') return fail('METHOD_NOT_ALLOWED', 405, origin);

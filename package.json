@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "test:worker": "node --test worker/src/*.test.js",
+    "test:community": "node --test worker/src/community.test.js",
+    "test:community:ui": "playwright test --config playwright.community.config.ts",
+    "test:community:d1": "node --test worker/src/community.d1.integration.mjs",
     "dev": "vite --configLoader runner",
     "build": "vite build --configLoader runner && node scripts/seo/generate-static-routes.mjs",
     "preview": "vite preview --configLoader runner",
