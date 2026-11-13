@@ -65,8 +65,10 @@ function Feedback({ copy, newsletter, common }) {
         <p className="postNotice" id="feedback-unavailable">{common.unavailable}</p>
         <button className="button primary" type="submit" disabled>{copy.submit}</button>
       </form>
-      <Newsletter copy={newsletter} common={common} />
       </div>
+    </div>
+    <div className="container postNewsletterContainer">
+      <Newsletter copy={newsletter} common={common} />
     </div>
   </section>;
 }

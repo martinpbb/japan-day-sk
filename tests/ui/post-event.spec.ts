@@ -110,6 +110,38 @@ for (const locale of localeCodes) {
     await page.emulateMedia({ reducedMotion: "reduce" });
     expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)).toBe("auto");
   });
+
+  test(`@ui @responsive ${locale} newsletter is centered below the complete feedback grid`, async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto(prefixFor(locale));
+    const layout = await page.locator(".postFeedback").evaluate(section => {
+      const grid = section.querySelector(".postFeedbackGrid")!;
+      const newsletter = section.querySelector(".newsletterCard")!;
+      const container = newsletter.parentElement!;
+      const gridBox = grid.getBoundingClientRect();
+      const newsletterBox = newsletter.getBoundingClientRect();
+      const containerBox = container.getBoundingClientRect();
+      return {
+        newsletterParent: newsletter.parentElement?.className,
+        gridBottom: gridBox.bottom,
+        newsletterTop: newsletterBox.top,
+        newsletterCenter: newsletterBox.left + newsletterBox.width / 2,
+        containerCenter: containerBox.left + containerBox.width / 2,
+        newsletterWidth: newsletterBox.width,
+      };
+    });
+    expect(layout.newsletterParent).toContain("postNewsletterContainer");
+    expect(layout.newsletterTop).toBeGreaterThan(layout.gridBottom);
+    expect(Math.abs(layout.newsletterCenter - layout.containerCenter)).toBeLessThanOrEqual(1);
+    expect(layout.newsletterWidth).toBeLessThanOrEqual(800);
+    for (const width of [1440, 390]) {
+      await page.setViewportSize({ width, height: 900 });
+      await expect(page.locator(".newsletterCard")).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+      await page.evaluate(async () => { await document.fonts.ready; window.scrollTo(0, 0); });
+      await page.screenshot({ path: `test-results/post-event-feedback-sk-${width}.png`, fullPage: true });
+    }
+  });
 }
 
 test("@ui homepage language switching preserves section, query and localized links", async ({ page }) => {
