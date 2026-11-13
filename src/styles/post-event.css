@@ -10,7 +10,11 @@
 .postFeedback { background: var(--paper-2); }
 .postFeedbackGrid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(30px, 7vw, 90px); align-items: start; }
 .postFeedbackIntro { max-width: 400px; }
-.postFeedbackIntro > svg { color: var(--red); margin-top: 20px; }
+.postFeedbackIllustration { display: block; width: clamp(132px, 16vw, 176px); height: auto; margin: 28px 0 0 4px; overflow: visible; }
+.postFeedbackIllustrationRing { fill: var(--post-cream); stroke: var(--line); stroke-width: 1; }
+.postFeedbackSteam, .postFeedbackCup, .postFeedbackSill, .postFeedbackLeaf { fill: none; stroke: var(--muted); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.postFeedbackCup { fill: var(--post-cream); }
+.postFeedbackLeaf { stroke: var(--red); }
 .postFeedbackForms { display: grid; gap: 28px; min-width: 0; }
 .postCard { padding: clamp(22px, 3vw, 34px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); min-width: 0; }
 .feedbackForm { box-shadow: var(--shadow); }
@@ -90,7 +94,7 @@
 @media (max-width: 760px) {
   .postFeedbackGrid, .postCompetitionGrid, .postThreeColumns { grid-template-columns: minmax(0, 1fr); }
   .postFeedbackIntro { max-width: none; }
-  .postFeedbackIntro > svg { display: none; }
+  .postFeedbackIllustration { width: 132px; margin-top: 18px; }
   .postEventHero .heroGrid { gap: 40px; }
   .postEventHero h1 { font-size: clamp(42px, 9vw, 58px); }
   .postMemoryGrid { grid-template-columns: 1fr 1fr; }

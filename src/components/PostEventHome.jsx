@@ -40,7 +40,13 @@ function Newsletter({ copy, common }) {
 function Feedback({ copy, newsletter, common }) {
   return <section id="spatna-vazba" className="section postFeedback">
     <div className="container postFeedbackGrid">
-      <div className="postFeedbackIntro"><div className="eyebrow">{copy.kicker}</div><h2>{copy.title}</h2><p className="postLead" id="feedback-anonymous">{copy.intro}</p><Heart size={32} aria-hidden="true" /></div>
+      <div className="postFeedbackIntro"><div className="eyebrow">{copy.kicker}</div><h2>{copy.title}</h2><p className="postLead" id="feedback-anonymous">{copy.intro}</p><svg className="postFeedbackIllustration" viewBox="0 0 180 180" aria-hidden="true" focusable="false">
+        <circle className="postFeedbackIllustrationRing" cx="90" cy="90" r="76" />
+        <path className="postFeedbackSteam" d="M69 72c-8-8 7-11 0-20m20 20c-8-8 7-11 0-20m20 20c-8-8 7-11 0-20" />
+        <path className="postFeedbackCup" d="M54 80h65v27a23 23 0 0 1-23 23H77a23 23 0 0 1-23-23V80Zm65 8h9a12 12 0 0 1 0 24h-12" />
+        <path className="postFeedbackSill" d="M48 137h78" />
+        <path className="postFeedbackLeaf" d="M132 57c-13 1-21 9-21 20 12 1 21-6 21-20Zm-20 19 9-9" />
+      </svg></div>
       <div className="postFeedbackForms">
       <form className="postCard feedbackForm" onSubmit={preventSubmission} aria-label={copy.title} aria-describedby="feedback-anonymous feedback-unavailable">
         <fieldset aria-describedby="rating-scale">
