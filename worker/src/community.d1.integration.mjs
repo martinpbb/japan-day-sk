@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 import { getPlatformProxy } from 'wrangler';
 import { chromium } from '@playwright/test';
 import worker from './worker.js';
+import { createMailer } from '../mailer/src/index.js';
 
 test('feedback inserts against actual isolated local D1/workerd binding', async t => {
   const persist = mkdtempSync(join(tmpdir(), 'japanday-d1-phase3-'));
@@ -34,11 +35,17 @@ test('browser signup, API-origin confirmation and unsubscribe use actual Worker 
   const sql = readFileSync(new URL('../migrations/0007_feedback_newsletter.sql', import.meta.url), 'utf8').replace(/^--.*$/gm, '');
   for (const statement of sql.split(';').filter(s => s.trim())) await proxy.env.DB.prepare(statement).run();
   const messages = [];
+  const mailLedger = new Map();
+  const mailDb = { prepare(sql) { return { bind(...args) { return {
+    async first() { if (sql.startsWith('INSERT')) { if (mailLedger.has(args[0])) return null; mailLedger.set(args[0], 'sending'); return { idempotency_key: args[0] }; } return mailLedger.has(args[0]) ? { state: mailLedger.get(args[0]) } : null; },
+    async run() { if (sql.startsWith('UPDATE')) mailLedger.set(args[1], args[0]); },
+  }; } }; } };
+  const stagingMailer = createMailer({ mockProvider: async message => { messages.push(message); } });
   const env = { ...proxy.env, NEWSLETTER_SIGNUP_ENABLED: 'true', NEWSLETTER_TOKEN_ACTIONS_ENABLED: 'true',
     NEWSLETTER_CONSENT_VERSION: 'test-v1', NEWSLETTER_LINK_ORIGIN: 'https://api.japanday.sk',
     ABUSE_HMAC_SECRET: 'local-only-newsletter-test-secret-000000', TURNSTILE_SECRET_KEY: 'mock-secret',
     TURNSTILE_HOSTNAME: 'japanday.sk', SUBMISSION_LIMITER: { async limit() { return { success: true }; } },
-    NEWSLETTER_MAILER: { async fetch(request) { messages.push(await request.json()); return new Response(null, { status: 202 }); } } };
+    NEWSLETTER_MAILER: { async fetch(request) { return stagingMailer.fetch(request, { DELIVERY_DB: mailDb }); } } };
   t.mock.method(globalThis, 'fetch', async (_url, options) => Response.json({ success: true, hostname: 'japanday.sk',
     action: options.body.get('response').startsWith('newsletter') ? 'newsletter' : 'feedback', challenge_ts: new Date().toISOString() }));
   const context = await browser.newContext();

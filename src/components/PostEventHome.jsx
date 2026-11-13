@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { feedbackFields } from "../lib/communityContract.js";
+import { createTurnstileTokenProvider } from "../lib/turnstile.js";
 import { Image, Play, Heart, MessageCircle, Sparkles } from "lucide-react";
 import Hero from "./Hero.jsx";
 import Section from "./Section.jsx";
@@ -12,6 +13,15 @@ import "../styles/post-event.css";
 // Production passes no config. Only the isolated local test fixture supplies it.
 function useSubmission(config, common, kind) {
   const [state, setState] = useState("");
+  const [turnstile, setTurnstile] = useState(null);
+  useEffect(() => {
+    if (!config?.turnstileSiteKey) return undefined;
+    const host = document.getElementById(`turnstile-${kind}`);
+    if (!host) return undefined;
+    const provider = createTurnstileTokenProvider({ sitekey: config.turnstileSiteKey, action: kind, container: host, onError: () => setState("error") });
+    setTurnstile(provider);
+    return () => { provider.destroy(); setTurnstile(null); };
+  }, [config, kind]);
   async function submit(event) {
     event.preventDefault();
     if (!config || state === "loading" || state === "success") return;
@@ -24,7 +34,9 @@ function useSubmission(config, common, kind) {
     if (kind === "feedback" && body.rating === null && !feedbackFields.some(field => body[field]?.trim())) return;
     setState("loading");
     try {
-      body.turnstileToken = await config.getToken(kind);
+      body.turnstileToken = turnstile
+        ? await turnstile.getToken()
+        : await config.getToken?.(kind);
       if (!body.turnstileToken) throw new Error();
       const response = await fetch(`${config.apiBase}/api/${kind === "feedback" ? "feedback" : "newsletter/subscribe"}`, {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), credentials: "omit",
@@ -33,8 +45,9 @@ function useSubmission(config, common, kind) {
       if (!response.ok || result.ok !== true) throw new Error();
       setState("success");
     } catch { setState("error"); }
+    finally { if (turnstile) await turnstile.reset().catch(() => {}); }
   }
-  return { submit, disabled: !config || state === "loading" || state === "success", state,
+  return { submit, turnstileHostId: `turnstile-${kind}`, disabled: !config || state === "loading" || state === "success", state,
     message: state ? common[state] : "" };
 }
 
@@ -54,6 +67,7 @@ export function Newsletter({ copy, common, config = null }) {
         <span>{copy.consent}</span>
       </label>
       <p className="postNotice" id="newsletter-unavailable">{config ? common.doubleOptIn : common.unavailable}</p>
+      {config?.turnstileSiteKey && <div id={submission.turnstileHostId} aria-label={common.loading} />}
       {submission.message && <p role="status">{submission.message}</p>}
       <div className="postFormActions">
         <button className="button postSecondary" type="button" onClick={(event) => event.currentTarget.form.reportValidity()}>{common.validate}</button>
@@ -90,6 +104,7 @@ export function Feedback({ copy, newsletter, common, config = null }) {
           </div>)}
         </div>
         <p className="postNotice" id="feedback-unavailable">{config ? copy.intro : common.unavailable}</p>
+        {config?.turnstileSiteKey && <div id={submission.turnstileHostId} aria-label={common.loading} />}
         {submission.message && <p role="status">{submission.message}</p>}
         <button className="button primary" type="submit" disabled={submission.disabled}>{copy.submit}</button>
       </form>

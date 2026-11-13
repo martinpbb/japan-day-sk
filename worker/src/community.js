@@ -90,9 +90,12 @@ export function emailDelivery(env) {
   if (!env.NEWSLETTER_MAILER?.fetch || !env.NEWSLETTER_LINK_ORIGIN || !env.NEWSLETTER_CONSENT_VERSION) return null;
   let origin;
   try { origin = new URL(env.NEWSLETTER_LINK_ORIGIN); } catch { return null; }
-  if (origin.protocol !== 'https:' || origin.origin !== 'https://api.japanday.sk' || origin.origin !== env.NEWSLETTER_LINK_ORIGIN) return null;
+  const approvedOrigin = env.STAGING_ENVIRONMENT === 'true'
+    ? `https://${env.STAGING_API_HOSTNAME || ''}`
+    : 'https://api.japanday.sk';
+  if (origin.protocol !== 'https:' || origin.origin !== approvedOrigin || origin.origin !== env.NEWSLETTER_LINK_ORIGIN) return null;
   return async (message) => {
-    // A future trusted service must implement idempotency and send text or escaped HTML.
+    // The trusted adapter owns delivery idempotency and escaped localized content.
     const response = await env.NEWSLETTER_MAILER.fetch(new Request('https://newsletter-mailer.internal/confirmation', {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'Idempotency-Key': message.id },
       body: JSON.stringify(message), signal: AbortSignal.timeout(8000),

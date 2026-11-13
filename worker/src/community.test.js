@@ -145,6 +145,17 @@ test('email links require the exact Worker origin that owns both landing routes'
   assert.equal((await subscribe()).status, 503);
   assert.equal(messages.length, 0);
 });
+test('staging newsletter links use only the configured staging API hostname', async t => {
+  const { subscribe, env, messages } = setup(t);
+  env.STAGING_ENVIRONMENT = 'true';
+  env.STAGING_API_HOSTNAME = 'api-stage.example.workers.dev';
+  env.NEWSLETTER_LINK_ORIGIN = 'https://api-stage.example.workers.dev';
+  assert.equal((await subscribe()).status, 202);
+  assert.match(messages[0].confirmationUrl, /^https:\/\/api-stage\.example\.workers\.dev\/newsletter\/confirm/);
+  env.NEWSLETTER_LINK_ORIGIN = 'https://other.example.workers.dev';
+  assert.equal((await subscribe({ email: 'second@example.com' })).status, 503);
+  assert.equal(messages.length, 1);
+});
 for (const [index, extra] of [
   { consent: undefined }, { consent: false }, { consent: 'true' }, { consentVersion: 'old' },
   { email: undefined }, { email: 'bad' }, { email: 'x\r\n@example.com' }, { email: 'x'.repeat(255) },

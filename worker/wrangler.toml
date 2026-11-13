@@ -8,12 +8,21 @@ compatibility_date = "2026-10-29"
 FEEDBACK_ENABLED = "false"
 NEWSLETTER_SIGNUP_ENABLED = "false"
 NEWSLETTER_TOKEN_ACTIONS_ENABLED = "true"
+ACCESS_TEAM_DOMAIN = "twilight-tree-b175.cloudflareaccess.com"
 # Required before opt-in: TURNSTILE_HOSTNAME, TURNSTILE_SECRET_KEY (secret),
 # ABUSE_HMAC_SECRET (secret, >=32 characters), SUBMISSION_LIMITER binding.
 # Newsletter additionally requires NEWSLETTER_CONSENT_VERSION,
 # NEWSLETTER_LINK_ORIGIN and a trusted NEWSLETTER_MAILER service binding.
 # No live mail provider/binding exists yet. See docs/notes/phase-3-feedback-newsletter.md.
-ACCESS_TEAM_DOMAIN = "twilight-tree-b175.cloudflareaccess.com"
+
+[[ratelimits]]
+name = "SUBMISSION_LIMITER"
+# Placeholder only: owner must choose a positive account-unique integer.
+namespace_id = "1001"
+[ratelimits.simple]
+limit = 60
+period = 60
+
 # Set ACCESS_AUD as a Worker secret/var from the Cloudflare Access application.
 
 [[d1_databases]]

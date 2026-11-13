@@ -1,0 +1,35 @@
+name = "japanday-workshops-api-staging"
+main = "src/staging.js"
+workers_dev = true
+preview_urls = false
+compatibility_date = "2026-10-29"
+
+[vars]
+FEEDBACK_ENABLED = "false"
+NEWSLETTER_SIGNUP_ENABLED = "false"
+NEWSLETTER_TOKEN_ACTIONS_ENABLED = "true"
+TURNSTILE_HOSTNAME = "REPLACE_WITH_EXACT_STAGING_SITE_HOSTNAME"
+STAGING_ALLOWED_ORIGIN = "https://REPLACE_WITH_EXACT_STAGING_SITE_HOSTNAME"
+STAGING_ENVIRONMENT = "true"
+STAGING_API_HOSTNAME = "REPLACE_WITH_EXACT_STAGING_API_HOSTNAME"
+NEWSLETTER_LINK_ORIGIN = "https://REPLACE_WITH_EXACT_STAGING_API_HOSTNAME"
+NEWSLETTER_CONSENT_VERSION = "REPLACE_WITH_APPROVED_STAGING_NOTICE_VERSION"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "japanday-workshops-staging"
+# Deliberately invalid until owner provisions a separate staging D1 database.
+database_id = "REPLACE_WITH_STAGING_D1_ID"
+migrations_dir = "migrations"
+
+[[ratelimits]]
+name = "SUBMISSION_LIMITER"
+# Account-unique namespace placeholder; never reuse production's chosen value.
+namespace_id = "1002"
+[ratelimits.simple]
+limit = 60
+period = 60
+
+[[services]]
+binding = "NEWSLETTER_MAILER"
+service = "japanday-newsletter-mailer-staging"
