@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { communityConfig } from "../lib/communityConfig.js";
 import { feedbackFields } from "../lib/communityContract.js";
 import { createTurnstileTokenProvider } from "../lib/turnstile.js";
 import { Image, Play, Heart, MessageCircle, Sparkles } from "lucide-react";
@@ -10,7 +11,7 @@ import { addLocalePrefix } from "../lib/i18nPaths.js";
 import { archiveBase, archiveSections } from "../lib/archiveRoutes.js";
 import "../styles/post-event.css";
 
-// Production passes no config. Only the isolated local test fixture supplies it.
+// Missing configuration disables submission and prevents widget loading.
 function useSubmission(config, common, kind) {
   const [state, setState] = useState("");
   const [turnstile, setTurnstile] = useState(null);
@@ -77,7 +78,7 @@ export function Newsletter({ copy, common, config = null }) {
   </aside>;
 }
 
-export function Feedback({ copy, newsletter, common, config = null }) {
+export function Feedback({ copy, newsletter, common, config = null, newsletterConfig = config }) {
   const submission = useSubmission(config, common, "feedback");
   return <section id="spatna-vazba" className="section postFeedback">
     <div className="container postFeedbackGrid">
@@ -111,7 +112,7 @@ export function Feedback({ copy, newsletter, common, config = null }) {
       </div>
     </div>
     <div className="container postNewsletterContainer">
-      <Newsletter copy={newsletter} common={common} config={config} />
+      <Newsletter copy={newsletter} common={common} config={newsletterConfig} />
     </div>
   </section>;
 }
@@ -119,10 +120,11 @@ export function Feedback({ copy, newsletter, common, config = null }) {
 export default function PostEventHome() {
   const { site, content, locale } = useI18n();
   const copy = site.postEvent;
+  const submission = useMemo(() => communityConfig(import.meta.env, locale), [locale]);
   const href = path => addLocalePrefix(path, locale);
   return <main className="postEventHome">
     <Hero postEvent />
-    <Feedback copy={copy.feedback} newsletter={copy.newsletter} common={copy.forms} />
+    <Feedback copy={copy.feedback} newsletter={copy.newsletter} common={copy.forms} config={submission.feedback} newsletterConfig={submission.newsletter} />
     <section id="detska-sutaz" className="section postCompetition">
       <div className="container postCompetitionGrid"><div>
       <div className="eyebrow">{copy.competition.kicker}</div><h2>{copy.competition.title}</h2>

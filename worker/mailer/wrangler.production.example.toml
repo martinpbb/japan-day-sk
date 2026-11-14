@@ -1,0 +1,18 @@
+# REVIEW TEMPLATE ONLY. Copy to an ignored local config after Gate A approval.
+# Resolve the ledger ID and verified sender before deployment; never use staging IDs.
+name = "japanday-newsletter-mailer"
+main = "src/index.js"
+workers_dev = false
+preview_urls = false
+compatibility_date = "2026-10-29"
+
+[vars]
+MAIL_FROM_EMAIL = "REPLACE_WITH_VERIFIED_SENDER"
+MAIL_FROM_NAME = "Japonský deň čaju a kultúry"
+# BREVO_API_KEY is a Worker secret, never a var.
+
+[[d1_databases]]
+binding = "DELIVERY_DB"
+database_name = "japanday-newsletter-delivery"
+database_id = "REPLACE_WITH_VERIFIED_PRODUCTION_LEDGER_ID"
+migrations_dir = "migrations"

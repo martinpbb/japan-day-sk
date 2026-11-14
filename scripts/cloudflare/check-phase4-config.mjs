@@ -4,6 +4,14 @@ import fs from 'node:fs';
 const prod = fs.readFileSync('worker/wrangler.toml', 'utf8');
 const stage = fs.readFileSync('worker/wrangler.staging.toml', 'utf8');
 const mailer = fs.readFileSync('worker/mailer/wrangler.toml', 'utf8');
+const productionMailer = fs.readFileSync('worker/mailer/wrangler.production.example.toml', 'utf8');
+assert.match(productionMailer, /name = "japanday-newsletter-mailer"/);
+assert.match(productionMailer, /workers_dev = false/);
+assert.match(productionMailer, /preview_urls = false/);
+assert.match(productionMailer, /binding = "DELIVERY_DB"/);
+assert.match(productionMailer, /database_id = "REPLACE_WITH_VERIFIED_PRODUCTION_LEDGER_ID"/);
+assert.equal(productionMailer.includes('26f5af16-c3ee-4768-bf77-3d347c104e9f'), false);
+assert.equal(productionMailer.includes('STAGING_ENVIRONMENT'), false);
 for (const config of [prod, stage]) {
   assert.match(config, /FEEDBACK_ENABLED = "false"/);
   assert.match(config, /NEWSLETTER_SIGNUP_ENABLED = "false"/);

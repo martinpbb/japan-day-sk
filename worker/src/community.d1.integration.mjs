@@ -8,6 +8,29 @@ import { chromium } from '@playwright/test';
 import worker from './worker.js';
 import { createMailer } from '../mailer/src/index.js';
 
+test('isolated delivery ledger migration prevents resend after ambiguous provider failure', async t => {
+  const persist = mkdtempSync(join(tmpdir(), 'japanday-ledger-phase4b-'));
+  const proxy = await getPlatformProxy({ configPath: 'worker/wrangler.toml', persist: { path: persist } });
+  t.after(async () => { await proxy.dispose(); rmSync(persist, { recursive: true, force: true }); });
+  // This separate local database contains only the ledger; no remote connection.
+  const sql = readFileSync(new URL('../mailer/migrations/0001_delivery_ledger.sql', import.meta.url), 'utf8');
+  await proxy.env.DB.prepare(sql).run();
+  let calls = 0;
+  const mailer = createMailer({ fetcher: async () => { calls++; throw new Error('ambiguous timeout'); } });
+  const env = { DELIVERY_DB: proxy.env.DB, BREVO_API_KEY: 'mock', MAIL_FROM_EMAIL: 'test@example.invalid', MAIL_FROM_NAME: 'Test' };
+  const id = 'a'.repeat(64);
+  const request = () => new Request('https://newsletter-mailer.internal/confirmation', { method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Idempotency-Key': id },
+    body: JSON.stringify({ id, email: 'test@example.invalid', locale: 'sk',
+      confirmationUrl: `https://api.japanday.sk/newsletter/confirm#token=${id}`,
+      unsubscribeUrl: `https://api.japanday.sk/newsletter/unsubscribe#token=${'b'.repeat(64)}` }),
+  });
+  assert.equal((await mailer.fetch(request(), env)).status, 503);
+  assert.equal((await mailer.fetch(request(), env)).status, 503);
+  assert.equal(calls, 1);
+  assert.equal((await proxy.env.DB.prepare('SELECT state FROM mail_delivery_ledger WHERE idempotency_key=?').bind(id).first()).state, 'failed');
+});
+
 test('feedback inserts against actual isolated local D1/workerd binding', async t => {
   const persist = mkdtempSync(join(tmpdir(), 'japanday-d1-phase3-'));
   const proxy = await getPlatformProxy({ configPath: 'worker/wrangler.toml', persist: { path: persist } });

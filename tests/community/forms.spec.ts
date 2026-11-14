@@ -3,6 +3,15 @@ import AxeBuilder from '@axe-core/playwright';
 import fs from 'node:fs';
 import { newsletterPage } from '../../worker/src/newsletter-page.js';
 
+test('feedback and newsletter can be disabled independently', async ({ page }) => {
+  await page.goto('/tests/fixtures/community/?feedback=off');
+  await expect(page.locator('.feedbackForm button[type=submit]')).toBeDisabled();
+  await expect(page.locator('.newsletterCard button[type=submit]')).toBeEnabled();
+  await page.goto('/tests/fixtures/community/?newsletter=off');
+  await expect(page.locator('.feedbackForm button[type=submit]')).toBeEnabled();
+  await expect(page.locator('.newsletterCard button[type=submit]')).toBeDisabled();
+});
+
 for (const locale of ['sk','en','de','es','ja']) {
   const copy = JSON.parse(fs.readFileSync(`src/data/locales/${locale}/site.json`, 'utf8')).postEvent;
   test(`${locale} mocked API loading, failure, retry and success`, async ({ page }) => {
