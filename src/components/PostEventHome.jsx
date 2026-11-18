@@ -52,37 +52,20 @@ function useSubmission(config, common, kind) {
     message: state ? common[state] : "" };
 }
 
-export function Newsletter({ copy, common, config = null }) {
-  const submission = useSubmission(config, common, "newsletter");
+export function Newsletter({ copy }) {
   return <aside className="postCard newsletterCard" aria-labelledby="newsletter-title">
     <div className="eyebrow">{copy.kicker}</div>
     <h3 id="newsletter-title">{copy.title}</h3>
-    <p>{copy.intro}</p>
-    <form onSubmit={submission.submit} aria-labelledby="newsletter-title" aria-describedby="newsletter-unavailable" aria-busy={submission.state === "loading"}>
-      <label htmlFor="newsletter-name">{copy.name}</label>
-      <input id="newsletter-name" name="name" autoComplete="given-name" maxLength={100} />
-      <label htmlFor="newsletter-email">{copy.email}</label>
-      <input id="newsletter-email" name="email" type="email" autoComplete="email" required maxLength={254} />
-      <label className="postConsent" htmlFor="newsletter-consent">
-        <input id="newsletter-consent" name="consent" type="checkbox" required />
-        <span>{copy.consent}</span>
-      </label>
-      <p className="postNotice" id="newsletter-unavailable">{config ? common.doubleOptIn : common.unavailable}</p>
-      {config?.turnstileSiteKey && <div id={submission.turnstileHostId} aria-label={common.loading} />}
-      {submission.message && <p role="status">{submission.message}</p>}
-      <div className="postFormActions">
-        <button className="button postSecondary" type="button" onClick={(event) => event.currentTarget.form.reportValidity()}>{common.validate}</button>
-        <button className="button primary" type="submit" disabled={submission.disabled}>{copy.submit}</button>
-      </div>
-    </form>
+    <p>{copy.subheading}</p>
+    <p className="newsletterComingSoon">{copy.body}</p>
   </aside>;
 }
 
-export function Feedback({ copy, newsletter, common, config = null, newsletterConfig = config }) {
+export function Feedback({ copy, newsletter, common, config = null }) {
   const submission = useSubmission(config, common, "feedback");
   return <section id="spatna-vazba" className="section postFeedback">
     <div className="container postFeedbackGrid">
-      <div className="postFeedbackIntro"><div className="eyebrow">{copy.kicker}</div><h2>{copy.title}</h2><p className="postLead" id="feedback-anonymous">{copy.intro}</p><svg className="postFeedbackIllustration" viewBox="0 0 180 180" aria-hidden="true" focusable="false">
+      <div className="postFeedbackIntro"><div className="eyebrow">{copy.kicker}</div><h2>{copy.title}</h2><p className="postLead" id="feedback-anonymous">{copy.intro}</p><p className="postPrivacyNotice">{copy.privacy}</p><svg className="postFeedbackIllustration" viewBox="0 0 180 180" aria-hidden="true" focusable="false">
         <circle className="postFeedbackIllustrationRing" cx="90" cy="90" r="76" />
         <path className="postFeedbackSteam" d="M69 72c-8-8 7-11 0-20m20 20c-8-8 7-11 0-20m20 20c-8-8 7-11 0-20" />
         <path className="postFeedbackCup" d="M54 80h65v27a23 23 0 0 1-23 23H77a23 23 0 0 1-23-23V80Zm65 8h9a12 12 0 0 1 0 24h-12" />
@@ -112,7 +95,7 @@ export function Feedback({ copy, newsletter, common, config = null, newsletterCo
       </div>
     </div>
     <div className="container postNewsletterContainer">
-      <Newsletter copy={newsletter} common={common} config={newsletterConfig} />
+      <Newsletter copy={newsletter} />
     </div>
   </section>;
 }
@@ -124,7 +107,7 @@ export default function PostEventHome() {
   const href = path => addLocalePrefix(path, locale);
   return <main className="postEventHome">
     <Hero postEvent />
-    <Feedback copy={copy.feedback} newsletter={copy.newsletter} common={copy.forms} config={submission.feedback} newsletterConfig={submission.newsletter} />
+    <Feedback copy={copy.feedback} newsletter={copy.newsletter} common={copy.forms} config={submission.feedback} />
     <section id="detska-sutaz" className="section postCompetition">
       <div className="container postCompetitionGrid"><div>
       <div className="eyebrow">{copy.competition.kicker}</div><h2>{copy.competition.title}</h2>

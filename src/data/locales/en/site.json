@@ -381,7 +381,7 @@
     "feedback": {
       "kicker": "Your opinion matters",
       "title": "How did you enjoy Japanese Day?",
-      "intro": "What delighted you, and what could we do better next time? Every answer is optional. Feedback is anonymous; no name or email is required.",
+      "intro": "What delighted you, and what could we do better next time? Every answer is optional. We do not ask for your name or email.",
       "rating": "Overall event rating (optional)",
       "scale": "1 = very poor · 2 = poor · 3 = average · 4 = very good · 5 = excellent. Choose at most one option.",
       "questions": [
@@ -392,7 +392,8 @@
         "What was missing from the food and drink selection?",
         "Any other message for the organisers"
       ],
-      "submit": "Send feedback"
+      "submit": "Send feedback",
+      "privacy": "Free-text responses may still contain details that identify you. Please avoid sharing sensitive or contact information."
     },
     "newsletter": {
       "kicker": "Optional newsletter",
@@ -401,7 +402,9 @@
       "name": "Name (optional)",
       "email": "Email address (required)",
       "consent": "I agree to receive emails about activities and future editions of Japanese Tea and Culture Day. I can unsubscribe at any time.",
-      "submit": "Subscribe"
+      "submit": "Subscribe",
+      "subheading": "We are preparing an optional newsletter.",
+      "body": "We are still completing newsletter sign-up, including email address confirmation.\nOnce the service is ready, you will be able to subscribe right here.\n\nThank you for your patience."
     },
     "competition": {
       "kicker": "For our youngest visitors",

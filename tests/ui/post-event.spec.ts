@@ -69,23 +69,16 @@ for (const locale of localeCodes) {
     await expect(feedback.locator("input:checked")).toHaveValue("5");
     await expect(page.locator("#feedback-unavailable")).toHaveText(copy.forms.unavailable);
     await expect(feedback.locator("button[type=submit]")).toBeDisabled();
-    await expect(newsletter.locator("input[name=name]")).not.toHaveAttribute("required");
-    await expect(newsletter.locator("input[type=email]")).toHaveAttribute("required", "");
-    const consent = newsletter.locator("input[type=checkbox]");
-    await expect(consent).not.toBeChecked();
-    await expect(consent).toHaveAttribute("required", "");
-    await newsletter.locator("input[type=email]").fill("invalid");
-    expect(await newsletter.evaluate((form: HTMLFormElement) => form.checkValidity())).toBe(false);
-    await newsletter.locator("input[type=email]").fill("local-review@example.invalid");
-    expect(await newsletter.evaluate((form: HTMLFormElement) => form.checkValidity())).toBe(false);
-    await consent.check();
-    expect(await newsletter.evaluate((form: HTMLFormElement) => form.checkValidity())).toBe(true);
-    await newsletter.getByRole("button", { name: copy.forms.validate, exact: true }).click();
-    await expect(newsletter.locator("button[type=submit]")).toBeDisabled();
-    await expect(page.locator("#newsletter-unavailable")).toHaveText(copy.forms.unavailable);
-    await newsletter.locator("input[type=email]").press("Enter");
-    // requestSubmit also exercises the guard if a browser triggers implicit submit.
-    for (const form of [feedback, newsletter]) expect(await form.evaluate((element: HTMLFormElement) => {
+    await expect(page.locator(".newsletterCard h3")).toHaveText(copy.newsletter.title);
+    await expect(page.locator(".newsletterCard > p").first()).toHaveText(copy.newsletter.subheading);
+    await expect(page.locator(".newsletterComingSoon")).toHaveText(copy.newsletter.body);
+    await expect(newsletter).toHaveCount(0);
+    await expect(page.locator(".newsletterCard input, .newsletterCard button")).toHaveCount(0);
+    await expect(page.locator(".newsletterCard")).not.toContainText(copy.newsletter.email);
+    await expect(page.locator(".newsletterCard")).not.toContainText(copy.newsletter.submit);
+    await expect(page.locator(".postPrivacyNotice")).toHaveText(copy.feedback.privacy);
+    // requestSubmit also exercises the feedback guard if a browser triggers implicit submit.
+    expect(await feedback.evaluate((element: HTMLFormElement) => {
       const event = new Event("submit", { bubbles: true, cancelable: true });
       element.dispatchEvent(event);
       element.requestSubmit();

@@ -375,7 +375,7 @@
     "feedback": {
       "kicker": "Váš názor je pre nás dôležitý",
       "title": "Ako sa vám páčil Japonský deň?",
-      "intro": "Čo vás potešilo alebo čo by sme mohli nabudúce urobiť lepšie? Všetky odpovede sú dobrovoľné. Spätná väzba je anonymná; meno ani e-mail nevyžadujeme.",
+      "intro": "Čo vás potešilo alebo čo by sme mohli nabudúce urobiť lepšie? Všetky odpovede sú dobrovoľné. Meno ani e-mail nevyžadujeme.",
       "rating": "Celkový dojem z podujatia (voliteľné)",
       "scale": "1 = veľmi slabé · 2 = skôr slabé · 3 = priemerné · 4 = veľmi dobré · 5 = výborné. Vyberte najviac jednu možnosť.",
       "questions": [
@@ -386,7 +386,8 @@
         "Čo vám v gastronomickej ponuke chýbalo?",
         "Ďalší odkaz pre organizátorov"
       ],
-      "submit": "Odoslať spätnú väzbu"
+      "submit": "Odoslať spätnú väzbu",
+      "privacy": "Voľný text môže obsahovať údaje, podľa ktorých vás možno identifikovať. Prosíme, neuvádzajte citlivé ani kontaktné údaje."
     },
     "newsletter": {
       "kicker": "Dobrovoľný odber noviniek",
@@ -395,7 +396,9 @@
       "name": "Meno (voliteľné)",
       "email": "E-mailová adresa (povinné)",
       "consent": "Súhlasím so zasielaním e-mailových informácií o aktivitách a budúcich ročníkoch Japonského dňa čaju a kultúry. Odber môžem kedykoľvek zrušiť.",
-      "submit": "Prihlásiť sa na odber"
+      "submit": "Prihlásiť sa na odber",
+      "subheading": "Dobrovoľný odber noviniek pripravujeme.",
+      "body": "Prihlasovanie na odber noviniek vrátane potvrdenia e-mailovej adresy momentálne dokončujeme.\nKeď bude služba pripravená, budete sa môcť prihlásiť priamo na tejto stránke.\n\nĎakujeme za trpezlivosť."
     },
     "competition": {
       "kicker": "Pre našich najmenších",

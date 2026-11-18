@@ -381,7 +381,7 @@
     "feedback": {
       "kicker": "Ihre Meinung ist uns wichtig",
       "title": "Wie hat Ihnen der Japanische Tag gefallen?",
-      "intro": "Was hat Sie begeistert, und was könnten wir beim nächsten Mal besser machen? Alle Antworten sind freiwillig. Das Feedback ist anonym; Name und E-Mail sind nicht erforderlich.",
+      "intro": "Was hat Sie begeistert, und was könnten wir beim nächsten Mal besser machen? Alle Antworten sind freiwillig. Name und E-Mail-Adresse werden nicht abgefragt.",
       "rating": "Gesamteindruck der Veranstaltung (freiwillig)",
       "scale": "1 = sehr schlecht · 2 = eher schlecht · 3 = durchschnittlich · 4 = sehr gut · 5 = ausgezeichnet. Wählen Sie höchstens eine Antwort.",
       "questions": [
@@ -392,7 +392,8 @@
         "Was hat Ihnen im gastronomischen Angebot gefehlt?",
         "Weitere Nachricht an das Organisationsteam"
       ],
-      "submit": "Feedback senden"
+      "submit": "Feedback senden",
+      "privacy": "Freitext kann Angaben enthalten, durch die Sie identifizierbar sind. Bitte teilen Sie keine sensiblen Daten oder Kontaktdaten mit."
     },
     "newsletter": {
       "kicker": "Freiwilliger Newsletter",
@@ -401,7 +402,9 @@
       "name": "Name (freiwillig)",
       "email": "E-Mail-Adresse (Pflichtfeld)",
       "consent": "Ich stimme zu, E-Mails über Aktivitäten und künftige Ausgaben des Japanischen Tee- und Kulturtags zu erhalten. Ich kann mich jederzeit abmelden.",
-      "submit": "Newsletter abonnieren"
+      "submit": "Newsletter abonnieren",
+      "subheading": "Wir bereiten einen freiwilligen Newsletter vor.",
+      "body": "Wir arbeiten noch an der Newsletter-Anmeldung einschließlich der Bestätigung der E-Mail-Adresse.\nSobald der Dienst bereit ist, können Sie sich direkt hier anmelden.\n\nVielen Dank für Ihre Geduld."
     },
     "competition": {
       "kicker": "Für unsere jüngsten Gäste",

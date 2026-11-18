@@ -3,13 +3,13 @@ import AxeBuilder from '@axe-core/playwright';
 import fs from 'node:fs';
 import { newsletterPage } from '../../worker/src/newsletter-page.js';
 
-test('feedback and newsletter can be disabled independently', async ({ page }) => {
+test('newsletter remains informational while feedback configuration is independently gated', async ({ page }) => {
   await page.goto('/tests/fixtures/community/?feedback=off');
   await expect(page.locator('.feedbackForm button[type=submit]')).toBeDisabled();
-  await expect(page.locator('.newsletterCard button[type=submit]')).toBeEnabled();
+  await expect(page.locator('.newsletterCard form, .newsletterCard input, .newsletterCard button')).toHaveCount(0);
   await page.goto('/tests/fixtures/community/?newsletter=off');
   await expect(page.locator('.feedbackForm button[type=submit]')).toBeEnabled();
-  await expect(page.locator('.newsletterCard button[type=submit]')).toBeDisabled();
+  await expect(page.locator('.newsletterCard form, .newsletterCard input, .newsletterCard button')).toHaveCount(0);
 });
 
 for (const locale of ['sk','en','de','es','ja']) {
@@ -40,15 +40,8 @@ for (const locale of ['sk','en','de','es','ja']) {
     succeed = true; await feedback.locator('button[type=submit]').click();
     await expect(feedback.getByRole('status')).toHaveText(copy.forms.success);
     await expect(feedback.locator('button[type=submit]')).toBeDisabled();
-    const newsletter = page.locator('.newsletterCard form');
-    await newsletter.locator('input[type=email]').fill('local@example.invalid');
-    await expect(newsletter.locator('input[type=checkbox]')).not.toBeChecked();
-    await newsletter.locator('button[type=submit]').click(); expect(sent).toHaveLength(2);
-    await newsletter.locator('input[type=checkbox]').check();
-    await newsletter.locator('button[type=submit]').click();
-    await expect(newsletter.getByRole('status')).toHaveText(copy.forms.success);
-    expect(sent).toHaveLength(3); expect(sent[2].consent).toBe(true);
-    expect(sent[2].consentVersion).toBe('2026-01');
+    await expect(page.locator('.newsletterCard form, .newsletterCard input, .newsletterCard button')).toHaveCount(0);
+    expect(sent).toHaveLength(2);
     await page.setViewportSize({ width: 360, height: 800 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(360);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);

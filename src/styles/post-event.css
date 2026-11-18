@@ -12,6 +12,8 @@
 .postNewsletterContainer { display: flow-root; padding-top: 80px; }
 .newsletterCard { width: 100%; max-width: 800px; margin-inline: auto; text-align: center; }
 .newsletterCard > p { max-width: 620px; margin: 12px auto 26px; }
+.newsletterCard .newsletterComingSoon { white-space: pre-line; max-width: 620px; margin: 0 auto; color: var(--muted); }
+.postPrivacyNotice { color: var(--muted); font-size: 13px; }
 .newsletterCard form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; text-align: left; }
 .newsletterCard form > label:not(.postConsent), .newsletterCard form > input { min-width: 0; }
 .newsletterCard form > label:not(.postConsent) { grid-row: 1; }

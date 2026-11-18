@@ -381,7 +381,7 @@
     "feedback": {
       "kicker": "Tu opinión nos importa",
       "title": "¿Qué te ha parecido el Día Japonés?",
-      "intro": "¿Qué te ha gustado y qué podríamos mejorar? Todas las respuestas son opcionales. La opinión es anónima; no pedimos nombre ni correo electrónico.",
+      "intro": "¿Qué te ha gustado y qué podríamos mejorar? Todas las respuestas son opcionales. No pedimos tu nombre ni tu correo electrónico.",
       "rating": "Valoración general del evento (opcional)",
       "scale": "1 = muy mala · 2 = mala · 3 = regular · 4 = muy buena · 5 = excelente. Elige como máximo una opción.",
       "questions": [
@@ -392,7 +392,8 @@
         "¿Qué has echado en falta en la oferta gastronómica?",
         "Otro mensaje para la organización"
       ],
-      "submit": "Enviar opinión"
+      "submit": "Enviar opinión",
+      "privacy": "El texto libre puede incluir datos que te identifiquen; evita compartir información sensible o de contacto."
     },
     "newsletter": {
       "kicker": "Boletín voluntario",
@@ -401,7 +402,9 @@
       "name": "Nombre (opcional)",
       "email": "Correo electrónico (obligatorio)",
       "consent": "Acepto recibir correos sobre actividades y futuras ediciones del Día del Té y la Cultura Japonesa. Puedo darme de baja en cualquier momento.",
-      "submit": "Suscribirme"
+      "submit": "Suscribirme",
+      "subheading": "Estamos preparando un boletín opcional.",
+      "body": "Estamos terminando el proceso de suscripción al boletín, incluida la confirmación del correo electrónico.\nCuando el servicio esté listo, podrás suscribirte aquí mismo.\n\nGracias por tu paciencia."
     },
     "competition": {
       "kicker": "Para los más pequeños",
