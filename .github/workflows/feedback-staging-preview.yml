@@ -1,0 +1,43 @@
+name: Feedback staging readiness preview
+
+# Feature-branch validation and artifact only. This workflow has no Cloudflare
+# credentials, does not use workflow_dispatch deployment jobs, and never deploys.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/feature/post-event-2026'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/post-event-2026
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Verify isolated staging configuration
+        run: npm run check:phase4-config
+      - name: Test staging Worker with isolated local D1 and mocked Turnstile
+        run: npm run test:feedback:staging
+      - name: Run feedback API regression tests
+        run: npm run test:community
+      - name: Run feedback D1 and UI tests
+        run: npm run test:community:d1 && npm run test:community:ui
+      - name: Run Worker and workshop regression tests
+        run: npm run test:worker
+      - name: Lint and build disabled public site
+        run: npm run lint && npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: feedback-staging-preview-${{ github.sha }}
+          path: dist/
+          retention-days: 7

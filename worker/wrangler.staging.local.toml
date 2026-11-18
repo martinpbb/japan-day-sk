@@ -1,0 +1,28 @@
+# Local-only D1 test harness. Always use Wrangler's --local mode; never deploy this file.
+name = "japanday-workshops-api-staging-local"
+main = "src/staging.js"
+workers_dev = true
+preview_urls = false
+compatibility_date = "2026-10-29"
+
+[vars]
+FEEDBACK_ENABLED = "false"
+NEWSLETTER_SIGNUP_ENABLED = "false"
+NEWSLETTER_TOKEN_ACTIONS_ENABLED = "false"
+TURNSTILE_HOSTNAME = "japanday-sk-web-staging.marzo2k.workers.dev"
+STAGING_ALLOWED_ORIGIN = "https://japanday-sk-web-staging.marzo2k.workers.dev"
+STAGING_ENVIRONMENT = "true"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "japanday-workshops-staging-local"
+# Nonexistent sentinel; local-only. Never replace with a production database ID.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[[ratelimits]]
+name = "SUBMISSION_LIMITER"
+namespace_id = "1002"
+[ratelimits.simple]
+limit = 60
+period = 60

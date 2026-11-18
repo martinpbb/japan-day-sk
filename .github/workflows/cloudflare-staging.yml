@@ -13,10 +13,13 @@ concurrency:
 
 jobs:
   deploy-staging:
+    if: github.ref == 'refs/heads/feature/post-event-2026'
     runs-on: ubuntu-latest
     environment: cloudflare-staging
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: feature/post-event-2026
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -26,6 +29,13 @@ jobs:
       - name: Validate staging config safety
         run: node scripts/cloudflare/check-worker-config.mjs
       - name: Build
+        env:
+          VITE_STAGING_ENVIRONMENT: 'true'
+          VITE_COMMUNITY_API_BASE: ${{ vars.STAGING_COMMUNITY_API_BASE }}
+          VITE_TURNSTILE_SITE_KEY: ${{ vars.STAGING_TURNSTILE_SITE_KEY }}
+          VITE_COMMUNITY_PRIVACY_APPROVED: ${{ vars.STAGING_FEEDBACK_PRIVACY_APPROVED }}
+          VITE_FEEDBACK_ENABLED: ${{ vars.STAGING_FEEDBACK_ENABLED }}
+          VITE_NEWSLETTER_SIGNUP_ENABLED: 'false'
         run: npm run build
       - name: Validate generated pages
         run: node scripts/cloudflare/check-static-assets.mjs

@@ -7,13 +7,13 @@ compatibility_date = "2026-10-29"
 [vars]
 FEEDBACK_ENABLED = "false"
 NEWSLETTER_SIGNUP_ENABLED = "false"
-NEWSLETTER_TOKEN_ACTIONS_ENABLED = "true"
-TURNSTILE_HOSTNAME = "REPLACE_WITH_EXACT_STAGING_SITE_HOSTNAME"
-STAGING_ALLOWED_ORIGIN = "https://REPLACE_WITH_EXACT_STAGING_SITE_HOSTNAME"
+NEWSLETTER_TOKEN_ACTIONS_ENABLED = "false"
+TURNSTILE_HOSTNAME = "japanday-sk-web-staging.marzo2k.workers.dev"
+STAGING_ALLOWED_ORIGIN = "https://japanday-sk-web-staging.marzo2k.workers.dev"
 STAGING_ENVIRONMENT = "true"
-STAGING_API_HOSTNAME = "REPLACE_WITH_EXACT_STAGING_API_HOSTNAME"
-NEWSLETTER_LINK_ORIGIN = "https://REPLACE_WITH_EXACT_STAGING_API_HOSTNAME"
-NEWSLETTER_CONSENT_VERSION = "REPLACE_WITH_APPROVED_STAGING_NOTICE_VERSION"
+# Secrets are configured out of band only after staging resources are approved:
+# TURNSTILE_SECRET_KEY, ABUSE_HMAC_SECRET (random, >=32 characters).
+# FEEDBACK_ENABLED stays false until the isolated D1 migration and dashboard checks pass.
 
 [[d1_databases]]
 binding = "DB"
@@ -29,7 +29,3 @@ namespace_id = "1002"
 [ratelimits.simple]
 limit = 60
 period = 60
-
-[[services]]
-binding = "NEWSLETTER_MAILER"
-service = "japanday-newsletter-mailer-staging"

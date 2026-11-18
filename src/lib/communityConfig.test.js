@@ -23,3 +23,13 @@ test('independent switches preserve all locales and require newsletter consent v
   }
   assert.equal(communityConfig({ ...ready, VITE_NEWSLETTER_SIGNUP_ENABLED: 'true', VITE_NEWSLETTER_CONSENT_VERSION: '' }, 'sk').newsletter, null);
 });
+
+test('staging feedback requires its explicit HTTPS workers.dev API origin', () => {
+  const staging = { ...ready, VITE_STAGING_ENVIRONMENT: 'true', VITE_FEEDBACK_ENABLED: 'true',
+    VITE_COMMUNITY_API_BASE: 'https://japanday-workshops-api-staging.marzo2k.workers.dev' };
+  assert.equal(communityConfig(staging, 'sk').feedback.apiBase, staging.VITE_COMMUNITY_API_BASE);
+  for (const apiBase of ['', 'https://api.japanday.sk', 'http://japanday-workshops-api-staging.marzo2k.workers.dev',
+    'https://japanday-workshops-api-staging.marzo2k.workers.dev/path', 'https://other.workers.dev']) {
+    assert.equal(communityConfig({ ...staging, VITE_COMMUNITY_API_BASE: apiBase }, 'sk').feedback, null);
+  }
+});

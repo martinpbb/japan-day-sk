@@ -4,8 +4,10 @@ export default {
   async fetch(request, env, ctx) {
     const origin = request.headers.get('Origin');
     const approved = env.STAGING_ALLOWED_ORIGIN;
-    if (!approved || approved.includes('*') || !/^https:\/\//.test(approved)) return new Response('Staging origin is not configured', { status: 503 });
-    if (origin !== approved) return productionWorker.fetch(request, env, ctx);
+    let parsed;
+    try { parsed = new URL(approved); } catch { return new Response('Staging origin is not configured', { status: 503 }); }
+    if (parsed.protocol !== 'https:' || parsed.origin !== approved || approved.includes('*')) return new Response('Staging origin is not configured', { status: 503 });
+    if (origin !== approved) return new Response('Origin denied', { status: 403, headers: { 'Cache-Control': 'no-store' } });
     const headers = new Headers(request.headers);
     headers.delete('Origin');
     const response = await productionWorker.fetch(new Request(request, { headers }), env, ctx);

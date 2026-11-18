@@ -10,6 +10,7 @@
     "test:community:d1": "node --test worker/src/community.d1.integration.mjs",
     "test:mailer": "node --test worker/mailer/src/*.test.js src/lib/turnstile.test.js",
     "check:phase4-config": "node scripts/cloudflare/check-phase4-config.mjs && node --test src/lib/communityConfig.test.js",
+    "test:feedback:staging": "node --test worker/src/staging.test.js worker/src/staging.integration.test.mjs",
     "dev": "vite --configLoader runner",
     "build": "vite build --configLoader runner && node scripts/seo/generate-static-routes.mjs",
     "preview": "vite preview --configLoader runner",

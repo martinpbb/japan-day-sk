@@ -10,10 +10,17 @@ test('staging wrapper allows CORS only for the configured exact HTTPS origin', a
   const denied = await staging.fetch(new Request('https://api-staging.example.workers.dev/api/health', { headers: { Origin: 'https://attacker.example' } }), env);
   assert.equal(denied.status, 403);
   assert.equal(denied.headers.has('Access-Control-Allow-Origin'), false);
+  for (const invalidOrigin of [null, 'https://preview.example.workers.dev/', 'http://preview.example.workers.dev']) {
+    const headers = invalidOrigin === null ? {} : { Origin: invalidOrigin };
+    const blocked = await staging.fetch(new Request('https://api-staging.example.workers.dev/api/health', { headers }), env);
+    assert.equal(blocked.status, 403);
+  }
 });
 
 test('staging wrapper fails closed for missing or wildcard origin configuration', async () => {
-  for (const env of [{}, { STAGING_ALLOWED_ORIGIN: 'https://*.workers.dev' }]) {
+  for (const env of [{}, { STAGING_ALLOWED_ORIGIN: 'https://*.workers.dev' },
+    { STAGING_ALLOWED_ORIGIN: 'https://preview.example.workers.dev/path' },
+    { STAGING_ALLOWED_ORIGIN: 'http://preview.example.workers.dev' }]) {
     const response = await staging.fetch(new Request('https://api-staging.example.workers.dev/api/health'), env);
     assert.equal(response.status, 503);
   }
